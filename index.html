@@ -287,14 +287,14 @@
   /* ── Mobile Phone Showcase (Dedicated Portrait Mockup) ── */
   .mobile-showcase {
     display: none;
+    flex-direction: column;
+    align-items: center;
     position: relative;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 10px 12px 24px;
+    padding: 6px 12px 28px;
     box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
     opacity: 0;
     transform: translateY(16px);
     animation: fadeSlide 0.9s 1.1s cubic-bezier(0.16,1,0.3,1) forwards;
@@ -306,20 +306,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: min(310px, 90vw);
+    width: min(300px, 88vw);
+    height: 396px;
     margin: 0 auto;
   }
 
-  /* Green backdrop card covering ~3/4 height behind phone with rounded pill shape */
+  /* Green backdrop card aligning directly with phone top & bottom curves */
   .phone-backdrop-card {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 72%; /* covers ~3/4 height of the phone */
+    height: 352px; /* aligns smoothly with the phone top & bottom bezel */
     background: #889c78;
-    border-radius: 28px;
+    border-radius: 38px;
     box-shadow:
       0 18px 45px rgba(67, 81, 40, 0.22),
       0 4px 12px rgba(0, 0, 0, 0.08);
@@ -332,29 +333,65 @@
     z-index: 2;
     width: 216px;
     height: 386px;
-    border-radius: 36px;
+    border-radius: 38px;
     border: 5px solid #141414;
     background: #000000;
     overflow: hidden;
     box-shadow:
-      0 20px 42px rgba(0,0,0,0.38),
-      0 6px 14px rgba(0,0,0,0.2),
-      inset 0 0 0 1px rgba(255,255,255,0.15);
+      0 22px 45px rgba(0,0,0,0.40),
+      0 6px 14px rgba(0,0,0,0.22),
+      inset 0 0 0 1px rgba(255,255,255,0.18);
     display: flex;
     flex-direction: column;
   }
 
+  /* Phone Status Bar (9:41, Notch, Battery) */
+  .phone-status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    padding: 7px 14px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    pointer-events: none;
+    box-sizing: border-box;
+  }
+
+  .phone-status-time {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 9.5px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.2px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+
   .phone-notch {
     position: absolute;
-    top: 8px;
+    top: 7px;
     left: 50%;
     transform: translateX(-50%);
-    width: 54px;
+    width: 52px;
     height: 13px;
     background: #141414;
     border-radius: 999px;
-    z-index: 15;
+    z-index: 22;
     box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  }
+
+  .phone-status-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #ffffff;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+  }
+  .phone-status-icons svg {
+    display: block;
   }
 
   .phone-screen-content {
@@ -375,40 +412,52 @@
     pointer-events: none;
   }
 
-  .phone-top-nav {
-    position: absolute;
-    top: 26px;
-    left: 6px;
-    right: 6px;
+  /* ── Clean Action Buttons Row below phone ── */
+  .mobile-showcase-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 4px;
-    z-index: 12;
+    gap: 8px;
+    margin-top: 18px;
+    width: min(300px, 88vw);
   }
 
-  .phone-screen-link {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 6.8px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+  .mobile-action-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 9.5px 10px;
+    border-radius: 999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #111111;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 3.5px 6px;
-    border-radius: 4px;
-    line-height: 1;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     white-space: nowrap;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
-    transition: background 0.2s, color 0.2s, transform 0.15s;
   }
-  .phone-screen-link:active {
+
+  .mobile-btn-primary {
     background: #435128;
     color: #ffffff;
-    transform: scale(0.96);
+  }
+  .mobile-btn-primary:active {
+    background: #323d1e;
+    transform: scale(0.97);
+  }
+
+  .mobile-btn-secondary {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid rgba(0,0,0,0.14);
+  }
+  .mobile-btn-secondary:active {
+    background: #f5f3ee;
+    transform: scale(0.97);
   }
 
   @media(max-width: 768px) {
@@ -442,25 +491,20 @@
   @media(max-width: 380px) {
     .phone-stage-wrapper {
       width: 270px;
+      height: 360px;
     }
     .phone-backdrop-card {
-      height: 72%;
-      border-radius: 24px;
+      height: 320px;
+      border-radius: 32px;
     }
     .phone-device-frame {
       width: 195px;
-      height: 348px;
-      border-radius: 30px;
+      height: 350px;
+      border-radius: 32px;
     }
-    .phone-top-nav {
-      top: 24px;
-      left: 5px;
-      right: 5px;
-    }
-    .phone-screen-link {
-      font-size: 6.2px;
-      padding: 3px 4px;
-      letter-spacing: 0.04em;
+    .mobile-action-btn {
+      font-size: 9.5px;
+      padding: 8.5px 8px;
     }
   }
 
@@ -912,15 +956,32 @@
       <div class="phone-stage-wrapper">
         <div class="phone-backdrop-card" aria-hidden="true"></div>
         <div class="phone-device-frame">
-          <div class="phone-notch" aria-hidden="true"></div>
-          <div class="phone-screen-content">
-            <img src="images/hero-mobile.jpg" alt="Origin to Kitchen — Sourced at Origin, Served at the Top" class="phone-screen-bg" loading="eager">
-            <div class="phone-top-nav">
-              <a href="partnership.html" class="phone-screen-link" id="phonePartnershipLink" title="Partnership Enquiry">PARTNERSHIP ENQUIRY</a>
-              <a href="catalogue.html"  class="phone-screen-link" id="phoneCatalogueLink" title="Explore Catalogue">EXPLORE CATALOGUE</a>
+          <!-- Realistic Phone Status Bar -->
+          <div class="phone-status-bar" aria-hidden="true">
+            <span class="phone-status-time">9:41</span>
+            <div class="phone-notch"></div>
+            <div class="phone-status-icons">
+              <svg width="11" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M1 10h2V2H1v8zm4 0h2V0H5v10zm4 0h2V5H9v5zm4 0h2V7h-2v3z"/></svg>
+              <svg width="14" height="9" viewBox="0 0 24 12" fill="currentColor"><path d="M20 2H2C.9 2 0 2.9 0 4v4c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 6H4V4h14v4zm5-3v2c0 .6-.4 1-1 1V4c.6 0 1 .4 1 1z"/></svg>
             </div>
           </div>
+          <!-- Clean Unobstructed Wallpaper Screen -->
+          <div class="phone-screen-content">
+            <img src="images/hero-mobile.jpg" alt="Origin to Kitchen — Sourced at Origin, Served at the Top" class="phone-screen-bg" loading="eager">
+          </div>
         </div>
+      </div>
+
+      <!-- Neat Action Buttons Row directly below the phone showcase -->
+      <div class="mobile-showcase-actions">
+        <a href="partnership.html" class="mobile-action-btn mobile-btn-primary" id="mobilePartnershipBtn">
+          <span>Partnership Enquiry</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <a href="catalogue.html" class="mobile-action-btn mobile-btn-secondary" id="mobileCatalogueBtn">
+          <span>Explore Catalogue</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </section>
