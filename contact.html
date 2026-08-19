@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — KTA Spices</title>
+  <meta name="description" content="Get in touch with KTA's trade desk. Quick call, wholesale enquiry, or kitchen registration — we respond within 2 hours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .contact-hero {
+      padding: clamp(110px, 14vw, 148px) 0 clamp(36px, 6vw, 80px);
+      background: var(--cream);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: start;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .contact-card {
+      display: flex;
+      gap: 16px;
+      padding: clamp(16px, 3vw, 24px);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      align-items: flex-start;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .contact-card-icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: var(--radius-md);
+      background: var(--olive-faint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--olive);
+    }
+    .contact-card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.8;
+    }
+    .contact-card-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .contact-card-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .contact-card-sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .contact-card a {
+      color: var(--olive);
+      font-weight: 600;
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: clamp(24px, 4vw, 40px);
+    }
+    .coverage-item {
+      padding: 14px 16px;
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .coverage-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--olive);
+      flex-shrink: 0;
+    }
+    .coverage-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .coverage-region {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .form-section {
+      padding: clamp(48px, 8vw, 100px) 0;
+      background: var(--white);
+    }
+
+    @media(max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .coverage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Floating Pill Nav ── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-pill">
+      <a href="index.html" class="nav-logo"><img src="images/ktanewlogo.png" alt="KTA Spices"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="wholesale.html">Wholesale</a></li>
+        <li><a href="hotel-smart.html">Hotel Smart 24/7</a></li>
+        <li><a href="heritage.html">Heritage</a></li>
+        <li><a href="contact.html" class="active">Quick Call</a></li>
+      </ul>
+      <div class="nav-cta"><a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a></div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-panel" id="mobilePanel">
+    <div class="mobile-panel-head"><img src="images/ktanewlogo.png" alt="KTA Spices"><button class="mobile-close" id="mobileClose">&times;</button></div>
+    <div class="mobile-links"><a href="index.html">Home</a><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="heritage.html">Heritage</a><a href="contact.html">Quick Call</a></div>
+    <a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a>
+  </div>
+
+  <!-- ── Hero ── -->
+  <section class="contact-hero">
+    <div class="container">
+      <div data-reveal>
+        <span class="eyebrow">Get in Touch</span>
+        <h1 class="display-xl" style="max-width:600px;margin-bottom:20px">Let's Talk<br><em>Trade.</em></h1>
+        <p class="lead" style="max-width:520px">Our trade desk is staffed Monday–Saturday, 9am–7pm. Typical response: under 2 hours. Wholesale enquiries, kitchen registration, or a quick call — we're here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact Info + Form ── -->
+  <section class="form-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info" data-reveal>
+          <a class="contact-card" href="tel:+918838971069">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Trade Desk</div>
+              <div class="contact-card-value">+91 88389 71069</div>
+              <div class="contact-card-sub">Mon–Sat · 9am–7pm IST · Tap to call</div>
+            </div>
+          </a>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">WhatsApp Trade Line</div>
+              <div class="contact-card-value">+91 88389 71069</div>
+              <div class="contact-card-sub">Place orders, track deliveries, quick enquiries</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value" style="font-size:15px">trade@ktaspices.in</div>
+              <div class="contact-card-sub">wholesale@ktaspices.in · partnerships@ktaspices.in</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Head Office</div>
+              <div class="contact-card-value" style="font-size:15px">Kochi, Kerala</div>
+              <div class="contact-card-sub">Dispatch hubs: Kochi · Bengaluru · Chennai · Mumbai</div>
+            </div>
+          </div>
+
+          <!-- Coverage -->
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Active Coverage Regions</div>
+            <div class="coverage-grid">
+              <div class="coverage-item"><div class="coverage-dot"></div><div><div class="coverage-name">Kerala</div><div class="coverage-region">Same-day · Kochi Hub</div></div></div>
+              <div class="coverage-item"><div class="coverage-dot"></div><div><div class="coverage-name">Tamil Nadu</div><div class="coverage-region">Same-day · Chennai Hub</div></div></div>
+              <div class="coverage-item"><div class="coverage-dot"></div><div><div class="coverage-name">Karnataka</div><div class="coverage-region">Same-day · Bengaluru Hub</div></div></div>
+              <div class="coverage-item"><div class="coverage-dot"></div><div><div class="coverage-name">Maharashtra</div><div class="coverage-region">Next-day · Mumbai Hub</div></div></div>
+              <div class="coverage-item"><div class="coverage-dot" style="background:var(--olive-light)"></div><div><div class="coverage-name">Andhra Pradesh</div><div class="coverage-region">Next-day</div></div></div>
+              <div class="coverage-item"><div class="coverage-dot" style="background:var(--olive-light)"></div><div><div class="coverage-name">Delhi NCR</div><div class="coverage-region">48h express</div></div></div>
+              <div class="coverage-item"><div class="coverage-dot" style="background:var(--olive-light)"></div><div><div class="coverage-name">Goa</div><div class="coverage-region">Next-day</div></div></div>
+              <div class="coverage-item"><div class="coverage-dot" style="background:var(--olive-light)"></div><div><div class="coverage-name">Other Regions</div><div class="coverage-region">48–72h · enquire</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Enquiry Form -->
+        <div data-reveal data-delay="2">
+          <div class="form-card">
+            <div>
+              <h2 style="font-family:var(--font-display);font-size:28px;font-weight:700;margin-bottom:6px">Send an Enquiry</h2>
+              <p style="font-size:14px;color:var(--muted)">We respond within 2 business hours.</p>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cName">Name</label>
+                <input class="form-control" type="text" id="cName" placeholder="Chef / Contact Name" required>
+              </div>
+              <div class="form-group">
+                <label for="cPhone">Phone</label>
+                <input class="form-control" type="tel" id="cPhone" placeholder="+91 98765 43210" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cKitchen">Kitchen / Company</label>
+              <input class="form-control" type="text" id="cKitchen" placeholder="e.g. ITC Grand Chola, Chennai">
+            </div>
+            <div class="form-group">
+              <label for="cType">Enquiry Type</label>
+              <select class="form-control" id="cType">
+                <option value="">Select…</option>
+                <option value="wholesale">Wholesale Pricing</option>
+                <option value="hotel-smart">Hotel Smart 24/7 Signup</option>
+                <option value="partnership">Chef Partnership / Welcome Box</option>
+                <option value="sample">Sample Request</option>
+                <option value="general">General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cMessage">Message</label>
+              <textarea class="form-control" id="cMessage" rows="4" placeholder="Tell us what your kitchen needs — products, quantities, delivery frequency, or any specific questions…"></textarea>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;padding:15px;font-size:15px" onclick="submitContact(event)">Send Enquiry ↗</button>
+            <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:-8px">Or call directly: <a href="tel:+918838971069" style="color:var(--olive);font-weight:600">+91 88389 71069</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Photo Break ── -->
+  <div class="photo-break">
+    <img src="images/hero-origin.jpg" alt="KTA origin supply chain" loading="lazy">
+    <div class="photo-break-overlay">
+      <span class="photo-break-caption">Every call connects to a team that knows the farm your spices came from.</span>
+    </div>
+  </div>
+
+  <!-- ── Quick CTA ── -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-block" data-reveal>
+        <span class="eyebrow">Not sure where to start?</span>
+        <h2 class="display-lg" style="max-width:480px">Register your kitchen. Get the Welcome Box first.</h2>
+        <p class="lead text-center mx-auto" style="max-width:460px">Zero commitment. Just 12 curated samples — our best products — delivered to your kitchen within 48 hours.</p>
+        <div class="btn-row">
+          <a href="partnership.html" class="btn btn-primary">Apply for Welcome Box ↗</a>
+          <a href="catalogue.html" class="btn btn-outline">Browse Catalogue</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/ktanewlogo.png" alt="KTA Spices" class="footer-brand-img"><p>The definitive supply partner for executive chefs and procurement directors demanding origin purity.</p></div>
+        <div class="footer-col"><h5>Protocol</h5><a href="heritage.html">Heritage</a><a href="heritage.html">Sourcing</a><a href="#">Compliance</a><a href="#">Quality Control</a></div>
+        <div class="footer-col"><h5>Business</h5><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="partnership.html">Partnership</a></div>
+        <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="tel:+918838971069">+91 88389 71069</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2024 KTA Spices Heritage Merchant. All Rights Reserved.</span><span>FSSAI Certified · Batch Traceable · 250+ Kitchens</span></div>
+    </div>
+  </footer>
+  <script src="shared.js"></script>
+  <script>
+  function submitContact(e){
+    e.preventDefault();
+    var n=document.getElementById('cName').value;
+    var p=document.getElementById('cPhone').value;
+    if(!n||!p){alert('Please fill your name and phone number.');return;}
+    alert('Thank you! Your enquiry has been received. Our trade team will respond within 2 hours.');
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wholesale — KTA Spices</title>
+  <meta name="description" content="Industrial-grade consistency. Origin integrity. KTA wholesale supply for hotels, restaurants, and large commercial kitchens across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .ws-hero {
+      padding: clamp(110px, 14vw, 148px) 0 clamp(36px, 6vw, 72px);
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+    .ws-hero-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: clamp(24px, 4vw, 48px);
+      flex-wrap: wrap;
+    }
+    .ws-hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .ws-section {
+      padding: clamp(48px, 8vw, 80px) 0;
+    }
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 80px);
+      align-items: start;
+    }
+    .order-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .order-info-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: clamp(14px, 2.5vw, 20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--white);
+    }
+    .order-info-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--olive-faint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--olive);
+    }
+    .order-info-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 1.8;
+    }
+    .order-info-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .order-info-body {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    @media(max-width: 900px) {
+      .order-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .ws-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    @media(max-width: 480px) {
+      .ws-hero-ctas {
+        width: 100%;
+        flex-direction: column;
+      }
+      .ws-hero-ctas .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Floating Pill Nav ── -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-pill">
+      <a href="index.html" class="nav-logo"><img src="images/ktanewlogo.png" alt="KTA Spices"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="wholesale.html" class="active">Wholesale</a></li>
+        <li><a href="hotel-smart.html">Hotel Smart 24/7</a></li>
+        <li><a href="heritage.html">Heritage</a></li>
+        <li><a href="contact.html">Quick Call</a></li>
+      </ul>
+      <div class="nav-cta"><a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a></div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-panel" id="mobilePanel">
+    <div class="mobile-panel-head"><img src="images/ktanewlogo.png" alt="KTA Spices"><button class="mobile-close" id="mobileClose">&times;</button></div>
+    <div class="mobile-links"><a href="index.html">Home</a><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="heritage.html">Heritage</a><a href="contact.html">Quick Call</a></div>
+    <a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a>
+  </div>
+
+  <!-- ── Wholesale Hero ── -->
+  <section class="ws-hero">
+    <div class="container">
+      <div class="ws-hero-inner">
+        <div data-reveal>
+          <span class="eyebrow">Wholesale Supply</span>
+          <h1 class="display-xl" style="max-width:560px;margin-bottom:20px">Industrial-grade consistency.<br><em>Origin integrity.</em></h1>
+          <p class="lead" style="max-width:500px">Built for the kitchen. Engineered for scale. MOQ from 5kg — with full batch certification on every consignment.</p>
+        </div>
+        <div class="ws-hero-ctas" data-reveal data-delay="2">
+          <a href="tel:+918838971069" class="btn btn-outline" style="white-space:nowrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            Call Trade Desk
+          </a>
+          <a href="#orderForm" class="btn btn-primary">Place Order Enquiry ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Wholesale Stats ── -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="stat-grid">
+        <div class="stat-item" data-reveal>
+          <div class="stat-value"><span data-counter="500" data-suffix="kg+">500kg+</span></div>
+          <div class="stat-label">Monthly supply capacity</div>
+        </div>
+        <div class="stat-item" data-reveal data-delay="1">
+          <div class="stat-value">0.01<span style="font-size:.5em;font-family:var(--font-body);font-weight:600">%</span></div>
+          <div class="stat-label">Batch variance tolerance</div>
+        </div>
+        <div class="stat-item" data-reveal data-delay="2">
+          <div class="stat-value"><span data-counter="24">24</span><span style="font-size:.5em;font-family:var(--font-body);font-weight:600">h</span></div>
+          <div class="stat-label">Standard dispatch time</div>
+        </div>
+        <div class="stat-item" data-reveal data-delay="3">
+          <div class="stat-value"><span data-counter="250" data-suffix="+">250+</span></div>
+          <div class="stat-label">Active supply accounts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Product Showcase Carousel ── -->
+  <section class="ws-section bg-cream">
+    <div class="container">
+      <div data-reveal style="margin-bottom:12px">
+        <span class="eyebrow">Featured Products</span>
+        <h2 class="display-lg" style="max-width:440px">Our most-ordered wholesale lines.</h2>
+      </div>
+
+      <div id="wsCarousel">
+        <!-- Slide 1 -->
+        <div class="ws-slide active">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#2d1a0e,#6b3c1a)"><span class="ws-glyph">🌿</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Wayanad, Kerala</div>
+            <div class="ws-slide-name">Tellicherry Peppercorns</div>
+            <div class="ws-slide-desc">The benchmark for Indian black pepper. Bold aroma, clean heat, consistent ASTA grade. The choice of five-star kitchens from Mumbai to Singapore.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span><span class="ws-pack-chip">50kg</span></div>
+            <div class="ws-slide-ctas">
+              <a href="contact.html" class="btn btn-primary">Request Pricing</a>
+              <a href="tel:+918838971069" class="btn btn-outline">Call Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#1a3a1a,#4a7a3a)"><span class="ws-glyph">🫛</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Idukki, Kerala</div>
+            <div class="ws-slide-name">Alleppey Green Cardamom</div>
+            <div class="ws-slide-desc">Bold, camphor-forward Kerala cardamom at its peak. Single-origin, hand-sorted, and supplied in moisture-sealed bulk packaging.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">1kg</span><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#6a0808,#b81c1c)"><span class="ws-glyph">🌶</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Kashmir Valley</div>
+            <div class="ws-slide-name">Kashmiri Chilli Powder</div>
+            <div class="ws-slide-desc">ASTA 120+ colour value, low pungency, deep brick-red hue. The standard for tandoor stations and slow-braised preparations across premium F&amp;B.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#9a6800,#e0a000)"><span class="ws-glyph">🌼</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Erode, Tamil Nadu</div>
+            <div class="ws-slide-name">Erode Turmeric Powder</div>
+            <div class="ws-slide-desc">5% curcumin content — the highest commercially available. Intense colour, clean finish, and zero fillers. The gold standard of culinary turmeric.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">25kg</span><span class="ws-pack-chip">50kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#6b5a2e,#a08b4a)"><span class="ws-glyph">🌾</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Jodhpur, Rajasthan</div>
+            <div class="ws-slide-name">Rajasthan Cumin Seeds</div>
+            <div class="ws-slide-desc">Machine-cleaned to 99.5% purity. Intense, warm, and earthy — the foundation of every great curry base. Supplied in food-grade jute or HDPE bags.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 6 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#5a2210,#9a5030)"><span class="ws-glyph">🪵</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Sri Lanka</div>
+            <div class="ws-slide-name">Ceylon Cinnamon</div>
+            <div class="ws-slide-desc">True cinnamon (Cinnamomum verum), alba grade. Soft quills, light colour, sweet-delicate aroma. Distinguished from cassia at every supply level.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">1kg</span><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 7 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#3d1010,#7a3030)"><span class="ws-glyph">✿</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Kerala / Zanzibar</div>
+            <div class="ws-slide-name">Grade 1 Cloves</div>
+            <div class="ws-slide-desc">Whole cloves with minimum 15% essential oil content. Rich, warm, and piercing — the mark of premium cloves verified by eugenol content testing.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">500g</span><span class="ws-pack-chip">1kg</span><span class="ws-pack-chip">5kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 8 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#8a6e30,#c4a050)"><span class="ws-glyph">◉</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Kollam, Kerala</div>
+            <div class="ws-slide-name">Cashews W320</div>
+            <div class="ws-slide-desc">W320 grade (320 kernels/pound) — the most widely used export grade for F&amp;B. Cream-white colour, natural split, butter-rich flavour profile.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 9 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#4a2a10,#8a5028)"><span class="ws-glyph">◎</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Kandahar, Afghanistan</div>
+            <div class="ws-slide-name">Afghani Walnuts</div>
+            <div class="ws-slide-desc">Chandler-variety walnuts from Afghanistan's premier growing region. Extra light kernel colour, thin shell, and exceptional oil content. Chef-preferred.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+        <!-- Slide 10 -->
+        <div class="ws-slide">
+          <div class="ws-slide-visual">
+            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#8b4500,#d4700a)"><span class="ws-glyph">🌸</span></div>
+          </div>
+          <div class="ws-slide-body">
+            <div class="ws-slide-origin">Pampore, Kashmir</div>
+            <div class="ws-slide-name">Kashmir Saffron</div>
+            <div class="ws-slide-desc">A++ grade ISO 3632 certified saffron. Deep crimson threads, colouring strength &gt;250, and the unmistakable Kashmiri floral-honey note that no import can replicate.</div>
+            <div class="ws-pack-sizes"><span class="ws-pack-chip">5g</span><span class="ws-pack-chip">10g</span><span class="ws-pack-chip">25g</span><span class="ws-pack-chip">50g</span></div>
+            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
+          </div>
+        </div>
+      </div><!-- /wsCarousel -->
+
+      <!-- Nav Controls -->
+      <div class="ws-nav">
+        <button class="ws-nav-btn" id="wsPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="ws-nav-btn" id="wsNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <span class="ws-counter" id="wsCounter">1 / 10</span>
+        <span style="font-size:13px;color:var(--muted);margin-left:4px">— use arrows or auto-advance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why Wholesale KTA ── -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="two-col-text" data-reveal>
+          <span class="eyebrow">Why Wholesale with KTA</span>
+          <h2 class="display-md">The same origin integrity. At volume.</h2>
+          <p class="body-sm">Most wholesale spice suppliers blend, substitute, and dilute to hit price points. KTA's model is different: we grow the relationship with the farmer, not the margin. That means your 25kg consignment has the same origin story as our 100g retail pack.</p>
+          <p class="body-sm">Every bulk delivery is accompanied by a Batch Certificate with farm origin, harvest date, moisture content, and FSSAI lot number. No guesswork for your QC team.</p>
+        </div>
+        <div class="compare-wrap" data-reveal data-delay="2">
+          <table class="compare-table">
+            <thead><tr><th>Feature</th><th class="th-kta">KTA Wholesale</th><th>Market Supplier</th></tr></thead>
+            <tbody>
+              <tr><td>Origin Traceability</td><td class="td-kta"><span class="chk">✓</span> Farm-level</td><td><span class="crs">✗</span> Region-only</td></tr>
+              <tr><td>Batch Certificate</td><td class="td-kta"><span class="chk">✓</span> Every lot</td><td><span class="crs">✗</span> On request</td></tr>
+              <tr><td>Blending</td><td class="td-kta"><span class="chk">✓</span> Never</td><td><span class="crs">✗</span> Common</td></tr>
+              <tr><td>Dispatch Time</td><td class="td-kta"><span class="chk">✓</span> 24h standard</td><td>48–72h typical</td></tr>
+              <tr><td>MOQ</td><td class="td-kta"><span class="chk">✓</span> From 5kg</td><td>25kg+ typical</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Order Enquiry Form ── -->
+  <section class="section bg-cream" id="orderForm">
+    <div class="container">
+      <div class="order-grid">
+        <div class="order-info" data-reveal>
+          <span class="eyebrow">Place an Enquiry</span>
+          <h2 class="display-md" style="max-width:380px">Tell us what your kitchen needs.</h2>
+          <p class="body-sm">Our trade team responds within 2 business hours with pricing, MOQ options, and available lot dates.</p>
+          <div class="order-info-item">
+            <div class="order-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
+            <div><div class="order-info-title">Call Trade Desk</div><div class="order-info-body">+91 88389 71069 · Mon–Sat 9am–7pm</div></div>
+          </div>
+          <div class="order-info-item">
+            <div class="order-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+            <div><div class="order-info-title">Email Enquiry</div><div class="order-info-body">wholesale@ktaspices.in</div></div>
+          </div>
+          <div class="order-info-item">
+            <div class="order-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <div><div class="order-info-title">Dispatch Hub</div><div class="order-info-body">Kochi · Chennai · Bengaluru · Mumbai</div></div>
+          </div>
+        </div>
+        <div data-reveal data-delay="2">
+          <div class="form-card">
+            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:700">Order Enquiry</h3>
+            <div class="form-group">
+              <label for="wsName">Kitchen / Company Name</label>
+              <input class="form-control" type="text" id="wsName" placeholder="e.g. The Leela Palace, Bengaluru" required>
+            </div>
+            <div class="form-group">
+              <label for="wsContact">Contact Number</label>
+              <input class="form-control" type="tel" id="wsContact" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label for="wsOrder">Products &amp; Quantities Needed</label>
+              <textarea class="form-control" id="wsOrder" placeholder="e.g. Tellicherry Pepper 25kg, Kashmiri Chilli 10kg, Cashews W320 5kg…" rows="4" required></textarea>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;padding:15px" onclick="submitWholesale(event)">Submit Enquiry ↗</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-wrap">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/ktanewlogo.png" alt="KTA Spices" class="footer-brand-img"><p>The definitive supply partner for executive chefs and procurement directors demanding origin purity.</p></div>
+        <div class="footer-col"><h5>Protocol</h5><a href="heritage.html">Heritage</a><a href="heritage.html">Sourcing</a><a href="#">Compliance</a><a href="#">Quality Control</a></div>
+        <div class="footer-col"><h5>Business</h5><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="partnership.html">Partnership</a></div>
+        <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="tel:+918838971069">+91 88389 71069</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2024 KTA Spices Heritage Merchant. All Rights Reserved.</span><span>FSSAI Certified · Batch Traceable · 250+ Kitchens</span></div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script>
+  function submitWholesale(e){
+    e.preventDefault();
+    var n=document.getElementById('wsName').value;
+    var c=document.getElementById('wsContact').value;
+    var o=document.getElementById('wsOrder').value;
+    if(!n||!c||!o){alert('Please fill all fields.');return;}
+    alert('Thank you! Our trade team will contact you within 2 hours.');
+  }
+  </script>
+</body>
+</html>
