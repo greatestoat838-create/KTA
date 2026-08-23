@@ -3,357 +3,206 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chef Partnership — KTA Spices</title>
-  <meta name="description" content="Join KTA's chef partnership programme. Register your kitchen and receive a curated Welcome Box — 12 origin-certified samples, no obligation.">
+  <title>Partner with KTA &amp; Chef Welcome Box — KTA Spices</title>
+  <meta name="description" content="Register your commercial kitchen with KTA. Complimentary Chef Welcome Box and dedicated corporate account support across South India.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css?v=2">
   <style>
     .partner-hero {
-      padding: clamp(110px, 14vw, 148px) 0 clamp(40px, 6vw, 88px);
+      padding: clamp(120px, 15vw, 160px) 0 clamp(40px, 6vw, 70px);
       background: var(--cream);
-    }
-    .welcome-box {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: clamp(20px, 4vw, 52px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(24px, 4vw, 48px);
-      align-items: center;
-      box-shadow: var(--shadow-md);
-    }
-    .box-visual {
-      border-radius: var(--radius-lg);
-      min-height: clamp(220px, 35vw, 340px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #2a3320, #435128);
-      position: relative;
-      overflow: hidden;
-    }
-    .box-glyph {
-      font-size: clamp(64px, 10vw, 100px);
-      opacity: .12;
-      user-select: none;
-    }
-    .box-tag-row {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .box-items {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .box-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background: var(--cream);
-      border-radius: var(--radius-md);
-    }
-    .box-item-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--olive);
-      flex-shrink: 0;
-    }
-    .box-item-name {
-      font-weight: 600;
-      font-size: 14px;
-      color: var(--ink);
-    }
-    .box-item-origin {
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(16px, 3vw, 28px);
-    }
-    .benefit-card {
-      padding: clamp(24px, 3.5vw, 36px) clamp(18px, 3vw, 28px);
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      transition: box-shadow .22s, transform .22s;
-    }
-    .benefit-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    .benefit-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      background: var(--olive-faint);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--olive);
-    }
-    .benefit-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke-width: 1.8;
-    }
-    .benefit-title {
-      font-family: var(--font-display);
-      font-size: 21px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .benefit-body {
-      font-size: 13.5px;
-      line-height: 1.65;
-      color: var(--muted);
-    }
-    .apply-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(32px, 5vw, 80px);
-      align-items: start;
-    }
-    @media(max-width: 900px) {
-      .welcome-box {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .benefit-grid {
-        grid-template-columns: 1fr;
-      }
-      .apply-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
+      border-bottom: 1px solid var(--border);
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Floating Pill Nav ── -->
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-pill">
-      <a href="index.html" class="nav-logo"><img src="images/ktanewlogo.png" alt="KTA Spices"></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catalogue.html">Catalogue</a></li>
-        <li><a href="wholesale.html">Wholesale</a></li>
-        <li><a href="hotel-smart.html">Hotel Smart 24/7</a></li>
-        <li><a href="heritage.html">Heritage</a></li>
-        <li><a href="contact.html">Quick Call</a></li>
+  <!-- ══════════════════════════════════
+       UNIFIED EDITORIAL NAVBAR (Image 3 Style)
+       ══════════════════════════════════ -->
+  <nav class="home-nav" id="homeNav" aria-label="Main navigation">
+    <div class="home-nav-inner">
+      <a href="index.html" class="home-nav-logo" aria-label="KTA Spices Home">
+        <img src="images/ktaspicesnewlogo.png" alt="KTA Spices">
+      </a>
+      <ul class="home-nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="heritage.html">HERITAGE</a></li>
+        <li><a href="catalogue.html">CATALOGUE</a></li>
+        <li><a href="partnership.html" class="active">PARTNERSHIP</a></li>
+        <li><a href="wholesale.html">WHOLESALE</a></li>
+        <li><a href="index.html#hotelSmart">HOTEL SMART 24/7</a></li>
       </ul>
-      <div class="nav-cta"><a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a></div>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="home-nav-actions">
+        <a href="tel:+918838971069" class="nav-phone-contact" title="Direct Phone Desk">
+          <svg class="nav-phone-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="nav-phone-text">+91 88389 71069</span>
+        </a>
+        <a href="https://wa.me/918838971069?text=Hello%20KTA%20Team%2C%20I%20am%20enquiring%20about%20a%20Kitchen%20Partnership." target="_blank" rel="noopener" class="nav-quick-enquiry" title="WhatsApp Enquiry">
+          <span class="nav-wa-dot"></span> WhatsApp Enquiry
+        </a>
+        <a href="#registerKitchen" class="nav-register-btn">REGISTER KITCHEN</a>
+      </div>
+      <button class="home-hamburger" id="homeHamburger" aria-label="Open mobile menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Drawer -->
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-panel" id="mobilePanel">
-    <div class="mobile-panel-head"><img src="images/ktanewlogo.png" alt="KTA Spices"><button class="mobile-close" id="mobileClose">&times;</button></div>
-    <div class="mobile-links"><a href="index.html">Home</a><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="heritage.html">Heritage</a><a href="contact.html">Quick Call</a></div>
-    <a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a>
+    <div class="mobile-panel-head">
+      <img src="images/ktaspicesnewlogo.png" alt="KTA Spices">
+      <button class="mobile-close" id="mobileClose">&times;</button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html">HOME</a>
+      <a href="heritage.html">HERITAGE</a>
+      <a href="catalogue.html">CATALOGUE</a>
+      <a href="partnership.html" style="color:var(--olive);font-weight:700">PARTNERSHIP</a>
+      <a href="wholesale.html">WHOLESALE</a>
+      <a href="index.html#hotelSmart">HOTEL SMART 24/7</a>
+      <a href="tel:+918838971069" style="color: #435128; font-weight: 700;">Direct: +91 88389 71069</a>
+      <a href="https://wa.me/918838971069" target="_blank" rel="noopener" style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
+    </div>
+    <a href="#registerKitchen" class="nav-cta-btn" style="margin-top:16px;text-align:center" onclick="document.getElementById('mobileOverlay').classList.remove('is-open');document.getElementById('mobilePanel').classList.remove('is-open');">REGISTER KITCHEN</a>
   </div>
 
-  <!-- ── Hero ── -->
-  <section class="partner-hero">
+  <!-- ── 1. Chef Welcome Box Presentation ── -->
+  <section class="welcome-box-showcase" style="padding-top: clamp(120px, 15vw, 160px)">
     <div class="container">
-      <div data-reveal>
-        <span class="eyebrow">Chef Partnership</span>
-        <h1 class="display-xl" style="max-width:680px;margin-bottom:24px">The Chef's<br><em>Welcome Box.</em></h1>
-        <p class="lead" style="max-width:560px">Register your kitchen and we'll hand-deliver a curated box of 12 origin-certified samples — our highest-grade spices and dry fruits — at no cost. Taste first. Commit later.</p>
-        <div class="btn-row" style="margin-top:32px">
-          <a href="#apply" class="btn btn-primary">Apply for Welcome Box ↓</a>
-          <a href="contact.html" class="btn btn-outline">Talk to Partnerships</a>
+      <div class="wb-showcase-grid">
+        <div class="wb-content-side" data-reveal>
+          <span class="wb-badge-pill">✦ Complimentary Chef Discovery Kit</span>
+          <h1 class="wb-heading">We Provide Chef Welcome Boxes.</h1>
+          <p class="wb-lead">Experience the unadulterated single-origin aroma before placing your quarterly institutional orders. We hand-deliver a complimentary discovery kit of our verified spice harvests straight to Executive Chefs and Hotel Procurement Directors.</p>
+          
+          <div class="wb-points-list">
+            <div class="wb-point"><span class="wb-point-dot"></span> 100% Complimentary Delivery</div>
+            <div class="wb-point"><span class="wb-point-dot"></span> Certified Single-Origin Harvests</div>
+            <div class="wb-point"><span class="wb-point-dot"></span> Clinical Batch QC Certificates</div>
+            <div class="wb-point"><span class="wb-point-dot"></span> Hand-Delivered to Executive Chefs</div>
+          </div>
+
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <a href="#registerKitchen" class="btn btn-primary" style="background:#435128;border-radius:999px;padding:14px 30px">Claim Welcome Box Below ↓</a>
+            <a href="https://wa.me/918838971069?text=Hello%20KTA%20Team%2C%20I%20am%20an%20Executive%20Chef%20requesting%20the%20Chef%20Welcome%20Box." target="_blank" rel="noopener" class="btn btn-outline" style="border-radius:999px;padding:14px 28px">WhatsApp Desk ↗</a>
+          </div>
+        </div>
+
+        <div class="wb-frame" data-reveal data-delay="1">
+          <img src="images/chef-welcome-box.jpg" alt="KTA Chef Discovery Welcome Sample Box for Executive Hotel Chefs">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Stats ── -->
-  <section class="section-sm" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <!-- ── 2. Corporate Registration Form (Image 4 Style) ── -->
+  <section class="partner-reg-section" id="registerKitchen">
     <div class="container">
-      <div class="stat-grid">
-        <div class="stat-item" data-reveal>
-          <div class="stat-value"><span data-counter="250" data-suffix="+">250+</span></div>
-          <div class="stat-label">Kitchens in programme</div>
-        </div>
-        <div class="stat-item" data-reveal data-delay="1">
-          <div class="stat-value"><span data-counter="500" data-suffix="+">500+</span></div>
-          <div class="stat-label">Chefs who trust KTA</div>
-        </div>
-        <div class="stat-item" data-reveal data-delay="2">
-          <div class="stat-value"><span data-counter="94" data-suffix="%">94%</span></div>
-          <div class="stat-label">Welcome Box → repeat order</div>
-        </div>
-        <div class="stat-item" data-reveal data-delay="3">
-          <div class="stat-value"><span data-counter="48">48</span><span style="font-size:.5em;font-family:var(--font-body);font-weight:700">h</span></div>
-          <div class="stat-label">Average box delivery time</div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="partner-reg-grid">
+        
+        <!-- Left Information Column -->
+        <div class="partner-info-col" data-reveal>
+          <span class="eyebrow" style="margin-bottom:8px;display:block">Corporate Registration</span>
+          <h2 class="display-lg" style="margin-bottom:16px">Partner with KTA.</h2>
+          <p class="body-sm" style="max-width:440px;line-height:1.65;color:var(--muted)">Begin a long-term partnership with KTA. Our corporate accounts team will review your application within one business day.</p>
+          
+          <div class="partner-hotline-box">
+            <div class="partner-hotline-lbl">24/7 Trade Hotline</div>
+            <div class="partner-hotline-val">+91 88389 71069</div>
+          </div>
 
-  <!-- ── Welcome Box Contents ── -->
-  <section class="section">
-    <div class="container" data-reveal>
-      <div style="margin-bottom:40px">
-        <span class="eyebrow">What's Inside</span>
-        <h2 class="display-lg" style="max-width:480px">12 samples. 12 stories. One box.</h2>
-      </div>
-      <div class="welcome-box">
-        <div class="box-visual">
-          <span class="box-glyph">📦</span>
-          <div class="box-tag-row">
-            <span class="tag tag-light">Hand-Curated</span>
-            <span class="tag tag-light">Origin Certified</span>
-          </div>
-        </div>
-        <div class="box-items">
-          <div class="box-item"><div class="box-item-dot"></div><div><div class="box-item-name">Tellicherry Peppercorns</div><div class="box-item-origin">Wayanad, Kerala · Export Grade</div></div></div>
-          <div class="box-item"><div class="box-item-dot"></div><div><div class="box-item-name">Alleppey Green Cardamom</div><div class="box-item-origin">Idukki, Kerala · Single Origin</div></div></div>
-          <div class="box-item"><div class="box-item-dot"></div><div><div class="box-item-name">Kashmir Saffron</div><div class="box-item-origin">Pampore, Kashmir · A++ Grade</div></div></div>
-          <div class="box-item"><div class="box-item-dot"></div><div><div class="box-item-name">Kashmiri Chilli Powder</div><div class="box-item-origin">Kashmir Valley · ASTA 120+</div></div></div>
-          <div class="box-item"><div class="box-item-dot"></div><div><div class="box-item-name">Erode Turmeric</div><div class="box-item-origin">Tamil Nadu · 5% Curcumin</div></div></div>
-          <div class="box-item"><div class="box-item-dot"></div><div><div class="box-item-name">Cashews W320</div><div class="box-item-origin">Kollam, Kerala · Premium Grade</div></div></div>
-          <div style="font-size:12px;color:var(--muted);padding:4px 18px">+ 6 more curated samples based on your kitchen profile</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Benefits ── -->
-  <section class="section bg-cream">
-    <div class="container">
-      <div class="text-center" style="margin-bottom:52px" data-reveal>
-        <span class="eyebrow">Programme Benefits</span>
-        <h2 class="display-lg mx-auto" style="max-width:440px">What kitchen partnership means with KTA.</h2>
-      </div>
-      <div class="benefit-grid">
-        <div class="benefit-card" data-reveal data-delay="1">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-          </div>
-          <div class="benefit-title">Priority Hotel Smart Access</div>
-          <div class="benefit-body">Registered kitchen partners get priority queue in our Hotel Smart 24/7 network — including next-day delivery during peak banquet season.</div>
-        </div>
-        <div class="benefit-card" data-reveal data-delay="2">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-          </div>
-          <div class="benefit-title">Batch Transparency Protocol</div>
-          <div class="benefit-body">Every delivery comes with a full batch certificate — farm name, harvest date, lot number, and FSSAI reference. Show it to your guests if you want to.</div>
-        </div>
-        <div class="benefit-card" data-reveal data-delay="3">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <div class="benefit-title">Volume Pricing After 90 Days</div>
-          <div class="benefit-body">Kitchen partners who complete 90 days unlock volume-indexed pricing — the more you order, the more your per-kg cost decreases.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Testimonial ── -->
-  <section class="section">
-    <div class="container" data-reveal>
-      <div class="testimonial-block">
-        <div class="testimonial-visual">
-          <img src="images/hero-origin.jpg" alt="Chef partnership story" loading="lazy">
-        </div>
-        <div class="testimonial-body">
-          <span class="tag tag-olive" style="margin-bottom:4px">Partnership Story</span>
-          <div class="testimonial-quote">"The Welcome Box arrived on a Tuesday. By Friday I had reordered three products for the banquet season. That was three years ago — we haven't used another supplier since."</div>
           <div>
-            <div class="testimonial-name">Chef Priya Menon</div>
-            <div class="testimonial-role">Executive Sous Chef — ITC Grand Chola, Chennai</div>
+            <a href="tel:+918838971069" class="btn btn-primary" style="background:#435128;border-radius:999px;padding:13px 28px">Direct Call Trade Desk</a>
           </div>
         </div>
+
+        <!-- Right Form Card -->
+        <div data-reveal data-delay="1">
+          <div class="partner-form-card">
+            <div class="partner-form-title">Partnership Enquiry</div>
+            
+            <form onsubmit="handlePartnerSubmit(event)">
+              <div class="partner-field">
+                <label for="pMgrName">Name / Authorised Manager *</label>
+                <input type="text" id="pMgrName" class="partner-input" placeholder="Full Name" required>
+              </div>
+
+              <div class="partner-field">
+                <label for="pHotelName">Establishment / Hotel Name *</label>
+                <input type="text" id="pHotelName" class="partner-input" placeholder="Luxury Hotel / Fine Dining" required>
+              </div>
+
+              <div class="partner-field">
+                <label for="pVolume">Expected Volume (Monthly)</label>
+                <select id="pVolume" class="partner-select">
+                  <option value="under25">Under 25kg</option>
+                  <option value="25-50">25kg – 50kg</option>
+                  <option value="50-100">50kg – 100kg</option>
+                  <option value="100plus">100kg+</option>
+                </select>
+              </div>
+
+              <div class="partner-field">
+                <label for="pMessage">Message (Optional)</label>
+                <textarea id="pMessage" class="partner-textarea" rows="3" placeholder="Any specific requirements..."></textarea>
+              </div>
+
+              <button type="submit" class="partner-submit-btn">SUBMIT APPLICATION</button>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── Apply Form ── -->
-  <section class="section bg-cream" id="apply">
+  <!-- ══════════════════════════════════
+       MINIMALIST LIGHT FOOTER (Image 5 Style)
+       ══════════════════════════════════ -->
+  <footer class="minimalist-footer-section">
     <div class="container">
-      <div class="apply-grid">
-        <div data-reveal>
-          <span class="eyebrow">Apply Now</span>
-          <h2 class="display-lg" style="max-width:400px;margin-bottom:20px">Start your kitchen partnership.</h2>
-          <p class="body-sm" style="max-width:380px;margin-bottom:28px">Fill in three fields. Our partnerships team will reach out within one business day to schedule your Welcome Box delivery.</p>
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <div style="width:28px;height:28px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;flex-shrink:0">1</div>
-              <span style="font-size:14px;color:var(--ink-mid)">Submit this form</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <div style="width:28px;height:28px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;flex-shrink:0">2</div>
-              <span style="font-size:14px;color:var(--ink-mid)">Team verifies your kitchen profile (24h)</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:12px">
-              <div style="width:28px;height:28px;border-radius:50%;background:var(--olive);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;flex-shrink:0">3</div>
-              <span style="font-size:14px;color:var(--ink-mid)">Welcome Box dispatched within 48h</span>
-            </div>
-          </div>
-        </div>
-        <div data-reveal data-delay="2">
-          <div class="form-card">
-            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:700">Register Your Kitchen</h3>
-            <div class="form-group">
-              <label for="pName">Chef / Contact Name</label>
-              <input class="form-control" type="text" id="pName" placeholder="Chef Anand Krishnamurthy" required>
-            </div>
-            <div class="form-group">
-              <label for="pKitchen">Kitchen / Property Name</label>
-              <input class="form-control" type="text" id="pKitchen" placeholder="e.g. The Leela Palace, Bengaluru" required>
-            </div>
-            <div class="form-group">
-              <label for="pPhone">Mobile Number</label>
-              <input class="form-control" type="tel" id="pPhone" placeholder="+91 98765 43210" required>
-            </div>
-            <button class="btn btn-primary" style="width:100%;justify-content:center;padding:15px" onclick="submitPartnership(event)">Apply for Welcome Box ↗</button>
-            <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:-8px">No obligation · No credit card · Delivered free</p>
-          </div>
-        </div>
+      <div class="min-cta-wrap" data-reveal>
+        <h2 class="min-cta-title">Connect with us</h2>
+        <p class="min-cta-lead">Schedule a quick call to learn how KTA can turn your regional spice procurement into a powerful advantage.</p>
+        <a href="contact.html" class="btn btn-primary" style="border-radius: 999px; padding: 14px 36px; background: #435128;">Connect with Us ↗</a>
       </div>
-    </div>
-  </section>
 
-  <!-- ── Footer ── -->
-  <footer class="site-footer">
-    <div class="footer-wrap">
-      <div class="footer-grid">
-        <div class="footer-brand"><img src="images/ktanewlogo.png" alt="KTA Spices" class="footer-brand-img"><p>The definitive supply partner for executive chefs and procurement directors demanding origin purity.</p></div>
-        <div class="footer-col"><h5>Protocol</h5><a href="heritage.html">Heritage</a><a href="heritage.html">Sourcing</a><a href="#">Compliance</a><a href="#">Quality Control</a></div>
-        <div class="footer-col"><h5>Business</h5><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="partnership.html">Partnership</a></div>
-        <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="tel:+918838971069">+91 88389 71069</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      <div class="min-footer-nav">
+        <a href="index.html">Home</a>
+        <a href="heritage.html">Heritage</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="partnership.html">Partnership</a>
+        <a href="wholesale.html">Wholesale</a>
+        <a href="index.html#hotelSmart">Hotel Smart 24/7</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
       </div>
-      <div class="footer-bottom"><span>© 2024 KTA Spices Heritage Merchant. All Rights Reserved.</span><span>FSSAI Certified · Batch Traceable · 250+ Kitchens</span></div>
+
+      <div class="min-footer-bottom">
+        <div>© 2026 KTA Spices Heritage Merchant. All Rights Reserved.</div>
+        <div>FSSAI Certified · Batch Traceable · 250+ Kitchens Across South India</div>
+      </div>
     </div>
   </footer>
+
   <script src="shared.js"></script>
   <script>
-  function submitPartnership(e){
+  function handlePartnerSubmit(e){
     e.preventDefault();
-    var n=document.getElementById('pName').value;
-    var k=document.getElementById('pKitchen').value;
-    var p=document.getElementById('pPhone').value;
-    if(!n||!k||!p){alert('Please fill all fields.');return;}
-    alert('Welcome! Your Welcome Box application is submitted. Our team will contact you within 24 hours.');
+    var name = document.getElementById('pMgrName').value;
+    var hotel = document.getElementById('pHotelName').value;
+    if(!name || !hotel){
+      alert('Please fill all required fields.');
+      return;
+    }
+    alert('Thank you! Your partnership registration has been received. Our corporate team will contact you within one business day.');
   }
   </script>
 </body>

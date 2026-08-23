@@ -7,133 +7,283 @@
   <meta name="description" content="KTA brings exceptional origin-certified spices and dry fruits to elite kitchens. Farm-direct, batch-traceable, chef-graded across India.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500;1,600;1,700&family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css?v=2">
   <style>
 
   /* ══════════════════════════════════════════
-     SCROLL-AWARE HOME NAV
-     (Static full bar → Floating pill, responsive)
+     EDITORIAL CLEAN TOP NAVBAR
      ══════════════════════════════════════════ */
 
-  /* Override shared nav — index uses home-nav instead */
   .site-nav { display: none !important; }
 
   .home-nav {
     position: fixed; top: 0; left: 0; right: 0;
-    z-index: 9990; pointer-events: none;
-    transition: padding 0.4s ease;
+    z-index: 9990; pointer-events: auto;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    padding: 14px clamp(16px, 3.5vw, 56px);
   }
-  .home-nav-inner {
-    pointer-events: all;
-    display: flex; align-items: center;
-    width: 100%; max-width: 1160px; margin: 0 auto;
-    background: rgba(255,255,255,0.98);
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-    padding: 16px clamp(16px, 3.5vw, 40px);
-    transition:
-      background 0.55s cubic-bezier(0.16,1,0.3,1),
-      border-color 0.55s,
-      border-radius 0.55s cubic-bezier(0.16,1,0.3,1),
-      box-shadow 0.55s cubic-bezier(0.16,1,0.3,1),
-      max-width 0.55s cubic-bezier(0.16,1,0.3,1),
-      padding 0.55s cubic-bezier(0.16,1,0.3,1),
-      margin-top 0.55s cubic-bezier(0.16,1,0.3,1),
-      backdrop-filter 0.55s;
-    will-change: transform;
-  }
-
-  /* ── Floating state (js adds .floating to .home-nav) ── */
   .home-nav.floating {
-    padding: 0 clamp(10px, 2.5vw, 20px);
-  }
-  .home-nav.floating .home-nav-inner {
-    max-width: 860px;
-    background: linear-gradient(108deg,
-      rgba(255,255,255,0.65) 0%,
-      rgba(255,255,255,0.88) 28%,
-      rgba(248,245,240,0.96) 62%,
-      rgba(246,243,238,1.00) 100%);
-    backdrop-filter: blur(22px) saturate(180%);
-    -webkit-backdrop-filter: blur(22px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.75);
-    border-radius: var(--radius-pill);
-    box-shadow:
-      0 4px 20px rgba(0,0,0,0.08),
-      0 1px 3px rgba(0,0,0,0.04),
-      inset 0 1px 0 rgba(255,255,255,0.85);
-    padding: 8px 10px 8px 20px;
-    margin-top: 14px;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+    padding: 10px clamp(16px, 3.5vw, 56px);
   }
 
-  /* ── Logo ── */
+  .home-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+
+  /* ── Brand Logo ── */
   .home-nav-logo {
-    display: flex; align-items: center; flex-shrink: 0; margin-right: 22px;
-    overflow: visible; max-width: 220px;
-    transition: max-width 0.4s cubic-bezier(0.16,1,0.3,1),
-                opacity 0.35s, margin-right 0.4s;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .home-nav-logo:hover {
+    transform: scale(1.02);
   }
   .home-nav-logo img {
-    height: clamp(40px, 4.2vw, 48px);
+    height: 46px;
     width: auto;
-    flex-shrink: 0;
     display: block;
     object-fit: contain;
-    transition: height 0.35s ease;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.06));
+    transition: height 0.3s ease;
   }
-  
-  @media(min-width: 901px) {
-    .home-nav.floating .home-nav-logo img {
-      height: 38px;
-    }
+  .home-nav.floating .home-nav-logo img {
+    height: 40px;
   }
 
-  /* ── Nav links ── */
+  /* ── Center Navigation Links ── */
   .home-nav-links {
-    display: flex; align-items: center; gap: 2px; flex: 1; list-style: none;
-    margin: 0; padding: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2.0vw, 30px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
   .home-nav-links a {
-    display: block; font-size: 13.5px; font-weight: 500; color: #3a3a3a;
-    padding: 8px 12px; border-radius: 999px; white-space: nowrap;
-    transition: background 0.18s, color 0.18s;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1a1a1a;
     text-decoration: none;
+    padding: 6px 2px;
+    position: relative;
+    transition: color 0.2s ease;
+    white-space: nowrap;
   }
-  .home-nav-links a:hover  { background: rgba(0,0,0,0.055); color: #111; }
-  .home-nav-links a.active { background: rgba(67,81,40,0.09); color: #435128; font-weight: 600; }
+  .home-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #435128;
+    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .home-nav-links a:hover {
+    color: #435128;
+  }
+  .home-nav-links a:hover::after,
+  .home-nav-links a.active::after {
+    width: 100%;
+  }
+  .home-nav-links a.active {
+    color: #435128;
+  }
 
-  /* ── Register CTA ── */
-  .home-nav-cta { flex-shrink: 0; margin-left: 8px; }
+  /* ── Right Actions (Phone, WhatsApp, Register CTA) ── */
+  .home-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.8vw, 22px);
+    flex-shrink: 0;
+  }
 
-  /* ── Hamburger ── */
+  .nav-phone-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+  .nav-phone-contact:hover {
+    color: #435128;
+    transform: translateY(-1px);
+  }
+  .nav-phone-icon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
+  .nav-quick-enquiry {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    text-decoration: none;
+    padding: 6px 2px;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-quick-enquiry:hover {
+    color: #25d366;
+  }
+  .nav-wa-dot {
+    width: 7px;
+    height: 7px;
+    background: #25d366;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 6px rgba(37, 211, 102, 0.6);
+  }
+
+  .nav-register-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #55683e;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 9px 20px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 3px 12px rgba(85, 104, 62, 0.28);
+    transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+    white-space: nowrap;
+  }
+  .nav-register-btn:hover {
+    background: #435128;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 16px rgba(67, 81, 40, 0.38);
+  }
+
+  /* ── Mobile Hamburger ── */
   .home-hamburger {
-    display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-    width: 44px; height: 44px; background: none; border: none;
-    border-radius: 50%; padding: 8px; margin-left: auto; cursor: pointer;
-    transition: background 0.2s;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: rgba(0, 0, 0, 0.03);
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    margin-left: auto;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
   }
-  .home-hamburger:hover { background: rgba(0,0,0,0.06); }
-  .home-hamburger span { display: block; width: 22px; height: 2px; background: #111; border-radius: 2px; }
+  .home-hamburger:hover {
+    background: rgba(67, 81, 40, 0.10);
+    transform: scale(1.05);
+  }
+  .home-hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #1c2415;
+    border-radius: 2px;
+  }
 
-  @media(max-width:900px) {
-    .home-nav-links, .home-nav-cta { display: none; }
-    .home-hamburger { display: flex; }
-    .home-nav-inner { padding: 10px 18px; max-width: 100%; }
-    .home-nav-logo { margin-right: auto; max-width: 180px; opacity: 1 !important; }
-    .home-nav-logo img { height: 38px; }
-    .home-nav.floating .home-nav-inner {
-      max-width: 100%;
-      padding: 8px 14px;
-      margin-top: 8px;
+  @media(max-width: 1100px) {
+    .home-nav-links {
+      display: none;
     }
-    .home-nav.floating .home-nav-logo img {
-      height: 34px;
+    .home-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      margin-right: 6px;
+    }
+    .nav-register-btn {
+      display: none;
+    }
+    .nav-phone-contact {
+      padding: 6px 12px;
+      background: var(--olive-faint);
+      border: 1px solid rgba(67, 81, 40, 0.18);
+      border-radius: 999px;
+      font-size: 11.5px;
+      color: var(--olive);
+      font-weight: 700;
+    }
+    .nav-quick-enquiry {
+      padding: 6px 14px;
+      background: #e8f8ed;
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      border-radius: 999px;
+      font-size: 11.5px;
+      color: #128c46;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+    .home-hamburger {
+      display: flex;
+      margin-left: 0;
+      width: 38px;
+      height: 38px;
+    }
+    .home-nav {
+      padding: 10px 16px;
+    }
+    .home-nav-logo img {
+      height: 36px;
     }
   }
 
-  @media(max-width:480px) {
-    .home-nav-logo img { height: 34px; }
-    .home-nav.floating .home-nav-logo img { height: 30px; }
+  @media(max-width: 640px) {
+    .home-nav {
+      padding: 8px 12px;
+    }
+    .nav-phone-contact .nav-phone-text {
+      display: none;
+    }
+    .nav-phone-contact {
+      padding: 7px 9px;
+    }
+    .nav-quick-enquiry {
+      font-size: 11px;
+      padding: 5px 10px;
+    }
   }
 
   /* ══════════════════════════════════════════
@@ -158,8 +308,8 @@
     max-height: 100vh;
     max-height: 100svh;
     /* Clear navbar completely with generous breathing room */
-    padding-top: clamp(92px, 13.5vh, 120px);
-    padding-bottom: clamp(12px, 2.2vh, 26px);
+    padding-top: clamp(86px, 12vh, 112px);
+    padding-bottom: 0 !important;
   }
 
   .hero-header-wrap {
@@ -198,7 +348,7 @@
     color: #1a1a1a;
     letter-spacing: -0.2px;
     margin-top: clamp(8px, 1.2vh, 14px);
-    margin-bottom: clamp(12px, 2vh, 22px);
+    margin-bottom: clamp(10px, 1.8vh, 18px);
     line-height: 1.25;
     opacity: 0;
     transform: translateY(12px);
@@ -212,190 +362,195 @@
   .showcase-wrapper {
     position: relative;
     width: 100%;
-    max-width: min(1040px, 92vw);
-    flex: 1 1 0;
-    min-height: 0; /* allows flex item to shrink properly */
+    max-width: min(1080px, 94vw);
+    flex: 1 1 auto;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     padding: 0 clamp(8px, 2vw, 20px);
-    opacity: 0;
-    transform: translateY(16px);
-    animation: fadeSlide 0.9s 1.1s cubic-bezier(0.16,1,0.3,1) forwards;
+    opacity: 1;
     z-index: 3;
   }
   .showcase-inner {
     position: relative;
-    width: auto;
-    height: 100%;
-    max-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 0;
-  }
-  .hero-showcase-img {
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    user-select: none;
-    pointer-events: none;
-    filter: drop-shadow(0 16px 40px rgba(0,0,0,0.09));
-  }
-
-  /* ── Interactive navigation links on top of iPad (Navbar Font 'Inter') ── */
-  .screen-top-links {
-    position: absolute;
-    top: 2.0%;
-    left: 16%;
-    right: 16%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 5;
-    pointer-events: auto;
-  }
-  .screen-top-link {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: clamp(8px, 0.9vw, 11.5px);
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #111111;
-    text-decoration: none;
-    padding: clamp(3px, 0.6vw, 6px) clamp(8px, 1.1vw, 14px);
-    border-radius: 6px;
-    transition: color 0.2s, transform 0.2s, background-color 0.2s;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .screen-top-link:hover {
-    color: #435128;
-    background-color: rgba(255,255,255,0.65);
-    transform: translateY(-1px);
-  }
-
-  /* ── Desktop Tablet Showcase (Wide iPad) ── */
-  .desktop-showcase {
-    display: flex;
-  }
-
-  /* ── Mobile Phone Showcase (Dedicated Portrait Mockup) ── */
-  .mobile-showcase {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 6px 0 0;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateY(16px);
-    animation: fadeSlide 0.9s 1.1s cubic-bezier(0.16,1,0.3,1) forwards;
-    z-index: 3;
-  }
-
-  .phone-stage-wrapper {
-    position: relative;
+    max-width: 1040px;
     display: flex;
-    justify-content: center;
     align-items: flex-end;
-    width: min(320px, 92vw);
-    height: 396px;
-    margin: 0 auto;
+    justify-content: center;
   }
 
-  /* Green backdrop card extending all the way down to touch the black moving marquee strip */
-  .phone-backdrop-card {
+  /* Green backdrop card starting from middle of video */
+  .tablet-backdrop-card {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    top: 18px; /* starts aligned near the top curve of the phone */
-    background: #889c78;
-    border-radius: 36px 36px 0 0;
+    top: 48%;
+    background: #5e724d;
+    border-radius: clamp(30px, 3.5vw, 46px) clamp(30px, 3.5vw, 46px) 0 0;
     box-shadow:
-      0 -4px 30px rgba(67, 81, 40, 0.20),
-      0 4px 12px rgba(0, 0, 0, 0.06);
+      0 -6px 36px rgba(67, 81, 40, 0.22),
+      0 4px 16px rgba(0, 0, 0, 0.08);
     z-index: 1;
   }
 
-  /* Phone device sitting on top and touching the bottom marquee */
-  .phone-device-frame {
+  /* Desktop Tablet Mockup Frame */
+  .hero-tablet-frame {
     position: relative;
     z-index: 2;
-    width: 216px;
-    height: 386px;
-    margin-bottom: 0;
-    border-radius: 36px 36px 0 0;
-    border: 5px solid #141414;
-    border-bottom: none;
-    background: #000000;
-    overflow: hidden;
+    width: min(900px, 86vw);
+    height: auto;
+    max-height: 100%;
+    aspect-ratio: 16 / 9.2;
+    border-radius: clamp(18px, 2.4vw, 30px);
+    border: clamp(5px, 0.75vw, 8px) solid #151813;
+    background: #0f120e;
     box-shadow:
-      0 -6px 28px rgba(0,0,0,0.30),
-      inset 0 0 0 1px rgba(255,255,255,0.18);
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Sleek Dynamic Island */
-  .phone-notch {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 52px;
-    height: 13px;
-    background: #141414;
-    border-radius: 999px;
-    z-index: 15;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.6);
-  }
-
-  .phone-screen-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
+      0 26px 64px -10px rgba(0, 0, 0, 0.36),
+      0 12px 28px -6px rgba(67, 81, 40, 0.22),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.16);
     overflow: hidden;
-    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
   }
 
-  .phone-screen-bg {
+  .hero-showcase-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center center;
     display: block;
+    border-radius: inherit;
     user-select: none;
     pointer-events: none;
   }
 
+  /* ── Interactive navigation links on top of iPad ── */
+  .screen-top-links {
+    position: absolute;
+    top: clamp(10px, 2.2%, 18px);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: clamp(10px, 2vw, 28px);
+    z-index: 5;
+    pointer-events: auto;
+  }
+  .screen-top-link {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: clamp(8px, 0.85vw, 11px);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #111111;
+    text-decoration: none;
+    padding: clamp(5px, 0.6vw, 7px) clamp(12px, 1.3vw, 18px);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+    transition: color 0.22s, transform 0.22s, background-color 0.22s, box-shadow 0.22s;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .screen-top-link:hover {
+    color: #ffffff;
+    background: #435128;
+    border-color: #435128;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 20px rgba(67, 81, 40, 0.32);
+  }
+
+  /* Atmospheric Cinematic Highland & Culinary Mist Overlay */
+  .hero-mist-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+    background:
+      /* Soft natural feathered corner vignette seamlessly masking artifacts */
+      radial-gradient(ellipse 65% 50% at 78% 90%, rgba(12, 16, 10, 0.94) 0%, rgba(12, 16, 10, 0.65) 40%, rgba(12, 16, 10, 0.20) 70%, transparent 100%),
+      /* Full-width smooth atmospheric mist gradient from bottom up */
+      linear-gradient(
+        to top,
+        rgba(10, 14, 8, 0.92) 0%,
+        rgba(10, 14, 8, 0.78) 22%,
+        rgba(10, 14, 8, 0.45) 46%,
+        rgba(10, 14, 8, 0.16) 68%,
+        rgba(10, 14, 8, 0.02) 86%,
+        transparent 100%
+      );
+    border-radius: inherit;
+  }
+
+  /* ── ORIGIN TO KITCHEN Video Caption Overlay ── */
+  .hero-video-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: clamp(14px, 2.5vw, 36px);
+    z-index: 4;
+    pointer-events: none;
+    user-select: none;
+    padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 44px) clamp(18px, 2.8vw, 32px);
+    background: transparent;
+  }
+
+  .hvb-word {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(26px, 4.4vw, 54px);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 1;
+    text-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.70),
+      0 6px 30px rgba(0, 0, 0, 0.50);
+  }
+
+  .hvb-to {
+    font-family: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+    font-size: clamp(20px, 3.2vw, 40px);
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    color: #f7eedf;
+    text-transform: uppercase;
+    text-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.65),
+      0 4px 20px rgba(0, 0, 0, 0.45);
+    line-height: 1;
+    position: relative;
+    top: -1px;
+  }
+
+
+
   @media(max-width: 768px) {
-    .desktop-showcase {
-      display: none !important;
-    }
-    .mobile-showcase {
-      display: flex !important;
-    }
     .hero-section {
       height: auto;
       max-height: none;
       min-height: auto;
-      padding-top: clamp(80px, 14vw, 96px);
+      padding-top: clamp(82px, 14vw, 98px);
       padding-bottom: 0 !important;
       justify-content: flex-start;
-      gap: 12px;
+      gap: 14px;
     }
     .hero-title {
-      font-size: clamp(30px, 8.5vw, 42px);
+      font-size: clamp(32px, 8.8vw, 44px);
       line-height: 1.08;
     }
     .hero-subtitle {
@@ -403,6 +558,61 @@
       margin-top: 6px;
       margin-bottom: 8px;
       line-height: 1.3;
+    }
+    .showcase-wrapper {
+      width: 100%;
+      max-width: 520px;
+      padding: 0 14px;
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .showcase-inner {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .tablet-backdrop-card {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      transform: none;
+      top: 46%;
+      bottom: 0;
+      background: #5e724d;
+      border-radius: 28px 28px 0 0;
+      box-shadow: 0 -4px 24px rgba(67, 81, 40, 0.20);
+      z-index: 1;
+    }
+    .hero-tablet-frame {
+      position: relative;
+      z-index: 2;
+      width: calc(100% - 24px);
+      max-width: 100%;
+      aspect-ratio: 16 / 9.8;
+      border-radius: 18px;
+      border: 4px solid #151813;
+      margin-bottom: 0;
+    }
+    .hvb-word {
+      font-size: clamp(17px, 4.8vw, 24px);
+      letter-spacing: 0.12em;
+    }
+    .hvb-to {
+      font-size: clamp(14px, 4.0vw, 20px);
+    }
+    .screen-top-links {
+      top: 8px;
+      gap: 6px;
+    }
+    .screen-top-link {
+      font-size: 7.5px;
+      padding: 3.5px 7.5px;
+      letter-spacing: 0.1em;
     }
   }
 
@@ -587,11 +797,48 @@
   }
   .stack-catalog-wrap {
     max-width: 1040px; margin: 36px auto 0; padding: 0 clamp(16px, 3vw, 20px);
-    display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 48px); align-items: center;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 4vw, 48px); align-items: center;
+  }
+  .stack-deck-outer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
   }
   .stack-deck-container {
-    position: relative; width: 100%; max-width: 320px; height: 360px;
-    margin: 0 auto; perspective: 1000px;
+    position: relative; width: 100%; max-width: 300px; height: 360px;
+    margin: 0; perspective: 1000px;
+    touch-action: pan-y pinch-zoom;
+  }
+  .stack-arrow-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--olive);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    z-index: 10;
+  }
+  .stack-arrow-btn:hover {
+    background: var(--olive);
+    color: #ffffff;
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(67,81,40,0.25);
+  }
+  .stack-arrow-btn:active {
+    transform: scale(0.95);
   }
   .stack-card {
     position: absolute; width: min(280px, 80vw); height: 350px;
@@ -632,9 +879,24 @@
     letter-spacing: 0.12em; text-transform: uppercase;
     padding: 4px 12px; border-radius: 999px; background: var(--cream); color: var(--olive);
   }
-  .stack-card-glyph { font-size: 78px; text-align: center; margin: 8px 0; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12)); }
-  .stack-card-title { font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 700; color: var(--ink); line-height: 1.1; }
-  .stack-card-sub   { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .stack-card-thumb {
+    width: 100%;
+    height: 175px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 8px 0;
+    background: #111;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  .stack-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .stack-card-glyph { font-size: 64px; text-align: center; margin: 8px 0; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12)); }
+  .stack-card-title { font-family: 'Instrument Serif', serif; font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.1; }
+  .stack-card-sub   { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
 
   .stack-info-panel {
     display: flex; flex-direction: column; gap: 16px;
@@ -651,7 +913,9 @@
 
   @media(max-width: 900px) {
     .stack-catalog-wrap { grid-template-columns: 1fr; gap: 32px; }
-    .stack-deck-container { height: 340px; }
+    .stack-deck-container { height: 340px; max-width: 280px; }
+    .stack-deck-outer { justify-content: center; gap: 8px; }
+    .stack-arrow-btn { width: 38px; height: 38px; font-size: 20px; }
   }
 
   /* ══════════════════════════════════════════
@@ -737,26 +1001,123 @@
   }
 
   /* ══════════════════════════════════════════
+     MOBILE PRODUCT SCROLL (replaces 3D stack)
+     ══════════════════════════════════════════ */
+  .stack-desktop-only { display: flex; }
+  .stack-mobile-scroll { display: none; }
+
+  @media (max-width: 700px) {
+    .stack-desktop-only { display: none !important; }
+    .stack-mobile-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 14px;
+      padding: 12px clamp(16px, 5vw, 28px) 24px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .stack-mobile-scroll::-webkit-scrollbar { display: none; }
+    .sms-card {
+      flex-shrink: 0;
+      width: 160px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      scroll-snap-align: start;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .sms-hsn {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--olive);
+      text-transform: uppercase;
+      background: var(--olive-faint);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .sms-glyph { font-size: 36px; line-height: 1; }
+    .sms-name {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .sms-origin {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .sms-btn {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--olive);
+      background: var(--olive-faint);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-top: 2px;
+    }
+    .sms-view-all {
+      background: var(--olive);
+      border-color: var(--olive);
+      justify-content: center;
+      min-width: 100px;
+    }
+    .sms-all-link {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+  }
+
+  /* ══════════════════════════════════════════
      KINETIC MARQUEE STRIP
      ══════════════════════════════════════════ */
   .marquee-section {
-    background: #0f1a08; padding: 12px 0; overflow: hidden;
-    border-top: 1px solid rgba(143,161,125,0.1);
-    border-bottom: 1px solid rgba(143,161,125,0.1);
+    background: #111a0d;
+    padding: 14px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(143,161,125,0.12);
+    border-bottom: 1px solid rgba(143,161,125,0.12);
   }
   .marquee-track {
-    display: flex; width: max-content;
-    animation: kta-marquee 30s linear infinite;
+    display: flex;
+    width: max-content;
+    animation: kta-marquee 32s linear infinite;
   }
   @keyframes kta-marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
   .marquee-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 0 18px; white-space: nowrap;
-    font-size: 10px; font-weight: 700; letter-spacing: 0.13em;
-    text-transform: uppercase; color: rgba(255,255,255,0.50);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 18px;
+    white-space: nowrap;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
   }
-  .marquee-icon { font-size: 12px; }
-  .marquee-dot  { width: 3px; height: 3px; border-radius: 50%; background: rgba(196,160,80,0.4); flex-shrink: 0; }
+  .marquee-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #8fa17d;
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
 
   /* Right-edge progress bar */
   .right-progress {
@@ -772,20 +1133,527 @@
     transition: height 0.06s linear;
   }
 
-  /* Floating hero particles */
-  .hero-particles {
-    position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden;
+  /* ═══════════════════════════════════════════════════════════
+     HOTEL SMART 24/7 (ZERO-DOWNTIME LOGISTICS DARK CARD — Image 1 Style)
+     ═══════════════════════════════════════════════════════════ */
+  .hotel-smart-section {
+    padding: clamp(64px, 8vw, 110px) 0;
+    background: #faf8f5;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    box-sizing: border-box;
   }
-  .hero-particle {
-    position: absolute; opacity: 0;
-    animation: hpFloat var(--dur, 10s) var(--delay, 0s) ease-in-out infinite;
-    will-change: transform, opacity;
+  .hs-dark-container {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 52px);
+    color: var(--ink);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
-  @keyframes hpFloat {
-    0%,100% { transform: translate(0, 8px) rotate(0deg) scale(0.8);   opacity: 0; }
-    15%     { opacity: 0.07; }
-    50%     { transform: translate(var(--dx,30px), var(--dy,-30px)) rotate(180deg) scale(1.1); opacity: 0.055; }
-    85%     { opacity: 0.06; }
+  .hs-dark-container::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(67, 81, 40, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hs-dark-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hs-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .hs-badge-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--olive-faint);
+    border: 1px solid rgba(67, 81, 40, 0.2);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--olive);
+  }
+  .hs-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--olive);
+    box-shadow: 0 0 6px rgba(67, 81, 40, 0.5);
+    display: inline-block;
+  }
+  .hs-badge-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hs-dark-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4.5vw, 48px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hs-dark-sub {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 28px;
+    max-width: 580px;
+  }
+  .hs-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .hs-feature-card {
+    background: #faf8f5;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .hs-feature-card:hover {
+    background: #ffffff;
+    border-color: rgba(67, 81, 40, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    transform: translateX(4px);
+  }
+  .hs-feat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--olive-faint);
+    color: var(--olive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .hs-feat-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .hs-feat-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .hs-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hs-enroll-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #435128;
+    color: #ffffff !important;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 18px rgba(67, 81, 40, 0.3);
+  }
+  .hs-enroll-btn:hover {
+    background: #2f3a1b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(67, 81, 40, 0.45);
+  }
+  .hs-hotline-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    padding: 10px 20px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .hs-hotline-pill:hover {
+    background: #faf8f5;
+    border-color: var(--olive);
+  }
+  .hs-hotline-sub {
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    line-height: 1;
+  }
+
+  /* Right Metric Box */
+  .hs-metrics-box {
+    background: #faf8f5;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 36px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
+  .hs-logo-badge {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border);
+  }
+  .hs-logo-badge img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .hs-stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    padding-top: 20px;
+  }
+  .hs-stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: var(--olive);
+  }
+  .hs-stat-lbl {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .hs-cert-chip {
+    background: var(--olive-faint);
+    border: 1px solid rgba(67, 81, 40, 0.2);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--olive);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  @media(max-width: 992px) {
+    .hs-dark-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════════════════════════════════
+     HOMEPAGE WHOLESALE & SOURCING SECTION
+     ═══════════════════════════════════════════ */
+  .ws-home-section {
+    padding: clamp(64px, 8vw, 100px) 0;
+    background: #ffffff;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .ws-home-card {
+    background: #faf8f5;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 48px);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(32px, 5vw, 60px);
+    align-items: center;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.03);
+  }
+  @media(max-width: 900px) {
+    .ws-home-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  .ws-home-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 28px;
+  }
+  .ws-home-pill {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--olive);
+    background: #ffffff;
+    border: 1px solid rgba(67, 81, 40, 0.2);
+    padding: 5px 14px;
+    border-radius: 999px;
+  }
+  .ws-home-feature-box {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .ws-home-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .ws-home-feat-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--olive-faint);
+    color: var(--olive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+  .ws-home-feat-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .ws-home-feat-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     CHEF WELCOME BOX (Luxury Presentation Showcase)
+     ═══════════════════════════════════════════════════════════ */
+  .welcome-box-showcase {
+    padding: clamp(64px, 8vw, 100px) 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .wb-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(36px, 5vw, 64px);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .wb-content-side {
+    display: flex;
+    flex-direction: column;
+  }
+  .wb-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--olive-faint);
+    color: var(--olive);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    align-self: flex-start;
+  }
+  .wb-heading {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4.5vw, 44px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.12;
+    margin-bottom: 16px;
+  }
+  .wb-lead {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .wb-points-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .wb-point {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .wb-point-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--olive);
+    flex-shrink: 0;
+  }
+  .wb-frame {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border);
+    background: #11170d;
+    position: relative;
+  }
+  .wb-frame img {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .wb-frame:hover img {
+    transform: scale(1.02);
+  }
+
+  @media(max-width: 900px) {
+    .wb-showcase-grid { grid-template-columns: 1fr; }
+    .wb-points-list { grid-template-columns: 1fr; }
+    .wb-frame img { min-height: 280px; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PREMIUM FAQ SECTION (.faq-section)
+     ═══════════════════════════════════════════════════════════ */
+  .faq-section {
+    padding: clamp(60px, 8vw, 100px) 0;
+    background: #faf8f5;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .faq-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .faq-card {
+    background: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: 18px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .faq-card:hover {
+    border-color: rgba(67, 81, 40, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  }
+  .faq-card.active {
+    border-color: var(--olive);
+    box-shadow: 0 10px 30px rgba(67, 81, 40, 0.09);
+  }
+  .faq-header {
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .faq-title {
+    font-family: 'Plus Jakarta Sans', var(--font-body), sans-serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+    transition: color 0.2s ease;
+  }
+  .faq-card.active .faq-title {
+    color: var(--olive);
+  }
+  .faq-btn-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--olive-faint);
+    color: var(--olive);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  }
+  .faq-card.active .faq-btn-icon {
+    transform: rotate(45deg);
+    background: var(--olive);
+    color: #ffffff;
+  }
+  .faq-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, padding 0.35s ease;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    padding: 0 26px;
+  }
+  .faq-card.active .faq-body {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 26px 24px;
   }
 
   </style>
@@ -806,18 +1674,27 @@
   <nav id="homeNav" class="home-nav" aria-label="Main navigation">
     <div class="home-nav-inner" id="homeNavInner">
       <a href="index.html" class="home-nav-logo" id="homeNavLogo" aria-label="KTA Spices Home">
-        <img src="images/ktanewlogo.png" alt="KTA Spices">
+        <img src="images/ktaspicesnewlogo.png" alt="KTA Spices — Premium Spices">
       </a>
       <ul class="home-nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="catalogue.html">Catalogue</a></li>
-        <li><a href="wholesale.html">Wholesale</a></li>
-        <li><a href="hotel-smart.html">Hotel Smart 24/7</a></li>
-        <li><a href="heritage.html">Heritage</a></li>
-        <li><a href="contact.html">Quick Call</a></li>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="heritage.html">HERITAGE</a></li>
+        <li><a href="catalogue.html">CATALOGUE</a></li>
+        <li><a href="partnership.html">PARTNERSHIP</a></li>
+        <li><a href="wholesale.html">WHOLESALE</a></li>
+        <li><a href="#hotelSmart">HOTEL SMART 24/7</a></li>
       </ul>
-      <div class="home-nav-cta">
-        <a href="partnership.html" class="btn btn-primary btn-sm">Register Kitchen ↗</a>
+      <div class="home-nav-actions">
+        <a href="tel:+918838971069" class="nav-phone-contact" title="Direct Phone Line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="nav-phone-icon">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span class="nav-phone-text">+91 88389 71069</span>
+        </a>
+        <a href="https://wa.me/918838971069?text=Hello%20KTA%20Team%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" class="nav-quick-enquiry" title="WhatsApp Enquiry">
+          <span class="nav-wa-dot"></span> WhatsApp Enquiry
+        </a>
+        <a href="partnership.html#registerKitchen" class="nav-register-btn">REGISTER KITCHEN</a>
       </div>
       <button class="home-hamburger" id="navHamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -829,76 +1706,76 @@
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-panel" id="mobilePanel">
     <div class="mobile-panel-head">
-      <img src="images/ktanewlogo.png" alt="KTA Spices">
+      <img src="images/ktaspicesnewlogo.png" alt="KTA Spices">
       <button class="mobile-close" id="mobileClose">&times;</button>
     </div>
     <div class="mobile-links">
-      <a href="index.html">Home</a>
-      <a href="catalogue.html">Catalogue</a>
-      <a href="wholesale.html">Wholesale</a>
-      <a href="hotel-smart.html">Hotel Smart 24/7</a>
-      <a href="heritage.html">Heritage</a>
-      <a href="contact.html">Quick Call</a>
+      <a href="index.html">HOME</a>
+      <a href="heritage.html">HERITAGE</a>
+      <a href="catalogue.html">CATALOGUE</a>
+      <a href="partnership.html">PARTNERSHIP</a>
+      <a href="wholesale.html">WHOLESALE</a>
+      <a href="#hotelSmart">HOTEL SMART 24/7</a>
+      <a href="tel:+918838971069" style="color: #435128; font-weight: 700;">Direct: +91 88389 71069</a>
+      <a href="https://wa.me/918838971069" target="_blank" rel="noopener" style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
     </div>
-    <a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a>
+    <a href="partnership.html#registerKitchen" class="nav-cta-btn" style="margin-top:16px;text-align:center">REGISTER KITCHEN</a>
   </div>
 
   <!-- ══════════════════════════════════
-       HERO — FINAL (structure preserved)
+       HERO — FINAL
        ══════════════════════════════════ -->
   <section class="hero-section">
-    <!-- Floating spice particles -->
-    <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
     <div class="hero-header-wrap">
       <h1 class="hero-title" id="heroTitle">Sourced at Origin<br>Served at the Top</h1>
-      <p class="hero-subtitle">KTA Brings Exceptional Spices and Dry Fruits to Elite Kitchens</p>
+      <p class="hero-subtitle">KTA Brings Exceptional Spices and Dry Fruits to Elite Kitchens Across South India</p>
     </div>
-    <!-- Desktop Tablet Showcase (Wide iPad) -->
-    <div class="showcase-wrapper desktop-showcase">
+    <!-- Tablet Showcase (iPad Mockup with Green Backdrop) -->
+    <div class="showcase-wrapper">
       <div class="showcase-inner">
-        <img src="hero.png" alt="KTA Spices — Origin to Kitchen" class="hero-showcase-img" loading="eager">
-        <!-- Interactive navigation links on iPad screen -->
-        <div class="screen-top-links">
-          <a href="partnership.html" class="screen-top-link" id="partnershipLink" title="Partnership Enquiry">PARTNERSHIP ENQUIRY</a>
-          <a href="catalogue.html"  class="screen-top-link" id="catalogueLink" title="Explore Catalogue">EXPLORE CATALOGUE</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile Phone Showcase (Dedicated Portrait Mockup) -->
-    <div class="mobile-showcase" aria-label="KTA Origin to Kitchen Mobile Showcase">
-      <div class="phone-stage-wrapper">
-        <div class="phone-backdrop-card" aria-hidden="true"></div>
-        <div class="phone-device-frame">
-          <div class="phone-notch" aria-hidden="true"></div>
-          <!-- Clean Unobstructed Wallpaper Screen -->
-          <div class="phone-screen-content">
-            <img src="images/hero-mobile.jpg" alt="Origin to Kitchen — Sourced at Origin, Served at the Top" class="phone-screen-bg" loading="eager">
+        <div class="tablet-backdrop-card" aria-hidden="true"></div>
+        <div class="hero-tablet-frame">
+          <video class="hero-showcase-video" autoplay loop muted playsinline poster="hero.png">
+            <source src="hero-video1.mp4" type="video/mp4">
+          </video>
+          <!-- Atmospheric mist overlay seamlessly blending bottom video and masking artifacts -->
+          <div class="hero-mist-layer" aria-hidden="true"></div>
+          <!-- Interactive navigation links on iPad screen -->
+          <div class="screen-top-links">
+            <a href="partnership.html" class="screen-top-link" id="partnershipLink" title="Partnership Enquiry">PARTNERSHIP ENQUIRY</a>
+            <a href="catalogue.html"  class="screen-top-link" id="catalogueLink" title="Explore Catalogue">EXPLORE CATALOGUE</a>
+          </div>
+          <!-- ORIGIN TO KITCHEN Video Caption -->
+          <div class="hero-video-banner">
+            <span class="hvb-word">ORIGIN</span>
+            <span class="hvb-to">TO</span>
+            <span class="hvb-word">KITCHEN</span>
           </div>
         </div>
       </div>
     </div>
+
   </section>
 
   <!-- ── Kinetic Marquee ── -->
   <div class="marquee-section" aria-hidden="true">
     <div class="marquee-track">
-      <div class="marquee-item"><span class="marquee-icon">🌿</span>Farm-Direct Spices<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">📦</span>Batch-Traceable Quality<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">🏔️</span>Origin-Certified<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">⭐</span>250+ Elite Kitchens<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">✅</span>FSSAI Certified<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">⚡</span>24-Hour Dispatch Guarantee<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">🏺</span>30 Years of Heritage<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">🗺️</span>Kashmir to Kochi<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">🌿</span>Farm-Direct Spices<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">📦</span>Batch-Traceable Quality<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">🏔️</span>Origin-Certified<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">⭐</span>250+ Elite Kitchens<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">✅</span>FSSAI Certified<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">⚡</span>24-Hour Dispatch Guarantee<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">🏺</span>30 Years of Heritage<span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-icon">🗺️</span>Kashmir to Kochi<span class="marquee-dot"></span></div>
+      <div class="marquee-item">FARM-DIRECT SPICES<span class="marquee-dot"></span></div>
+      <div class="marquee-item">BATCH-TRACEABLE QUALITY<span class="marquee-dot"></span></div>
+      <div class="marquee-item">ORIGIN-CERTIFIED<span class="marquee-dot"></span></div>
+      <div class="marquee-item">250+ ELITE KITCHENS<span class="marquee-dot"></span></div>
+      <div class="marquee-item">FSSAI CERTIFIED<span class="marquee-dot"></span></div>
+      <div class="marquee-item">2–24 HOUR DISPATCH GUARANTEE<span class="marquee-dot"></span></div>
+      <div class="marquee-item">25+ YEARS OF EXCELLENCE<span class="marquee-dot"></span></div>
+      <div class="marquee-item">ORIGIN DIRECT TO KITCHEN<span class="marquee-dot"></span></div>
+      <div class="marquee-item">FARM-DIRECT SPICES<span class="marquee-dot"></span></div>
+      <div class="marquee-item">BATCH-TRACEABLE QUALITY<span class="marquee-dot"></span></div>
+      <div class="marquee-item">ORIGIN-CERTIFIED<span class="marquee-dot"></span></div>
+      <div class="marquee-item">250+ ELITE KITCHENS<span class="marquee-dot"></span></div>
+      <div class="marquee-item">FSSAI CERTIFIED<span class="marquee-dot"></span></div>
+      <div class="marquee-item">2–24 HOUR DISPATCH GUARANTEE<span class="marquee-dot"></span></div>
+      <div class="marquee-item">25+ YEARS OF EXCELLENCE<span class="marquee-dot"></span></div>
+      <div class="marquee-item">ORIGIN DIRECT TO KITCHEN<span class="marquee-dot"></span></div>
     </div>
   </div>
 
@@ -915,69 +1792,112 @@
       </div>
       <h2 class="display-lg" style="max-width:380px;line-height:1.08" data-reveal data-delay="1">Generations<br>in the Highlands.</h2>
       <p class="body-sm" style="max-width:380px" data-reveal data-delay="2">Every variety in our catalogue carries thirty years of direct relationship — with the farmer, the soil, and the season. When you open a KTA bag, you open a lineage.</p>
-      <p class="body-sm" style="max-width:380px" data-reveal data-delay="3">From Wayanad's pepper belt to Kashmir's crocus fields, our growers don't sell to the market — they sell to us. And we bring their finest, unchanged, to your kitchen.</p>
+      <p class="body-sm" style="max-width:380px" data-reveal data-delay="3">Direct from root origin to your kitchen pass — our growers don't sell to the open market, they partner directly with KTA. And we bring their finest harvest, unadulterated and batch-traceable, to your executive stations.</p>
       <div class="highlands-social" data-reveal data-delay="4">
         <a href="#">Instagram</a>
         <a href="#">LinkedIn</a>
-        <a href="#">WhatsApp Trade</a>
+        <a href="https://wa.me/918838971069">WhatsApp Trade</a>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════
-       SECTION 2: Zero-Downtime & Hotel Smart Growth (White Background + Comet Arrow)
+       SECTION 2: Zero-Downtime Kitchen Logistics (Hotel Smart 24/7 Dark Card — Image 1)
        ══════════════════════════════════ -->
-  <section class="zd-section" id="zdSection" style="background:#ffffff">
+  <section class="hotel-smart-section" id="hotelSmart">
     <div class="container">
-      <div class="zd-grid" data-reveal>
-        <!-- Left: Explanation Text -->
-        <div class="zd-text-flex">
-          <div class="zd-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-          </div>
+      <div class="hs-dark-container" data-reveal>
+        <div class="hs-dark-grid">
+          <!-- Left Column -->
           <div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Hotel Smart 24/7</div>
-            <h2 class="display-md" style="max-width:540px;margin-bottom:14px">Zero-Downtime<br>Kitchen Logistics.</h2>
-            <p class="body-sm" style="max-width:520px;margin-bottom:18px">Our dedicated hotel supply network dispatches within 24 hours, every time. No stock-outs, no partial deliveries, no last-minute substitutions — your mise en place stays exactly as you planned it.</p>
-            <a href="hotel-smart.html" class="zd-link">Explore Hotel Smart 24/7 →</a>
+            <div class="hs-badge-row">
+              <span class="hs-badge-live"><span class="hs-live-dot"></span> 24/7 ACTIVE TRADE DESK</span>
+              <span class="hs-badge-label">HOTEL SMART LOGISTICS</span>
+            </div>
+            
+            <h2 class="hs-dark-title">Zero-Downtime Kitchen Logistics</h2>
+            <p class="hs-dark-sub">Engineered exclusively for luxury hotels, banquet operations, and Michelin-caliber commercial kitchens. Guaranteed round-the-clock priority dispatch across our full spice catalogue with zero delivery charges.</p>
+            
+            <div class="hs-feature-list">
+              <!-- Feature 1 -->
+              <div class="hs-feature-card">
+                <div class="hs-feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div>
+                  <div class="hs-feat-title">24/7 Priority Dispatch</div>
+                  <div class="hs-feat-desc">Emergency restock delivery during high-volume service hours with zero downtime.</div>
+                </div>
+              </div>
+
+              <!-- Feature 2 -->
+              <div class="hs-feature-card">
+                <div class="hs-feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <div>
+                  <div class="hs-feat-title">Zero Delivery Fees</div>
+                  <div class="hs-feat-desc">Complimentary doorstep delivery on all standard catalogue procurement orders.</div>
+                </div>
+              </div>
+
+              <!-- Feature 3 -->
+              <div class="hs-feature-card">
+                <div class="hs-feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <div class="hs-feat-title">Bespoke Origin Sourcing</div>
+                  <div class="hs-feat-desc">On-demand sourcing for rare botanical varietals and custom spice grades.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hs-actions-row">
+              <a href="partnership.html#registerKitchen" class="hs-enroll-btn">Enroll in Hotel Smart 24/7 ➔</a>
+              <a href="tel:+918838971069" class="hs-hotline-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div>
+                  <span class="hs-hotline-sub">TRADE DESK HOTLINE</span>
+                  +91 88389 71069
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <!-- Right: Hotel Smart Growth Card with Shooting Comet Arrow -->
-        <div class="hs-growth-wrap" id="hsGrowthWrap">
-          <div class="hs-growth-badge" id="hsGrowthBadge">✦ 24/7 Growth</div>
-          <img src="images/hotelsmart.png" alt="Hotel Smart 24/7 Growth Concept" class="hs-growth-img">
-          <div class="hs-growth-label">24/7 Logistics Network</div>
+          <!-- Right Column / Metric Box -->
+          <div class="hs-metrics-box">
+            <div class="hs-logo-badge">
+              <img src="images/hotelsmart.png" alt="Hotel Smart 24/7 Logo">
+            </div>
 
-          <!-- Growth Comet Arrow Overlay (shoots from side to top right) -->
-          <svg class="hs-shooting-arrow-svg" viewBox="0 0 280 280" fill="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="hsCometGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#435128" stop-opacity="0"/>
-                <stop offset="30%" stop-color="#435128" stop-opacity="0.3"/>
-                <stop offset="70%" stop-color="#8fa17d"/>
-                <stop offset="100%" stop-color="#ffd700"/>
-              </linearGradient>
-              <filter id="hsCometGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="4.5" result="blur"/>
-                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-              </filter>
-            </defs>
-            <!-- Comet tail trajectory path -->
-            <path class="hs-comet-path" id="hsArrowPath" d="M 10 240 C 30 180, 80 140, 140 85 C 180 45, 210 30, 238 22" stroke="url(#hsCometGrad)" stroke-width="5" stroke-linecap="round"/>
-            <!-- Glowing Comet Star Head -->
-            <g class="hs-comet-head" id="hsArrowHead">
-              <path d="M 238 22 L 255 16 L 245 35 Z" fill="#ffd700" filter="url(#hsCometGlow)"/>
-              <circle cx="242" cy="22" r="5" fill="#ffffff" filter="url(#hsCometGlow)"/>
-            </g>
-          </svg>
+            <div class="hs-stats-strip">
+              <div>
+                <div class="hs-stat-num">2–24h</div>
+                <div class="hs-stat-lbl">DISPATCH SLA</div>
+              </div>
+              <div>
+                <div class="hs-stat-num">0%</div>
+                <div class="hs-stat-lbl">FREIGHT CHARGE</div>
+              </div>
+              <div>
+                <div class="hs-stat-num">250+</div>
+                <div class="hs-stat-lbl">KITCHENS</div>
+              </div>
+            </div>
+
+            <div class="hs-cert-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              FSSAI Certified • 100% Batch Traceable
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════
-       SECTION 3: The Heritage Merchant (Framed heritage2.jpg)
+       SECTION 3: The Heritage Merchant
        ══════════════════════════════════ -->
   <section class="heritage-merchant">
     <div class="heritage-merchant-text">
@@ -985,7 +1905,7 @@
         <span class="eyebrow">Our Method</span>
       </div>
       <h2 class="display-xl" style="font-style:italic;max-width:400px;line-height:1.05" data-reveal data-delay="1">The Heritage<br>Merchant.</h2>
-      <p class="body-sm" style="max-width:400px" data-reveal data-delay="2">KTA has never traded through auction floors, never mixed origins, never labelled one region's harvest as another's. That's not a policy — it's a principle that predates our business. The same families that grew our first peppercorn are still our primary source.</p>
+      <p class="body-sm" style="max-width:400px" data-reveal data-delay="2">KTA has never traded through auction floors, never mixed origins, never labelled one harvest as another's. That's not a policy — it's a principle that predates our business. The same families that grew our first peppercorn are still our primary source.</p>
       <div data-reveal data-delay="3">
         <a href="heritage.html" class="btn btn-primary" style="margin-top:8px">Read Our Heritage →</a>
       </div>
@@ -998,76 +1918,211 @@
   </section>
 
   <!-- ══════════════════════════════════
-       SECTION 4: Curated Spice Transit (Stacked Deck UI - Screenshot 1 Style)
+       SECTION 4: Curated Spice Transit (Stacked Deck UI with Mobile Arrows)
        ══════════════════════════════════ -->
   <section class="premium-section" id="catalogueDeckSection">
     <div class="container">
       <div class="text-center" data-reveal style="text-align:center;margin:0 auto">
         <span class="eyebrow" style="display:block;margin:0 auto 12px">Interactive Catalogue Deck</span>
         <h2 class="display-lg mx-auto" style="max-width:540px;text-align:center;margin:0 auto 16px">Curated Spice Transit.</h2>
-        <p class="lead text-center mx-auto" style="max-width:500px;text-align:center;margin:0 auto">Click or tap any card in the stack to transition products. 50+ SKUs batch-certified per lot.</p>
+        <p class="lead text-center mx-auto" style="max-width:500px;text-align:center;margin:0 auto">50+ SKUs batch-certified per lot.</p>
       </div>
     </div>
 
-    <div class="stack-catalog-wrap" data-reveal data-delay="1">
-      <!-- 3D Stacked Deck -->
-      <div class="stack-deck-container" id="stackDeckContainer">
-        <div class="stack-card" data-pos="0" onclick="nextStackCard()">
-          <span class="stack-card-badge">Single Origin</span>
-          <span class="stack-card-glyph">🌶</span>
-          <div>
-            <div class="stack-card-title">Kashmiri Chilli</div>
-            <div class="stack-card-sub">📍 Kashmir Valley · ASTA 120+</div>
+    <!-- Desktop: 3D Stacked Deck -->
+    <div class="stack-catalog-wrap stack-desktop-only" data-reveal data-delay="1">
+      <div class="stack-deck-outer">
+        <button class="stack-arrow-btn stack-arrow-left" onclick="prevStackCard()" aria-label="Previous Product">‹</button>
+        <div class="stack-deck-container" id="stackDeckContainer">
+          <div class="stack-card" data-pos="0" onclick="nextStackCard()">
+            <span class="stack-card-badge">Single Origin</span>
+            <div class="stack-card-thumb">
+              <img src="images/images/BlackPepper.png" alt="KTA Black Pepper Pouch">
+            </div>
+            <div>
+              <div class="stack-card-title">BLACK PEPPER</div>
+              <div class="stack-card-sub">HSN: 09041140 · Tellicherry Grade</div>
+            </div>
+          </div>
+          <div class="stack-card" data-pos="1" onclick="nextStackCard()">
+            <span class="stack-card-badge">Single Origin</span>
+            <div class="stack-card-thumb">
+              <img src="images/images/KashmiriChilly.png" alt="KTA Kashmiri Chilli Pouch">
+            </div>
+            <div>
+              <div class="stack-card-title">KASHMIRI CHILLY</div>
+              <div class="stack-card-sub">HSN: 09042219 · ASTA 120+ Grade</div>
+            </div>
+          </div>
+          <div class="stack-card" data-pos="2" onclick="nextStackCard()">
+            <span class="stack-card-badge">Single Origin</span>
+            <div class="stack-card-thumb">
+              <img src="images/images/turmericpowder.png" alt="KTA Turmeric Powder Pouch">
+            </div>
+            <div>
+              <div class="stack-card-title">TURMERIC POWDER</div>
+              <div class="stack-card-sub">HSN: 09103030 · 5%+ Curcumin</div>
+            </div>
+          </div>
+          <div class="stack-card" data-pos="3" onclick="nextStackCard()">
+            <span class="stack-card-badge">Single Origin</span>
+            <div class="stack-card-thumb">
+              <img src="images/images/whitecardamom.png" alt="KTA Cardamom Pouch">
+            </div>
+            <div>
+              <div class="stack-card-title">WHITE CARDAMOM</div>
+              <div class="stack-card-sub">HSN: 09083140 · Selected Grade</div>
+            </div>
+          </div>
+          <div class="stack-card" data-pos="4" onclick="nextStackCard()">
+            <span class="stack-card-badge">Single Origin</span>
+            <div class="stack-card-thumb">
+              <img src="images/images/JeeraWhole.png" alt="KTA Jeera Whole Pouch">
+            </div>
+            <div>
+              <div class="stack-card-title">JEERA WHOLE</div>
+              <div class="stack-card-sub">HSN: 09093119 · Whole Cumin</div>
+            </div>
           </div>
         </div>
-        <div class="stack-card" data-pos="1" onclick="nextStackCard()">
-          <span class="stack-card-badge">Highland Grade</span>
-          <span class="stack-card-glyph">🫛</span>
-          <div>
-            <div class="stack-card-title">Alleppey Cardamom</div>
-            <div class="stack-card-sub">📍 Idukki, Kerala · 8mm+ Pods</div>
-          </div>
-        </div>
-        <div class="stack-card" data-pos="2" onclick="nextStackCard()">
-          <span class="stack-card-badge">A++ Certified</span>
-          <span class="stack-card-glyph">🌸</span>
-          <div>
-            <div class="stack-card-title">Kashmir Saffron</div>
-            <div class="stack-card-sub">📍 Pampore, Kashmir · ISO 3632-1</div>
-          </div>
-        </div>
-        <div class="stack-card" data-pos="3" onclick="nextStackCard()">
-          <span class="stack-card-badge">5%+ Curcumin</span>
-          <span class="stack-card-glyph">🌼</span>
-          <div>
-            <div class="stack-card-title">Erode Turmeric</div>
-            <div class="stack-card-sub">📍 Tamil Nadu · Finger Variety</div>
-          </div>
-        </div>
-        <div class="stack-card" data-pos="4" onclick="nextStackCard()">
-          <span class="stack-card-badge">Volatile Oil A-Grade</span>
-          <span class="stack-card-glyph">🌾</span>
-          <div>
-            <div class="stack-card-title">Rajasthan Cumin</div>
-            <div class="stack-card-sub">📍 Jodhpur, Rajasthan · Export Quality</div>
-          </div>
-        </div>
+        <button class="stack-arrow-btn stack-arrow-right" onclick="nextStackCard()" aria-label="Next Product">›</button>
       </div>
 
       <!-- Active Info Panel -->
       <div class="stack-info-panel" id="stackInfoPanel">
-        <span class="stack-info-eyebrow" id="stkEyebrow">✦ Active Product Deck — 01 / 05</span>
-        <div class="stack-info-name" id="stkName">Kashmiri Chilli</div>
-        <div class="stack-info-desc" id="stkDesc">Hand-selected scarlet chillies from Kashmir Valley. Graded at ASTA 120+ for intense natural color retention and mild, fruity heat. Preferred by executive biryani and gravy specialists.</div>
+        <span class="stack-info-eyebrow" id="stkEyebrow">✦ Active Product — 01 / 05</span>
+        <div class="stack-info-name" id="stkName">BLACK PEPPER</div>
+        <div class="stack-info-desc" id="stkDesc">Bold export-grade Tellicherry whole peppercorns. High piperine content, intense penetrating aroma and clean lingering heat. Single origin — Kerala coast.</div>
         <div class="stack-info-chips" id="stkChips">
           <span class="stack-info-chip">Single Origin</span>
-          <span class="stack-info-chip">Vacuum Packed</span>
           <span class="stack-info-chip">FSSAI Certified</span>
-          <span class="stack-info-chip">MOQ: 5kg</span>
+          <span class="stack-info-chip">HSN: 09041140</span>
+          <span class="stack-info-chip">Wholesale Supply</span>
         </div>
         <div class="stack-nav-btns">
-          <button class="btn btn-primary" onclick="nextStackCard()">Next Card ➔</button>
-          <a href="catalogue.html" class="btn btn-outline">Explore Full Catalogue ↗</a>
+          <button class="btn btn-primary" onclick="nextStackCard()">Next Product ➔</button>
+          <a href="catalogue.html" class="btn btn-outline">Full Catalogue ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile: Simple Horizontal Scroll -->
+    <div class="stack-mobile-scroll" data-reveal data-delay="1">
+      <div class="sms-card">
+        <div class="sms-hsn">HSN: 09041140</div>
+        <div class="sms-thumb">
+          <img src="images/images/BlackPepper.png" alt="KTA Black Pepper Pouch">
+        </div>
+        <div class="sms-name">BLACK PEPPER</div>
+        <div class="sms-origin">Single Origin</div>
+        <a href="catalogue.html" class="sms-btn">View ↗</a>
+      </div>
+      <div class="sms-card">
+        <div class="sms-hsn">HSN: 09042219</div>
+        <div class="sms-thumb">
+          <img src="images/images/KashmiriChilly.png" alt="KTA Kashmiri Chilli Pouch">
+        </div>
+        <div class="sms-name">KASHMIRI CHILLY</div>
+        <div class="sms-origin">Single Origin</div>
+        <a href="catalogue.html" class="sms-btn">View ↗</a>
+      </div>
+      <div class="sms-card">
+        <div class="sms-hsn">HSN: 09103030</div>
+        <div class="sms-thumb">
+          <img src="images/images/turmericpowder.png" alt="KTA Turmeric Powder Pouch">
+        </div>
+        <div class="sms-name">TURMERIC POWDER</div>
+        <div class="sms-origin">Single Origin</div>
+        <a href="catalogue.html" class="sms-btn">View ↗</a>
+      </div>
+      <div class="sms-card">
+        <div class="sms-hsn">HSN: 09083140</div>
+        <div class="sms-thumb">
+          <img src="images/images/whitecardamom.png" alt="KTA Cardamom Pouch">
+        </div>
+        <div class="sms-name">WHITE CARDAMOM</div>
+        <div class="sms-origin">Single Origin</div>
+        <a href="catalogue.html" class="sms-btn">View ↗</a>
+      </div>
+      <div class="sms-card">
+        <div class="sms-hsn">HSN: 09093119</div>
+        <div class="sms-thumb">
+          <img src="images/images/JeeraWhole.png" alt="KTA Jeera Whole Pouch">
+        </div>
+        <div class="sms-name">JEERA WHOLE</div>
+        <div class="sms-origin">Single Origin</div>
+        <a href="catalogue.html" class="sms-btn">View ↗</a>
+      </div>
+      <div class="sms-card sms-view-all">
+        <a href="catalogue.html" class="sms-all-link">View Full<br>Catalogue ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION: Wholesale & Custom Sourcing
+       ══════════════════════════════════ -->
+  <section class="ws-home-section" id="wholesaleHome">
+    <div class="container">
+      <div class="ws-home-card" data-reveal>
+        <div>
+          <span class="eyebrow" style="margin-bottom:8px;display:inline-block">Institutional Supply &amp; Custom Procurement</span>
+          <h2 class="display-lg" style="margin-bottom:14px;line-height:1.15">Wholesale &amp; Custom Spice Sourcing.</h2>
+          <p class="body-sm" style="color:var(--muted);max-width:540px;line-height:1.65">In addition to our core commercial catalogue, KTA provides high-volume <strong>100kg+ bulk supply</strong> (whole pepper, lite berries, pinheads, pepper husk, spent biomass) and <strong>end-to-end custom outsourcing &amp; export-grade origin packing</strong> for rare botanical varietals or bulk commodities not listed in our standard catalogue.</p>
+          
+          <div class="ws-home-pills">
+            <span class="ws-home-pill">100kg Min. Order</span>
+            <span class="ws-home-pill">Extraction Byproducts</span>
+            <span class="ws-home-pill">Bespoke Lot Procurement</span>
+            <span class="ws-home-pill">24h+ Flexible Dispatch</span>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+            <a href="wholesale.html" class="btn btn-primary" style="background:#435128;border-radius:999px;padding:12px 28px">Explore Wholesale &amp; Sourcing ↗</a>
+            <a href="https://wa.me/918838971069?text=Hello%20KTA%20Team%2C%20I%20am%20interested%20in%20Wholesale%20and%20Custom%20Sourcing." target="_blank" rel="noopener" class="btn btn-outline" style="border-radius:999px;padding:12px 24px">Request Custom Lot ↗</a>
+          </div>
+        </div>
+
+        <div class="ws-home-feature-box">
+          <div class="ws-home-feature-item">
+            <div class="ws-home-feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <div>
+              <div class="ws-home-feat-title">Bulk 100kg Packaging</div>
+              <div class="ws-home-feat-desc">Moisture-sealed food-grade bulk bags, drum packs, and multi-ton consignments with locked wholesale pricing.</div>
+            </div>
+          </div>
+          <div class="ws-home-feature-item">
+            <div class="ws-home-feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M10 2v7.31L4.66 18.2A2 2 0 0 0 6.38 21h11.24a2 2 0 0 0 1.72-2.8L14 9.31V2h-4z"></path>
+                <path d="M8.5 2h7"></path>
+                <path d="M7 16h10"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="ws-home-feat-title">Extraction &amp; Oleoresin Grades</div>
+              <div class="ws-home-feat-desc">High-potency pepper byproducts, lite berries, pinheads, and spent spice residues for industrial processors.</div>
+            </div>
+          </div>
+          <div class="ws-home-feature-item">
+            <div class="ws-home-feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="ws-home-feat-title">Custom Outsourcing &amp; Sourcing</div>
+              <div class="ws-home-feat-desc">Direct farm-gate sourcing for custom agricultural commodities, specific mesh sizes, and unlisted botanicals.</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1195,7 +2250,119 @@
   </section>
 
   <!-- ══════════════════════════════════
-       MINIMALIST LIGHT FOOTER (Screenshot 4 Style)
+       SECTION 6: Chef Welcome Box / Discovery Kit
+       ══════════════════════════════════ -->
+  <section class="welcome-box-showcase" id="welcomeBox">
+    <div class="container">
+      <div class="wb-showcase-grid">
+        <div class="wb-content-side" data-reveal>
+          <span class="wb-badge-pill">✦ Complimentary Chef Discovery Kit</span>
+          <h2 class="wb-heading">We Provide Chef Welcome Boxes.</h2>
+          <p class="wb-lead">Experience the unadulterated single-origin aroma before placing your quarterly institutional orders. We hand-deliver a complimentary discovery kit of our verified spice harvests straight to Executive Chefs and Hotel Procurement Directors.</p>
+          
+          <div class="wb-points-list">
+            <div class="wb-point"><span class="wb-point-dot"></span> 100% Complimentary Delivery</div>
+            <div class="wb-point"><span class="wb-point-dot"></span> Certified Single-Origin Harvests</div>
+            <div class="wb-point"><span class="wb-point-dot"></span> Clinical Batch QC Certificates</div>
+            <div class="wb-point"><span class="wb-point-dot"></span> Hand-Delivered to Executive Chefs</div>
+          </div>
+
+          <div style="display:flex;gap:14px;flex-wrap:wrap">
+            <a href="partnership.html#registerKitchen" class="btn btn-primary" style="background:#435128;border-radius:999px;padding:14px 30px">Claim Welcome Box ↗</a>
+            <a href="https://wa.me/918838971069?text=Hello%20KTA%20Team%2C%20I%20am%20an%20Executive%20Chef%20requesting%20the%20Chef%20Welcome%20Box." target="_blank" rel="noopener" class="btn btn-outline" style="border-radius:999px;padding:14px 28px">WhatsApp Desk ↗</a>
+          </div>
+        </div>
+
+        <div class="wb-frame" data-reveal data-delay="1">
+          <img src="images/chef-welcome-box.jpg" alt="KTA Chef Discovery Welcome Sample Box for Executive Hotel Chefs">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION 7: Frequently Asked Questions (FAQ)
+       ══════════════════════════════════ -->
+  <section class="faq-section" id="faqSection">
+    <div class="container">
+      <div class="text-center" data-reveal style="text-align:center;margin-bottom:44px">
+        <span class="eyebrow" style="margin-bottom:8px;display:block">Questions &amp; Clarity</span>
+        <h2 class="display-lg">Frequently Asked Questions.</h2>
+        <p class="lead" style="max-width:520px;margin:0 auto">Simple, clear answers for Executive Chefs, Hotel Purchasing Heads, and Restaurant Owners.</p>
+      </div>
+
+      <div class="faq-wrap" data-reveal data-delay="1">
+        <!-- FAQ 1 -->
+        <div class="faq-card active">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span class="faq-title">What is the minimum order quantity (MOQ) for wholesale?</span>
+            <div class="faq-btn-icon">+</div>
+          </div>
+          <div class="faq-body">
+            Our standard commercial wholesale packaging starts from <strong>40kg to 100kg</strong> per variety (with commercial bulk lots from 100kg to multi-ton consignments) in multi-layer moisture-sealed food-grade bags or drum packs. For verified Executive Chefs and Hotel Purchase Heads, complimentary Welcome Discovery Sample Kits are provided at zero cost with no minimums.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span class="faq-title">How fast is delivery across South India?</span>
+            <div class="faq-btn-icon">+</div>
+          </div>
+          <div class="faq-body">
+            Under our <strong>Hotel Smart 24/7</strong> logistics network, orders placed by commercial kitchen accounts are dispatched within <strong>2 to 24 hours</strong> (with flexible delivery schedules tailored to your culinary volume and location) with cold-chain and moisture-locked protection straight to your receiving bay.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span class="faq-title">Are KTA spices batch-tested and single-origin certified?</span>
+            <div class="faq-btn-icon">+</div>
+          </div>
+          <div class="faq-body">
+            Yes. Every consignment carries an origin lot number, moisture threshold analysis, ASTA color value, and FSSAI certificate. We never blend harvests or add artificial polishing agents.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span class="faq-title">How do Executive Chefs receive the Welcome Discovery Kit?</span>
+            <div class="faq-btn-icon">+</div>
+          </div>
+          <div class="faq-body">
+            Simply visit the <a href="partnership.html#registerKitchen" style="color:var(--olive);font-weight:700">Partnership page</a>, enter your property name and contact number, and our trade concierge will coordinate delivery of your complimentary box within 2 to 24 hours.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span class="faq-title">Do you offer strategic sourcing, custom grinding, or pepper byproducts?</span>
+            <div class="faq-btn-icon">+</div>
+          </div>
+          <div class="faq-body">
+            Yes. We handle end-to-end institutional procurement, custom coarse/fine grinding specifications, whole peppercorns, pepper husk/pinheads, and rare single-origin botanicals.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-card">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span class="faq-title">What payment and credit terms are available for institutional accounts?</span>
+            <div class="faq-btn-icon">+</div>
+          </div>
+          <div class="faq-body">
+            We offer flexible billing structures, quarterly locked volume contracts to protect your food cost margins, and customized credit terms for verified commercial hospitality accounts after initial onboarding.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       MINIMALIST LIGHT FOOTER
        ══════════════════════════════════ -->
   <footer class="minimalist-footer-section">
     <div class="container">
@@ -1206,16 +2373,19 @@
       </div>
 
       <div class="min-footer-nav">
+        <a href="index.html">Home</a>
         <a href="heritage.html">Heritage</a>
         <a href="catalogue.html">Catalogue</a>
+        <a href="partnership.html">Partnership</a>
         <a href="wholesale.html">Wholesale</a>
-        <a href="hotel-smart.html">Hotel Smart 24/7</a>
+        <a href="index.html#hotelSmart">Hotel Smart 24/7</a>
         <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
       </div>
 
       <div class="min-footer-bottom">
         <div>© 2026 KTA Spices Heritage Merchant. All Rights Reserved.</div>
-        <div>FSSAI Certified · Batch Traceable · 250+ Kitchens</div>
+        <div>FSSAI Certified · Batch Traceable · 250+ Kitchens Across South India</div>
       </div>
     </div>
   </footer>
@@ -1236,13 +2406,13 @@
 
   /* 2. Lenis smooth scroll */
   var lenis = new Lenis({
-    duration: 1.1,
+    duration: 0.65,
     easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 1.5,
+    wheelMultiplier: 1.25,
+    touchMultiplier: 1.8,
     infinite: false,
   });
   lenis.on('scroll', ScrollTrigger.update);
@@ -1284,25 +2454,7 @@
     el.innerHTML = out;
   })();
 
-  /* 5. Hero floating particles */
-  (function() {
-    var wrap = document.getElementById('heroParticles');
-    if (!wrap) return;
-    var glyphs = ['🌶','🫛','🌸','🌾','🌼','⭐'];
-    for (var i = 0; i < 14; i++) {
-      var p = document.createElement('div');
-      p.className = 'hero-particle';
-      p.textContent = glyphs[i % glyphs.length];
-      p.style.left  = (5  + Math.random() * 90) + '%';
-      p.style.top   = (15 + Math.random() * 70) + '%';
-      p.style.fontSize = (13 + Math.random() * 13) + 'px';
-      p.style.setProperty('--dur',   (9  + Math.random() * 10) + 's');
-      p.style.setProperty('--delay', (Math.random() * 8)       + 's');
-      p.style.setProperty('--dx',    ((Math.random() - 0.5) * 100) + 'px');
-      p.style.setProperty('--dy',    ((Math.random() - 0.5) * 80)  + 'px');
-      wrap.appendChild(p);
-    }
-  })();
+
 
   /* 6. Highlands parallax (GSAP ScrollTrigger) */
   (function() {
@@ -1452,11 +2604,11 @@
 
   /* 15. Stacked Cards Deck Logic */
   var stackProducts = [
-    { name: "Kashmiri Chilli", origin: "📍 Kashmir Valley · ASTA 120+", desc: "Hand-selected scarlet chillies from Kashmir Valley. Graded at ASTA 120+ for intense natural color retention and mild, fruity heat. Preferred by executive biryani and gravy specialists.", chips: ["Single Origin", "Vacuum Packed", "FSSAI Certified", "MOQ: 5kg"] },
-    { name: "Alleppey Cardamom", origin: "📍 Idukki, Kerala · 8mm+ Pods", desc: "Bold green-gold pods harvested from misty hill slopes in Idukki. Unmatched volatile oil content (7.5%+), rich floral aroma, hand-graded size 8mm+.", chips: ["Highland Estate", "Batch Traceable", "8mm+ Bold Pods", "MOQ: 2kg"] },
-    { name: "Kashmir Saffron", origin: "📍 Pampore, Kashmir · ISO 3632-1", desc: "Pristine red stigmas harvested at dawn from crocus fields in Pampore. ISO 3632-1 Category I certified. Delivering rich aroma and deep golden saffron hue.", chips: ["A++ Premium", "Hand-Graded", "Air-Tightly Sealed", "MOQ: 25g"] },
-    { name: "Erode Turmeric", origin: "📍 Tamil Nadu · Finger Variety", desc: "High-curcumin finger turmeric from Erode. Pure golden pigment, warm earthy aroma, laboratory tested 5.2% active curcumin per lot.", chips: ["5%+ Curcumin", "Zero Additives", "Batch Tested", "MOQ: 10kg"] },
-    { name: "Rajasthan Cumin", origin: "📍 Jodhpur, Rajasthan · Export Quality", desc: "Bold, sun-dried cumin seeds from Rajasthan's arid plains. Exceptional aroma, high essential oil content, cleaned to 99.5% purity standard.", chips: ["Export Grade", "High Essential Oils", "Cleaned 99.5%", "MOQ: 10kg"] }
+    { name: "BLACK PEPPER",    origin: "HSN: 09041140 · Single Origin", desc: "Bold export-grade Tellicherry whole peppercorns. High piperine content, intense penetrating aroma and clean lingering heat. Single origin — Kerala coast.",          chips: ["Single Origin", "FSSAI Certified", "HSN: 09041140", "Wholesale Lot"] },
+    { name: "KASHMIRI CHILLY", origin: "HSN: 09042219 · Single Origin", desc: "Hand-selected scarlet chillies graded ASTA 120+ for intense natural color retention. Preferred by executive biryani and slow-cooked gravy specialists.",              chips: ["Single Origin", "FSSAI Certified", "HSN: 09042219", "Wholesale Lot"] },
+    { name: "TURMERIC POWDER", origin: "HSN: 09103030 · Single Origin", desc: "Pure golden turmeric powder. Laboratory tested 5%+ active curcumin per lot. Zero lead chromate or starch adulteration. Warm earthy aroma.",                         chips: ["Single Origin", "5%+ Curcumin",  "HSN: 09103030", "Wholesale Lot"] },
+    { name: "WHITE CARDAMOM",  origin: "HSN: 09083140 · Single Origin", desc: "Carefully selected high-grade white cardamom pods with intact essential oil seeds. Delicate floral-sweet fragrance, prized for luxury confectionery, biryanis, and master gravies.", chips: ["Single Origin", "FSSAI Certified", "HSN: 09083140", "Wholesale Lot"] },
+    { name: "JEERA WHOLE",     origin: "HSN: 09093119 · Single Origin", desc: "Sun-dried whole cumin seeds. Machine cleaned to 99.5% purity. High essential thymol oil, earthy fragrance, and zero stones or foreign matter.",                    chips: ["Single Origin", "FSSAI Certified", "HSN: 09093119", "Wholesale Lot"] }
   ];
 
   var currentStackIdx = 0;
@@ -1482,6 +2634,20 @@
     }
   }
 
+  function prevStackCard() {
+    var cards = document.querySelectorAll('.stack-card');
+    if (!cards || cards.length === 0) return;
+
+    cards.forEach(function(card) {
+      var p = parseInt(card.getAttribute('data-pos'), 10);
+      var prevP = (p + 1) % cards.length;
+      card.setAttribute('data-pos', prevP);
+    });
+
+    currentStackIdx = (currentStackIdx - 1 + stackProducts.length) % stackProducts.length;
+    updateStackInfo(currentStackIdx);
+  }
+
   function updateStackInfo(idx) {
     var item = stackProducts[idx];
     var eb = document.getElementById('stkEyebrow');
@@ -1496,6 +2662,28 @@
       ch.innerHTML = item.chips.map(function(c) { return '<span class="stack-info-chip">' + c + '</span>'; }).join('');
     }
   }
+
+  // Mobile Touch Swipe support on Card Stack
+  (function() {
+    var container = document.getElementById('stackDeckContainer');
+    if (!container) return;
+    var touchStartX = 0;
+    var touchEndX = 0;
+
+    container.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    container.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (diff > 40) {
+        nextStackCard();
+      } else if (diff < -40) {
+        prevStackCard();
+      }
+    }, {passive: true});
+  })();
 
   /* 16. Hotel Smart Growth Arrow (One-Shot Animation) */
   (function() {
@@ -1518,6 +2706,31 @@
 
     observer.observe(section);
   })();
+
+  /* 17. FAQ Accordion Toggle */
+  window.toggleFaq = function(el) {
+    var card = el.closest('.faq-card, .faq-item');
+    if (!card) return;
+    var isOpen = card.classList.contains('active');
+    
+    // Close all other FAQ cards
+    document.querySelectorAll('.faq-card, .faq-item').forEach(function(c) {
+      c.classList.remove('active');
+    });
+
+    // Toggle current card
+    if (!isOpen) {
+      card.classList.add('active');
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-header, .faq-question').forEach(function(hdr) {
+      hdr.addEventListener('click', function() {
+        window.toggleFaq(this);
+      });
+    });
+  });
   </script>
 </body>
 </html>

@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wholesale — KTA Spices</title>
-  <meta name="description" content="Industrial-grade consistency. Origin integrity. KTA wholesale supply for hotels, restaurants, and large commercial kitchens across India.">
+  <title>Wholesale Spices &amp; Dry Fruits — Bulk &amp; Extraction Supply | KTA Spices</title>
+  <meta name="description" content="Direct origin wholesale spice &amp; dry fruit supply for commercial kitchens, food processors, and extractors. 100kg MOQ to multi-ton consignments with rapid 24h+ dispatch.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css?v=2">
   <style>
     .ws-hero {
-      padding: clamp(110px, 14vw, 148px) 0 clamp(36px, 6vw, 72px);
+      padding: clamp(120px, 15vw, 160px) 0 clamp(36px, 5vw, 64px);
       background: var(--cream);
       border-bottom: 1px solid var(--border);
     }
@@ -19,108 +19,370 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: clamp(24px, 4vw, 48px);
+      gap: 32px;
       flex-wrap: wrap;
     }
-    .ws-hero-ctas {
+    
+    /* Category Filter Tabs */
+    .ws-tabs {
       display: flex;
-      gap: 12px;
-      flex-shrink: 0;
+      gap: 8px;
       flex-wrap: wrap;
-      align-items: center;
+      margin: 32px 0 24px;
     }
-    .ws-section {
-      padding: clamp(48px, 8vw, 80px) 0;
+    .ws-tab-btn {
+      padding: 9px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
-    .order-grid {
+    .ws-tab-btn.active, .ws-tab-btn:hover {
+      background: var(--olive);
+      color: #ffffff;
+      border-color: var(--olive);
+    }
+
+    /* Minimal Product Grid */
+    .ws-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(32px, 5vw, 80px);
-      align-items: start;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
     }
-    .order-info {
+    .ws-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .order-info-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: clamp(14px, 2.5vw, 20px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: var(--white);
+    .ws-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(67, 81, 40, 0.4);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
     }
-    .order-info-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+    .ws-card-tag {
+      align-self: flex-start;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--olive);
       background: var(--olive-faint);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .ws-card-title {
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .ws-card-spec {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .ws-card-moq {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-size: 12.5px;
+      color: var(--ink-mid);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .ws-card-moq span {
+      color: var(--olive);
+      font-weight: 800;
+    }
+
+    /* Wholesale Industry & Extractors Showcase */
+    .ws-industry-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: clamp(24px, 4vw, 40px);
+      margin-bottom: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .ws-industry-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .ws-industry-title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+    }
+    .ws-industry-lead {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 880px;
+    }
+    .ws-scope-bar {
+      background: #f8f6f0;
+      border: 1px solid rgba(67, 81, 40, 0.12);
+      border-radius: 16px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .ws-scope-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--olive);
+      background: #ffffff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(67, 81, 40, 0.2);
+    }
+    .ws-scope-pill {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+      background: #ffffff;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .ws-scope-pill:hover {
+      border-color: var(--olive);
+      transform: translateY(-1px);
+    }
+    .ws-target-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media(max-width: 1024px) {
+      .ws-target-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media(max-width: 600px) {
+      .ws-target-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .ws-target-card {
+      background: #faf8f5;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .ws-target-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(67, 81, 40, 0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+    .ws-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--olive-faint);
+      color: var(--olive);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: var(--olive);
     }
-    .order-info-icon svg {
+    .ws-icon-wrap svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+    }
+    .ws-target-name {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .ws-target-desc {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* Technical Spec Callout */
+    .ws-spec-card {
+      background: #faf9f6;
+      border: 1px solid rgba(67, 81, 40, 0.2);
+      border-left: 4px solid var(--olive);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-top: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .ws-spec-icon-wrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--olive);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ws-spec-icon-wrap svg {
       width: 20px;
       height: 20px;
-      stroke-width: 1.8;
     }
-    .order-info-title {
-      font-weight: 700;
-      font-size: 14px;
+    .ws-spec-tag {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--olive);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       margin-bottom: 4px;
     }
-    .order-info-body {
+    .ws-spec-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .ws-spec-text {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--ink-mid);
+    }
+
+    /* Wholesale Horizontal Scroll Row */
+    .ws-scroll-section {
+      padding: clamp(36px, 6vw, 56px) 0;
+    }
+    .ws-row-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding: 0 clamp(16px, 4vw, 40px);
+    }
+    .ws-row-title {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .ws-row-count {
       font-size: 13px;
       color: var(--muted);
     }
-    @media(max-width: 900px) {
-      .order-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-      .ws-hero-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+
+    /* Wholesale product scroll cards */
+    .ws-product-card {
+      flex-shrink: 0;
+      width: clamp(240px, 60vw, 300px);
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      scroll-snap-align: start;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      min-height: 230px;
     }
-    @media(max-width: 480px) {
-      .ws-hero-ctas {
-        width: 100%;
-        flex-direction: column;
-      }
-      .ws-hero-ctas .btn {
-        width: 100%;
-      }
+    .ws-product-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(67, 81, 40, 0.4);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.07);
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Floating Pill Nav ── -->
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-pill">
-      <a href="index.html" class="nav-logo"><img src="images/ktanewlogo.png" alt="KTA Spices"></a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catalogue.html">Catalogue</a></li>
-        <li><a href="wholesale.html" class="active">Wholesale</a></li>
-        <li><a href="hotel-smart.html">Hotel Smart 24/7</a></li>
-        <li><a href="heritage.html">Heritage</a></li>
-        <li><a href="contact.html">Quick Call</a></li>
+  <!-- ══════════════════════════════════
+       UNIFIED EDITORIAL NAVBAR (Image 3 Style)
+       ══════════════════════════════════ -->
+  <nav class="home-nav" id="homeNav" aria-label="Main navigation">
+    <div class="home-nav-inner">
+      <a href="index.html" class="home-nav-logo" aria-label="KTA Spices Home">
+        <img src="images/ktaspicesnewlogo.png" alt="KTA Spices">
+      </a>
+      <ul class="home-nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="heritage.html">HERITAGE</a></li>
+        <li><a href="catalogue.html">CATALOGUE</a></li>
+        <li><a href="partnership.html">PARTNERSHIP</a></li>
+        <li><a href="wholesale.html" class="active">WHOLESALE</a></li>
+        <li><a href="index.html#hotelSmart">HOTEL SMART 24/7</a></li>
       </ul>
-      <div class="nav-cta"><a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a></div>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="home-nav-actions">
+        <a href="tel:+918838971069" class="nav-phone-contact" title="Direct Phone Desk">
+          <svg class="nav-phone-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="nav-phone-text">+91 88389 71069</span>
+        </a>
+        <a href="https://wa.me/918838971069?text=Hello%20KTA%20Trade%20Desk%2C%20I%20want%20wholesale%20pricing%20for%20bulk%20orders." target="_blank" rel="noopener" class="nav-quick-enquiry" title="WhatsApp Enquiry">
+          <span class="nav-wa-dot"></span> WhatsApp Enquiry
+        </a>
+        <a href="partnership.html#registerKitchen" class="nav-register-btn">REGISTER KITCHEN</a>
+      </div>
+      <button class="home-hamburger" id="homeHamburger" aria-label="Open mobile menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Drawer -->
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-panel" id="mobilePanel">
-    <div class="mobile-panel-head"><img src="images/ktanewlogo.png" alt="KTA Spices"><button class="mobile-close" id="mobileClose">&times;</button></div>
-    <div class="mobile-links"><a href="index.html">Home</a><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="heritage.html">Heritage</a><a href="contact.html">Quick Call</a></div>
-    <a href="partnership.html" class="nav-cta-btn">Register Kitchen ↗</a>
+    <div class="mobile-panel-head">
+      <img src="images/ktaspicesnewlogo.png" alt="KTA Spices">
+      <button class="mobile-close" id="mobileClose">&times;</button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html">HOME</a>
+      <a href="heritage.html">HERITAGE</a>
+      <a href="catalogue.html">CATALOGUE</a>
+      <a href="partnership.html">PARTNERSHIP</a>
+      <a href="wholesale.html" style="color:var(--olive);font-weight:700">WHOLESALE</a>
+      <a href="index.html#hotelSmart">HOTEL SMART 24/7</a>
+      <a href="tel:+918838971069" style="color: #435128; font-weight: 700;">Direct: +91 88389 71069</a>
+      <a href="https://wa.me/918838971069" target="_blank" rel="noopener" style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
+    </div>
+    <a href="partnership.html#registerKitchen" class="nav-cta-btn" style="margin-top:16px;text-align:center">REGISTER KITCHEN</a>
   </div>
 
   <!-- ── Wholesale Hero ── -->
@@ -128,294 +390,332 @@
     <div class="container">
       <div class="ws-hero-inner">
         <div data-reveal>
-          <span class="eyebrow">Wholesale Supply</span>
-          <h1 class="display-xl" style="max-width:560px;margin-bottom:20px">Industrial-grade consistency.<br><em>Origin integrity.</em></h1>
-          <p class="lead" style="max-width:500px">Built for the kitchen. Engineered for scale. MOQ from 5kg — with full batch certification on every consignment.</p>
+          <span class="eyebrow">Wholesale Supply · Direct Origin Consignments</span>
+          <h1 class="display-xl" style="max-width:680px;margin-bottom:14px">Spices Wholesale.<br><em>Commercial &amp; Extraction Supply.</em></h1>
+          <p class="lead" style="max-width:640px">Direct bulk lot sorting and origin procurement. Supplying whole black pepper, lite berries, pinheads, cleaned husk, and spent spice biomass in <strong>100kg moisture-sealed food-grade bags or drum packs to multi-ton bulk consignments</strong>. Delivery timelines 24hrs and above, customised per order volume and destination.</p>
         </div>
-        <div class="ws-hero-ctas" data-reveal data-delay="2">
-          <a href="tel:+918838971069" class="btn btn-outline" style="white-space:nowrap">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            Call Trade Desk
+        <div data-reveal data-delay="1" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <a href="#orderForm" class="btn btn-primary" style="background:#435128;border-radius:999px;padding:14px 28px">Request Wholesale Price Sheet ↓</a>
+          <a href="tel:+916369359121" class="btn btn-outline" style="border-radius:999px;padding:14px 24px;display:inline-flex;align-items:center;gap:8px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call: +91 636-935-9121
           </a>
-          <a href="#orderForm" class="btn btn-primary">Place Order Enquiry ↓</a>
+          <a href="https://wa.me/916379351632?text=Hello%20KTA%20Trade%20Desk%2C%20I%20have%20a%20wholesale%20enquiry." target="_blank" rel="noopener" class="btn btn-outline" style="border-radius:999px;padding:14px 24px;display:inline-flex;align-items:center;gap:8px;border-color:rgba(37,211,102,0.4);background:#f0faf4;color:#128c46;font-weight:700">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.524 5.828L.054 23.85l6.162-1.615A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.376l-.36-.214-3.727.977 1.001-3.635-.234-.373A9.783 9.783 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.387 9.818 9.818 0 5.43-4.388 9.818-9.819 9.818z"/></svg>
+            WhatsApp: +91 63793 51632
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ── Wholesale Stats ── -->
-  <section class="section-sm">
-    <div class="container">
-      <div class="stat-grid">
-        <div class="stat-item" data-reveal>
-          <div class="stat-value"><span data-counter="500" data-suffix="kg+">500kg+</span></div>
-          <div class="stat-label">Monthly supply capacity</div>
-        </div>
-        <div class="stat-item" data-reveal data-delay="1">
-          <div class="stat-value">0.01<span style="font-size:.5em;font-family:var(--font-body);font-weight:600">%</span></div>
-          <div class="stat-label">Batch variance tolerance</div>
-        </div>
-        <div class="stat-item" data-reveal data-delay="2">
-          <div class="stat-value"><span data-counter="24">24</span><span style="font-size:.5em;font-family:var(--font-body);font-weight:600">h</span></div>
-          <div class="stat-label">Standard dispatch time</div>
-        </div>
-        <div class="stat-item" data-reveal data-delay="3">
-          <div class="stat-value"><span data-counter="250" data-suffix="+">250+</span></div>
-          <div class="stat-label">Active supply accounts</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Product Showcase Carousel ── -->
-  <section class="ws-section bg-cream">
-    <div class="container">
-      <div data-reveal style="margin-bottom:12px">
-        <span class="eyebrow">Featured Products</span>
-        <h2 class="display-lg" style="max-width:440px">Our most-ordered wholesale lines.</h2>
-      </div>
-
-      <div id="wsCarousel">
-        <!-- Slide 1 -->
-        <div class="ws-slide active">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#2d1a0e,#6b3c1a)"><span class="ws-glyph">🌿</span></div>
+      <!-- Industrial Supply Scope & Extractor Showcase -->
+      <div class="ws-industry-box" data-reveal data-delay="2" style="margin-top:36px">
+        <div class="ws-industry-header">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <span class="tag tag-olive">Bulk Institutional Lots</span>
+            <span style="font-size:12px;font-weight:700;color:var(--olive);">✓ 24h–Flexible Dispatch Ex-Origin · ✓ 100kg MOQ to Multi-Ton Supply</span>
           </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Wayanad, Kerala</div>
-            <div class="ws-slide-name">Tellicherry Peppercorns</div>
-            <div class="ws-slide-desc">The benchmark for Indian black pepper. Bold aroma, clean heat, consistent ASTA grade. The choice of five-star kitchens from Mumbai to Singapore.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span><span class="ws-pack-chip">50kg</span></div>
-            <div class="ws-slide-ctas">
-              <a href="contact.html" class="btn btn-primary">Request Pricing</a>
-              <a href="tel:+918838971069" class="btn btn-outline">Call Now</a>
+          <h2 class="ws-industry-title">Engineered for Food Processors, Seasoning Manufacturers &amp; Oleoresin / Resin Extractors</h2>
+          <p class="ws-industry-lead">KTA operates high-capacity lot cleaning and density grading facilities in South India. We supply commercial kitchens, spice grinders, oleoresin extraction plants, and essential oil distillers with pure, consistent raw materials graded for volatile oil yields and high residual piperine.</p>
+        </div>
+
+        <!-- Wholesale Product Scope Bar -->
+        <div class="ws-scope-bar">
+          <span class="ws-scope-label">Wholesale Portfolio:</span>
+          <span class="ws-scope-pill">Pepper (Whole)</span>
+          <span class="ws-scope-pill">Lite Berries</span>
+          <span class="ws-scope-pill">Pinheads</span>
+          <span class="ws-scope-pill">Pepper Husk</span>
+          <span class="ws-scope-pill">Pepper Husk (S)</span>
+          <span class="ws-scope-pill">Dry Ginger (Whole / Slices)</span>
+          <span class="ws-scope-pill">Spent Dry Ginger</span>
+          <span class="ws-scope-pill">All Spices Spent</span>
+        </div>
+
+        <!-- Custom Sourcing & Export Outsourcing Banner -->
+        <div style="background:linear-gradient(135deg,#f5f8f0,#edf2e6);border:1px solid rgba(67,81,40,0.2);border-radius:14px;padding:24px 24px;margin-bottom:20px;">
+          <div style="font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px;">✦ Custom Sourcing, Agricultural Outsourcing & Export-Ready Packing</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.72;max-width:760px;margin-bottom:16px;">Need bulk spices, rare botanical varietals, specific mesh powders, or agricultural commodities not listed in our standard catalogue? KTA leverages 25+ years of direct grower networks across South India to source, clean, grade, and supply any custom lot — fully on demand.<br><br>We also provide <strong>export-grade origin sourcing and commercial packaging</strong> for international buyers and importers. This includes raw agricultural produce procured directly from farm origin (such as green/raw ginger before processing into dry ginger spent, fresh turmeric rhizomes, raw black pepper before sun-drying, green cardamom, and other botanical commodities), professionally cleaned and graded, then packed in food-grade export-compliant multi-layer moisture-sealed bags, drum packs, or FIBC jumbo bags — fully documentation-ready for customs and import clearance.</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="https://wa.me/916379351632?text=Hello%20KTA%2C%20I%20need%20custom%20sourcing%20and%20export%20packing%20for%3A%20" target="_blank" rel="noopener" class="btn btn-primary" style="border-radius:999px;font-size:12.5px;padding:10px 22px;background:#435128;">Inquire Custom Sourcing ↗</a>
+            <a href="#orderForm" class="btn btn-outline" style="border-radius:999px;font-size:12.5px;padding:10px 20px;">Submit Export Brief ↓</a>
+          </div>
+        </div>
+
+        <!-- Target Industry Grid -->
+        <div class="ws-target-grid">
+          <div class="ws-target-card">
+            <div class="ws-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2v7.31L4.66 18.2A2 2 0 0 0 6.38 21h11.24a2 2 0 0 0 1.72-2.8L14 9.31V2h-4z"></path>
+                <path d="M8.5 2h7"></path>
+                <path d="M7 16h10"></path>
+              </svg>
             </div>
+            <div class="ws-target-name">Oleoresin &amp; Resin Extractors</div>
+            <div class="ws-target-desc">High piperine content pinheads, lite berries &amp; cleaned husk engineered for optimal solvent extraction yield and high resin concentration.</div>
+          </div>
+          <div class="ws-target-card">
+            <div class="ws-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20"></path>
+                <path d="M6 20V8l6 4V4l6 4v12"></path>
+              </svg>
+            </div>
+            <div class="ws-target-name">Masala &amp; Seasoning Manufacturers</div>
+            <div class="ws-target-desc">Standardized whole pepper, crushed cuts and select fine husks for uniform blending, spice rubs, industrial seasonings and instant mixes.</div>
+          </div>
+          <div class="ws-target-card">
+            <div class="ws-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M12 8a3 3 0 0 0-3 3c0 2 3 5 3 5s3-3 3-5a3 3 0 0 0-3-3z"></path>
+              </svg>
+            </div>
+            <div class="ws-target-name">Essential Oil Distillers</div>
+            <div class="ws-target-desc">Dense, unadulterated whole berries and selected pinheads offering potent aromatic profiles and pure steam-distillation output.</div>
+          </div>
+          <div class="ws-target-card">
+            <div class="ws-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.5 2v6h-6"></path>
+                <path d="M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+              </svg>
+            </div>
+            <div class="ws-target-name">Agro &amp; Industrial Processors</div>
+            <div class="ws-target-desc">Consistent bulk availability of spent spice residues (pepper, ginger, turmeric &amp; botanicals) for animal feed, biogas, and organic compost formulations.</div>
           </div>
         </div>
-        <!-- Slide 2 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#1a3a1a,#4a7a3a)"><span class="ws-glyph">🫛</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Idukki, Kerala</div>
-            <div class="ws-slide-name">Alleppey Green Cardamom</div>
-            <div class="ws-slide-desc">Bold, camphor-forward Kerala cardamom at its peak. Single-origin, hand-sorted, and supplied in moisture-sealed bulk packaging.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">1kg</span><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#6a0808,#b81c1c)"><span class="ws-glyph">🌶</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Kashmir Valley</div>
-            <div class="ws-slide-name">Kashmiri Chilli Powder</div>
-            <div class="ws-slide-desc">ASTA 120+ colour value, low pungency, deep brick-red hue. The standard for tandoor stations and slow-braised preparations across premium F&amp;B.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 4 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#9a6800,#e0a000)"><span class="ws-glyph">🌼</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Erode, Tamil Nadu</div>
-            <div class="ws-slide-name">Erode Turmeric Powder</div>
-            <div class="ws-slide-desc">5% curcumin content — the highest commercially available. Intense colour, clean finish, and zero fillers. The gold standard of culinary turmeric.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">25kg</span><span class="ws-pack-chip">50kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 5 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#6b5a2e,#a08b4a)"><span class="ws-glyph">🌾</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Jodhpur, Rajasthan</div>
-            <div class="ws-slide-name">Rajasthan Cumin Seeds</div>
-            <div class="ws-slide-desc">Machine-cleaned to 99.5% purity. Intense, warm, and earthy — the foundation of every great curry base. Supplied in food-grade jute or HDPE bags.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 6 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#5a2210,#9a5030)"><span class="ws-glyph">🪵</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Sri Lanka</div>
-            <div class="ws-slide-name">Ceylon Cinnamon</div>
-            <div class="ws-slide-desc">True cinnamon (Cinnamomum verum), alba grade. Soft quills, light colour, sweet-delicate aroma. Distinguished from cassia at every supply level.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">1kg</span><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 7 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#3d1010,#7a3030)"><span class="ws-glyph">✿</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Kerala / Zanzibar</div>
-            <div class="ws-slide-name">Grade 1 Cloves</div>
-            <div class="ws-slide-desc">Whole cloves with minimum 15% essential oil content. Rich, warm, and piercing — the mark of premium cloves verified by eugenol content testing.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">500g</span><span class="ws-pack-chip">1kg</span><span class="ws-pack-chip">5kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 8 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#8a6e30,#c4a050)"><span class="ws-glyph">◉</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Kollam, Kerala</div>
-            <div class="ws-slide-name">Cashews W320</div>
-            <div class="ws-slide-desc">W320 grade (320 kernels/pound) — the most widely used export grade for F&amp;B. Cream-white colour, natural split, butter-rich flavour profile.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 9 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#4a2a10,#8a5028)"><span class="ws-glyph">◎</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Kandahar, Afghanistan</div>
-            <div class="ws-slide-name">Afghani Walnuts</div>
-            <div class="ws-slide-desc">Chandler-variety walnuts from Afghanistan's premier growing region. Extra light kernel colour, thin shell, and exceptional oil content. Chef-preferred.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">5kg</span><span class="ws-pack-chip">10kg</span><span class="ws-pack-chip">25kg</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-        <!-- Slide 10 -->
-        <div class="ws-slide">
-          <div class="ws-slide-visual">
-            <div class="ws-slide-visual-bg" style="background:linear-gradient(135deg,#8b4500,#d4700a)"><span class="ws-glyph">🌸</span></div>
-          </div>
-          <div class="ws-slide-body">
-            <div class="ws-slide-origin">Pampore, Kashmir</div>
-            <div class="ws-slide-name">Kashmir Saffron</div>
-            <div class="ws-slide-desc">A++ grade ISO 3632 certified saffron. Deep crimson threads, colouring strength &gt;250, and the unmistakable Kashmiri floral-honey note that no import can replicate.</div>
-            <div class="ws-pack-sizes"><span class="ws-pack-chip">5g</span><span class="ws-pack-chip">10g</span><span class="ws-pack-chip">25g</span><span class="ws-pack-chip">50g</span></div>
-            <div class="ws-slide-ctas"><a href="contact.html" class="btn btn-primary">Request Pricing</a><a href="tel:+918838971069" class="btn btn-outline">Call Now</a></div>
-          </div>
-        </div>
-      </div><!-- /wsCarousel -->
 
-      <!-- Nav Controls -->
-      <div class="ws-nav">
-        <button class="ws-nav-btn" id="wsPrev" aria-label="Previous">
+        <!-- Technical Spec Callout for All Spices Spent -->
+        <div class="ws-spec-card">
+          <div class="ws-spec-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div>
+            <div class="ws-spec-tag">Technical Supply Bulletin</div>
+            <div class="ws-spec-title">Understanding "All Spices Spent" Supply</div>
+            <div class="ws-spec-text"><strong>All Spices Spent</strong> refers to post-extraction biomass residues primarily composed of spent black pepper, spent dry ginger, spent turmeric, and mixed botanical spices after oleoresin, solvent, or steam extraction. Supplied in dry, moisture-controlled bulk bags for industrial re-processing, cattle feed formulation, organic fertilizer manufacturing, and biomass applications.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pepper & Byproducts Product Showcase ── -->
+  <section class="ws-scroll-section" id="allSec">
+    <div id="pepperSec">
+      <div class="ws-row-header">
+        <div>
+          <div class="ws-row-title">Wholesale Product Range</div>
+          <div style="font-size:12.5px;color:var(--muted);margin-top:2px">Click / scroll right to inspect all 8 industrial varieties</div>
+        </div>
+        <div class="ws-row-count">100kg Minimum · Bulk Tonnage Available</div>
+      </div>
+      <div class="scroll-row-wrap">
+        <button class="scroll-arrow arrow-prev" onclick="scrollRow('pepperRow',-1)" aria-label="Previous">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
         </button>
-        <button class="ws-nav-btn" id="wsNext" aria-label="Next">
+        <div class="scroll-row" id="pepperRow">
+
+          <!-- BLACK PEPPER -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">HSN: 09041140</div>
+              <div class="ws-card-title">BLACK PEPPER</div>
+              <div class="ws-card-spec">Bold export-grade whole black peppercorns. Direct single origin. High piperine, intense penetrating aroma, and clean lingering heat for commercial milling &amp; extraction.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20Black%20Pepper%20100kg%20%E2%80%94%20HSN%2009041140" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+          <!-- LITE BERRIES -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">HSN: 09041140</div>
+              <div class="ws-card-title">LITE BERRIES</div>
+              <div class="ws-card-spec">Low-density light and green whole pepper berries separated during gravity grading. Rich in volatile aromatics, prime raw material for oleoresin &amp; pepper oil extraction.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20Lite%20Berries%20100kg%20%E2%80%94%20HSN%2009041140" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+          <!-- PINHEADS -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">HSN: 09041110</div>
+              <div class="ws-card-title">PINHEADS</div>
+              <div class="ws-card-spec">Small immature bold whole peppercorns. High concentration of active piperine and essential resin. Specifically demanded by oleoresin extraction units.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20Pinheads%20100kg%20%E2%80%94%20HSN%2009041110" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+          <!-- PEPPER HUSK -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">HSN: 09109939</div>
+              <div class="ws-card-title">PEPPER HUSK</div>
+              <div class="ws-card-spec">Cleaned outer black pepper pericarp / husk. Delivers high residual piperine content at an economical price point for seasoning manufacturers &amp; resin extractors.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20Pepper%20Husk%20100kg%20%E2%80%94%20HSN%2009109939" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+          <!-- PEPPER HUSK (S) -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">HSN: 09041110</div>
+              <div class="ws-card-title">PEPPER HUSK (S)</div>
+              <div class="ws-card-spec">Special selected &amp; sieved pepper husk. Uniform particle size, high purity, ideal for premium masala blending, seasoning formulations, and nutraceutical processing.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20Pepper%20Husk%20S%20100kg%20%E2%80%94%20HSN%2009041110" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+          <!-- DRY GINGER (SUN-DRIED) -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">HSN: 09101110</div>
+              <div class="ws-card-title">DRY GINGER (WHOLE / SLICES)</div>
+              <div class="ws-card-spec">Unspent natural sun-dried whole ginger rhizomes (Sonth / Chukku). High gingerol and essential oil content, zero chemical bleaching. Ideal for commercial grinding &amp; extraction.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20Dry%20Ginger%20Whole%20100kg%20%E2%80%94%20HSN%2009101110" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+          <!-- SPENT DRY GINGER -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">Industrial Byproduct</div>
+              <div class="ws-card-title">SPENT DRY GINGER</div>
+              <div class="ws-card-spec">Post-extraction and post-distillation spent ginger biomass. Moisture-controlled bulk supply for industrial seasoning filler, animal feed formulations &amp; organic processing.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20Spent%20Dry%20Ginger%20Bulk%20Supply" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+          <!-- ALL SPICES SPENT -->
+          <div class="ws-product-card">
+            <div>
+              <div class="ws-card-tag">Industrial Byproduct</div>
+              <div class="ws-card-title">ALL SPICES SPENT</div>
+              <div class="ws-card-spec">Post-extraction spent residues from pepper, ginger, turmeric &amp; mixed spices. Moisture-controlled bulk supply for industrial processors, cattle feed &amp; biomass.</div>
+            </div>
+            <div>
+              <div class="ws-card-moq">Min. Order: <span>100kg · Bulk Tonnage</span></div>
+              <a href="https://wa.me/916379351632?text=Quote%20Request%3A%20All%20Spices%20Spent%20Bulk%20Supply" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;font-size:12.5px;padding:9px;border-radius:999px">Request Quote ↗</a>
+            </div>
+          </div>
+
+        </div>
+        <button class="scroll-arrow arrow-next" onclick="scrollRow('pepperRow',1)" aria-label="Next">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         </button>
-        <span class="ws-counter" id="wsCounter">1 / 10</span>
-        <span style="font-size:13px;color:var(--muted);margin-left:4px">— use arrows or auto-advance</span>
       </div>
     </div>
   </section>
 
-  <!-- ── Why Wholesale KTA ── -->
-  <section class="section">
+  <!-- ── Fast Order Enquiry Form ── -->
+  <section class="section" id="orderForm">
     <div class="container">
-      <div class="two-col">
-        <div class="two-col-text" data-reveal>
-          <span class="eyebrow">Why Wholesale with KTA</span>
-          <h2 class="display-md">The same origin integrity. At volume.</h2>
-          <p class="body-sm">Most wholesale spice suppliers blend, substitute, and dilute to hit price points. KTA's model is different: we grow the relationship with the farmer, not the margin. That means your 25kg consignment has the same origin story as our 100g retail pack.</p>
-          <p class="body-sm">Every bulk delivery is accompanied by a Batch Certificate with farm origin, harvest date, moisture content, and FSSAI lot number. No guesswork for your QC team.</p>
+      <div class="form-card" style="max-width:680px;margin:0 auto" data-reveal>
+        <div class="text-center" style="margin-bottom:20px">
+          <span class="eyebrow">Instant Institutional Quote</span>
+          <h2 style="font-family:var(--font-display);font-size:28px;font-weight:700">Request Bulk Wholesale / Industrial Pricing</h2>
+          <p class="body-sm">Submit your required varieties &amp; volume. Our trade &amp; extraction supply desk delivers locked pricing, lot specs, and dispatch schedules within 2 hours.</p>
         </div>
-        <div class="compare-wrap" data-reveal data-delay="2">
-          <table class="compare-table">
-            <thead><tr><th>Feature</th><th class="th-kta">KTA Wholesale</th><th>Market Supplier</th></tr></thead>
-            <tbody>
-              <tr><td>Origin Traceability</td><td class="td-kta"><span class="chk">✓</span> Farm-level</td><td><span class="crs">✗</span> Region-only</td></tr>
-              <tr><td>Batch Certificate</td><td class="td-kta"><span class="chk">✓</span> Every lot</td><td><span class="crs">✗</span> On request</td></tr>
-              <tr><td>Blending</td><td class="td-kta"><span class="chk">✓</span> Never</td><td><span class="crs">✗</span> Common</td></tr>
-              <tr><td>Dispatch Time</td><td class="td-kta"><span class="chk">✓</span> 24h standard</td><td>48–72h typical</td></tr>
-              <tr><td>MOQ</td><td class="td-kta"><span class="chk">✓</span> From 5kg</td><td>25kg+ typical</td></tr>
-            </tbody>
-          </table>
+        <div class="form-group">
+          <label for="wsName">Company / Facility / Kitchen Name</label>
+          <input class="form-control" type="text" id="wsName" placeholder="e.g. Apex Oleoresins Ltd / Synthite Extracts / Commercial Kitchen" required>
         </div>
+        <div class="form-group">
+          <label for="wsContact">WhatsApp / Phone Contact</label>
+          <input class="form-control" type="tel" id="wsContact" placeholder="+91 98765 43210" required>
+        </div>
+        <div class="form-group">
+          <label for="wsOrder">Products &amp; Volume Required (100kg Minimum to Tonnage)</label>
+          <textarea class="form-control" id="wsOrder" placeholder="e.g. Black Pepper 500kg, Pepper Husk 1 Ton, Pinheads 300kg, Lite Berries 250kg, All Spices Spent (Spent Pepper &amp; Ginger) 2 Tons, Custom Export Sourcing: Raw Ginger 5 Tons…" rows="3" required></textarea>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;border-radius:999px;background:#435128" onclick="submitWholesale(event)">Submit Wholesale Request ↗</button>
       </div>
     </div>
   </section>
 
-  <!-- ── Order Enquiry Form ── -->
-  <section class="section bg-cream" id="orderForm">
+  <!-- ══════════════════════════════════
+       MINIMALIST LIGHT FOOTER (Image 5 Style)
+       ══════════════════════════════════ -->
+  <footer class="minimalist-footer-section">
     <div class="container">
-      <div class="order-grid">
-        <div class="order-info" data-reveal>
-          <span class="eyebrow">Place an Enquiry</span>
-          <h2 class="display-md" style="max-width:380px">Tell us what your kitchen needs.</h2>
-          <p class="body-sm">Our trade team responds within 2 business hours with pricing, MOQ options, and available lot dates.</p>
-          <div class="order-info-item">
-            <div class="order-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div>
-            <div><div class="order-info-title">Call Trade Desk</div><div class="order-info-body">+91 88389 71069 · Mon–Sat 9am–7pm</div></div>
-          </div>
-          <div class="order-info-item">
-            <div class="order-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-            <div><div class="order-info-title">Email Enquiry</div><div class="order-info-body">wholesale@ktaspices.in</div></div>
-          </div>
-          <div class="order-info-item">
-            <div class="order-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-            <div><div class="order-info-title">Dispatch Hub</div><div class="order-info-body">Kochi · Chennai · Bengaluru · Mumbai</div></div>
-          </div>
-        </div>
-        <div data-reveal data-delay="2">
-          <div class="form-card">
-            <h3 style="font-family:var(--font-display);font-size:24px;font-weight:700">Order Enquiry</h3>
-            <div class="form-group">
-              <label for="wsName">Kitchen / Company Name</label>
-              <input class="form-control" type="text" id="wsName" placeholder="e.g. The Leela Palace, Bengaluru" required>
-            </div>
-            <div class="form-group">
-              <label for="wsContact">Contact Number</label>
-              <input class="form-control" type="tel" id="wsContact" placeholder="+91 98765 43210" required>
-            </div>
-            <div class="form-group">
-              <label for="wsOrder">Products &amp; Quantities Needed</label>
-              <textarea class="form-control" id="wsOrder" placeholder="e.g. Tellicherry Pepper 25kg, Kashmiri Chilli 10kg, Cashews W320 5kg…" rows="4" required></textarea>
-            </div>
-            <button class="btn btn-primary" style="width:100%;justify-content:center;padding:15px" onclick="submitWholesale(event)">Submit Enquiry ↗</button>
-          </div>
-        </div>
+      <div class="min-cta-wrap" data-reveal>
+        <h2 class="min-cta-title">Connect with us</h2>
+        <p class="min-cta-lead">Schedule a quick call to learn how KTA can turn your regional spice procurement into a powerful advantage.</p>
+        <a href="contact.html" class="btn btn-primary" style="border-radius: 999px; padding: 14px 36px; background: #435128;">Connect with Us ↗</a>
       </div>
-    </div>
-  </section>
 
-  <!-- ── Footer ── -->
-  <footer class="site-footer">
-    <div class="footer-wrap">
-      <div class="footer-grid">
-        <div class="footer-brand"><img src="images/ktanewlogo.png" alt="KTA Spices" class="footer-brand-img"><p>The definitive supply partner for executive chefs and procurement directors demanding origin purity.</p></div>
-        <div class="footer-col"><h5>Protocol</h5><a href="heritage.html">Heritage</a><a href="heritage.html">Sourcing</a><a href="#">Compliance</a><a href="#">Quality Control</a></div>
-        <div class="footer-col"><h5>Business</h5><a href="catalogue.html">Catalogue</a><a href="wholesale.html">Wholesale</a><a href="hotel-smart.html">Hotel Smart 24/7</a><a href="partnership.html">Partnership</a></div>
-        <div class="footer-col"><h5>Connect</h5><a href="contact.html">Contact Us</a><a href="tel:+918838971069">+91 88389 71069</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+      <div class="min-footer-nav">
+        <a href="index.html">Home</a>
+        <a href="heritage.html">Heritage</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="partnership.html">Partnership</a>
+        <a href="wholesale.html">Wholesale</a>
+        <a href="index.html#hotelSmart">Hotel Smart 24/7</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
       </div>
-      <div class="footer-bottom"><span>© 2024 KTA Spices Heritage Merchant. All Rights Reserved.</span><span>FSSAI Certified · Batch Traceable · 250+ Kitchens</span></div>
+
+      <div class="min-footer-bottom">
+        <div>© 2026 KTA Spices Heritage Merchant. All Rights Reserved.</div>
+        <div>FSSAI Certified · Batch Traceable · 250+ Kitchens Across South India</div>
+      </div>
     </div>
   </footer>
 
   <script src="shared.js"></script>
   <script>
+  function scrollRow(id, dir) {
+    var row = document.getElementById(id);
+    if (row) row.scrollBy({ left: dir * 280, behavior: 'smooth' });
+  }
+
+  function scrollToSection(id, btn) {
+    document.querySelectorAll('.ws-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    if (id === 'allSec') {
+      window.scrollTo({ top: document.getElementById('allSec').offsetTop - 80, behavior: 'smooth' });
+    } else {
+      var target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
   function submitWholesale(e){
     e.preventDefault();
-    var n=document.getElementById('wsName').value;
-    var c=document.getElementById('wsContact').value;
-    var o=document.getElementById('wsOrder').value;
-    if(!n||!c||!o){alert('Please fill all fields.');return;}
-    alert('Thank you! Our trade team will contact you within 2 hours.');
+    var n = document.getElementById('wsName').value;
+    var c = document.getElementById('wsContact').value;
+    var o = document.getElementById('wsOrder').value;
+    if(!n || !c || !o){ alert('Please fill all fields.'); return; }
+    alert('Thank you! Our trade desk will contact you with wholesale pricing within 2 hours.');
   }
   </script>
 </body>

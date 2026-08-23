@@ -1,4 +1,4 @@
-/* KTA Spices — Shared JavaScript v2.0 (Fully Responsive) */
+/* KTA Spices — Shared JavaScript v3.0 (Fully Responsive, Optimized) */
 'use strict';
 
 /* ── 1. Scroll Reveal & Line Drawing ── */
@@ -8,18 +8,21 @@
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting){
-        e.target.classList.add('revealed');
-        e.target.classList.add('drawn');
+        var delay = e.target.dataset.delay ? parseInt(e.target.dataset.delay) * 40 : 0;
+        setTimeout(function(){
+          e.target.classList.add('revealed');
+          e.target.classList.add('drawn');
+        }, delay);
         io.unobserve(e.target);
       }
     });
-  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  },{threshold:0.02,rootMargin:'0px 0px -20px 0px'});
   els.forEach(function(el){ io.observe(el); });
 })();
 
 /* ── 2. Mobile Nav (Universal Handler) ── */
 (function(){
-  var hamburgers = document.querySelectorAll('.nav-hamburger, .home-hamburger, #navHamburger');
+  var hamburgers = document.querySelectorAll('.nav-hamburger, .home-hamburger, #navHamburger, #homeHamburger');
   var panel      = document.getElementById('mobilePanel');
   var overlay    = document.getElementById('mobileOverlay');
   var closeBtn   = document.getElementById('mobileClose');
@@ -81,7 +84,7 @@
     var suffix   = el.dataset.suffix||'';
     var prefix   = el.dataset.prefix||'';
     var decimals = (String(target).split('.')[1]||'').length;
-    var duration = 1600;
+    var duration = 800;
     var start    = null;
     function ease(t){ return 1-Math.pow(1-t,3); }
     function step(ts){
@@ -98,7 +101,7 @@
     entries.forEach(function(e){
       if(e.isIntersecting){ animate(e.target); io.unobserve(e.target); }
     });
-  },{threshold:0.4});
+  },{threshold:0.2});
   els.forEach(function(el){ io.observe(el); });
 })();
 
@@ -144,25 +147,63 @@
   startTimer();
 })();
 
-/* ── 6. Sample Tray ── */
-(function(){
-  var tray  = document.getElementById('sampleTray');
-  var count = document.getElementById('trayCount');
-  if(!tray) return;
-  var items=0;
+/* ── 7. FAQ Accordion Handler (Fixed & Reliable) ── */
+window.toggleFaq = function(el) {
+  // el can be the faq-header or a child of it
+  var header = el;
+  // Find closest faq-header if el isn't one
+  if (!header.classList.contains('faq-header') && !header.classList.contains('faq-question')) {
+    header = el.closest('.faq-header, .faq-question');
+  }
+  if (!header) return;
 
-  document.querySelectorAll('.product-card-add').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      if(btn.classList.contains('added')) return;
-      items++;
-      if(count) count.textContent=items;
-      tray.style.display='flex';
-      tray.classList.remove('tray-pulse');
-      void tray.offsetWidth;
-      tray.classList.add('tray-pulse');
-      btn.classList.add('added');
-      btn.textContent='✓ Added to Tray';
+  var item = header.closest('.faq-card, .faq-item');
+  if (!item) return;
+
+  var wasActive = item.classList.contains('active');
+
+  // Close all open FAQ cards
+  document.querySelectorAll('.faq-card, .faq-item').forEach(function(i) {
+    i.classList.remove('active');
+  });
+
+  // Toggle current card
+  if (!wasActive) {
+    item.classList.add('active');
+  }
+};
+
+// Attach click handlers on DOMContentLoaded to cover all pages
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.faq-header, .faq-question').forEach(function(hdr) {
+    // Remove any existing onclick to prevent double-firing
+    hdr.removeAttribute('onclick');
+    hdr.style.cursor = 'pointer';
+    hdr.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.toggleFaq(this);
     });
   });
-})();
 
+  // Also handle any + buttons inside FAQ cards
+  document.querySelectorAll('.faq-btn-icon').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.toggleFaq(this.closest('.faq-header, .faq-question') || this);
+    });
+  });
+});
+
+/* ── 8. Universal Nav Scroll Floating ── */
+(function(){
+  var nav = document.getElementById('homeNav');
+  if(!nav) return;
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 40){
+      nav.classList.add('floating');
+    } else {
+      nav.classList.remove('floating');
+    }
+  }, {passive:true});
+})();
