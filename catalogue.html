@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="shared.css?v=2">
+  <link rel="stylesheet" href="shared.css?v=21">
   <style>
     .cat-section {
       padding: clamp(32px, 5vw, 60px) 0;
@@ -214,22 +214,77 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: var(--radius-pill);
       border: 1.5px solid var(--border);
       background: var(--white);
       margin-left: auto;
-      min-height: 40px;
+      min-height: 42px;
+      min-width: clamp(340px, 36vw, 520px);
+      flex: 1 1 auto;
+      max-width: 540px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .cat-search:focus-within {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 3px rgba(67, 81, 40, 0.12);
     }
 
     .cat-search input {
       border: none;
       outline: none;
-      font-size: 14px;
+      font-size: 13.5px;
       font-family: var(--font-body);
       color: var(--ink);
       background: transparent;
-      width: 180px;
+      width: 100%;
+      min-width: 260px;
+    }
+
+    .cat-custom-sourcing-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 12.5px;
+      font-weight: 700;
+      background: rgba(67, 81, 40, 0.08);
+      border: 1.5px solid rgba(67, 81, 40, 0.25);
+      color: var(--olive);
+      text-decoration: none;
+      min-height: 42px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .cat-custom-sourcing-chip:hover {
+      background: var(--olive);
+      border-color: var(--olive);
+      color: #ffffff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(67, 81, 40, 0.2);
+    }
+
+    .cat-multilingual-hint {
+      width: 100%;
+      margin-top: 12px;
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .cat-multilingual-hint span {
+      background: rgba(0,0,0,0.04);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #444;
     }
 
     .cat-search svg {
@@ -263,15 +318,23 @@
       padding: clamp(36px, 6vw, 56px) 0;
     }
 
-    @media(max-width: 640px) {
+    @media(max-width: 768px) {
       .cat-search {
         margin-left: 0;
         width: 100%;
+        min-width: 100%;
+        max-width: 100%;
         margin-top: 6px;
       }
 
       .cat-search input {
         width: 100%;
+        min-width: 0;
+      }
+
+      .cat-custom-sourcing-chip {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -293,46 +356,163 @@
       font-weight: 500;
       margin-bottom: 2px;
     }
+
+    /* Custom Sourcing & Out-of-Catalogue Banner */
+    .cat-custom-sourcing-banner {
+      background: linear-gradient(135deg, #fcfbf9 0%, #f4f7ee 100%);
+      border: 1.5px solid rgba(67, 81, 40, 0.22);
+      border-radius: 18px;
+      padding: 22px 26px;
+      margin: 20px clamp(16px, 4vw, 40px) 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 4px 20px rgba(67, 81, 40, 0.05);
+    }
+    .ccsb-left {
+      max-width: 680px;
+    }
+    .ccsb-badge {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive);
+      background: rgba(67, 81, 40, 0.10);
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .ccsb-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .ccsb-desc {
+      font-size: 13px;
+      color: #555555;
+      line-height: 1.5;
+    }
+    .ccsb-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .ccsb-wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    }
+    .ccsb-wa-btn svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+    @media (max-width: 768px) {
+      .cat-custom-sourcing-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+      }
+      .ccsb-wa-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <!-- ══════════════════════════════════
-       UNIFIED EDITORIAL NAVBAR (Image 3 Style)
+       UNIFIED EDITORIAL NAVBAR
        ══════════════════════════════════ -->
   <nav class="home-nav" id="homeNav" aria-label="Main navigation">
     <div class="home-nav-inner">
+      <!-- MOBILE LEFT (<= 992px) -->
+      <div class="mobile-nav-left">
+        <button class="mobile-nav-btn mobile-hamburger-btn" id="mobileHamburger" aria-label="Open menu">
+          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <a href="tel:+918592832871" class="mobile-nav-btn mobile-call-btn" aria-label="Call Direct" title="Call Us">
+          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- DESKTOP LEFT LINKS (> 992px) -->
+      <div class="desktop-nav-left">
+        <button class="desktop-search-btn" id="desktopSearchBtn" aria-label="Search Spices &amp; Catalogue" title="Search Spices · Custom Sourcing Available">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;">
+            <circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+        </button>
+        <ul class="nav-links-left">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="heritage.html">HERITAGE</a></li>
+          <li><a href="catalogue.html" class="active">CATALOGUE</a></li>
+          <li><a href="wholesale.html">WHOLESALE</a></li>
+          <li><a href="partnership.html">PARTNERSHIP</a></li>
+        </ul>
+      </div>
+
+      <!-- CENTER BRAND LOGO (Desktop & Mobile) -->
       <a href="index.html" class="home-nav-logo" aria-label="KTA Spices Home">
-        <img src="images/ktaspicesnewlogo.png" alt="KTA Spices">
+        <img src="images/ktaouterlinelogo.png" alt="KTA Spices" class="home-nav-logo-img">
       </a>
-      <ul class="home-nav-links">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="heritage.html">HERITAGE</a></li>
-        <li><a href="catalogue.html" class="active">CATALOGUE</a></li>
-        <li><a href="partnership.html">PARTNERSHIP</a></li>
-        <li><a href="wholesale.html">WHOLESALE</a></li>
-        <li><a href="index.html#hotelSmart">HOTEL SMART 24/7</a></li>
-      </ul>
-      <div class="home-nav-actions">
-        <a href="tel:+918838971069" class="nav-phone-contact" title="Direct Phone Desk">
+
+      <!-- DESKTOP RIGHT ACTIONS (> 992px) -->
+      <div class="desktop-nav-right">
+        <a href="index.html#hotelSmart" class="nav-link-right">HOTEL SMART 24/7</a>
+        <a href="tel:+918592832871" class="nav-phone-contact" title="Direct Phone Desk">
           <svg class="nav-phone-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"
             stroke-linejoin="round">
             <path
               d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
             </path>
           </svg>
-          <span class="nav-phone-text">+91 88389 71069</span>
+          <span class="nav-phone-text">+91 85928 32871</span>
         </a>
-        <a href="https://wa.me/918838971069?text=Hello%20KTA%20Team%2C%20I%20am%20reviewing%20your%20spice%20catalogue."
+        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20reviewing%20your%20spice%20catalogue%20and%20would%20like%20to%20request%20samples%20and%20commercial%20lot%20pricing."
           target="_blank" rel="noopener" class="nav-quick-enquiry" title="WhatsApp Enquiry">
-          <span class="nav-wa-dot"></span> WhatsApp Enquiry
+          <span class="nav-wa-dot"></span> WhatsApp
         </a>
         <a href="partnership.html#registerKitchen" class="nav-register-btn">REGISTER KITCHEN</a>
       </div>
-      <button class="home-hamburger" id="homeHamburger" aria-label="Open mobile menu">
-        <span></span><span></span><span></span>
-      </button>
+
+      <!-- MOBILE RIGHT: WhatsApp & Three-Dots Menu -->
+      <div class="mobile-nav-right">
+        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20reviewing%20your%20spice%20catalogue%20and%20would%20like%20to%20request%20samples%20and%20commercial%20lot%20pricing." target="_blank" rel="noopener" class="mobile-nav-btn mobile-wa-btn" aria-label="WhatsApp Enquiry" title="WhatsApp">
+          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </a>
+        <button class="mobile-nav-btn mobile-more-btn" id="mobileMoreBtn" aria-label="More options" title="More Options">
+          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="5" r="2"></circle>
+            <circle cx="12" cy="12" r="2"></circle>
+            <circle cx="12" cy="19" r="2"></circle>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -340,7 +520,7 @@
   <div class="mobile-overlay" id="mobileOverlay"></div>
   <div class="mobile-panel" id="mobilePanel">
     <div class="mobile-panel-head">
-      <img src="images/ktaspicesnewlogo.png" alt="KTA Spices">
+      <img src="images/ktaouterlinelogo.png" alt="KTA Spices">
       <button class="mobile-close" id="mobileClose">&times;</button>
     </div>
     <div class="mobile-links">
@@ -350,8 +530,8 @@
       <a href="partnership.html">PARTNERSHIP</a>
       <a href="wholesale.html">WHOLESALE</a>
       <a href="index.html#hotelSmart">HOTEL SMART 24/7</a>
-      <a href="tel:+918838971069" style="color: #435128; font-weight: 700;">Direct: +91 88389 71069</a>
-      <a href="https://wa.me/918838971069" target="_blank" rel="noopener"
+      <a href="tel:+918592832871" style="color: #435128; font-weight: 700;">Direct: +91 85928 32871</a>
+      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20reviewing%20your%20spice%20catalogue%20and%20would%20like%20to%20request%20samples%20and%20commercial%20lot%20pricing." target="_blank" rel="noopener"
         style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
     </div>
     <a href="partnership.html#registerKitchen" class="nav-cta-btn" style="margin-top:16px;text-align:center">REGISTER
@@ -375,11 +555,26 @@
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />
           </svg>
-          <input type="text" placeholder="Search by name…" oninput="doSearch(this.value)">
+          <input type="text" id="catalogueSearchInput" placeholder="Search in English, Tamil, Malayalam, Hindi &amp; Indian languages…" oninput="doSearch(this.value)">
+        </div>
+        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20looking%20for%20Custom%20Sourcing%20%2F%20Agricultural%20Procurement%20for%20our%20commercial%20kitchen.%20Please%20advise%20on%20grade%20availability%2C%20minimums%2C%20and%20lot%20pricing." target="_blank" rel="noopener" class="cat-custom-sourcing-chip" title="Custom Sourcing Available">
+          <span>Custom Sourcing Available</span>
+        </a>
+        <div class="cat-multilingual-hint">
+          <span style="background:transparent;padding-left:0;font-weight:700;color:var(--olive);">Search in Indian Languages:</span>
+          <span>Tamil (தமிழ்)</span>
+          <span>Malayalam (മലയാളം)</span>
+          <span>Hindi (हिन्दी)</span>
+          <span>Kannada (ಕನ್ನಡ)</span>
+          <span>Telugu (తెలుగు)</span>
+          <span>English</span>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Dynamic Search & Custom Sourcing Feedback Banner -->
+  <div id="catSearchFeedback" style="display:none;"></div>
 
   <section class="cat-section" id="spicesSec">
     <div class="row-header">
@@ -479,6 +674,24 @@
         <a href="contact.html">Contact Us</a>
         <a href="privacy.html">Privacy Policy</a>
       </div>
+
+      <!-- Registered Trade Desk Credibility Block -->
+      <div class="footer-credibility-block">
+        <div class="footer-cred-left">
+          <div class="footer-cred-badge">REGISTERED TRADE DESK &amp; WAREHOUSE</div>
+          <div class="footer-cred-name">KOTTAYAR TRADING AGENCY</div>
+          <div class="footer-cred-addr">
+            No. 13/28, Mylai Periyathambi Street, George Town, Mannadi,<br>
+            Chennai, Tamil Nadu – 600001, India
+          </div>
+        </div>
+        <div class="footer-cred-right">
+          <span>• Trade Category: <strong>Wholesaler &amp; Institutional Supplier</strong></span>
+          <span>• State License Registered · FSSAI Batch Certified</span>
+          <span>• Trade Desk Hotline: <a href="tel:+918592832871">+91 85928 32871</a></span>
+        </div>
+      </div>
+
       <div class="min-footer-bottom">
         <div>© 2026 KTA Spices Heritage Merchant. All Rights Reserved.</div>
         <div>FSSAI Certified · Batch Traceable · 250+ Kitchens Across South India</div>
@@ -489,55 +702,55 @@
   <script src="shared.js"></script>
   <script>
     var SPICES = [
-      { n: 'ANNACHIPOO', hsn: '090931', o: 'Single Origin', g: 'Star Anise', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', gl: '✦', img: 'images/Star-Anise.webp' },
-      { n: 'BIRYANI LEAF', hsn: '09104010', o: 'Single Origin', g: 'Bay Leaf', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', gl: '🍃', img: 'images/images/BiriyaniLeaf.webp' },
-      { n: 'BLACK CARDAMOM', hsn: '09083190', o: 'Single Origin', g: 'Black Cardamom', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a1a1a,#5a3030)', gl: '◆', img: 'images/images/BlackCardamom.webp' },
-      { n: 'BLACK PEPPER', hsn: '09041140', o: 'Single Origin', g: 'Tellicherry Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d1a0e,#6b3c1a)', gl: '🌿', img: 'images/images/BlackPepper.webp' },
-      { n: 'CASSIA (KESIA)', hsn: '09061190', o: 'Single Origin', g: 'Cassia Bark', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6b2e14,#a05030)', gl: '🪵', img: 'images/images/Kesia.webp' },
-      { n: 'CHIA SEEDS', hsn: '12149000', o: 'Single Origin', g: 'Premium Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d2d3a,#4a4a6a)', gl: '◌', img: 'images/images/Chiaseeds.webp' },
-      { n: 'CLOVES', hsn: '09071010', o: 'Single Origin', g: 'Grade A Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d1010,#7a3030)', gl: '✿', img: 'images/images/cloves.webp' },
-      { n: 'CORIANDER WHOLE', hsn: '09092110', o: 'Single Origin', g: 'Whole Coriander', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#5a4a20,#9b8040)', gl: '🍃', img: 'images/images/corianderwhole.webp' },
-      { n: 'CORIANDER POWDER', hsn: '09092200', o: 'Single Origin', g: 'Coriander Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', gl: '◉', img: 'images/images/corianderpowder.webp' },
-      { n: 'DRY GINGER (WHOLE)', hsn: '09101110', o: 'Single Origin', g: 'Sun-Dried Ginger', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a5820,#b08840)', gl: '🪵', img: 'images/images/drygingerwhole.webp' },
-      { n: 'DRY GINGER POWDER', hsn: '09101200', o: 'Single Origin', g: 'Sonth / Chukku', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6828,#c49850)', gl: '◉', img: 'images/images/drygingerpowder.webp' },
-      { n: 'DRY ROSE PETALS', hsn: '12119094', o: 'Single Origin', g: 'Culinary Grade', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#8a2040,#c05070)', gl: '❀', img: 'images/images/dryrosepetals.webp' },
-      { n: 'GROUNDNUT SEEDS', hsn: '12024190', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', gl: '○', img: 'images/images/Groundnutseeds.webp' },
-      { n: 'GUNTUR CHILLY', hsn: '09042219', o: 'Single Origin', g: 'Guntur Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a1000,#c83010)', gl: '🌶', img: 'images/images/GunturChilly.webp' },
-      { n: 'JAIFAL', hsn: '09081200', o: 'Single Origin', g: 'Nutmeg Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a3020,#9b6040)', gl: '◉', img: 'images/images/JaifalNutmeg.webp' },
-      { n: 'JAVANTRI', hsn: '09082100', o: 'Single Origin', g: 'Mace Whole Blades', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#9b4a00,#d4700a)', gl: '✿', img: 'images/images/JavantriMace.webp' },
-      { n: 'JEERA POWDER', hsn: '09093119', o: 'Single Origin', g: 'Cumin Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', gl: '🌾', img: 'images/images/JeeraPowder.webp' },
-      { n: 'JEERA WHOLE', hsn: '09093119', o: 'Single Origin', g: 'Whole Cumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a6838,#b09850)', gl: '🌾', img: 'images/images/JeeraWhole.webp' },
-      { n: 'KALPASI', hsn: '12149000', o: 'Single Origin', g: 'Stone Flower', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', gl: '◎', img: 'images/images/StoneFlower.webp' },
-      { n: 'KASHMIRI CHILLY', hsn: '09042219', o: 'Single Origin', g: 'ASTA 120+ Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6a0808,#b81c1c)', gl: '🌶', img: 'images/images/KashmiriChilly.webp' },
-      { n: 'KASURI METHI', hsn: '09109990', o: 'Single Origin', g: 'Dry Fenugreek', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', gl: '🍃', img: 'images/images/kasurimethi.webp' },
-      { n: 'METHI SEEDS', hsn: '090931', o: 'Single Origin', g: 'Fenugreek Seeds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', gl: '◌', img: 'images/images/methiseeds.webp' },
-      { n: 'MUSTARD SEEDS', hsn: '12075010', o: 'Single Origin', g: 'Black Mustard', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#1a1a2a,#3a3a5a)', gl: '◈', img: 'images/images/mustardseeds.webp' },
-      { n: 'PATTAI (CINNAMON)', hsn: '09061110', o: 'Single Origin', g: 'True Cinnamon', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2210,#9a5030)', gl: '🪵', img: 'images/images/cinnamon.webp' },
-      { n: 'PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground Black Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d2010,#5a4030)', gl: '◎', img: 'images/images/pepperpowder.webp' },
-      { n: 'PUMPKIN SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a5a10,#6a8a30)', gl: '◇', img: 'images/images/pumpkinseeds.webp' },
-      { n: 'ROASTED PEANUT', hsn: '20081111', o: 'Single Origin', g: 'Dry Roasted', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a4a18,#c47838)', gl: '○', img: 'images/images/roastedpeanut.webp' },
-      { n: 'SABJA SEEDS', hsn: '12119094', o: 'Single Origin', g: 'Sweet Basil Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', gl: '◌', img: 'images/images/sabjaseeds.webp' },
-      { n: 'NIGELLA (BLACK SEED)', hsn: '12099930', o: 'Single Origin', g: 'Kalonji / Black Seed', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#1a1a1a,#383838)', gl: '◼', img: 'images/images/nigella.webp' },
-      { n: 'SOMBU (FENNEL)', hsn: '090931', o: 'Single Origin', g: 'Fennel Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', gl: '☘', img: 'images/images/fennel.webp' },
-      { n: 'SUNFLOWER SEEDS', hsn: '12060090', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a7800,#d4b000)', gl: '◐', img: 'images/images/sunflowerseeds.webp' },
-      { n: 'TURMERIC POWDER', hsn: '09103030', o: 'Single Origin', g: '5%+ Curcumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a6800,#e0a000)', gl: '🌼', img: 'images/images/turmericpowder.webp' },
-      { n: 'VALYAJEERAKAM', hsn: '09093119', o: 'Single Origin', g: 'Shahi Jeera / Black Cumin', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a2a18,#6a5038)', gl: '◈', img: 'images/images/shahijeera.webp' },
-      { n: 'WATERMELON SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Dried Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', gl: '◑', img: 'images/images/watermelonseeds.webp' },
-      { n: 'WHITE CARDAMOM', hsn: '09083140', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#b0a880,#d8d0a8)', gl: '○', img: 'images/images/whitecardamom.webp' },
-      { n: 'WHITE ELLU (SESAME)', hsn: '12074090', o: 'Single Origin', g: 'White Sesame', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c8c0a0,#e8e0c8)', gl: '◌', img: 'images/images/whiteellu.webp' },
-      { n: 'WHITE PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground White Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c0b8a0,#ddd8c0)', gl: '◉', img: 'images/images/whitepepper.webp' }
+      { n: 'ANNACHIPOO', hsn: '090931', o: 'Single Origin', g: 'Star Anise', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/Star-Anise.webp' },
+      { n: 'BIRYANI LEAF', hsn: '09104010', o: 'Single Origin', g: 'Bay Leaf', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/BiriyaniLeaf.webp' },
+      { n: 'BLACK CARDAMOM', hsn: '09083190', o: 'Single Origin', g: 'Black Cardamom', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a1a1a,#5a3030)', img: 'images/images/BlackCardamom.webp' },
+      { n: 'BLACK PEPPER', hsn: '09041140', o: 'Single Origin', g: 'Tellicherry Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d1a0e,#6b3c1a)', img: 'images/images/BlackPepper.webp' },
+      { n: 'CASSIA (KESIA)', hsn: '09061190', o: 'Single Origin', g: 'Cassia Bark', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6b2e14,#a05030)', img: 'images/images/Kesia.webp' },
+      { n: 'CHIA SEEDS', hsn: '12149000', o: 'Single Origin', g: 'Premium Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d2d3a,#4a4a6a)', img: 'images/images/Chiaseeds.webp' },
+      { n: 'CLOVES', hsn: '09071010', o: 'Single Origin', g: 'Grade A Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d1010,#7a3030)', img: 'images/images/cloves.webp' },
+      { n: 'CORIANDER WHOLE', hsn: '09092110', o: 'Single Origin', g: 'Whole Coriander', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#5a4a20,#9b8040)', img: 'images/images/corianderwhole.webp' },
+      { n: 'CORIANDER POWDER', hsn: '09092200', o: 'Single Origin', g: 'Coriander Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/corianderpowder.webp' },
+      { n: 'DRY GINGER (WHOLE)', hsn: '09101110', o: 'Single Origin', g: 'Sun-Dried Ginger', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a5820,#b08840)', img: 'images/images/drygingerwhole.webp' },
+      { n: 'DRY GINGER POWDER', hsn: '09101200', o: 'Single Origin', g: 'Sonth / Chukku', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6828,#c49850)', img: 'images/images/drygingerpowder.webp' },
+      { n: 'DRY ROSE PETALS', hsn: '12119094', o: 'Single Origin', g: 'Culinary Grade', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#8a2040,#c05070)', img: 'images/images/dryrosepetals.webp' },
+      { n: 'GROUNDNUT SEEDS', hsn: '12024190', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/Groundnutseeds.webp' },
+      { n: 'GUNTUR CHILLY', hsn: '09042219', o: 'Single Origin', g: 'Guntur Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a1000,#c83010)', img: 'images/images/GunturChilly.webp' },
+      { n: 'JAIFAL', hsn: '09081200', o: 'Single Origin', g: 'Nutmeg Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a3020,#9b6040)', img: 'images/images/JaifalNutmeg.webp' },
+      { n: 'JAVANTRI', hsn: '09082100', o: 'Single Origin', g: 'Mace Whole Blades', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#9b4a00,#d4700a)', img: 'images/images/JavantriMace.webp' },
+      { n: 'JEERA POWDER', hsn: '09093119', o: 'Single Origin', g: 'Cumin Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/JeeraPowder.webp' },
+      { n: 'JEERA WHOLE', hsn: '09093119', o: 'Single Origin', g: 'Whole Cumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a6838,#b09850)', img: 'images/images/JeeraWhole.webp' },
+      { n: 'KALPASI', hsn: '12149000', o: 'Single Origin', g: 'Stone Flower', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/StoneFlower.webp' },
+      { n: 'KASHMIRI CHILLY', hsn: '09042219', o: 'Single Origin', g: 'ASTA 120+ Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6a0808,#b81c1c)', img: 'images/images/KashmiriChilly.webp' },
+      { n: 'KASURI METHI', hsn: '09109990', o: 'Single Origin', g: 'Dry Fenugreek', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/kasurimethi.webp' },
+      { n: 'METHI SEEDS', hsn: '090931', o: 'Single Origin', g: 'Fenugreek Seeds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/methiseeds.webp' },
+      { n: 'MUSTARD SEEDS', hsn: '12075010', o: 'Single Origin', g: 'Black Mustard', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#1a1a2a,#3a3a5a)', img: 'images/images/mustardseeds.webp' },
+      { n: 'PATTAI (CINNAMON)', hsn: '09061110', o: 'Single Origin', g: 'True Cinnamon', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2210,#9a5030)', img: 'images/images/cinnamon.webp' },
+      { n: 'PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground Black Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d2010,#5a4030)', img: 'images/images/pepperpowder.webp' },
+      { n: 'PUMPKIN SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a5a10,#6a8a30)', img: 'images/images/pumpkinseeds.webp' },
+      { n: 'ROASTED PEANUT', hsn: '20081111', o: 'Single Origin', g: 'Dry Roasted', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a4a18,#c47838)', img: 'images/images/roastedpeanut.webp' },
+      { n: 'SABJA SEEDS', hsn: '12119094', o: 'Single Origin', g: 'Sweet Basil Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/images/sabjaseeds.webp' },
+      { n: 'NIGELLA (BLACK SEED)', hsn: '12099930', o: 'Single Origin', g: 'Kalonji / Black Seed', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#1a1a1a,#383838)', img: 'images/images/nigella.webp' },
+      { n: 'SOMBU (FENNEL)', hsn: '090931', o: 'Single Origin', g: 'Fennel Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/fennel.webp' },
+      { n: 'SUNFLOWER SEEDS', hsn: '12060090', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a7800,#d4b000)', img: 'images/images/sunflowerseeds.webp' },
+      { n: 'TURMERIC POWDER', hsn: '09103030', o: 'Single Origin', g: '5%+ Curcumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a6800,#e0a000)', img: 'images/images/turmericpowder.webp' },
+      { n: 'VALYAJEERAKAM', hsn: '09093119', o: 'Single Origin', g: 'Shahi Jeera / Black Cumin', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a2a18,#6a5038)', img: 'images/images/shahijeera.webp' },
+      { n: 'WATERMELON SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Dried Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/watermelonseeds.webp' },
+      { n: 'WHITE CARDAMOM', hsn: '09083140', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#b0a880,#d8d0a8)', img: 'images/images/whitecardamom.webp' },
+      { n: 'WHITE ELLU (SESAME)', hsn: '12074090', o: 'Single Origin', g: 'White Sesame', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c8c0a0,#e8e0c8)', img: 'images/images/whiteellu.webp' },
+      { n: 'WHITE PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground White Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c0b8a0,#ddd8c0)', img: 'images/images/whitepepper.webp' }
     ];
 
     var DRY = [
-      { n: 'BADAM (ALMONDS)', hsn: '08021100', o: 'Single Origin', g: 'Premium Almonds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a5a18,#c49040)', gl: '○', img: 'images/images/almonds.webp' },
-      { n: 'CASHEWNUT', hsn: '080131', o: 'Single Origin', g: 'W320 Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', gl: '◉', img: 'images/images/cashewnut.webp' },
-      { n: 'DATES (PREMIUM)', hsn: '08041020', o: 'Single Origin', g: 'Selected Whole Dates', s: ['1kg', '5kg', '10kg+'], bg: 'linear-gradient(135deg,#4a1a0e,#8a3020)', gl: '◐', img: 'images/images/dates.webp' },
-      { n: 'FIG (ANJEER)', hsn: '08042090', o: 'Single Origin', g: 'Dried Whole Figs', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#8a6a50,#c4a880)', gl: '◐', img: 'images/images/figanjeer.webp' },
-      { n: 'KISMISS (RAISINS)', hsn: '08062010', o: 'Single Origin', g: 'Seedless Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#4a1830,#8a3860)', gl: '◑', img: 'images/images/kismiss.webp' },
-      { n: 'BLACK KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Black Currant Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a0838,#5a1870)', gl: '◑', img: 'images/images/blackkismiss.webp' },
-      { n: 'SPECIAL KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Premium Select Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2860,#9a4880)', gl: '◑', img: 'images/images/specialkismiss.webp' },
-      { n: 'PISTA (PISTACHIOS)', hsn: '08025100', o: 'Single Origin', g: 'Premium Pistachios', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', gl: '◇', img: 'images/images/pista.webp' },
-      { n: 'WALNUT', hsn: '08023200', o: 'Single Origin', g: 'Halves Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#4a2a10,#8a5028)', gl: '◎', img: 'images/images/walnut.webp' }
+      { n: 'BADAM (ALMONDS)', hsn: '08021100', o: 'Single Origin', g: 'Premium Almonds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a5a18,#c49040)', img: 'images/images/almonds.webp' },
+      { n: 'CASHEWNUT', hsn: '080131', o: 'Single Origin', g: 'W320 Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/cashewnut.webp' },
+      { n: 'DATES (PREMIUM)', hsn: '08041020', o: 'Single Origin', g: 'Selected Whole Dates', s: ['1kg', '5kg', '10kg+'], bg: 'linear-gradient(135deg,#4a1a0e,#8a3020)', img: 'images/images/dates.webp' },
+      { n: 'FIG (ANJEER)', hsn: '08042090', o: 'Single Origin', g: 'Dried Whole Figs', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#8a6a50,#c4a880)', img: 'images/images/figanjeer.webp' },
+      { n: 'KISMISS (RAISINS)', hsn: '08062010', o: 'Single Origin', g: 'Seedless Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#4a1830,#8a3860)', img: 'images/images/kismiss.webp' },
+      { n: 'BLACK KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Black Currant Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a0838,#5a1870)', img: 'images/images/blackkismiss.webp' },
+      { n: 'SPECIAL KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Premium Select Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2860,#9a4880)', img: 'images/images/specialkismiss.webp' },
+      { n: 'PISTA (PISTACHIOS)', hsn: '08025100', o: 'Single Origin', g: 'Premium Pistachios', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/pista.webp' },
+      { n: 'WALNUT', hsn: '08023200', o: 'Single Origin', g: 'Halves Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#4a2a10,#8a5028)', img: 'images/images/walnut.webp' }
     ];
 
     var trayItems = [];
@@ -555,7 +768,6 @@
         '<span class="product-card-tag">' + p.g + '</span>' +
         '</div>' :
         '<div class="product-card-img" style="background:' + p.bg + '">' +
-        '<span class="prod-glyph">' + p.gl + '</span>' +
         '<span class="product-card-tag">' + p.g + '</span>' +
         '</div>';
 
@@ -577,23 +789,327 @@
     DRY.forEach(function (p) { dryRow.appendChild(makeCard(p)); });
 
     function scrollRow(id, dir) {
-      document.getElementById(id).scrollBy({ left: dir * 280, behavior: 'smooth' });
+      var row = document.getElementById(id);
+      if (!row) return;
+      var card = row.querySelector('.product-card');
+      var step = card ? (card.offsetWidth + 18) : 250;
+      row.scrollBy({ left: dir * step, behavior: 'smooth' });
     }
 
+    var CAT_MULTILINGUAL = {
+      // Cinnamon / Cassia / Pattai
+      'karuvapatta': ['cinnamon', 'cassia', 'pattai', 'kesia'],
+      'karuvapetta': ['cinnamon', 'cassia', 'pattai', 'kesia'],
+      'karuvapattai': ['cinnamon', 'cassia', 'pattai', 'kesia'],
+      'pattai': ['cinnamon', 'cassia', 'pattai'],
+      'dalchini': ['cinnamon', 'cassia', 'pattai'],
+      'darchini': ['cinnamon', 'cassia', 'pattai'],
+      'kesia': ['cassia', 'cinnamon'],
+      'cassia': ['cassia', 'cinnamon'],
+      'lavangapatta': ['cinnamon', 'pattai'],
+      'dalchina chekka': ['cinnamon'],
+      'chakke': ['cinnamon'],
+
+      // Black & White Pepper
+      'kurumulaku': ['pepper', 'black pepper'],
+      'kurmulaku': ['pepper', 'black pepper'],
+      'nallamulaku': ['pepper', 'black pepper'],
+      'milagu': ['pepper', 'black pepper'],
+      'karuppu milagu': ['pepper', 'black pepper'],
+      'kali mirch': ['pepper', 'black pepper'],
+      'kalimirch': ['pepper', 'black pepper'],
+      'golki': ['pepper', 'black pepper'],
+      'miriyalu': ['pepper', 'black pepper'],
+      'mriyalu': ['pepper', 'black pepper'],
+      'kari menasu': ['pepper', 'black pepper'],
+      'safed mirch': ['white pepper'],
+      'vellai milagu': ['white pepper'],
+      'velutha kurumulaku': ['white pepper'],
+
+      // Cardamom
+      'elakkaya': ['cardamom'],
+      'elakkai': ['cardamom'],
+      'elam': ['cardamom'],
+      'elaichi': ['cardamom'],
+      'hari elaichi': ['cardamom'],
+      'safed elaichi': ['cardamom', 'white cardamom'],
+      'velutha elakkaya': ['white cardamom'],
+      'vellai elakkai': ['white cardamom'],
+      'badi elaichi': ['black cardamom'],
+      'moti elaichi': ['black cardamom'],
+      'periya elakkai': ['black cardamom'],
+      'valiya elakkaya': ['black cardamom'],
+      'yalukalu': ['cardamom'],
+      'yelakulu': ['cardamom'],
+      'elakki': ['cardamom'],
+
+      // Cloves
+      'grampoo': ['cloves'],
+      'krambu': ['cloves'],
+      'karambu': ['cloves'],
+      'kirambu': ['cloves'],
+      'lavangam': ['cloves'],
+      'laung': ['cloves'],
+      'lavang': ['cloves'],
+      'lavangalu': ['cloves'],
+      'lavanga': ['cloves'],
+
+      // Star Anise
+      'thakkolam': ['annachipoo', 'star anise'],
+      'takkolam': ['annachipoo', 'star anise'],
+      'annachipoo': ['annachipoo', 'star anise'],
+      'anasipoo': ['annachipoo', 'star anise'],
+      'chakri phool': ['annachipoo', 'star anise'],
+      'chakra phool': ['annachipoo', 'star anise'],
+      'anasphal': ['annachipoo', 'star anise'],
+      'anasa puvvu': ['annachipoo', 'star anise'],
+      'biryani puvvu': ['annachipoo', 'star anise'],
+      'chakra moggu': ['annachipoo', 'star anise'],
+
+      // Turmeric
+      'manjal': ['turmeric'],
+      'manjal podi': ['turmeric'],
+      'haldi': ['turmeric'],
+      'pasupu': ['turmeric'],
+      'arishina': ['turmeric'],
+
+      // Cumin
+      'jeerakam': ['jeera', 'cumin'],
+      'nalla jeerakam': ['jeera'],
+      'seeragam': ['jeera'],
+      'zeera': ['jeera'],
+      'shahi jeera': ['valyajeerakam', 'shahi jeera'],
+      'shahijeera': ['valyajeerakam', 'shahi jeera'],
+      'valyajeerakam': ['valyajeerakam'],
+      'jeelakarra': ['jeera'],
+      'jeerige': ['jeera'],
+
+      // Fennel
+      'perumjeerakam': ['fennel', 'sombu'],
+      'perunjeerakam': ['fennel', 'sombu'],
+      'sombu': ['fennel', 'sombu'],
+      'saunf': ['fennel', 'sombu'],
+      'sonf': ['fennel', 'sombu'],
+      'sopu': ['fennel', 'sombu'],
+      'sompu': ['fennel', 'sombu'],
+
+      // Mace
+      'jathipathri': ['javantri', 'mace'],
+      'jathipoov': ['javantri', 'mace'],
+      'javitri': ['javantri', 'mace'],
+      'vasavasi': ['javantri', 'mace'],
+      'japatri': ['javantri', 'mace'],
+
+      // Nutmeg
+      'jathikka': ['jaifal', 'nutmeg'],
+      'jathika': ['jaifal', 'nutmeg'],
+      'jathikai': ['jaifal', 'nutmeg'],
+      'jaiphal': ['jaifal', 'nutmeg'],
+      'jajikaya': ['jaifal', 'nutmeg'],
+      'jajikayi': ['jaifal', 'nutmeg'],
+
+      // Bay Leaf
+      'vayana ila': ['biryani leaf', 'bay leaf'],
+      'biryani ila': ['biryani leaf', 'bay leaf'],
+      'biryani ilai': ['biryani leaf', 'bay leaf'],
+      'tejpatta': ['biryani leaf', 'bay leaf'],
+      'tej patta': ['biryani leaf', 'bay leaf'],
+      'biryani aaku': ['biryani leaf'],
+
+      // Stone Flower
+      'marappasi': ['kalpasi', 'stone flower'],
+      'dagad phool': ['kalpasi', 'stone flower'],
+      'patthar phool': ['kalpasi', 'stone flower'],
+      'pathar phool': ['kalpasi', 'stone flower'],
+
+      // Fenugreek
+      'uluva': ['methi', 'kasuri methi'],
+      'vendhayam': ['methi'],
+      'venthayam': ['methi'],
+      'menthulu': ['methi'],
+      'kasoori methi': ['kasuri methi'],
+
+      // Mustard
+      'kaduku': ['mustard'],
+      'kadugu': ['mustard'],
+      'sarson': ['mustard'],
+      'rai': ['mustard'],
+      'aavalu': ['mustard'],
+      'sasive': ['mustard'],
+
+      // Ginger
+      'chukku': ['ginger'],
+      'sukku': ['ginger'],
+      'sonth': ['ginger'],
+      'saunth': ['ginger'],
+      'inji': ['ginger'],
+      'adrak': ['ginger'],
+      'allam': ['ginger'],
+      'sonti': ['ginger'],
+      'shunti': ['ginger'],
+
+      // Coriander
+      'malli': ['coriander'],
+      'kothamalli': ['coriander'],
+      'dhaniya': ['coriander'],
+      'dhania': ['coriander'],
+      'dhaniyalu': ['coriander'],
+      'kothambari': ['coriander'],
+
+      // Chilli
+      'vattal mulaku': ['chilly', 'kashmiri', 'guntur'],
+      'chuvanna mulaku': ['chilly', 'kashmiri', 'guntur'],
+      'piriyan mulaku': ['kashmiri'],
+      'vara milagai': ['chilly', 'guntur', 'kashmiri'],
+      'lal mirch': ['chilly', 'kashmiri', 'guntur'],
+      'degi mirch': ['kashmiri'],
+
+      // Nigella
+      'karinjeerakam': ['nigella'],
+      'karunjeeragam': ['nigella'],
+      'kalonji': ['nigella'],
+
+      // Sesame
+      'ellu': ['white ellu', 'sesame'],
+      'til': ['white ellu', 'sesame'],
+      'safed til': ['white ellu', 'sesame'],
+      'nuvvulu': ['white ellu', 'sesame'],
+
+      // Nuts & Dry fruits
+      'kashuvandi': ['cashewnut'],
+      'andipparippu': ['cashewnut'],
+      'mundhiri': ['cashewnut'],
+      'kaju': ['cashewnut'],
+      'jeedipappu': ['cashewnut'],
+      'godambi': ['cashewnut'],
+
+      'badam': ['badam'],
+      'baadam': ['badam'],
+      'almonds': ['badam'],
+      'badami': ['badam'],
+
+      'pista': ['pista'],
+      'pistha': ['pista'],
+
+      'akhrot': ['walnut'],
+      'akrot': ['walnut'],
+
+      'munthiringa': ['kismiss'],
+      'unakka munthiri': ['kismiss'],
+      'ular thiratchai': ['kismiss'],
+      'kishmish': ['kismiss'],
+      'munakka': ['kismiss'],
+
+      'eenthapazham': ['dates'],
+      'pericham pazham': ['dates'],
+      'khajoor': ['dates'],
+      'khajur': ['dates'],
+
+      'athipazham': ['fig'],
+      'athi pazham': ['fig'],
+      'anjeer': ['fig'],
+      'anjir': ['fig']
+    };
+
+    var currentCatFilter = 'all';
+
     function setFilter(cat, btn) {
+      currentCatFilter = cat;
       document.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('active') });
       btn.classList.add('active');
-      document.getElementById('spicesSec').style.display = (cat === 'dry') ? 'none' : '';
-      document.getElementById('drySec').style.display = (cat === 'spice') ? 'none' : '';
+      var searchInput = document.getElementById('catalogueSearchInput');
+      doSearch(searchInput ? searchInput.value : '');
     }
 
     function doSearch(v) {
-      v = v.toLowerCase();
-      [spicesRow, dryRow].forEach(function (row) {
-        row.querySelectorAll('.product-card').forEach(function (c) {
-          c.style.display = (!v || c.dataset.name.includes(v)) ? '' : 'none';
+      v = (v || '').trim().toLowerCase();
+      var feedback = document.getElementById('catSearchFeedback');
+      var spicesSec = document.getElementById('spicesSec');
+      var drySec = document.getElementById('drySec');
+
+      if (!v) {
+        if (feedback) feedback.style.display = 'none';
+        spicesSec.style.display = (currentCatFilter === 'dry') ? 'none' : '';
+        drySec.style.display = (currentCatFilter === 'spice') ? 'none' : '';
+        [spicesRow, dryRow].forEach(function(row){
+          row.querySelectorAll('.product-card').forEach(function(c){ c.style.display = ''; });
         });
+        return;
+      }
+
+      // Resolve search terms including multilingual synonyms
+      var searchTerms = [v];
+      if (CAT_MULTILINGUAL[v]) {
+        searchTerms = searchTerms.concat(CAT_MULTILINGUAL[v]);
+      } else {
+        Object.keys(CAT_MULTILINGUAL).forEach(function(key) {
+          if (key.indexOf(v) !== -1 || v.indexOf(key) !== -1) {
+            searchTerms = searchTerms.concat(CAT_MULTILINGUAL[key]);
+          }
+        });
+      }
+
+      var totalSpicesVisible = 0;
+      var totalDryVisible = 0;
+
+      spicesRow.querySelectorAll('.product-card').forEach(function(c) {
+        var cardName = (c.dataset.name || '').toLowerCase();
+        var match = searchTerms.some(function(term){ return term && cardName.indexOf(term) !== -1; });
+        var visible = match && (currentCatFilter !== 'dry');
+        c.style.display = visible ? '' : 'none';
+        if (visible) totalSpicesVisible++;
       });
+
+      dryRow.querySelectorAll('.product-card').forEach(function(c) {
+        var cardName = (c.dataset.name || '').toLowerCase();
+        var match = searchTerms.some(function(term){ return term && cardName.indexOf(term) !== -1; });
+        var visible = match && (currentCatFilter !== 'spice');
+        c.style.display = visible ? '' : 'none';
+        if (visible) totalDryVisible++;
+      });
+
+      var totalVisible = totalSpicesVisible + totalDryVisible;
+      spicesSec.style.display = (totalSpicesVisible > 0) ? '' : 'none';
+      drySec.style.display = (totalDryVisible > 0) ? '' : 'none';
+
+      if (feedback) {
+        var waMsg = "Hello KTA Trade Desk, I am looking to custom-source \"" + v + "\" (unlisted variety / custom grade) for our commercial kitchen. Please advise on origin availability, minimums, and pricing.";
+        var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(waMsg);
+
+        if (totalVisible === 0) {
+          feedback.style.display = 'block';
+          feedback.innerHTML = [
+            '<div class="cat-custom-sourcing-banner">',
+            '  <div class="ccsb-left">',
+            '    <span class="ccsb-badge">Custom Sourcing &amp; Commodity Outsourcing Desk</span>',
+            '    <div class="ccsb-title">No standard catalogue SKU for "' + escapeHtml(v) + '"</div>',
+            '    <p class="ccsb-desc">Looking for Saffron, pure Vanilla beans, custom ground blends, or unlisted bulk spices? Our direct farm &amp; mandi network custom-procures rare botanicals and multi-ton institutional lots on demand.</p>',
+            '  </div>',
+            '  <a href="' + waUrl + '" target="_blank" rel="noopener" class="ccsb-wa-btn">',
+            '    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>',
+            '    Request Custom Sourcing on WhatsApp ↗',
+            '  </a>',
+            '</div>'
+          ].join('');
+        } else {
+          feedback.style.display = 'block';
+          feedback.innerHTML = [
+            '<div class="cat-custom-sourcing-banner" style="padding:14px 20px;margin-bottom:12px;">',
+            '  <div class="ccsb-left">',
+            '    <div style="font-size:13.5px;font-weight:700;color:var(--ink);">Showing ' + totalVisible + ' matching varieties for "' + escapeHtml(v) + '"</div>',
+            '    <div style="font-size:12px;color:var(--muted);margin-top:2px;">Need an unlisted spice, specific mesh grinding, or institutional custom packaging?</div>',
+            '  </div>',
+            '  <a href="' + waUrl + '" target="_blank" rel="noopener" class="ccsb-wa-btn" style="padding:8px 18px;font-size:12px;">',
+            '    Custom Sourcing Enquiry ↗',
+            '  </a>',
+            '</div>'
+          ].join('');
+        }
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
     function toggleTrayItem(btn, pJsonStr) {
@@ -627,13 +1143,15 @@
         tray.style.display = 'none';
       }
 
-      renderTrayDrawer();
+      if (document.getElementById('trayDrawer').classList.contains('active')) {
+        renderTrayDrawer();
+      }
     }
 
     function openTrayDrawer() {
+      renderTrayDrawer();
       document.getElementById('trayBackdrop').classList.add('active');
       document.getElementById('trayDrawer').classList.add('active');
-      renderTrayDrawer();
     }
 
     function closeTrayDrawer() {
@@ -647,7 +1165,14 @@
       sub.textContent = trayItems.length + ' Varieties Selected (1kg Standard Samples)';
 
       if (trayItems.length === 0) {
-        body.innerHTML = '<div class="tray-empty-msg"><div style="font-size:32px;margin-bottom:8px">🧺</div><strong>Your sample tray is empty.</strong><br>Click "+ Add to Tray" on any of our 46 varieties to build your complimentary discovery kit.</div>';
+        body.innerHTML = [
+          '<div class="tray-empty-msg">',
+          '  <div style="width:48px;height:48px;border-radius:50%;background:var(--olive-faint);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--olive);">',
+          '    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
+          '  </div>',
+          '  <strong>Your sample tray is empty.</strong><br>Click "+ Add to Tray" on any of our 46 varieties to build your complimentary discovery kit.',
+          '</div>'
+        ].join('');
         return;
       }
 
@@ -655,7 +1180,7 @@
       trayItems.forEach(function(item, i) {
         var thumbHtml = item.img ?
           '<img src="' + item.img + '" alt="' + item.n + '">' :
-          '<div style="width:100%;height:100%;background:' + item.bg + ';display:flex;align-items:center;justify-content:center;font-size:18px">' + item.gl + '</div>';
+          '<div style="width:100%;height:100%;background:' + item.bg + ';display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700">KTA</div>';
 
         html +=
           '<div class="tray-item-row">' +
@@ -706,7 +1231,7 @@
       var chef = document.getElementById('trayChefName').value.trim() || 'Executive Chef / Kitchen';
       var phone = document.getElementById('trayPhone').value.trim() || 'Not specified';
 
-      var msg = "✦ *KTA SPICES — WELCOME SAMPLE DISCOVERY TRAY REQUEST* ✦\n" +
+      var msg = "*KTA SPICES — WELCOME SAMPLE DISCOVERY TRAY REQUEST*\n" +
                 "─────────────────────────────\n" +
                 "• *Property / Chef:* " + chef + "\n" +
                 "• *Contact:* " + phone + "\n\n" +
@@ -719,9 +1244,33 @@
       msg += "\n─────────────────────────────\n" +
              "Please confirm dispatch schedule (2–24h dispatch) and hand-delivery to our receiving bay.";
 
-      var waUrl = "https://wa.me/916379351632?text=" + encodeURIComponent(msg);
+      var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(msg);
       window.open(waUrl, '_blank');
     }
+
+    // Auto-filter on URL Search Param
+    (function(){
+      function checkUrlSearch() {
+        var params = new URLSearchParams(window.location.search);
+        var q = params.get('search') || params.get('q');
+        if (q) {
+          var searchInputs = document.querySelectorAll('#catalogueSearchInput, .filter-search input, input[placeholder*="Search by name"]');
+          searchInputs.forEach(function(inp){ inp.value = q; });
+          doSearch(q);
+          setTimeout(function(){
+            var spicesSec = document.getElementById('spicesSec');
+            if (spicesSec) {
+              spicesSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 300);
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkUrlSearch);
+      } else {
+        checkUrlSearch();
+      }
+    })();
   </script>
 </body>
 
