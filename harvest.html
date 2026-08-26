@@ -202,7 +202,7 @@
         <a href="catalogue.html" class="harvest-back-link">← Return to Pure Culinary Catalogue</a>
         <span class="eyebrow" style="display:block">Direct Origin Agriculture</span>
         <h1 class="display-xl" style="margin-bottom:12px">Origin Harvest &amp; Potency Guide.</h1>
-        <p class="lead">12-month volatile essential oil concentration curve mapping peak agricultural arrivals across South India's verified direct origin estates. Track prime seasonal flushes to secure maximum culinary aroma and clinical yield.</p>
+        <p class="lead">12-month volatile essential oil concentration curve mapping peak agricultural arrivals across South India's verified direct origin estates. <strong>Regardless of the season, KTA supplies strictly direct from verified grower estates only</strong> — ensuring unadulterated botanical purity, maximum aroma yield, and zero open-market blending.</p>
       </div>
     </div>
   </section>
@@ -391,17 +391,18 @@
       <!-- Registered Trade Desk Credibility Block -->
       <div class="footer-credibility-block">
         <div class="footer-cred-left">
-          <div class="footer-cred-badge">REGISTERED TRADE DESK &amp; WAREHOUSE</div>
+          <div class="footer-cred-badge">REGISTERED TRADE DESK &amp; CENTRAL WAREHOUSE</div>
           <div class="footer-cred-name">KOTTAYAR TRADING AGENCY</div>
+          <div class="footer-cred-sub">Origin-Direct Institutional Spice Merchant · Est. 1999</div>
           <div class="footer-cred-addr">
             No. 13/28, Mylai Periyathambi Street, George Town, Mannadi,<br>
             Chennai, Tamil Nadu – 600001, India
           </div>
         </div>
         <div class="footer-cred-right">
-          <span>• Trade Category: <strong>Wholesaler &amp; Institutional Supplier</strong></span>
-          <span>• State License Registered · FSSAI Batch Certified</span>
-          <span>• Wholesale Trade Hotline: <a href="tel:+918592832871">+91 85928 32871</a></span>
+          <div class="footer-cred-item"><span class="footer-cred-dot"></span> <span>Trade Category: <strong>Wholesaler &amp; Institutional Supplier</strong></span></div>
+          <div class="footer-cred-item"><span class="footer-cred-dot"></span> <span>State License Registered · FSSAI Batch Certified</span></div>
+          <div class="footer-cred-item"><span class="footer-cred-dot"></span> <span>Wholesale Trade Desk: <a href="tel:+918592832871">+91 85928 32871</a></span></div>
         </div>
       </div>
 
@@ -585,6 +586,8 @@
         rdBadge.textContent = val + '% Potency (' + status + ')';
         rdBadge.style.color = val >= 85 ? '#128c46' : (val >= 60 ? '#d97706' : '#2563eb');
         rdBadge.style.background = val >= 85 ? 'rgba(37,211,102,0.12)' : (val >= 60 ? 'rgba(245,158,11,0.12)' : 'rgba(59,130,246,0.12)');
+        rdBadge.style.borderColor = val >= 85 ? 'rgba(37,211,102,0.28)' : (val >= 60 ? 'rgba(245,158,11,0.28)' : 'rgba(59,130,246,0.28)');
+        rdBadge.style.borderRadius = '6px';
       }
       if (rdOil) rdOil.textContent = spice.oil;
       if (rdOrigin) rdOrigin.textContent = spice.origin;
