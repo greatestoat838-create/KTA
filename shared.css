@@ -239,12 +239,17 @@ button {
 
 /* ── 2. Center Brand Logo (Desktop & Mobile) ── */
 .home-nav-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  flex-shrink: 0;
-  margin: 0 clamp(8px, 1.8vw, 24px);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  margin: 0 clamp(8px, 1.8vw, 24px) !important;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 .home-nav-logo:hover {
@@ -353,17 +358,18 @@ button {
   box-shadow: 0 4px 14px rgba(67, 81, 40, 0.32);
 }
 
-/* Mid-Tier Screens (861px - 1180px): Compact Desktop Nav Alignment & Perfect Single-Row Fit */
-@media (min-width: 861px) and (max-width: 1180px) {
+/* Mid-Tier Screens (861px - 1200px): Compact Desktop Nav Alignment & Perfect Single-Row Fit */
+@media (min-width: 861px) and (max-width: 1200px) {
   .home-nav {
     padding: 8px 16px !important;
   }
   .home-nav-inner {
     flex-wrap: nowrap !important;
-    gap: 8px !important;
+    gap: 6px !important;
   }
   .desktop-nav-left {
-    gap: 8px !important;
+    gap: 6px !important;
+    flex: 1 1 auto !important;
   }
   .nav-links-left {
     gap: 8px !important;
@@ -371,29 +377,55 @@ button {
   .nav-links-left a,
   .nav-link-right {
     font-size: 10px !important;
-    letter-spacing: 0.08em !important;
+    letter-spacing: 0.06em !important;
+    padding: 4px 1px !important;
   }
   .home-nav-logo {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
     margin: 0 8px !important;
+    flex: 0 0 auto !important;
   }
   .home-nav-logo img,
   .home-nav-logo .home-nav-logo-img,
   .home-nav-logo .desktop-logo-img {
-    height: 32px !important;
+    height: 30px !important;
   }
   .desktop-nav-right {
-    gap: 8px !important;
+    gap: 6px !important;
+    flex: 1 1 auto !important;
   }
   .nav-phone-contact {
     display: none !important;
   }
   .nav-quick-enquiry {
-    font-size: 9.5px !important;
-    padding: 4px 6px !important;
+    font-size: 9px !important;
+    padding: 4px 4px !important;
   }
   .nav-register-btn {
-    font-size: 9px !important;
-    padding: 6px 12px !important;
+    font-size: 8.5px !important;
+    padding: 5px 10px !important;
+  }
+}
+
+/* Desktop Strict Relative Flow (> 860px) */
+@media (min-width: 861px) {
+  .home-nav-logo {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
+  }
+  .desktop-nav-left,
+  .desktop-nav-right {
+    display: flex !important;
+  }
+  .mobile-nav-left,
+  .mobile-nav-right {
+    display: none !important;
   }
 }
 
