@@ -988,18 +988,16 @@
     window.open(url, '_blank');
   }
 
-  /* ── Wholesale Pro-Forma Invoice Estimator Engine ── */
+  /* ── Wholesale Pro-Forma Invoice Estimator Engine (Wholesale Catalogue SKUs Only) ── */
   var PROFORMA_SKUS = [
-    { name: 'Tellicherry Black Pepper (TGSEB 570 g/L)', hsn: '09041140', bagKg: 40, bags: 1 },
-    { name: 'Alleppey Green Cardamom (8mm+ Extra Bold)', hsn: '09083140', bagKg: 40, bags: 1 },
-    { name: 'Cochin Sun-Cured Dry Ginger (Unbleached)', hsn: '09101110', bagKg: 40, bags: 1 },
-    { name: 'Zanzibar Whole Handpicked Cloves', hsn: '09071010', bagKg: 40, bags: 0 },
-    { name: 'Salem High-Curcumin Turmeric (Ground)', hsn: '09103030', bagKg: 40, bags: 0 },
-    { name: 'W320 First Quality Raw Cashewnuts', hsn: '080131', bagKg: 40, bags: 0 },
-    { name: 'Guntur Stemless S17 Red Chilli', hsn: '09042110', bagKg: 40, bags: 0 },
-    { name: 'Royal Bold Star Anise (Whole Autumn)', hsn: '09096139', bagKg: 40, bags: 0 },
-    { name: 'Ceylon Feather-Cut Cinnamon (C5 Grade)', hsn: '09061110', bagKg: 40, bags: 0 },
-    { name: 'Unpolished Whole Cumin Seeds (Machine Cleaned)', hsn: '09093129', bagKg: 40, bags: 0 }
+    { name: 'BLACK PEPPER (Whole Bold Export Grade)', hsn: '09041140', bagKg: 40, bags: 1 },
+    { name: 'LITE BERRIES (Pepper Oleoresin Grade)', hsn: '09041140', bagKg: 40, bags: 1 },
+    { name: 'PINHEADS (High Piperine Small Berries)', hsn: '09041110', bagKg: 40, bags: 1 },
+    { name: 'PEPPER HUSK (Cleaned Outer Pericarp)', hsn: '09109939', bagKg: 40, bags: 0 },
+    { name: 'PEPPER HUSK (S) (Special Sieved / Mesh Grade)', hsn: '09041110', bagKg: 40, bags: 0 },
+    { name: 'DRY GINGER (Whole / Slices Sun-Dried)', hsn: '09101110', bagKg: 40, bags: 0 },
+    { name: 'SPENT DRY GINGER (Post-Extraction Biomass)', hsn: 'Industrial Biomass', bagKg: 40, bags: 0 },
+    { name: 'ALL SPICES SPENT (Post-Extraction Residues)', hsn: 'Industrial Biomass', bagKg: 40, bags: 0 }
   ];
 
   function renderProFormaList() {
