@@ -1147,3 +1147,47 @@ window.openFastRfq = function(skuName, hsn, origin) {
   });
 };
 
+/* ── Flush Reservation Modal Handlers ── */
+window.openFlushReservation = function(spiceName, seasonWindow) {
+  var modal = document.getElementById('flushReserveModal');
+  if (!modal) return;
+  var varInp = document.getElementById('flushVarietyInput');
+  var ssnInp = document.getElementById('flushSeasonInput');
+  if (varInp) varInp.value = spiceName;
+  if (ssnInp) ssnInp.value = seasonWindow || 'Upcoming Harvest Window';
+  modal.style.display = 'flex';
+};
+
+window.closeFlushReservation = function() {
+  var modal = document.getElementById('flushReserveModal');
+  if (modal) modal.style.display = 'none';
+};
+
+window.selectFlushWeight = function(weightStr, btn) {
+  var hidden = document.getElementById('flushSelectedWeight');
+  if (hidden) hidden.value = weightStr;
+  var parent = btn.parentElement;
+  if (parent) {
+    parent.querySelectorAll('.rfq-chip').forEach(function(c){ c.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+};
+
+window.submitFlushReservation = function() {
+  var variety = document.getElementById('flushVarietyInput') ? document.getElementById('flushVarietyInput').value : 'Origin Spices';
+  var season = document.getElementById('flushSeasonInput') ? document.getElementById('flushSeasonInput').value : 'Upcoming Flush';
+  var weight = document.getElementById('flushSelectedWeight') ? document.getElementById('flushSelectedWeight').value : '100kg (3 Master Bags)';
+  var hotel = document.getElementById('flushHotelName') ? document.getElementById('flushHotelName').value.trim() : '';
+  
+  var hotelText = hotel ? " for *" + hotel + "*" : "";
+  var msg = "Hello KTA Trade Desk, I would like to reserve upcoming direct harvest allocation" + hotelText + ":\n" +
+            "• Variety: *" + variety + "*\n" +
+            "• Harvest Window: " + season + "\n" +
+            "• Target Volume: " + weight + "\n" +
+            "Please record our priority allocation and notify our purchase desk as soon as initial farm lots complete sun-curing.";
+  
+  var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(msg);
+  window.open(waUrl, '_blank');
+  window.closeFlushReservation();
+};
+

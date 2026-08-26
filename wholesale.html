@@ -752,6 +752,83 @@
             </button>
           </div>
         </div>
+
+        <!-- Transparent Parameter Math Breakdown -->
+        <div style="margin-top:16px;background:#faf8f5;border:1px solid #eae5db;border-radius:12px;padding:14px 18px;font-size:12px;color:#555">
+          <strong style="color:var(--ink);display:block;margin-bottom:4px;font-size:12.5px">How This Calculation Works (Industry Culinary Metric):</strong>
+          <div style="line-height:1.6">
+            <span>• <strong>Consumption Metric per Cover:</strong> Hotel Banqueting (24g/meal) · Fine Dining / À La Carte (20g/meal) · Cloud Kitchens (16g/meal) · Institutional Catering (12g/meal).</span><br>
+            <span>• <strong>Monthly Volume Formula:</strong> <code>Daily Meal Covers × Grams per Cover × 30 Operating Days = Monthly Requirement (kg)</code>.</span><br>
+            <span>• <strong>Packaging Standard:</strong> Converted to <code>Total kg ÷ 40kg Master Food-Grade Bags</code> (Institutional Wholesale MOQ: 100kg+ across single or mixed varieties).</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Wholesale Pro-Forma Invoice Estimator ── -->
+  <section class="section" id="proformaSec" style="padding-top:10px;padding-bottom:30px">
+    <div class="container">
+      <div class="proforma-box">
+        <div class="proforma-header">
+          <span class="proforma-eyebrow">Institutional Procurement Tool</span>
+          <h2 class="proforma-title">Instant Wholesale Pro-Forma Invoice Estimator.</h2>
+          <p class="proforma-lead">Select institutional varieties in 40kg master bags, specify delivery destination, and instantly generate a formatted commercial draft on WhatsApp with HSN codes, net tonnage, and dispatch SLAs.</p>
+        </div>
+
+        <div class="proforma-grid">
+          <!-- Left: Variety Selection & Bag Quantity Multipliers -->
+          <div class="proforma-items-card">
+            <div class="proforma-card-title">Select 40kg Master Bag Lots (100kg+ Total MOQ)</div>
+            <div class="proforma-variety-list" id="proformaVarietyList">
+              <!-- Dynamically populated variety rows with - / + bag counters -->
+            </div>
+          </div>
+
+          <!-- Right: Summary, Destination & Dispatch Action -->
+          <div class="proforma-summary-card">
+            <div class="proforma-summary-head">Commercial Order Specification</div>
+            
+            <div class="proforma-calc-field">
+              <label class="proforma-lbl">Destination Hub (Freight Routing):</label>
+              <select id="proformaCity" class="proforma-select" onchange="calculateProForma()">
+                <option value="Chennai Hub (Same Day Dispatch · 2–6 Hours)">Chennai Metropolitan &amp; Coastal Hub</option>
+                <option value="Bengaluru / Karnataka Hub (24 Hours Dispatch)">Bengaluru &amp; Southern Karnataka</option>
+                <option value="Hyderabad / Telangana Hub (24–36 Hours Dispatch)">Hyderabad &amp; Telangana</option>
+                <option value="Kochi / Kerala Coastal Corridor (24 Hours Dispatch)">Kochi &amp; Malabar Corridor</option>
+                <option value="Coimbatore / Western Tamil Nadu (12–18 Hours Dispatch)">Coimbatore / Tiruppur Hub</option>
+                <option value="Pan-India Multi-Ton Freight (Custom Transport SLA)">Other Institutional Destination</option>
+              </select>
+            </div>
+
+            <div class="proforma-calc-field">
+              <label class="proforma-lbl">Buyer / Establishment Name:</label>
+              <input type="text" id="proformaBuyerName" class="proforma-input" placeholder="e.g. ITC Grand Chola / Taj Coromandel" oninput="calculateProForma()">
+            </div>
+
+            <div class="proforma-totals-wrap">
+              <div class="proforma-total-row">
+                <span>Selected Varieties:</span>
+                <strong id="proformaItemCount">0 SKUs</strong>
+              </div>
+              <div class="proforma-total-row">
+                <span>Total 40kg Master Bags:</span>
+                <strong id="proformaTotalBags">0 Bags</strong>
+              </div>
+              <div class="proforma-total-row highlight">
+                <span>Total Net Weight:</span>
+                <strong id="proformaTotalKg" style="color:#b7cb96;font-size:16px">0 kg</strong>
+              </div>
+              <div class="proforma-moq-status" id="proformaMoqNotice">
+                Min. Wholesale Order: 100kg (3 Bags or Mixed SKUs)
+              </div>
+            </div>
+
+            <button type="button" class="proforma-submit-btn" id="proformaSubmitBtn" onclick="dispatchProFormaWhatsApp()">
+              Generate Pro-Forma Invoice Draft on WhatsApp ↗
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -904,11 +981,119 @@
               "• Recommended Replenishment Cycle: " + cadence + "\n\n" +
               "Please provide institutional lot quotes and sample lot verification.";
 
-    var url = "https://wa.me/916379351632?text=" + encodeURIComponent(msg);
+    var url = "https://wa.me/918592832871?text=" + encodeURIComponent(msg);
     window.open(url, '_blank');
   }
 
+  /* ── Wholesale Pro-Forma Invoice Estimator Engine ── */
+  var PROFORMA_SKUS = [
+    { name: 'Tellicherry Black Pepper (TGSEB 570 g/L)', hsn: '09041140', bagKg: 40, bags: 1 },
+    { name: 'Alleppey Green Cardamom (8mm+ Extra Bold)', hsn: '09083140', bagKg: 40, bags: 1 },
+    { name: 'Cochin Sun-Cured Dry Ginger (Unbleached)', hsn: '09101110', bagKg: 40, bags: 1 },
+    { name: 'Zanzibar Whole Handpicked Cloves', hsn: '09071010', bagKg: 40, bags: 0 },
+    { name: 'Salem High-Curcumin Turmeric (Ground)', hsn: '09103030', bagKg: 40, bags: 0 },
+    { name: 'W320 First Quality Raw Cashewnuts', hsn: '080131', bagKg: 40, bags: 0 },
+    { name: 'Guntur Stemless S17 Red Chilli', hsn: '09042110', bagKg: 40, bags: 0 },
+    { name: 'Royal Bold Star Anise (Whole Autumn)', hsn: '09096139', bagKg: 40, bags: 0 },
+    { name: 'Ceylon Feather-Cut Cinnamon (C5 Grade)', hsn: '09061110', bagKg: 40, bags: 0 },
+    { name: 'Unpolished Whole Cumin Seeds (Machine Cleaned)', hsn: '09093129', bagKg: 40, bags: 0 }
+  ];
+
+  function renderProFormaList() {
+    var container = document.getElementById('proformaVarietyList');
+    if (!container) return;
+    container.innerHTML = PROFORMA_SKUS.map(function(sku, idx) {
+      return [
+        '<div class="proforma-item-row">',
+        '  <div class="proforma-item-meta">',
+        '    <div class="proforma-item-name">' + sku.name + '</div>',
+        '    <div class="proforma-item-sub">HSN: ' + sku.hsn + ' · 40kg Master Bag</div>',
+        '  </div>',
+        '  <div class="proforma-qty-ctrl">',
+        '    <button type="button" class="proforma-qty-btn" onclick="updateProFormaQty(' + idx + ', -1)">–</button>',
+        '    <span class="proforma-qty-val" id="pfQty_' + idx + '">' + sku.bags + '</span>',
+        '    <button type="button" class="proforma-qty-btn" onclick="updateProFormaQty(' + idx + ', 1)">+</button>',
+        '  </div>',
+        '</div>'
+      ].join('');
+    }).join('');
+    calculateProForma();
+  }
+
+  function updateProFormaQty(idx, delta) {
+    var sku = PROFORMA_SKUS[idx];
+    if (!sku) return;
+    sku.bags = Math.max(0, sku.bags + delta);
+    var el = document.getElementById('pfQty_' + idx);
+    if (el) el.textContent = sku.bags;
+    calculateProForma();
+  }
+
+  function calculateProForma() {
+    var totalBags = 0;
+    var activeSkus = 0;
+    PROFORMA_SKUS.forEach(function(s) {
+      if (s.bags > 0) {
+        totalBags += s.bags;
+        activeSkus++;
+      }
+    });
+
+    var totalKg = totalBags * 40;
+    var itemCountEl = document.getElementById('proformaItemCount');
+    var totalBagsEl = document.getElementById('proformaTotalBags');
+    var totalKgEl = document.getElementById('proformaTotalKg');
+    var moqNotice = document.getElementById('proformaMoqNotice');
+
+    if (itemCountEl) itemCountEl.textContent = activeSkus + ' SKUs';
+    if (totalBagsEl) totalBagsEl.textContent = totalBags + ' Bags';
+    if (totalKgEl) totalKgEl.textContent = totalKg + ' kg';
+
+    if (moqNotice) {
+      if (totalKg === 0) {
+        moqNotice.textContent = 'Select bags above (Minimum Wholesale Order: 100kg)';
+        moqNotice.style.color = '#e5b35a';
+      } else if (totalKg < 100) {
+        moqNotice.textContent = '⚠️ ' + totalKg + 'kg selected. Minimum wholesale consignment is 100kg (' + (100 - totalKg) + 'kg more needed).';
+        moqNotice.style.color = '#ff9800';
+      } else {
+        moqNotice.textContent = '✓ Wholesale MOQ Met (' + totalKg + 'kg in ' + totalBags + ' Master Bags). Ready for Commercial Dispatch.';
+        moqNotice.style.color = '#4ade80';
+      }
+    }
+  }
+
+  function dispatchProFormaWhatsApp() {
+    var selected = PROFORMA_SKUS.filter(function(s){ return s.bags > 0; });
+    var totalBags = selected.reduce(function(acc, s){ return acc + s.bags; }, 0);
+    var totalKg = totalBags * 40;
+    var city = document.getElementById('proformaCity') ? document.getElementById('proformaCity').value : 'Direct Logistics Corridor';
+    var buyer = document.getElementById('proformaBuyerName') ? document.getElementById('proformaBuyerName').value.trim() : '';
+
+    if (selected.length === 0) {
+      alert('Please select at least 1 variety in 40kg master bags.');
+      return;
+    }
+
+    var lines = selected.map(function(s, i) {
+      return (i + 1) + ". *" + s.name + "* (HSN: " + s.hsn + ") — " + s.bags + " Bags (" + (s.bags * 40) + " kg)";
+    }).join('\n');
+
+    var buyerStr = buyer ? " for *" + buyer + "*" : "";
+    var msg = "Hello KTA Trade Desk, I would like to request an official wholesale Pro-Forma Invoice" + buyerStr + ":\n\n" +
+              "📦 *COMMERCIAL LOT ORDER BREAKDOWN:*\n" +
+              lines + "\n\n" +
+              "📊 *TOTAL NET VOLUME:* " + totalKg + " kg (" + totalBags + " × 40kg Master Food-Grade Bags)\n" +
+              "📍 *DELIVERY HUB / FREIGHT SLA:* " + city + "\n" +
+              "🛡️ *SPECIFICATION:* Sealed Moisture-Locked Inner Liner, FSSAI Batch Certified.\n\n" +
+              "Please share commercial batch quotation with HSN tax breakdown and dispatch schedule.";
+
+    var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(msg);
+    window.open(waUrl, '_blank');
+  }
+
   calculateKitchenPotency();
+  renderProFormaList();
   </script>
 </body>
 </html>

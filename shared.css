@@ -3464,7 +3464,7 @@ textarea.form-control {
   border-radius: 16px;
   padding: 20px 22px;
   display: grid;
-  grid-template-columns: 1fr 280px;
+  grid-template-columns: 1fr clamp(290px, 32vw, 350px);
   gap: 20px;
   align-items: center;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
@@ -3496,18 +3496,21 @@ textarea.form-control {
   flex-direction: column;
   justify-content: space-between;
   gap: 12px;
+  overflow: hidden;
 }
 .hreadout-top {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 6px;
+  width: 100%;
 }
 .hreadout-month {
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--ink);
   line-height: 1.35;
+  word-break: break-word;
 }
 .hreadout-badge {
   font-size: 11px;
@@ -3518,8 +3521,8 @@ textarea.form-control {
   border: 1px solid rgba(37, 211, 102, 0.28);
   color: #128c46;
   line-height: 1.3;
-  text-align: right;
-  flex-shrink: 0;
+  display: inline-block;
+  max-width: 100%;
 }
 .hreadout-metric {
   display: flex;
@@ -4053,6 +4056,256 @@ textarea.form-control {
   padding: 10px 12px;
   border-radius: 10px;
   border-left: 3px solid var(--olive);
+}
+
+/* ==========================================================================
+   6. Wholesale Pro-Forma Invoice Estimator
+   ========================================================================== */
+.proforma-box {
+  background: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: clamp(22px, 3.5vw, 36px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+.proforma-header {
+  max-width: 780px;
+  margin-bottom: 24px;
+}
+.proforma-eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--olive);
+  background: rgba(67, 81, 40, 0.08);
+  padding: 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.proforma-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.proforma-lead {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.proforma-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .proforma-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.proforma-items-card {
+  background: #faf8f5;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 22px;
+}
+.proforma-card-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eae5db;
+}
+.proforma-variety-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+.proforma-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  transition: border-color 0.18s;
+}
+.proforma-item-row:hover {
+  border-color: var(--olive);
+}
+.proforma-item-meta {
+  flex: 1;
+}
+.proforma-item-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.proforma-item-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+.proforma-qty-ctrl {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #faf8f5;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 8px;
+}
+.proforma-qty-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.proforma-qty-btn:hover {
+  background: var(--olive);
+  color: #fff;
+}
+.proforma-qty-val {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--ink);
+  min-width: 32px;
+  text-align: center;
+}
+
+.proforma-summary-card {
+  background: #192015;
+  color: #fff;
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.proforma-summary-head {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #f4f7ee;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 10px;
+}
+.proforma-calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.proforma-lbl {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #b7cb96;
+}
+.proforma-select, .proforma-input {
+  width: 100%;
+  padding: 9px 12px;
+  background: #252e1f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12.5px;
+  font-family: inherit;
+}
+.proforma-select option {
+  background: #192015;
+  color: #fff;
+}
+.proforma-totals-wrap {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.proforma-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: #d1dac5;
+}
+.proforma-total-row strong {
+  color: #ffffff;
+}
+.proforma-total-row.highlight {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 6px;
+  font-size: 14px;
+}
+.proforma-moq-status {
+  font-size: 11px;
+  color: #e5b35a;
+  margin-top: 4px;
+}
+.proforma-submit-btn {
+  width: 100%;
+  padding: 13px 18px;
+  background: #25d366;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+  transition: transform 0.18s, box-shadow 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.proforma-submit-btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+}
+
+/* Flush Reservation Drawer Modal */
+.flush-reserve-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.flush-reserve-modal {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  max-width: 480px;
+  width: 100%;
+  padding: 26px 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
 }
 
 
