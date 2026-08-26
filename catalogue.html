@@ -416,21 +416,101 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
     }
-    .ccsb-wa-btn svg {
-      width: 17px;
-      height: 17px;
-      fill: currentColor;
+    /* Instant Live Search Results Grid */
+    .cat-search-results-sec {
+      padding: 10px clamp(16px, 4vw, 40px) 30px;
     }
-    @media (max-width: 768px) {
-      .cat-custom-sourcing-banner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 18px;
-      }
-      .ccsb-wa-btn {
-        width: 100%;
-        justify-content: center;
-      }
+    .cat-search-results-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cat-search-results-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .cat-search-results-count {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--olive);
+      background: rgba(67, 81, 40, 0.09);
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .cat-search-results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: clamp(14px, 2vw, 22px);
+    }
+    .cat-search-results-grid .product-card {
+      width: 100% !important;
+      flex-shrink: 1 !important;
+    }
+
+    /* Harvest Guide Link Banner */
+    .cat-harvest-banner-sec {
+      padding: 0 clamp(16px, 4vw, 40px) 24px;
+    }
+    .cat-harvest-banner {
+      background: linear-gradient(135deg, #faf8f5 0%, #f3efe6 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    }
+    .chb-left {
+      max-width: 620px;
+    }
+    .chb-badge {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+    .chb-title {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2.2vw, 22px);
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .chb-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .chb-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--olive);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .chb-action-btn:hover {
+      background: #354020;
+      transform: translateY(-1px);
     }
   </style>
 </head>
@@ -543,8 +623,7 @@
       <div data-reveal>
         <span class="eyebrow">Direct Origin Registry</span>
         <h1 class="display-xl" style="max-width:640px;margin-bottom:12px">Pure Culinary Catalogue.</h1>
-        <p class="lead" style="max-width:540px">Every SKU is origin-verified and batch-traceable. Select varieties to
-          add to your Sample Tray or request custom wholesale lot pricing.</p>
+        <p class="lead" style="max-width:620px">Every SKU is direct origin-verified and batch-traceable. Standard culinary packaging in <strong>1kg barrier pouches, 5kg, and 25kg+ consignments</strong>. Institutional bulk supplied in <strong>40kg master bags</strong>.</p>
       </div>
       <div class="filter-bar" data-reveal data-delay="1">
         <button class="filter-chip active" onclick="setFilter('all',this)">All Varieties (46)</button>
@@ -570,6 +649,27 @@
           <span>English</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── Instant Search Results Grid (Populates immediately upon typing) ── -->
+  <section class="cat-search-results-sec" id="catSearchResultsSec" style="display:none;">
+    <div class="cat-search-results-header">
+      <div class="cat-search-results-title" id="catSearchResultsTitle">Search Results</div>
+      <div class="cat-search-results-count" id="catSearchResultsCount">0 Varieties Found</div>
+    </div>
+    <div class="cat-search-results-grid" id="catSearchResultsGrid"></div>
+  </section>
+
+  <!-- ── Direct Origin Harvest Seasonality Guide Banner ── -->
+  <section class="cat-harvest-banner-sec" id="catHarvestBannerSec">
+    <div class="cat-harvest-banner">
+      <div class="chb-left">
+        <span class="chb-badge">Direct Origin Agriculture</span>
+        <h2 class="chb-title">Harvest Seasonality &amp; Potency Curve Guide</h2>
+        <p class="chb-desc">12-month volatile essential oil concentration curve mapping peak agricultural arrivals across South India's verified direct origin estates.</p>
+      </div>
+      <a href="harvest.html" class="chb-action-btn">View Harvest &amp; Potency Graph ↗</a>
     </div>
   </section>
 
@@ -702,55 +802,55 @@
   <script src="shared.js"></script>
   <script>
     var SPICES = [
-      { n: 'ANNACHIPOO', hsn: '090931', o: 'Single Origin', g: 'Star Anise', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/Star-Anise.webp' },
-      { n: 'BIRYANI LEAF', hsn: '09104010', o: 'Single Origin', g: 'Bay Leaf', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/BiriyaniLeaf.webp' },
-      { n: 'BLACK CARDAMOM', hsn: '09083190', o: 'Single Origin', g: 'Black Cardamom', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a1a1a,#5a3030)', img: 'images/images/BlackCardamom.webp' },
-      { n: 'BLACK PEPPER', hsn: '09041140', o: 'Single Origin', g: 'Tellicherry Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d1a0e,#6b3c1a)', img: 'images/images/BlackPepper.webp' },
-      { n: 'CASSIA (KESIA)', hsn: '09061190', o: 'Single Origin', g: 'Cassia Bark', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6b2e14,#a05030)', img: 'images/images/Kesia.webp' },
-      { n: 'CHIA SEEDS', hsn: '12149000', o: 'Single Origin', g: 'Premium Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d2d3a,#4a4a6a)', img: 'images/images/Chiaseeds.webp' },
-      { n: 'CLOVES', hsn: '09071010', o: 'Single Origin', g: 'Grade A Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d1010,#7a3030)', img: 'images/images/cloves.webp' },
-      { n: 'CORIANDER WHOLE', hsn: '09092110', o: 'Single Origin', g: 'Whole Coriander', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#5a4a20,#9b8040)', img: 'images/images/corianderwhole.webp' },
-      { n: 'CORIANDER POWDER', hsn: '09092200', o: 'Single Origin', g: 'Coriander Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/corianderpowder.webp' },
-      { n: 'DRY GINGER (WHOLE)', hsn: '09101110', o: 'Single Origin', g: 'Sun-Dried Ginger', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a5820,#b08840)', img: 'images/images/drygingerwhole.webp' },
-      { n: 'DRY GINGER POWDER', hsn: '09101200', o: 'Single Origin', g: 'Sonth / Chukku', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6828,#c49850)', img: 'images/images/drygingerpowder.webp' },
-      { n: 'DRY ROSE PETALS', hsn: '12119094', o: 'Single Origin', g: 'Culinary Grade', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#8a2040,#c05070)', img: 'images/images/dryrosepetals.webp' },
-      { n: 'GROUNDNUT SEEDS', hsn: '12024190', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/Groundnutseeds.webp' },
-      { n: 'GUNTUR CHILLY', hsn: '09042219', o: 'Single Origin', g: 'Guntur Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a1000,#c83010)', img: 'images/images/GunturChilly.webp' },
-      { n: 'JAIFAL', hsn: '09081200', o: 'Single Origin', g: 'Nutmeg Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a3020,#9b6040)', img: 'images/images/JaifalNutmeg.webp' },
-      { n: 'JAVANTRI', hsn: '09082100', o: 'Single Origin', g: 'Mace Whole Blades', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#9b4a00,#d4700a)', img: 'images/images/JavantriMace.webp' },
-      { n: 'JEERA POWDER', hsn: '09093119', o: 'Single Origin', g: 'Cumin Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/JeeraPowder.webp' },
-      { n: 'JEERA WHOLE', hsn: '09093119', o: 'Single Origin', g: 'Whole Cumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a6838,#b09850)', img: 'images/images/JeeraWhole.webp' },
-      { n: 'KALPASI', hsn: '12149000', o: 'Single Origin', g: 'Stone Flower', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/StoneFlower.webp' },
-      { n: 'KASHMIRI CHILLY', hsn: '09042219', o: 'Single Origin', g: 'ASTA 120+ Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6a0808,#b81c1c)', img: 'images/images/KashmiriChilly.webp' },
-      { n: 'KASURI METHI', hsn: '09109990', o: 'Single Origin', g: 'Dry Fenugreek', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/kasurimethi.webp' },
-      { n: 'METHI SEEDS', hsn: '090931', o: 'Single Origin', g: 'Fenugreek Seeds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/methiseeds.webp' },
-      { n: 'MUSTARD SEEDS', hsn: '12075010', o: 'Single Origin', g: 'Black Mustard', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#1a1a2a,#3a3a5a)', img: 'images/images/mustardseeds.webp' },
-      { n: 'PATTAI (CINNAMON)', hsn: '09061110', o: 'Single Origin', g: 'True Cinnamon', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2210,#9a5030)', img: 'images/images/cinnamon.webp' },
-      { n: 'PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground Black Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d2010,#5a4030)', img: 'images/images/pepperpowder.webp' },
-      { n: 'PUMPKIN SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a5a10,#6a8a30)', img: 'images/images/pumpkinseeds.webp' },
-      { n: 'ROASTED PEANUT', hsn: '20081111', o: 'Single Origin', g: 'Dry Roasted', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a4a18,#c47838)', img: 'images/images/roastedpeanut.webp' },
-      { n: 'SABJA SEEDS', hsn: '12119094', o: 'Single Origin', g: 'Sweet Basil Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/images/sabjaseeds.webp' },
-      { n: 'NIGELLA (BLACK SEED)', hsn: '12099930', o: 'Single Origin', g: 'Kalonji / Black Seed', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#1a1a1a,#383838)', img: 'images/images/nigella.webp' },
-      { n: 'SOMBU (FENNEL)', hsn: '090931', o: 'Single Origin', g: 'Fennel Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/fennel.webp' },
-      { n: 'SUNFLOWER SEEDS', hsn: '12060090', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a7800,#d4b000)', img: 'images/images/sunflowerseeds.webp' },
-      { n: 'TURMERIC POWDER', hsn: '09103030', o: 'Single Origin', g: '5%+ Curcumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a6800,#e0a000)', img: 'images/images/turmericpowder.webp' },
-      { n: 'VALYAJEERAKAM', hsn: '09093119', o: 'Single Origin', g: 'Shahi Jeera / Black Cumin', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a2a18,#6a5038)', img: 'images/images/shahijeera.webp' },
-      { n: 'WATERMELON SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Dried Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/watermelonseeds.webp' },
-      { n: 'WHITE CARDAMOM', hsn: '09083140', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#b0a880,#d8d0a8)', img: 'images/images/whitecardamom.webp' },
-      { n: 'WHITE ELLU (SESAME)', hsn: '12074090', o: 'Single Origin', g: 'White Sesame', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c8c0a0,#e8e0c8)', img: 'images/images/whiteellu.webp' },
-      { n: 'WHITE PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground White Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c0b8a0,#ddd8c0)', img: 'images/images/whitepepper.webp' }
+      { n: 'ANNACHIPOO', hsn: '090931', o: 'Single Origin', g: 'Star Anise', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/Star-Anise.webp', aroma: 'Sweet Aniseed · Licorice · Trans-Anethole (8.5%)' },
+      { n: 'BIRYANI LEAF', hsn: '09104010', o: 'Single Origin', g: 'Bay Leaf', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/BiriyaniLeaf.webp', aroma: 'Fresh Herbal · Mild Camphor · Warm Tea' },
+      { n: 'BLACK CARDAMOM', hsn: '09083190', o: 'Single Origin', g: 'Black Cardamom', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a1a1a,#5a3030)', img: 'images/images/BlackCardamom.webp', aroma: 'Smoky Campfire · Resin · Deep Balsamic' },
+      { n: 'BLACK PEPPER', hsn: '09041140', o: 'Single Origin', g: 'Tellicherry Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d1a0e,#6b3c1a)', img: 'images/images/BlackPepper.webp', aroma: 'Fresh Pine · Warm Cedar · 5.8% Residual Piperine' },
+      { n: 'CASSIA (KESIA)', hsn: '09061190', o: 'Single Origin', g: 'Cassia Bark', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6b2e14,#a05030)', img: 'images/images/Kesia.webp', aroma: 'Woody Bark · Clove Sweetness · High Essential Oil' },
+      { n: 'CHIA SEEDS', hsn: '12149000', o: 'Single Origin', g: 'Premium Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d2d3a,#4a4a6a)', img: 'images/images/Chiaseeds.webp', aroma: 'Mild Nutty · High Soluble Fiber' },
+      { n: 'CLOVES', hsn: '09071010', o: 'Single Origin', g: 'Grade A Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d1010,#7a3030)', img: 'images/images/cloves.webp', aroma: 'Intense Eugenol (17%) · Penetrating Warm Sweetness' },
+      { n: 'CORIANDER WHOLE', hsn: '09092110', o: 'Single Origin', g: 'Whole Coriander', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#5a4a20,#9b8040)', img: 'images/images/corianderwhole.webp', aroma: 'Citrus Peel · Floral Linalool · Fresh Herb' },
+      { n: 'CORIANDER POWDER', hsn: '09092200', o: 'Single Origin', g: 'Coriander Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/corianderpowder.webp', aroma: 'Clean Roasted Coriander · Low Heat Ground' },
+      { n: 'DRY GINGER (WHOLE)', hsn: '09101110', o: 'Single Origin', g: 'Sun-Dried Ginger', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a5820,#b08840)', img: 'images/images/drygingerwhole.webp', aroma: 'Sharp Zesty Lemon · Pungent Gingerol Heat' },
+      { n: 'DRY GINGER POWDER', hsn: '09101200', o: 'Single Origin', g: 'Sonth / Chukku', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6828,#c49850)', img: 'images/images/drygingerpowder.webp', aroma: 'Warm Pungency · Concentrated Sonth Aroma' },
+      { n: 'DRY ROSE PETALS', hsn: '12119094', o: 'Single Origin', g: 'Culinary Grade', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#8a2040,#c05070)', img: 'images/images/dryrosepetals.webp', aroma: 'Delicate Damascena Rose · Floral Note' },
+      { n: 'GROUNDNUT SEEDS', hsn: '12024190', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/Groundnutseeds.webp', aroma: 'Rich Raw Peanut · High Oil Grade' },
+      { n: 'GUNTUR CHILLY', hsn: '09042219', o: 'Single Origin', g: 'Guntur Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a1000,#c83010)', img: 'images/images/GunturChilly.webp', aroma: 'High Scoville Heat (35K+ SHU) · Bright Scarlet' },
+      { n: 'JAIFAL', hsn: '09081200', o: 'Single Origin', g: 'Nutmeg Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a3020,#9b6040)', img: 'images/images/JaifalNutmeg.webp', aroma: 'Warm Nutty · Myristicin · Sweet Wood' },
+      { n: 'JAVANTRI', hsn: '09082100', o: 'Single Origin', g: 'Mace Whole Blades', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#9b4a00,#d4700a)', img: 'images/images/JavantriMace.webp', aroma: 'Golden Amber · Fragrant Nutmeg Flower' },
+      { n: 'JEERA POWDER', hsn: '09093119', o: 'Single Origin', g: 'Cumin Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/JeeraPowder.webp', aroma: 'Warm Earthy Cumin · Fresh Mill Ground' },
+      { n: 'JEERA WHOLE', hsn: '09093119', o: 'Single Origin', g: 'Whole Cumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a6838,#b09850)', img: 'images/images/JeeraWhole.webp', aroma: 'Earthy Cuminaldehyde · High Essential Oil' },
+      { n: 'KALPASI', hsn: '12149000', o: 'Single Origin', g: 'Stone Flower', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/StoneFlower.webp', aroma: 'Deep Forest Earth · Umami Wood Moss' },
+      { n: 'KASHMIRI CHILLY', hsn: '09042219', o: 'Single Origin', g: 'ASTA 120+ Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6a0808,#b81c1c)', img: 'images/images/KashmiriChilly.webp', aroma: 'ASTA 120+ Natural Color · Mild Fruit Heat' },
+      { n: 'KASURI METHI', hsn: '09109990', o: 'Single Origin', g: 'Dry Fenugreek', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/kasurimethi.webp', aroma: 'Sun-Dried Herb · Maple Celery Undertones' },
+      { n: 'METHI SEEDS', hsn: '090931', o: 'Single Origin', g: 'Fenugreek Seeds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/methiseeds.webp', aroma: 'Clean Bittersweet · Roasted Aroma' },
+      { n: 'MUSTARD SEEDS', hsn: '12075010', o: 'Single Origin', g: 'Black Mustard', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#1a1a2a,#3a3a5a)', img: 'images/images/mustardseeds.webp', aroma: 'Sharp Sinigrin Pungency · Crisp Tempering Pop' },
+      { n: 'PATTAI (CINNAMON)', hsn: '09061110', o: 'Single Origin', g: 'True Cinnamon', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2210,#9a5030)', img: 'images/images/cinnamon.webp', aroma: 'Delicate Sweet Bark · Low Coumarin' },
+      { n: 'PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground Black Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d2010,#5a4030)', img: 'images/images/pepperpowder.webp', aroma: 'Freshly Crushed Coarse Cut · Direct Pungency' },
+      { n: 'PUMPKIN SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a5a10,#6a8a30)', img: 'images/images/pumpkinseeds.webp', aroma: 'Crisp Raw Pepitas · Fresh Harvest' },
+      { n: 'ROASTED PEANUT', hsn: '20081111', o: 'Single Origin', g: 'Dry Roasted', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a4a18,#c47838)', img: 'images/images/roastedpeanut.webp', aroma: 'Golden Roast · Crunchy Texture' },
+      { n: 'SABJA SEEDS', hsn: '12119094', o: 'Single Origin', g: 'Sweet Basil Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/images/sabjaseeds.webp', aroma: 'Rapid Bloom Gel · Cooling Summer Herb' },
+      { n: 'NIGELLA (BLACK SEED)', hsn: '12099930', o: 'Single Origin', g: 'Kalonji / Black Seed', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#1a1a1a,#383838)', img: 'images/images/nigella.webp', aroma: 'Oregano Onion Toast · Thymoquinone Note' },
+      { n: 'SOMBU (FENNEL)', hsn: '090931', o: 'Single Origin', g: 'Fennel Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/fennel.webp', aroma: 'Sweet Licorice · Refreshing Anethole Mint' },
+      { n: 'SUNFLOWER SEEDS', hsn: '12060090', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a7800,#d4b000)', img: 'images/images/sunflowerseeds.webp', aroma: 'Tender Raw Kernels · Delicate Nutty' },
+      { n: 'TURMERIC POWDER', hsn: '09103030', o: 'Single Origin', g: '5%+ Curcumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a6800,#e0a000)', img: 'images/images/turmericpowder.webp', aroma: '5%+ Native Curcumin · Earthy Warm Golden' },
+      { n: 'VALYAJEERAKAM', hsn: '09093119', o: 'Single Origin', g: 'Shahi Jeera / Black Cumin', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a2a18,#6a5038)', img: 'images/images/shahijeera.webp', aroma: 'Floral Pine · Royal Biryani Note' },
+      { n: 'WATERMELON SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Dried Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/watermelonseeds.webp', aroma: 'Mild Creamy Magaz · Rich Gravy Base' },
+      { n: 'WHITE CARDAMOM', hsn: '09083140', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#b0a880,#d8d0a8)', img: 'images/images/whitecardamom.webp', aroma: 'Mellow Floral Mint · Delicate Camphor' },
+      { n: 'WHITE ELLU (SESAME)', hsn: '12074090', o: 'Single Origin', g: 'White Sesame', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c8c0a0,#e8e0c8)', img: 'images/images/whiteellu.webp', aroma: 'Clean Hull · Rich Sesame Oil Fragrance' },
+      { n: 'WHITE PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground White Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c0b8a0,#ddd8c0)', img: 'images/images/whitepepper.webp', aroma: 'Direct Lingering Heat · Clear Sauce Grinding' }
     ];
 
     var DRY = [
-      { n: 'BADAM (ALMONDS)', hsn: '08021100', o: 'Single Origin', g: 'Premium Almonds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a5a18,#c49040)', img: 'images/images/almonds.webp' },
-      { n: 'CASHEWNUT', hsn: '080131', o: 'Single Origin', g: 'W320 Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/cashewnut.webp' },
-      { n: 'DATES (PREMIUM)', hsn: '08041020', o: 'Single Origin', g: 'Selected Whole Dates', s: ['1kg', '5kg', '10kg+'], bg: 'linear-gradient(135deg,#4a1a0e,#8a3020)', img: 'images/images/dates.webp' },
-      { n: 'FIG (ANJEER)', hsn: '08042090', o: 'Single Origin', g: 'Dried Whole Figs', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#8a6a50,#c4a880)', img: 'images/images/figanjeer.webp' },
-      { n: 'KISMISS (RAISINS)', hsn: '08062010', o: 'Single Origin', g: 'Seedless Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#4a1830,#8a3860)', img: 'images/images/kismiss.webp' },
-      { n: 'BLACK KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Black Currant Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a0838,#5a1870)', img: 'images/images/blackkismiss.webp' },
-      { n: 'SPECIAL KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Premium Select Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2860,#9a4880)', img: 'images/images/specialkismiss.webp' },
-      { n: 'PISTA (PISTACHIOS)', hsn: '08025100', o: 'Single Origin', g: 'Premium Pistachios', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/pista.webp' },
-      { n: 'WALNUT', hsn: '08023200', o: 'Single Origin', g: 'Halves Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#4a2a10,#8a5028)', img: 'images/images/walnut.webp' }
+      { n: 'BADAM (ALMONDS)', hsn: '08021100', o: 'Single Origin', g: 'Premium Almonds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a5a18,#c49040)', img: 'images/images/almonds.webp', aroma: 'Sweet Raw Almond · High Natural Vitamin E' },
+      { n: 'CASHEWNUT', hsn: '080131', o: 'Single Origin', g: 'W320 Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/cashewnut.webp', aroma: 'Rich Sweet Cream · Crisp Whole Kernels (320 Count)' },
+      { n: 'DATES (PREMIUM)', hsn: '08041020', o: 'Single Origin', g: 'Selected Whole Dates', s: ['1kg', '5kg', '10kg+'], bg: 'linear-gradient(135deg,#4a1a0e,#8a3020)', img: 'images/images/dates.webp', aroma: 'Rich Caramel · Natural Fructose · Plump Fruit' },
+      { n: 'FIG (ANJEER)', hsn: '08042090', o: 'Single Origin', g: 'Dried Whole Figs', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#8a6a50,#c4a880)', img: 'images/images/figanjeer.webp', aroma: 'Chewy Sun-Dried Fig · Crunchy Seeds' },
+      { n: 'KISMISS (RAISINS)', hsn: '08062010', o: 'Single Origin', g: 'Seedless Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#4a1830,#8a3860)', img: 'images/images/kismiss.webp', aroma: 'Golden Sweetness · Tart Citrus Undertone' },
+      { n: 'BLACK KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Black Currant Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a0838,#5a1870)', img: 'images/images/blackkismiss.webp', aroma: 'Deep Rich Currant · Anthocyanin Rich' },
+      { n: 'SPECIAL KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Premium Select Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2860,#9a4880)', img: 'images/images/specialkismiss.webp', aroma: 'Plump Select Sun-Dried Green Grapes' },
+      { n: 'PISTA (PISTACHIOS)', hsn: '08025100', o: 'Single Origin', g: 'Premium Pistachios', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/pista.webp', aroma: 'Light Salt Roast · Vivid Green Kernel' },
+      { n: 'WALNUT', hsn: '08023200', o: 'Single Origin', g: 'Halves Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#4a2a10,#8a5028)', img: 'images/images/walnut.webp', aroma: 'Crisp Half Kernels · High Omega-3 Fatty Acids' }
     ];
 
     var trayItems = [];
@@ -771,14 +871,22 @@
         '<span class="product-card-tag">' + p.g + '</span>' +
         '</div>';
 
+      var aromaHtml = p.aroma ? '<div class="sensory-pill" title="' + p.aroma + '">' + p.aroma + '</div>' : '';
+      var auxHtml = '<div class="product-card-aux">' +
+        '<button type="button" class="btn-aux-spec" onclick="openSpecSheet(\'' + p.n.replace(/'/g, "\\'") + '\')">QC Spec</button>' +
+        '<button type="button" class="btn-aux-rfq" onclick="openFastRfq(\'' + p.n.replace(/'/g, "\\'") + '\', \'' + p.hsn + '\', \'' + p.o + '\')">Quick RFQ ↗</button>' +
+        '</div>';
+
       d.innerHTML =
         imgHtml +
         '<div class="product-card-body">' +
         '<div class="product-card-name">' + p.n + '</div>' +
         '<div class="product-card-hsn">HSN: ' + p.hsn + '</div>' +
         '<div class="product-card-origin">' + p.o + '</div>' +
+        aromaHtml +
         '<div class="product-card-sizes">' + p.s.map(function (x) { return '<span class="size-chip">' + x + '</span>'; }).join('') + '</div>' +
         '<button class="' + btnClass + '" onclick="toggleTrayItem(this, \'' + encodeURIComponent(JSON.stringify(p)) + '\')">' + btnText + '</button>' +
+        auxHtml +
         '</div>';
       return d;
     }
@@ -1024,16 +1132,20 @@
     function doSearch(v) {
       v = (v || '').trim().toLowerCase();
       var feedback = document.getElementById('catSearchFeedback');
+      var resultsSec = document.getElementById('catSearchResultsSec');
+      var resultsGrid = document.getElementById('catSearchResultsGrid');
+      var resultsTitle = document.getElementById('catSearchResultsTitle');
+      var resultsCount = document.getElementById('catSearchResultsCount');
+      var harvestBanner = document.getElementById('catHarvestBannerSec');
       var spicesSec = document.getElementById('spicesSec');
       var drySec = document.getElementById('drySec');
 
       if (!v) {
+        if (resultsSec) resultsSec.style.display = 'none';
         if (feedback) feedback.style.display = 'none';
-        spicesSec.style.display = (currentCatFilter === 'dry') ? 'none' : '';
-        drySec.style.display = (currentCatFilter === 'spice') ? 'none' : '';
-        [spicesRow, dryRow].forEach(function(row){
-          row.querySelectorAll('.product-card').forEach(function(c){ c.style.display = ''; });
-        });
+        if (harvestBanner) harvestBanner.style.display = '';
+        if (spicesSec) spicesSec.style.display = (currentCatFilter === 'dry') ? 'none' : '';
+        if (drySec) drySec.style.display = (currentCatFilter === 'spice') ? 'none' : '';
         return;
       }
 
@@ -1049,58 +1161,68 @@
         });
       }
 
-      var totalSpicesVisible = 0;
-      var totalDryVisible = 0;
+      // Filter from master SPICES and DRY arrays
+      var pool = [];
+      if (currentCatFilter !== 'dry') pool = pool.concat(SPICES);
+      if (currentCatFilter !== 'spice') pool = pool.concat(DRY);
 
-      spicesRow.querySelectorAll('.product-card').forEach(function(c) {
-        var cardName = (c.dataset.name || '').toLowerCase();
-        var match = searchTerms.some(function(term){ return term && cardName.indexOf(term) !== -1; });
-        var visible = match && (currentCatFilter !== 'dry');
-        c.style.display = visible ? '' : 'none';
-        if (visible) totalSpicesVisible++;
+      var matched = pool.filter(function(p) {
+        var n = (p.n || '').toLowerCase();
+        var hsn = (p.hsn || '').toLowerCase();
+        var o = (p.o || '').toLowerCase();
+        return searchTerms.some(function(t) {
+          return t && (n.indexOf(t) !== -1 || hsn.indexOf(t) !== -1 || o.indexOf(t) !== -1);
+        });
       });
 
-      dryRow.querySelectorAll('.product-card').forEach(function(c) {
-        var cardName = (c.dataset.name || '').toLowerCase();
-        var match = searchTerms.some(function(term){ return term && cardName.indexOf(term) !== -1; });
-        var visible = match && (currentCatFilter !== 'spice');
-        c.style.display = visible ? '' : 'none';
-        if (visible) totalDryVisible++;
-      });
+      // Hide default scroll rows and harvest banner when searching
+      if (harvestBanner) harvestBanner.style.display = 'none';
+      if (spicesSec) spicesSec.style.display = 'none';
+      if (drySec) drySec.style.display = 'none';
 
-      var totalVisible = totalSpicesVisible + totalDryVisible;
-      spicesSec.style.display = (totalSpicesVisible > 0) ? '' : 'none';
-      drySec.style.display = (totalDryVisible > 0) ? '' : 'none';
+      var waMsg = "Hello KTA Trade Desk, I am looking to custom-source \"" + v + "\" (unlisted variety / custom grade) for our commercial kitchen. Please advise on origin availability, minimums, and pricing.";
+      var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(waMsg);
 
-      if (feedback) {
-        var waMsg = "Hello KTA Trade Desk, I am looking to custom-source \"" + v + "\" (unlisted variety / custom grade) for our commercial kitchen. Please advise on origin availability, minimums, and pricing.";
-        var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(waMsg);
-
-        if (totalVisible === 0) {
+      if (matched.length > 0) {
+        if (resultsSec) {
+          resultsSec.style.display = 'block';
+          if (resultsTitle) resultsTitle.textContent = 'Matching Varieties for "' + v + '"';
+          if (resultsCount) resultsCount.textContent = matched.length + (matched.length === 1 ? ' Variety Found' : ' Varieties Found');
+          if (resultsGrid) {
+            resultsGrid.innerHTML = '';
+            matched.forEach(function(p) {
+              resultsGrid.appendChild(makeCard(p));
+            });
+          }
+        }
+        if (feedback) {
+          feedback.style.display = 'block';
+          feedback.innerHTML = [
+            '<div class="cat-custom-sourcing-banner" style="padding:14px 20px;margin-bottom:12px;">',
+            '  <div class="ccsb-left">',
+            '    <div style="font-size:13.5px;font-weight:700;color:var(--ink);">Looking for a custom cut, specific mesh powder, or unlisted origin?</div>',
+            '    <div style="font-size:12px;color:var(--muted);margin-top:2px;">Our direct grower network custom-sources rare grades and tailored wholesale lots.</div>',
+            '  </div>',
+            '  <a href="' + waUrl + '" target="_blank" rel="noopener" class="ccsb-wa-btn" style="padding:8px 18px;font-size:12px;">',
+            '    Custom Sourcing Request ↗',
+            '  </a>',
+            '</div>'
+          ].join('');
+        }
+      } else {
+        if (resultsSec) resultsSec.style.display = 'none';
+        if (feedback) {
           feedback.style.display = 'block';
           feedback.innerHTML = [
             '<div class="cat-custom-sourcing-banner">',
             '  <div class="ccsb-left">',
             '    <span class="ccsb-badge">Custom Sourcing &amp; Commodity Outsourcing Desk</span>',
             '    <div class="ccsb-title">No standard catalogue SKU for "' + escapeHtml(v) + '"</div>',
-            '    <p class="ccsb-desc">Looking for Saffron, pure Vanilla beans, custom ground blends, or unlisted bulk spices? Our direct farm &amp; mandi network custom-procures rare botanicals and multi-ton institutional lots on demand.</p>',
+            '    <p class="ccsb-desc">Looking for rare botanicals, specific mesh powdering, or custom institutional consignments? Our direct farm &amp; mandi network custom-procures rare botanicals and multi-ton institutional lots on demand.</p>',
             '  </div>',
             '  <a href="' + waUrl + '" target="_blank" rel="noopener" class="ccsb-wa-btn">',
             '    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>',
             '    Request Custom Sourcing on WhatsApp ↗',
-            '  </a>',
-            '</div>'
-          ].join('');
-        } else {
-          feedback.style.display = 'block';
-          feedback.innerHTML = [
-            '<div class="cat-custom-sourcing-banner" style="padding:14px 20px;margin-bottom:12px;">',
-            '  <div class="ccsb-left">',
-            '    <div style="font-size:13.5px;font-weight:700;color:var(--ink);">Showing ' + totalVisible + ' matching varieties for "' + escapeHtml(v) + '"</div>',
-            '    <div style="font-size:12px;color:var(--muted);margin-top:2px;">Need an unlisted spice, specific mesh grinding, or institutional custom packaging?</div>',
-            '  </div>',
-            '  <a href="' + waUrl + '" target="_blank" rel="noopener" class="ccsb-wa-btn" style="padding:8px 18px;font-size:12px;">',
-            '    Custom Sourcing Enquiry ↗',
             '  </a>',
             '</div>'
           ].join('');

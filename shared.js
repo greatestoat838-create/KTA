@@ -841,9 +841,12 @@
     var prev = wrap.querySelector('.arrow-prev');
     var next = wrap.querySelector('.arrow-next');
     if(!row) return;
-    var amt = 280;
-    if(prev) prev.addEventListener('click',function(){ row.scrollBy({left:-amt,behavior:'smooth'}); });
-    if(next) next.addEventListener('click',function(){ row.scrollBy({left: amt,behavior:'smooth'}); });
+    function getStep() {
+      var card = row.querySelector('.product-card, .ws-product-card');
+      return card ? (card.offsetWidth + 16) : 230;
+    }
+    if(prev) prev.addEventListener('click',function(){ row.scrollBy({left:-getStep(),behavior:'smooth'}); });
+    if(next) next.addEventListener('click',function(){ row.scrollBy({left: getStep(),behavior:'smooth'}); });
   });
 })();
 
@@ -928,3 +931,219 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, {passive:true});
 })();
+
+/* ── 10. Technical Batch QC Spec Sheet System ── */
+var QC_SPECS = {
+  'BLACK PEPPER': {
+    botanical: 'Piper nigrum L.',
+    grade: 'TGSEB Tellicherry Garbled Extra Bold',
+    hsn: '09041140',
+    oil: '3.2 – 3.8 ml/100g (Min 3.0)',
+    active: '5.8% – 6.4% Residual Piperine',
+    moisture: 'Max 11.0%',
+    extraneous: 'Max 0.2% (Clinically Graded)',
+    density: '560 – 580 g/L',
+    origin: 'Malabar Coast & Wayanad Highlands, Kerala',
+    pkg: '40kg Food-Grade Multi-Wall Master Bags / 1kg Barrier Pouches'
+  },
+  'CLOVES': {
+    botanical: 'Syzygium aromaticum',
+    grade: 'Hand-Selected Grade A Whole Flower Buds',
+    hsn: '09071010',
+    oil: '17.0 – 19.5 ml/100g (High Eugenol)',
+    active: 'Head Retention > 92%',
+    moisture: 'Max 10.5%',
+    extraneous: 'Max 0.4% (Stems & Dust Cleaned)',
+    density: '540 – 560 g/L',
+    origin: 'Selected Coastal & Island Plantations',
+    pkg: '25kg & 40kg Moisture-Barrier Consignments'
+  },
+  'DRY GINGER (WHOLE)': {
+    botanical: 'Zingiber officinale Roscoe',
+    grade: 'Unbleached Cochin Sun-Dried Whole Rhizome',
+    hsn: '09101110',
+    oil: '2.0 – 2.6 ml/100g',
+    active: 'Zingiberene & Gingerol > 3.4%',
+    moisture: 'Max 11.5%',
+    extraneous: 'Max 0.5%',
+    density: '380 – 420 g/L',
+    origin: 'Central Kerala Lowland Plantations',
+    pkg: '40kg Jute with Food-Grade Inner Liner'
+  },
+  'ANNACHIPOO': {
+    botanical: 'Illicium verum Hook. f.',
+    grade: 'Royal 8-Pointed Unbroken Whole Star',
+    hsn: '090931',
+    oil: '8.5 – 10.0 ml/100g (Trans-Anethole)',
+    active: 'Broken Pods < 3.5%',
+    moisture: 'Max 10.0%',
+    extraneous: 'Max 0.5%',
+    density: '320 – 350 g/L',
+    origin: 'Origin High-Elevation Orchards',
+    pkg: '10kg / 25kg Rigid Corrugated Master Cases'
+  },
+  'CASSIA (KESIA)': {
+    botanical: 'Cinnamomum cassia Blume',
+    grade: 'Cleaned Whole Quill & Broken Bark Cuts',
+    hsn: '09061190',
+    oil: '1.8 – 2.4 ml/100g (Cinnamaldehyde)',
+    active: 'Thick-Bark High Volatile Cut',
+    moisture: 'Max 12.0%',
+    extraneous: 'Max 0.5%',
+    density: '420 – 450 g/L',
+    origin: 'Direct Grower Plantations',
+    pkg: '25kg & 40kg Master Bales'
+  },
+  'CASHEWNUT': {
+    botanical: 'Anacardium occidentale L.',
+    grade: 'W320 First Quality Whole White Kernels',
+    hsn: '080131',
+    oil: 'Natural Moisture 4.2% – 4.8%',
+    active: 'Kernel Count: 300–320 / lb',
+    moisture: 'Max 5.0%',
+    extraneous: 'Zero Impurities / Vacuum Packed',
+    density: 'N/A (Uniform Whole Count)',
+    origin: 'Kollam & Mangalore Processing Hubs',
+    pkg: '20kg Vacuum-Flush Nitrogen Tins / Master Cartons'
+  },
+  'TURMERIC POWDER': {
+    botanical: 'Curcuma longa L.',
+    grade: 'High Curcumin Single-Estate Ground Powder',
+    hsn: '09103030',
+    oil: '3.5 – 4.2 ml/100g Essential Turmerones',
+    active: 'Curcumin Content >= 5.0%',
+    moisture: 'Max 10.0%',
+    extraneous: '100% Pure Rhizome / Zero Starch Fillers',
+    density: '520 – 550 g/L',
+    origin: 'Salem & Erode Origin Belts',
+    pkg: '25kg Multi-Wall Food Pouch Bags'
+  }
+};
+
+window.openSpecSheet = function(skuName) {
+  var key = (skuName || '').toUpperCase().trim();
+  var spec = QC_SPECS[key] || {
+    botanical: 'Single-Origin Culinary Specimen',
+    grade: 'First Quality Food-Service Batch',
+    hsn: '0904 / 0910 Series',
+    oil: 'Standard Export Volatile Oil Threshold',
+    active: 'Certified Active Essential Yield',
+    moisture: 'Max 11.0% (Oven Tested)',
+    extraneous: '< 0.5% Food Safety Tolerances',
+    density: 'Graded Uniform Bulk Density',
+    origin: 'South Indian Verified Plantations',
+    pkg: '40kg Food-Grade Master Consignment Bags'
+  };
+
+  var existing = document.getElementById('specModalBackdrop');
+  if (existing) existing.remove();
+
+  var backdrop = document.createElement('div');
+  backdrop.id = 'specModalBackdrop';
+  backdrop.className = 'spec-modal-backdrop';
+  backdrop.innerHTML = [
+    '<div class="spec-modal">',
+    '  <button class="rfq-modal-close" onclick="document.getElementById(\'specModalBackdrop\').remove()">&times;</button>',
+    '  <div class="spec-modal-head">',
+    '    <span class="harvest-origin-badge">Official Batch Specification</span>',
+    '    <div class="spec-modal-sku" style="margin-top:6px">' + key + '</div>',
+    '    <div class="spec-modal-botanical">' + spec.botanical + '</div>',
+    '  </div>',
+    '  <table class="spec-table">',
+    '    <tbody>',
+    '      <tr><th>HSN Code</th><td>' + spec.hsn + '</td></tr>',
+    '      <tr><th>Commercial Grade</th><td>' + spec.grade + '</td></tr>',
+    '      <tr><th>Volatile Oil Yield</th><td>' + spec.oil + '</td></tr>',
+    '      <tr><th>Active Potency</th><td>' + spec.active + '</td></tr>',
+    '      <tr><th>Moisture Threshold</th><td>' + spec.moisture + '</td></tr>',
+    '      <tr><th>Extraneous Matter</th><td>' + spec.extraneous + '</td></tr>',
+    '      <tr><th>Bulk Density</th><td>' + (spec.density || 'Standard Graded') + '</td></tr>',
+    '      <tr><th>Origin Region</th><td>' + spec.origin + '</td></tr>',
+    '      <tr><th>Standard Packaging</th><td>' + spec.pkg + '</td></tr>',
+    '    </tbody>',
+    '  </table>',
+    '  <div class="spec-coa-note">',
+    '    <strong>Laboratory Protocol:</strong> Every batch is tested under FSSAI compliance for moisture equilibrium, microbiology, and volatile oil retention. Full Certificates of Analysis (COA) are dispatched with master consignments.',
+    '  </div>',
+    '  <div style="display:flex;gap:10px;flex-wrap:wrap">',
+    '    <a href="https://wa.me/918592832871?text=' + encodeURIComponent('Hello KTA Trade Desk, I am requesting the full Laboratory Certificate of Analysis (COA) and pricing for ' + key + ' (HSN: ' + spec.hsn + ').') + '" target="_blank" rel="noopener" class="rfq-submit-btn" style="flex:1">Request Batch COA &amp; Rates ↗</a>',
+    '  </div>',
+    '</div>'
+  ].join('');
+
+  document.body.appendChild(backdrop);
+  setTimeout(function(){ backdrop.classList.add('is-open'); }, 10);
+
+  backdrop.addEventListener('click', function(e){
+    if(e.target === backdrop) backdrop.remove();
+  });
+};
+
+/* ── 11. One-Tap Institutional RFQ Modal ── */
+window.openFastRfq = function(skuName, hsn, origin) {
+  var existing = document.getElementById('rfqModalBackdrop');
+  if (existing) existing.remove();
+
+  var selectedWeight = '100kg (Wholesale MOQ)';
+
+  var backdrop = document.createElement('div');
+  backdrop.id = 'rfqModalBackdrop';
+  backdrop.className = 'rfq-modal-backdrop';
+  backdrop.innerHTML = [
+    '<div class="rfq-modal">',
+    '  <button class="rfq-modal-close" onclick="document.getElementById(\'rfqModalBackdrop\').remove()">&times;</button>',
+    '  <div class="harvest-origin-badge">Institutional Quotation Desk</div>',
+    '  <h3 class="rfq-modal-title" style="margin-top:6px">Commercial Lot RFQ</h3>',
+    '  <div class="rfq-modal-sku">' + (skuName || 'Single-Origin Variety') + (hsn ? ' · HSN: ' + hsn : '') + '</div>',
+    '  <div class="rfq-option-label">1. Select Target Volume</div>',
+    '  <div class="rfq-weights-grid" id="rfqWeightButtons">',
+    '    <button type="button" class="rfq-weight-btn active" data-val="100kg (Wholesale MOQ)">100kg</button>',
+    '    <button type="button" class="rfq-weight-btn" data-val="250kg">250kg</button>',
+    '    <button type="button" class="rfq-weight-btn" data-val="500kg">500kg</button>',
+    '    <button type="button" class="rfq-weight-btn" data-val="1 Ton+ Lot">1 Ton+</button>',
+    '  </div>',
+    '  <div class="rfq-option-label">2. Master Packaging Unit</div>',
+    '  <select id="rfqPkgSelect" class="rfq-pkg-select">',
+    '    <option value="40kg Master Food-Grade Bags (Standard)">40kg Master Food-Grade Bags (Standard)</option>',
+    '    <option value="25kg Multi-Wall Food Pouches">25kg Multi-Wall Food Pouches</option>',
+    '    <option value="Export Multi-Layer Moisture-Locked Consignment">Export Multi-Layer Moisture-Locked Consignment</option>',
+    '  </select>',
+    '  <div class="rfq-option-label">3. Destination Receiving Bay (City)</div>',
+    '  <input type="text" id="rfqCityInput" class="rfq-city-input" placeholder="e.g. Chennai, Bengaluru, Hyderabad, Kochi">',
+    '  <button type="button" class="rfq-submit-btn" id="rfqSendBtn">',
+    '    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>',
+    '    Generate WhatsApp Quote ↗',
+    '  </button>',
+    '</div>'
+  ].join('');
+
+  document.body.appendChild(backdrop);
+  setTimeout(function(){ backdrop.classList.add('is-open'); }, 10);
+
+  var btns = backdrop.querySelectorAll('.rfq-weight-btn');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('active'); });
+      b.classList.add('active');
+      selectedWeight = b.getAttribute('data-val');
+    });
+  });
+
+  backdrop.querySelector('#rfqSendBtn').addEventListener('click', function(){
+    var pkg = backdrop.querySelector('#rfqPkgSelect').value;
+    var city = backdrop.querySelector('#rfqCityInput').value.trim() || 'South India Delivery Bay';
+    var msg = "Hello KTA Trade Desk, I am requesting a formal wholesale quotation for: *" + (skuName || 'Spices') + "*\n" +
+              "• Target Volume: " + selectedWeight + "\n" +
+              "• Packaging: " + pkg + "\n" +
+              "• Delivery Destination: " + city + "\n" +
+              "Please share active lot batch availability and commercial tiered rates.";
+    var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(msg);
+    window.open(waUrl, '_blank');
+    backdrop.remove();
+  });
+
+  backdrop.addEventListener('click', function(e){
+    if(e.target === backdrop) backdrop.remove();
+  });
+};
+
