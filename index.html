@@ -26,18 +26,32 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       box-sizing: border-box;
-      /* Immersive full page fit on desktop/laptop */
-      min-height: 100vh;
-      min-height: 100svh;
-      height: 100vh;
-      height: 100svh;
-      max-height: 100vh;
-      max-height: 100svh;
+      height: auto;
+      min-height: auto;
+      max-height: none;
       /* Clear navbar completely with generous breathing room */
-      padding-top: clamp(86px, 12vh, 112px);
+      padding-top: clamp(86px, 10vw, 112px);
       padding-bottom: 0 !important;
+      gap: clamp(12px, 2vw, 22px);
+    }
+
+    /* Full-height viewport fit ONLY on true widescreen landscape desktops/laptops */
+    @media (min-width: 993px) and (min-aspect-ratio: 1.25) and (min-height: 640px) {
+      .hero-section {
+        min-height: 100vh;
+        min-height: 100svh;
+        height: 100vh;
+        height: 100svh;
+        max-height: 100vh;
+        max-height: 100svh;
+        justify-content: space-between;
+        gap: 0;
+      }
+      .showcase-wrapper {
+        flex: 1 1 auto;
+      }
     }
 
     .hero-header-wrap {
@@ -107,7 +121,6 @@
       position: relative;
       width: 100%;
       max-width: min(1080px, 94vw);
-      flex: 1 1 auto;
       margin: 0 auto;
       display: flex;
       justify-content: center;
