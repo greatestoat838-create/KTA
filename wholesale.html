@@ -910,7 +910,10 @@
   <script>
   function scrollRow(id, dir) {
     var row = document.getElementById(id);
-    if (row) row.scrollBy({ left: dir * 280, behavior: 'smooth' });
+    if (!row) return;
+    var card = row.querySelector('.ws-product-card, .product-card');
+    var step = card ? (card.offsetWidth + 16) : 240;
+    row.scrollBy({ left: dir * step, behavior: 'smooth' });
   }
 
   function scrollToSection(id, btn) {
