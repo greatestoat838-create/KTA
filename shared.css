@@ -353,6 +353,50 @@ button {
   box-shadow: 0 4px 14px rgba(67, 81, 40, 0.32);
 }
 
+/* Mid-Tier Screens (861px - 1180px): Compact Desktop Nav Alignment & Perfect Single-Row Fit */
+@media (min-width: 861px) and (max-width: 1180px) {
+  .home-nav {
+    padding: 8px 16px !important;
+  }
+  .home-nav-inner {
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+  }
+  .desktop-nav-left {
+    gap: 8px !important;
+  }
+  .nav-links-left {
+    gap: 8px !important;
+  }
+  .nav-links-left a,
+  .nav-link-right {
+    font-size: 10px !important;
+    letter-spacing: 0.08em !important;
+  }
+  .home-nav-logo {
+    margin: 0 8px !important;
+  }
+  .home-nav-logo img,
+  .home-nav-logo .home-nav-logo-img,
+  .home-nav-logo .desktop-logo-img {
+    height: 32px !important;
+  }
+  .desktop-nav-right {
+    gap: 8px !important;
+  }
+  .nav-phone-contact {
+    display: none !important;
+  }
+  .nav-quick-enquiry {
+    font-size: 9.5px !important;
+    padding: 4px 6px !important;
+  }
+  .nav-register-btn {
+    font-size: 9px !important;
+    padding: 6px 12px !important;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════
    MOBILE RESPONSIVE NAVBAR (Flamingo Estate Editorial Style)
    ═══════════════════════════════════════════════════════════ */
