@@ -360,7 +360,7 @@ button {
   display: none !important;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 860px) {
   .home-nav {
     padding: 13px 18px !important;
     background: rgba(254, 253, 250, 0.98) !important;
