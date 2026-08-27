@@ -37,6 +37,50 @@
       gap: 0;
     }
 
+    /* Exact 100vh viewport lock on desktop/laptop so video ends at the fold and marquee is hidden until scroll */
+    @media (min-width: 993px) {
+      .hero-section {
+        min-height: 100vh;
+        min-height: 100svh;
+        height: 100vh;
+        height: 100svh;
+        max-height: 100vh;
+        max-height: 100svh;
+        justify-content: flex-start;
+        padding-top: clamp(62px, 8.0vh, 74px);
+        padding-bottom: 0 !important;
+        overflow: hidden;
+      }
+      .hero-header-wrap {
+        margin-bottom: clamp(6px, 1.0vh, 12px) !important;
+      }
+      .showcase-wrapper {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        min-height: 0;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+      .showcase-inner {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .hero-tablet-frame {
+        max-height: calc(100vh - 175px) !important;
+        width: auto !important;
+        max-width: 100% !important;
+        aspect-ratio: 16 / 9.2;
+        margin-bottom: 0 !important;
+      }
+      .tablet-backdrop-card {
+        bottom: 0 !important;
+      }
+    }
+
     .hero-header-wrap {
       display: flex;
       flex-direction: column;
