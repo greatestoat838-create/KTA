@@ -1,0 +1,8 @@
+# Robots.txt for KTA Spices (https://ktaspices.in)
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemaps
+Sitemap: https://ktaspices.in/sitemap.xml

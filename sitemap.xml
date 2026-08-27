@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- 1. Homepage -->
+  <url>
+    <loc>https://ktaspices.in/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ktaspices.in/images/ktaouterlinelogo.png</image:loc>
+      <image:title>KTA Spices Heritage Sourcing Merchant</image:title>
+      <image:caption>Estate Direct Spices &amp; Premium Dry Fruits across South India</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2. Product Catalogue -->
+  <url>
+    <loc>https://ktaspices.in/catalogue.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Wholesale & Institutional Supply -->
+  <url>
+    <loc>https://ktaspices.in/wholesale.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 4. Harvest Seasonality & Potency Guide -->
+  <url>
+    <loc>https://ktaspices.in/harvest.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. Hotel Smart 24/7 Logistics -->
+  <url>
+    <loc>https://ktaspices.in/hotel-smart.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 6. Heritage & Sourcing Story -->
+  <url>
+    <loc>https://ktaspices.in/heritage.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 7. Kitchen Partnership & Registration -->
+  <url>
+    <loc>https://ktaspices.in/partnership.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 8. Contact & Central Trade Desk -->
+  <url>
+    <loc>https://ktaspices.in/contact.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 9. Privacy Policy & Compliance -->
+  <url>
+    <loc>https://ktaspices.in/privacy.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
