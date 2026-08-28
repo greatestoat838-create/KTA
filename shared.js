@@ -1246,7 +1246,6 @@ window.submitFlushReservation = function() {
   function initChefWelcomeModal() {
     var modal = document.getElementById('chefWelcomeModal');
     var closeBtn = document.getElementById('chefPopupCloseBtn');
-    var floatTrigger = document.getElementById('chefFloatTrigger');
     var claimBtn = document.getElementById('claimBoxBtn');
 
     if (!modal) return;
@@ -1254,22 +1253,32 @@ window.submitFlushReservation = function() {
     function openModal() {
       modal.classList.add('is-active');
       document.body.style.overflow = 'hidden';
+      try {
+        localStorage.setItem('kta_welcome_popup_shown', 'true');
+      } catch (e) {}
     }
 
     function closeModal() {
       modal.classList.remove('is-active');
       document.body.style.overflow = '';
       try {
-        sessionStorage.setItem('kta_chef_popup_seen', 'true');
+        localStorage.setItem('kta_welcome_popup_shown', 'true');
       } catch (e) {}
     }
 
-    // Smooth auto trigger on page load (600ms)
-    setTimeout(function(){
-      if (!modal.classList.contains('is-active')) {
-        openModal();
-      }
-    }, 600);
+    // Only show on first-time visit (never on refresh or subsequent page loads)
+    var hasShown = false;
+    try {
+      hasShown = localStorage.getItem('kta_welcome_popup_shown') === 'true';
+    } catch (e) {}
+
+    if (!hasShown) {
+      setTimeout(function(){
+        if (!modal.classList.contains('is-active')) {
+          openModal();
+        }
+      }, 700);
+    }
 
     if (closeBtn) {
       closeBtn.addEventListener('click', function(e){
@@ -1284,13 +1293,6 @@ window.submitFlushReservation = function() {
       }
     });
 
-    if (floatTrigger) {
-      floatTrigger.addEventListener('click', function(e){
-        e.preventDefault();
-        openModal();
-      });
-    }
-
     if (claimBtn) {
       claimBtn.addEventListener('click', function(){
         closeModal();
@@ -1303,7 +1305,7 @@ window.submitFlushReservation = function() {
       }
     });
 
-    // Expose global opener
+    // Expose global opener if needed
     window.openChefWelcomeBoxModal = openModal;
     window.closeChefWelcomeBoxModal = closeModal;
   }
