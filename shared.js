@@ -153,7 +153,7 @@
       '      <a href="catalogue.html?search=cashewnut" class="search-chip" data-query="Cashews">W320 Cashews</a>',
       '      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20looking%20for%20Custom%20Sourcing%20%2F%20Agricultural%20Procurement%20for%20our%20commercial%20kitchen.%20Please%20advise%20on%20grade%20availability%2C%20minimums%2C%20and%20lot%20pricing." target="_blank" rel="noopener" class="search-chip" data-query="Custom Sourcing">Custom Sourcing</a>',
       '      <a href="index.html#hotelSmart" class="search-chip" data-query="Hotel Smart">Hotel Smart 24/7</a>',
-      '      <a href="wholesale.html" class="search-chip" data-query="Wholesale">Wholesale Supply (100kg+)</a>',
+      '      <a href="wholesale.html" class="search-chip" data-query="Wholesale">Wholesale Supply (500kg+)</a>',
       '      <a href="catalogue.html?search=cloves" class="search-chip" data-query="Cloves">Selected Cloves</a>',
       '    </div>',
       '    <div class="search-chips-title" id="searchResultsLabel" style="margin-top:16px;">Catalogue Items &amp; Services</div>',
@@ -581,7 +581,7 @@
       '      </span>',
       '      <div class="more-opt-content">',
       '        <div class="more-opt-title">Wholesale Commercial Pricing</div>',
-      '        <div class="more-opt-sub">Tiered lot quotes &amp; 100kg+ bulk supply</div>',
+      '        <div class="more-opt-sub">Tiered lot quotes &amp; 500kg+ bulk supply</div>',
       '      </div>',
       '      <span class="more-opt-arrow">→</span>',
       '    </a>',
@@ -1134,7 +1134,7 @@ window.openFastRfq = function(skuName, hsn, origin) {
   var existing = document.getElementById('rfqModalBackdrop');
   if (existing) existing.remove();
 
-  var selectedWeight = '100kg (Wholesale MOQ)';
+  var selectedWeight = '500kg (Wholesale MOQ)';
 
   var backdrop = document.createElement('div');
   backdrop.id = 'rfqModalBackdrop';
@@ -1147,7 +1147,7 @@ window.openFastRfq = function(skuName, hsn, origin) {
     '  <div class="rfq-modal-sku">' + (skuName || 'Single-Origin Variety') + (hsn ? ' · HSN: ' + hsn : '') + '</div>',
     '  <div class="rfq-option-label">1. Select Target Volume</div>',
     '  <div class="rfq-weights-grid" id="rfqWeightButtons">',
-    '    <button type="button" class="rfq-weight-btn active" data-val="100kg (Wholesale MOQ)">100kg</button>',
+    '    <button type="button" class="rfq-weight-btn active" data-val="500kg (Wholesale MOQ)">500kg</button>',
     '    <button type="button" class="rfq-weight-btn" data-val="250kg">250kg</button>',
     '    <button type="button" class="rfq-weight-btn" data-val="500kg">500kg</button>',
     '    <button type="button" class="rfq-weight-btn" data-val="1 Ton+ Lot">1 Ton+</button>',
@@ -1226,7 +1226,7 @@ window.selectFlushWeight = function(weightStr, btn) {
 window.submitFlushReservation = function() {
   var variety = document.getElementById('flushVarietyInput') ? document.getElementById('flushVarietyInput').value : 'Origin Spices';
   var season = document.getElementById('flushSeasonInput') ? document.getElementById('flushSeasonInput').value : 'Upcoming Flush';
-  var weight = document.getElementById('flushSelectedWeight') ? document.getElementById('flushSelectedWeight').value : '100kg (3 Master Bags)';
+  var weight = document.getElementById('flushSelectedWeight') ? document.getElementById('flushSelectedWeight').value : '500kg (13 Master Bags)';
   var hotel = document.getElementById('flushHotelName') ? document.getElementById('flushHotelName').value.trim() : '';
   
   var hotelText = hotel ? " for *" + hotel + "*" : "";
