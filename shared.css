@@ -4906,12 +4906,14 @@ textarea.form-control {
   padding: clamp(12px, 3vw, 24px);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
 }
 
 .chef-popup-overlay.is-active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .chef-popup-card {

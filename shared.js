@@ -1253,50 +1253,48 @@ window.submitFlushReservation = function() {
     function openModal() {
       modal.classList.add('is-active');
       document.body.style.overflow = 'hidden';
-      try {
-        localStorage.setItem('kta_welcome_popup_shown', 'true');
-      } catch (e) {}
     }
 
     function closeModal() {
       modal.classList.remove('is-active');
       document.body.style.overflow = '';
       try {
-        localStorage.setItem('kta_welcome_popup_shown', 'true');
+        sessionStorage.setItem('kta_chef_welcome_popup_seen', 'true');
       } catch (e) {}
     }
 
-    // Only show on first-time visit (never on refresh or subsequent page loads)
-    var hasShown = false;
+    // Auto open on initial entry (session based so it pops up on new visit, but not on repeat refresh after close)
+    var hasSeen = false;
     try {
-      hasShown = localStorage.getItem('kta_welcome_popup_shown') === 'true';
-    } catch (e) {}
+      hasSeen = sessionStorage.getItem('kta_chef_welcome_popup_seen') === 'true';
+    } catch(e) {}
 
-    if (!hasShown) {
+    if (!hasSeen) {
       setTimeout(function(){
         if (!modal.classList.contains('is-active')) {
           openModal();
         }
-      }, 700);
+      }, 500);
     }
 
     if (closeBtn) {
-      closeBtn.addEventListener('click', function(e){
+      closeBtn.onclick = function(e) {
         e.preventDefault();
+        e.stopPropagation();
         closeModal();
-      });
+      };
     }
 
-    modal.addEventListener('click', function(e){
+    modal.onclick = function(e) {
       if (e.target === modal) {
         closeModal();
       }
-    });
+    };
 
     if (claimBtn) {
-      claimBtn.addEventListener('click', function(){
+      claimBtn.onclick = function() {
         closeModal();
-      });
+      };
     }
 
     document.addEventListener('keydown', function(e){
@@ -1305,7 +1303,6 @@ window.submitFlushReservation = function() {
       }
     });
 
-    // Expose global opener if needed
     window.openChefWelcomeBoxModal = openModal;
     window.closeChefWelcomeBoxModal = closeModal;
   }

@@ -3184,6 +3184,40 @@
     </div>
   </div>
 
+  <script>
+    (function() {
+      var modal = document.getElementById('chefWelcomeModal');
+      var closeBtn = document.getElementById('chefPopupCloseBtn');
+      var claimBtn = document.getElementById('claimBoxBtn');
+      if (!modal) return;
+
+      function openModal() {
+        modal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-active');
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem('kta_chef_welcome_popup_seen', 'true'); } catch(e){}
+      }
+
+      var hasSeen = false;
+      try { hasSeen = sessionStorage.getItem('kta_chef_welcome_popup_seen') === 'true'; } catch(e){}
+
+      if (!hasSeen) {
+        setTimeout(function() {
+          if (!modal.classList.contains('is-active')) openModal();
+        }, 500);
+      }
+
+      if (closeBtn) closeBtn.onclick = function(e){ e.preventDefault(); closeModal(); };
+      if (claimBtn) claimBtn.onclick = closeModal;
+      modal.onclick = function(e){ if (e.target === modal) closeModal(); };
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+    })();
+  </script>
+
   <!-- GSAP + ScrollTrigger + Lenis -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
