@@ -1245,10 +1245,66 @@ window.submitFlushReservation = function() {
 (function(){
   function initChefWelcomeModal() {
     var modal = document.getElementById('chefWelcomeModal');
+
+    // If modal not present in DOM, dynamically create and append it
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'chefWelcomeModal';
+      modal.className = 'chef-popup-overlay';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-labelledby', 'chefPopupTitle');
+      modal.innerHTML = [
+        '<div class="chef-popup-card">',
+        '  <button class="chef-popup-close" id="chefPopupCloseBtn" aria-label="Close Modal">&times;</button>',
+        '  <div class="chef-popup-visual">',
+        '    <img src="images/KTAChefBox.webp" alt="KTA Chef Discovery Welcome Sample Box" class="chef-popup-box-img" loading="eager">',
+        '    <div class="chef-popup-stamp">COMPLIMENTARY</div>',
+        '  </div>',
+        '  <div class="chef-popup-content">',
+        '    <div>',
+        '      <span class="chef-popup-eyebrow">Executive Chef Program</span>',
+        '      <h2 class="chef-popup-title" id="chefPopupTitle">Claim Your <span class="chef-popup-highlight">Free Chef Welcome Box</span>.</h2>',
+        '      <p class="chef-popup-desc">Partner with KTA. Test our single-origin Highland spice harvests directly in your kitchen pass before placing bulk orders.</p>',
+        '      <div class="chef-popup-specs">',
+        '        <div class="chef-spec-card"><span class="chef-spec-num">✓</span><div class="chef-spec-text"><strong>100% Free Sample Kit:</strong> Zero trial fees or commitment.</div></div>',
+        '        <div class="chef-spec-card"><span class="chef-spec-num">✓</span><div class="chef-spec-text"><strong>Clinical QC Reports:</strong> Lot moisture &amp; volatile oil assay included.</div></div>',
+        '        <div class="chef-spec-card"><span class="chef-spec-num">✓</span><div class="chef-spec-text"><strong>Direct Delivery:</strong> Hand-delivered to Executive Chefs &amp; F&amp;B Directors.</div></div>',
+        '      </div>',
+        '    </div>',
+        '    <div class="chef-popup-actions">',
+        '      <a href="partnership.html#registerKitchen" class="chef-popup-btn-primary" id="claimBoxBtn">Claim Free Box</a>',
+        '      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20an%20Executive%20Chef%20requesting%20the%20Free%20Chef%20Welcome%20Box%20to%20test." target="_blank" rel="noopener" class="chef-popup-btn-secondary">WhatsApp</a>',
+        '    </div>',
+        '  </div>',
+        '</div>'
+      ].join('\n');
+      document.body.appendChild(modal);
+    }
+
+    // Always create and append the persistent floating trigger if not present
+    var floatTrigger = document.getElementById('chefFloatTrigger');
+    if (!floatTrigger) {
+      floatTrigger = document.createElement('button');
+      floatTrigger.id = 'chefFloatTrigger';
+      floatTrigger.className = 'chef-float-trigger';
+      floatTrigger.setAttribute('aria-label', 'Claim Free Chef Welcome Box');
+      floatTrigger.innerHTML = [
+        '<span class="chef-float-icon">',
+        '  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+        '    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>',
+        '    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>',
+        '    <line x1="12" y1="22.08" x2="12" y2="12"></line>',
+        '  </svg>',
+        '</span>',
+        '<span class="chef-float-text">Chef Welcome Box · Free</span>',
+        '<span class="chef-float-dot"></span>'
+      ].join('');
+      document.body.appendChild(floatTrigger);
+    }
+
     var closeBtn = document.getElementById('chefPopupCloseBtn');
     var claimBtn = document.getElementById('claimBoxBtn');
-
-    if (!modal) return;
 
     function openModal() {
       modal.classList.add('is-active');
@@ -1263,18 +1319,26 @@ window.submitFlushReservation = function() {
       } catch (e) {}
     }
 
-    // Auto open on initial entry (session based so it pops up on new visit, but not on repeat refresh after close)
+    // Auto open on initial entry ONLY on home page
+    var isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/');
     var hasSeen = false;
     try {
       hasSeen = sessionStorage.getItem('kta_chef_welcome_popup_seen') === 'true';
     } catch(e) {}
 
-    if (!hasSeen) {
+    if (isHome && !hasSeen) {
       setTimeout(function(){
         if (!modal.classList.contains('is-active')) {
           openModal();
         }
       }, 500);
+    }
+
+    if (floatTrigger) {
+      floatTrigger.onclick = function(e) {
+        e.preventDefault();
+        openModal();
+      };
     }
 
     if (closeBtn) {
