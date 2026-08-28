@@ -4891,22 +4891,22 @@ textarea.form-control {
 }
 
 /* ============================================================
-   CHEF WELCOME BOX FREE ANNOUNCEMENT POPUP (High-Converting)
+   CHEF WELCOME BOX — BESPOKE EDITORIAL LUXURY MODAL
    ============================================================ */
 .chef-popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(17, 20, 14, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(12, 16, 10, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(12px, 2.5vw, 24px);
+  padding: clamp(14px, 3vw, 32px);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
 }
 
 .chef-popup-overlay.is-active {
@@ -4916,18 +4916,18 @@ textarea.form-control {
 
 .chef-popup-card {
   background: #ffffff;
-  border: 1px solid rgba(67, 81, 40, 0.2);
-  border-radius: 24px;
-  max-width: 780px;
+  border: 1px solid rgba(67, 81, 40, 0.16);
+  border-radius: 20px;
+  max-width: 820px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
   position: relative;
-  transform: scale(0.92) translateY(20px);
+  transform: scale(0.94) translateY(16px);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1.18fr;
 }
 
 .chef-popup-overlay.is-active .chef-popup-card {
@@ -4936,251 +4936,272 @@ textarea.form-control {
 
 .chef-popup-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 36px;
-  height: 36px;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.06);
-  border: none;
+  background: #f4f3ef;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: #333333;
+  font-size: 18px;
+  color: #444444;
   cursor: pointer;
   z-index: 10;
-  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .chef-popup-close:hover {
-  background: #435128;
+  background: #283416;
   color: #ffffff;
-  transform: rotate(90deg);
+  transform: scale(1.05);
 }
 
 .chef-popup-visual {
-  background: radial-gradient(circle at center, #f5f7f2 0%, #e6ece0 100%);
-  padding: 32px 20px 24px;
+  background: #f7f6f2;
+  padding: clamp(28px, 4vw, 44px) 24px 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  border-right: 1px solid rgba(67, 81, 40, 0.12);
-  border-top-left-radius: 24px;
-  border-bottom-left-radius: 24px;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   text-align: center;
 }
 
 .chef-popup-box-img {
   width: 100%;
-  max-width: 280px;
+  max-width: 290px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 16px 32px rgba(45, 58, 26, 0.22));
-  transition: transform 0.35s ease;
+  filter: drop-shadow(0 18px 36px rgba(28, 38, 19, 0.16));
+  transition: transform 0.4s ease;
 }
 
 .chef-popup-box-img:hover {
-  transform: scale(1.04) rotate(-1deg);
+  transform: translateY(-4px);
 }
 
-.chef-popup-ribbon {
-  background: #435128;
-  color: #ffffff;
-  font-family: var(--font-body);
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+.chef-popup-stamp {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 7px 16px;
+  color: #5c6b3f;
+  background: #ffffff;
+  border: 1px solid rgba(67, 81, 40, 0.2);
+  padding: 6px 14px;
   border-radius: 999px;
-  margin-top: 16px;
-  box-shadow: 0 4px 14px rgba(67, 81, 40, 0.25);
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
+  margin-top: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .chef-popup-content {
-  padding: clamp(24px, 3vw, 36px) clamp(20px, 2.5vw, 32px) 28px;
+  padding: clamp(28px, 3.5vw, 40px) clamp(24px, 3vw, 36px) 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .chef-popup-eyebrow {
-  font-family: var(--font-body);
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #5c6b3f;
-  margin-bottom: 6px;
+  color: #6e7e52;
+  margin-bottom: 8px;
   display: block;
 }
 
 .chef-popup-title {
   font-family: var(--font-caslon);
-  font-size: clamp(21px, 2.2vw, 26px);
+  font-size: clamp(22px, 2.3vw, 27px);
   font-weight: 700;
-  line-height: 1.16;
-  color: #11140e;
-  margin-bottom: 10px;
+  line-height: 1.15;
+  color: #12160e;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
 }
 
 .chef-popup-highlight {
-  color: #435128;
-  background: rgba(67, 81, 40, 0.12);
-  padding: 2px 8px;
-  border-radius: 6px;
-  display: inline-block;
+  color: #283416;
+  border-bottom: 2px solid #a48246;
+  padding-bottom: 1px;
 }
 
 .chef-popup-desc {
   font-size: 13px;
-  line-height: 1.55;
+  line-height: 1.6;
   color: #555555;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.chef-popup-points {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  margin-bottom: 22px;
+/* Structured Specifications List */
+.chef-popup-specs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
-.chef-popup-point {
+.chef-spec-card {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 12px;
-  color: #2b3320;
-  line-height: 1.4;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #faf9f6;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
 }
 
-.chef-popup-point svg {
-  width: 16px;
-  height: 16px;
-  color: #435128;
+.chef-spec-num {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #7a8c6a;
+  background: #ffffff;
+  border: 1px solid rgba(67, 81, 40, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
   flex-shrink: 0;
   margin-top: 1px;
 }
 
+.chef-spec-text {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #222222;
+}
+
+.chef-spec-text strong {
+  font-weight: 700;
+  color: #11140e;
+}
+
 .chef-popup-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .chef-popup-btn-primary {
-  flex: 1.2;
+  flex: 1.3;
   min-width: 180px;
-  background: #435128;
+  background: #283416;
   color: #ffffff !important;
   font-family: var(--font-body);
   font-size: 12.5px;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 12px 20px;
+  letter-spacing: 0.03em;
+  padding: 13px 22px;
   border-radius: 999px;
   text-decoration: none;
   text-align: center;
-  box-shadow: 0 4px 14px rgba(67, 81, 40, 0.25);
-  transition: background 0.2s ease, transform 0.2s ease;
+  border: 1px solid #283416;
+  box-shadow: 0 4px 16px rgba(40, 52, 22, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .chef-popup-btn-primary:hover {
-  background: #2e3a1d;
+  background: #1c260f;
   transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(40, 52, 22, 0.35);
 }
 
-.chef-popup-btn-wa {
+.chef-popup-btn-secondary {
   flex: 1;
   min-width: 140px;
-  background: #25d366;
-  color: #ffffff !important;
+  background: transparent;
+  color: #283416 !important;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 700;
   padding: 12px 18px;
   border-radius: 999px;
+  border: 1px solid rgba(40, 52, 22, 0.25);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
-.chef-popup-btn-wa:hover {
-  background: #1eb956;
+.chef-popup-btn-secondary:hover {
+  border-color: #283416;
+  background: rgba(40, 52, 22, 0.05);
   transform: translateY(-1px);
 }
 
-/* Floating Reopen Pill Button */
+/* Minimalist Editorial Floating Trigger */
 .chef-float-trigger {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background: #1c2613;
+  background: #192013;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 10px 18px 10px 14px;
   border-radius: 999px;
-  font-family: var(--font-body);
-  font-size: 12px;
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: 11px;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   z-index: 9000;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .chef-float-trigger:hover {
   transform: translateY(-2px);
-  background: #2d3d1e;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  background: #283416;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.32);
 }
 
-.chef-float-badge {
-  background: #c89d42;
-  color: #111111;
-  font-size: 9.5px;
-  font-weight: 800;
-  padding: 2px 7px;
-  border-radius: 999px;
-  text-transform: uppercase;
+.chef-float-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6ee7b7;
+  box-shadow: 0 0 8px #6ee7b7;
+  flex-shrink: 0;
 }
 
-@media(max-width: 720px) {
+@media(max-width: 760px) {
   .chef-popup-card {
     grid-template-columns: 1fr;
     max-height: 88vh;
   }
   .chef-popup-visual {
     border-right: none;
-    border-bottom: 1px solid rgba(67, 81, 40, 0.1);
-    border-radius: 24px 24px 0 0;
-    padding: 24px 16px 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 20px 20px 0 0;
+    padding: 24px 16px 18px;
   }
   .chef-popup-box-img {
-    max-width: 180px;
+    max-width: 190px;
   }
   .chef-popup-content {
     padding: 20px 18px 24px;
   }
   .chef-float-trigger {
-    bottom: 80px;
-    right: 16px;
+    bottom: 74px;
+    right: 14px;
     padding: 8px 14px;
-    font-size: 11px;
+    font-size: 10px;
   }
 }
+
 
