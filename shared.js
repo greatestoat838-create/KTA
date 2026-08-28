@@ -1258,7 +1258,7 @@ window.submitFlushReservation = function() {
         '<div class="chef-popup-card">',
         '  <button class="chef-popup-close" id="chefPopupCloseBtn" aria-label="Close Modal">&times;</button>',
         '  <div class="chef-popup-visual">',
-        '    <img src="images/KTAChefBox.webp" alt="KTA Chef Discovery Welcome Sample Box" class="chef-popup-box-img" loading="eager">',
+        '    <img src="images/ktachefboxnew.webp" alt="KTA Chef Discovery Welcome Sample Box" class="chef-popup-box-img" loading="eager">',
         '    <div class="chef-popup-stamp">COMPLIMENTARY</div>',
         '  </div>',
         '  <div class="chef-popup-content">',
