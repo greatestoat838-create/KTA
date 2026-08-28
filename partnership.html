@@ -156,11 +156,12 @@
           
           <div class="partner-hotline-box">
             <div class="partner-hotline-lbl">24/7 Trade Hotline</div>
-            <div class="partner-hotline-val">+91 85928 32871</div>
+            <div class="partner-hotline-val" style="font-size:clamp(16px, 1.8vw, 20px)">+91 88389 71069 / +91 85928 32871</div>
           </div>
 
-          <div>
-            <a href="tel:+918592832871" class="btn btn-primary" style="background:#435128;border-radius:999px;padding:13px 28px">Direct Call Trade Desk</a>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a href="tel:+918838971069" class="btn btn-primary" style="background:#435128;border-radius:999px;padding:12px 24px">Direct Call Trade Desk</a>
+            <a href="https://wa.me/918838971069?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20inquiring%20about%20a%20commercial%20kitchen%20partnership." target="_blank" rel="noopener" class="btn btn-outline" style="border-radius:999px;padding:12px 20px;display:inline-flex;align-items:center;gap:6px">WhatsApp Desk ↗</a>
           </div>
         </div>
 
@@ -177,22 +178,32 @@
 
               <div class="partner-field">
                 <label for="pHotelName">Establishment / Hotel Name *</label>
-                <input type="text" id="pHotelName" class="partner-input" placeholder="Luxury Hotel / Fine Dining" required>
+                <input type="text" id="pHotelName" class="partner-input" placeholder="Luxury Hotel / Fine Dining / Cloud Kitchen" required>
+              </div>
+
+              <div class="partner-field">
+                <label for="pPhone">Contact Phone / WhatsApp Number *</label>
+                <input type="tel" id="pPhone" class="partner-input" placeholder="+91 98765 43210" required>
+              </div>
+
+              <div class="partner-field">
+                <label for="pEmail">Official Email (Optional)</label>
+                <input type="email" id="pEmail" class="partner-input" placeholder="chef@hotel.com">
               </div>
 
               <div class="partner-field">
                 <label for="pVolume">Expected Volume (Monthly)</label>
                 <select id="pVolume" class="partner-select">
-                  <option value="500-1000">500kg – 1 Ton (40kg Master Bags)</option>
-                  <option value="500-2000">500kg – 2 Tons</option>
-                  <option value="2000plus">2 Tons+ Commercial Lots</option>
-                  <option value="sample">Welcome Sample Discovery Kit (Chef Trial · Zero Minimum)</option>
+                  <option value="500kg – 1 Ton (40kg Master Bags)">500kg – 1 Ton (40kg Master Bags)</option>
+                  <option value="1 Ton – 5 Tons Commercial Consignment">1 Ton – 5 Tons</option>
+                  <option value="5 Tons+ Commercial Lots">5 Tons+ Commercial Lots</option>
+                  <option value="Chef Welcome Discovery Box (Free Trial)">Chef Welcome Discovery Box (Free Trial · Zero Minimum)</option>
                 </select>
               </div>
 
               <div class="partner-field">
-                <label for="pMessage">Message (Optional)</label>
-                <textarea id="pMessage" class="partner-textarea" rows="3" placeholder="Any specific requirements..."></textarea>
+                <label for="pMessage">Requirements / Message (Optional)</label>
+                <textarea id="pMessage" class="partner-textarea" rows="2" placeholder="Specific spices, varieties, or sample requests..."></textarea>
               </div>
 
               <button type="submit" class="partner-submit-btn">SUBMIT APPLICATION</button>
@@ -239,7 +250,7 @@
         <div class="footer-cred-right">
           <span>• Institutional Wholesaler &amp; Direct Highland Sourcing</span>
           <span>• FSSAI Batch Certified · State License Registered</span>
-          <span>• Trade Desk Hotline: <a href="tel:+918592832871">+91 85928 32871</a> · <a href="mailto:wholesale@ktaspices.in">wholesale@ktaspices.in</a></span>
+          <span>• Trade Desk Hotlines: <a href="tel:+918838971069">+91 88389 71069</a> / <a href="tel:+918592832871">+91 85928 32871</a> · <a href="mailto:wholesale@ktaspices.in">wholesale@ktaspices.in</a></span>
         </div>
       </div>
 
@@ -267,13 +278,38 @@
   <script>
   function handlePartnerSubmit(e){
     e.preventDefault();
-    var name = document.getElementById('pMgrName').value;
-    var hotel = document.getElementById('pHotelName').value;
-    if(!name || !hotel){
-      alert('Please fill all required fields.');
+    var name = document.getElementById('pMgrName') ? document.getElementById('pMgrName').value.trim() : '';
+    var hotel = document.getElementById('pHotelName') ? document.getElementById('pHotelName').value.trim() : '';
+    var phone = document.getElementById('pPhone') ? document.getElementById('pPhone').value.trim() : '';
+    var email = document.getElementById('pEmail') ? document.getElementById('pEmail').value.trim() : '';
+    var volume = document.getElementById('pVolume') ? document.getElementById('pVolume').value : '';
+    var message = document.getElementById('pMessage') ? document.getElementById('pMessage').value.trim() : '';
+
+    if(!name || !hotel || !phone){
+      alert('Please fill all required fields (Name, Hotel Name, Phone Number).');
       return;
     }
-    alert('Thank you! Your partnership registration has been received. Our corporate team will contact you within one business day.');
+
+    var formData = {
+      managerName: name,
+      hotelName: hotel,
+      contactPhone: phone,
+      email: email,
+      volume: volume,
+      message: message,
+      sourcePage: 'partnership.html'
+    };
+
+    if (window.submitKTAForm) {
+      window.submitKTAForm(formData, {
+        formName: 'Corporate Partnership Registration',
+        successMsg: 'Thank you, ' + name + '! Your partnership registration for ' + hotel + ' has been received. Our trade desk will review your details and contact you within one business day.'
+      });
+    } else {
+      alert('Thank you, ' + name + '! Your partnership registration for ' + hotel + ' has been received.');
+    }
+
+    e.target.reset();
   }
   </script>
 </body>

@@ -1378,4 +1378,41 @@ window.submitFlushReservation = function() {
   }
 })();
 
+/* ══════════════════════════════════════════════════════════════
+   UNIVERSAL LEAD DISPATCHER (GOOGLE SHEETS / EXCEL + INSTANT EMAIL)
+   ══════════════════════════════════════════════════════════════ */
+window.KTA_FORM_CONFIG = {
+  // Replace this with your Google Apps Script Web App URL to receive live Google Sheet rows + email notifications:
+  webhookUrl: '', // e.g. 'https://script.google.com/macros/s/AKfycb.../exec'
+  notificationEmail: 'wholesale@ktaspices.in'
+};
+
+window.submitKTAForm = function(formData, options) {
+  options = options || {};
+  var formName = options.formName || 'Website Inquiry';
+  var successMsg = options.successMsg || 'Thank you! Your inquiry has been successfully received.';
+
+  formData.formName = formName;
+  formData.timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+  // 1. Dispatch to Google Apps Script / Webhook if configured
+  if (window.KTA_FORM_CONFIG && window.KTA_FORM_CONFIG.webhookUrl) {
+    try {
+      fetch(window.KTA_FORM_CONFIG.webhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      }).catch(function(err) {
+        console.warn('Form Webhook Notice:', err);
+      });
+    } catch(e) {
+      console.warn('Fetch error:', e);
+    }
+  }
+
+  // 2. Alert confirmation to the user
+  alert(successMsg);
+};
+
 
