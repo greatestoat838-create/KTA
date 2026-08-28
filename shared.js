@@ -1264,18 +1264,12 @@ window.submitFlushReservation = function() {
       } catch (e) {}
     }
 
-    // Auto trigger on page load (1.2 seconds delay)
+    // Smooth auto trigger on page load (600ms)
     setTimeout(function(){
-      var hasSeen = false;
-      try {
-        hasSeen = sessionStorage.getItem('kta_chef_popup_seen') === 'true';
-      } catch(e) {}
-      
-      // Open automatically if not closed in this session, or on first entry
-      if (!hasSeen && !modal.classList.contains('is-active')) {
+      if (!modal.classList.contains('is-active')) {
         openModal();
       }
-    }, 1200);
+    }, 600);
 
     if (closeBtn) {
       closeBtn.addEventListener('click', function(e){
