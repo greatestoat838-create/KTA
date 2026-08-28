@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* ============================================================
    KTA Spices — Shared Design System  v2.0 (Fully Responsive)
@@ -1258,78 +1258,100 @@ button {
 }
 .min-footer-nav {
   display: flex;
-  justify-content: center;
-  gap: clamp(14px, 3vw, 36px);
-  margin-bottom: 36px;
+  justify-content: flex-start;
+  gap: clamp(16px, 3.2vw, 42px);
+  margin-bottom: clamp(28px, 3.5vw, 42px);
   flex-wrap: wrap;
   padding: 0 16px;
 }
 .min-footer-nav a {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--ink-mid);
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.1vw, 14.5px);
+  font-weight: 700;
+  color: #111111;
   text-decoration: none;
-  transition: color 0.2s ease;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 .min-footer-nav a:hover {
   color: var(--olive);
+  transform: translateY(-1px);
 }
 .min-footer-bottom {
   border-top: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: 24px;
+  padding-top: clamp(18px, 2.5vw, 26px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12.5px;
-  color: var(--muted);
-  max-width: 1040px;
+  width: 100%;
+  max-width: 1080px;
   margin: 0 auto;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   padding-left: 16px;
   padding-right: 16px;
+}
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-silhouette-icon {
+  width: 14px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #111111;
+  display: inline-block;
+  vertical-align: middle;
+}
+.footer-mono-text {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  font-size: clamp(10.5px, 0.95vw, 12px);
+  letter-spacing: 0.04em;
+  color: #7a8c6a;
 }
 @media(max-width: 640px) {
   .min-footer-bottom {
     flex-direction: column;
-    text-align: center;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
 
 /* Registered Trade Desk Credibility Block */
 .footer-credibility-block {
   max-width: 1080px;
-  margin: 0 auto 36px;
-  padding: 24px 28px;
-  background: #fcfbf9;
-  border: 1px solid rgba(67, 81, 40, 0.18);
+  margin: 0 auto clamp(24px, 3vw, 36px);
+  padding: clamp(20px, 2.5vw, 26px) clamp(22px, 3vw, 32px);
+  background: #fbfaf8;
+  border: 1px solid rgba(67, 81, 40, 0.16);
   border-radius: 16px;
   display: grid;
   grid-template-columns: 1.35fr 1fr;
   gap: 24px;
   text-align: left;
   align-items: center;
-  box-shadow: 0 4px 20px rgba(67, 81, 40, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 .footer-cred-badge {
-  font-size: 10px;
+  font-family: var(--font-body);
+  font-size: 9.5px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--olive);
   background: rgba(67, 81, 40, 0.08);
-  padding: 3px 10px;
+  padding: 3px 9px;
   border-radius: 4px;
   display: inline-block;
   margin-bottom: 8px;
 }
 .footer-cred-name {
   font-family: var(--font-caslon);
-  font-size: 19px;
+  font-size: clamp(17px, 1.8vw, 20px);
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   letter-spacing: 0.02em;
 }
 .footer-cred-sub {
@@ -1341,16 +1363,36 @@ button {
 .footer-cred-addr {
   font-size: 13px;
   line-height: 1.6;
-  color: #444444;
+  color: #4a4a4a;
 }
 .footer-cred-right {
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-size: 12.5px;
-  color: var(--ink-mid);
+  color: #555555;
   padding-left: 24px;
-  border-left: 1px solid rgba(0, 0, 0, 0.09);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+.footer-cred-right a {
+  color: var(--olive);
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-cred-right a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 860px) {
+  .footer-credibility-block {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .footer-cred-right {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 16px;
+  }
 }
 .footer-cred-item {
   display: flex;
