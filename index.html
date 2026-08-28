@@ -23,7 +23,8 @@
   <meta property="og:locale" content="en_IN">
   <meta property="og:type" content="website">
   <meta property="og:title" content="KTA Spices — Sourced at Origin, Served at the Top">
-  <meta property="og:description" content="Single-origin certified whole spices &amp; premium dry fruits directly from estate growers to elite commercial kitchens and wholesale processors across South India.">
+  <meta property="og:description"
+    content="Single-origin certified whole spices &amp; premium dry fruits directly from estate growers to elite commercial kitchens and wholesale processors across South India.">
   <meta property="og:url" content="https://ktaspices.in/">
   <meta property="og:site_name" content="KTA Spices">
   <meta property="og:image" content="https://ktaspices.in/images/ktaouterlinelogo.png">
@@ -34,7 +35,8 @@
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KTA Spices — Wholesale Spices &amp; Premium Dry Fruits Merchant">
-  <meta name="twitter:description" content="Farm-direct, laboratory-verified, chef-graded spices and dry fruits across India. 24h rapid replenishment.">
+  <meta name="twitter:description"
+    content="Farm-direct, laboratory-verified, chef-graded spices and dry fruits across India. 24h rapid replenishment.">
   <meta name="twitter:image" content="https://ktaspices.in/images/ktaouterlinelogo.png">
 
   <!-- JSON-LD Structured Data: LocalBusiness & WholesaleStore -->
@@ -179,9 +181,11 @@
         padding-bottom: 0 !important;
         overflow: hidden;
       }
+
       .hero-header-wrap {
         margin-bottom: clamp(12px, 1.8vh, 20px) !important;
       }
+
       .showcase-wrapper {
         flex: 1 1 auto;
         display: flex;
@@ -191,12 +195,14 @@
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
       }
+
       .showcase-inner {
         height: 100%;
         display: flex;
         align-items: flex-end;
         justify-content: center;
       }
+
       .hero-tablet-frame {
         max-height: calc(100vh - 224px) !important;
         width: auto !important;
@@ -206,6 +212,7 @@
         border-radius: clamp(18px, 2.4vw, 28px) clamp(18px, 2.4vw, 28px) 0 0 !important;
         border-bottom: none !important;
       }
+
       .tablet-backdrop-card {
         bottom: 0 !important;
         top: 26% !important;
@@ -302,7 +309,7 @@
       justify-content: center;
     }
 
-    /* Green backdrop card starting higher up with extended side wings */
+    /* Original Clean Sage/Olive Green Backdrop Card (KTA (2).png) */
     .tablet-backdrop-card {
       position: absolute;
       bottom: 0;
@@ -319,10 +326,12 @@
       z-index: 1;
     }
 
+
+
     /* Desktop Tablet Mockup Frame — Flat Rectangle Bottom */
     .hero-tablet-frame {
       position: relative;
-      z-index: 2;
+      z-index: 5; /* IN FRONT of plants */
       width: 100%;
       height: auto;
       max-height: clamp(300px, 58vh, 470px);
@@ -574,20 +583,7 @@
       }
     }
 
-    /* ══════════════════════════════════════════
-     PAGE PROGRESS BAR
-     ══════════════════════════════════════════ */
-    #pgProgress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 2.5px;
-      background: linear-gradient(90deg, #435128 0%, #8fa17d 60%, #c4a050 100%);
-      z-index: 9999;
-      transition: width 0.08s linear;
-      box-shadow: 0 0 8px rgba(67, 81, 40, 0.4);
-    }
+
 
     /* ══════════════════════════════════════════
      SECTION: Generations in the Highlands
@@ -1602,25 +1598,7 @@
       flex-shrink: 0;
     }
 
-    /* Right-edge progress bar */
-    .right-progress {
-      position: fixed;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 2.5px;
-      z-index: 9997;
-      pointer-events: none;
-      background: rgba(0, 0, 0, 0.045);
-    }
 
-    .right-progress-fill {
-      width: 100%;
-      background: linear-gradient(to bottom, #435128 0%, #8fa17d 55%, #c4a050 100%);
-      height: 0%;
-      box-shadow: -2px 0 10px rgba(196, 160, 80, 0.38);
-      transition: height 0.06s linear;
-    }
 
     /* ═══════════════════════════════════════════════════════════
      HOTEL SMART 24/7 (ZERO-DOWNTIME LOGISTICS DARK CARD — Image 1 Style)
@@ -2217,13 +2195,7 @@
 
 <body>
 
-  <!-- Right-edge scroll progress -->
-  <div class="right-progress" aria-hidden="true">
-    <div class="right-progress-fill" id="rightProgressFill"></div>
-  </div>
 
-  <!-- ── Page Progress Bar ── -->
-  <div id="pgProgress" role="progressbar" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════════
        SCROLL-AWARE HOME NAV
@@ -2252,7 +2224,8 @@
 
       <!-- DESKTOP LEFT LINKS (> 992px) -->
       <div class="desktop-nav-left">
-        <button class="desktop-search-btn" id="desktopSearchBtn" aria-label="Search Spices &amp; Catalogue" title="Search Spices · Custom Sourcing Available">
+        <button class="desktop-search-btn" id="desktopSearchBtn" aria-label="Search Spices &amp; Catalogue"
+          title="Search Spices · Custom Sourcing Available">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" style="width:15px;height:15px;">
             <circle cx="11" cy="11" r="7"></circle>
@@ -2297,7 +2270,8 @@
           target="_blank" rel="noopener" class="mobile-nav-btn mobile-wa-btn" aria-label="WhatsApp Enquiry"
           title="WhatsApp">
           <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
         </a>
         <button class="mobile-nav-btn mobile-more-btn" id="mobileMoreBtn" aria-label="More options"
@@ -2327,8 +2301,8 @@
       <a href="wholesale.html">WHOLESALE</a>
       <a href="#hotelSmart">HOTEL SMART 24/7</a>
       <a href="tel:+918592832871" style="color: #435128; font-weight: 700;">Direct: +91 85928 32871</a>
-      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20would%20like%20to%20inquire%20about%20direct%20origin%20spice%20procurement%20and%20commercial%20supply." target="_blank" rel="noopener"
-        style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
+      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20would%20like%20to%20inquire%20about%20direct%20origin%20spice%20procurement%20and%20commercial%20supply."
+        target="_blank" rel="noopener" style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
     </div>
     <a href="partnership.html#registerKitchen" class="nav-cta-btn" style="margin-top:16px;text-align:center">REGISTER
       KITCHEN</a>
@@ -2342,10 +2316,13 @@
       <h1 class="hero-title" id="heroTitle">Sourced at Origin<br>Served at the Top</h1>
       <p class="hero-subtitle">KTA Brings Exceptional Spices and Dry Fruits to Elite Kitchens Across South India</p>
     </div>
-    <!-- Tablet Showcase (iPad Mockup with Green Backdrop) -->
+    <!-- Tablet Showcase (iPad Mockup with Luxury Backdrop & Growing Tree Branches) -->
     <div class="showcase-wrapper">
       <div class="showcase-inner">
         <div class="tablet-backdrop-card" aria-hidden="true"></div>
+
+
+
         <div class="hero-tablet-frame">
           <video class="hero-showcase-video" autoplay loop muted playsinline preload="auto">
             <source src="hero-video1.mp4" type="video/mp4">
@@ -2413,10 +2390,14 @@
       <p class="body-sm" style="max-width:380px" data-reveal data-delay="3">Direct from root origin to your kitchen pass
         — our growers don't sell to the open market, they partner directly with KTA. And we bring their finest harvest,
         unadulterated and batch-traceable, to your executive stations.</p>
+
+
+
       <div class="highlands-social" data-reveal data-delay="4">
         <a href="#">Instagram</a>
         <a href="#">LinkedIn</a>
-        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20would%20like%20to%20connect%20with%20your%20commercial%20concierge%20for%20a%20procurement%20inquiry." target="_blank" rel="noopener">WhatsApp Trade ↗</a>
+        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20would%20like%20to%20connect%20with%20your%20commercial%20concierge%20for%20a%20procurement%20inquiry."
+          target="_blank" rel="noopener">WhatsApp Trade ↗</a>
       </div>
     </div>
   </section>
@@ -2709,7 +2690,9 @@
     <div class="sms-mobile-full-cta" data-reveal>
       <a href="catalogue.html" class="sms-mobile-full-btn" aria-label="See Full Catalogue">
         <span>See Full Catalogue (46+ Varieties)</span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
       </a>
     </div>
   </section>
@@ -3037,7 +3020,7 @@
         </div>
 
         <div class="wb-frame" data-reveal data-delay="1">
-          <img src="images/chef-welcome-box.webp" alt="KTA Chef Discovery Welcome Sample Box for Executive Hotel Chefs"
+          <img src="images/KTAChefBox.webp" alt="KTA Chef Discovery Welcome Sample Box for Executive Hotel Chefs"
             loading="lazy" decoding="async">
         </div>
       </div>
@@ -3064,7 +3047,12 @@
             <div class="faq-btn-icon">+</div>
           </div>
           <div class="faq-body">
-            Our institutional wholesale supply operates with standard packaging starting from <strong>40kg master bags and consignments</strong> (tailored across single or mixed spice varieties for hotels, cloud kitchens, and institutional buyers, up to multi-ton lots). Products are sealed in heavy-duty food-grade master packaging. Minimum wholesale procurement is <strong>100kg+</strong>. For verified Executive Chefs and Hotel Purchase Directors testing new menu lots, our <strong>Welcome Sample Discovery Kits</strong> are provided with zero minimums.
+            Our institutional wholesale supply operates with standard packaging starting from <strong>40kg master bags
+              and consignments</strong> (tailored across single or mixed spice varieties for hotels, cloud kitchens, and
+            institutional buyers, up to multi-ton lots). Products are sealed in heavy-duty food-grade master packaging.
+            Minimum wholesale procurement is <strong>100kg+</strong>. For verified Executive Chefs and Hotel Purchase
+            Directors testing new menu lots, our <strong>Welcome Sample Discovery Kits</strong> are provided with zero
+            minimums.
           </div>
         </div>
 
@@ -3210,19 +3198,13 @@
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
 
-    /* 3. Scroll-aware nav + progress bars (via Lenis) */
+    /* 3. Scroll-aware nav (via Lenis) */
     var homeNav = document.getElementById('homeNav');
-    var pgBar = document.getElementById('pgProgress');
-    var rightFill = document.getElementById('rightProgressFill');
     var THRESHOLD = 80;
 
     lenis.on('scroll', function (e) {
       var sy = e.scroll;
-      var total = document.body.scrollHeight - window.innerHeight;
-      var pct = total > 0 ? (sy / total * 100) : 0;
       if (homeNav) homeNav.classList.toggle('floating', sy > THRESHOLD);
-      if (pgBar) pgBar.style.width = pct + '%';
-      if (rightFill) rightFill.style.height = pct + '%';
     });
 
     /* 4. Hero title word reveal */
@@ -3451,8 +3433,8 @@
       if (targetIdx === currentStackIdx || isStackBusy) return;
       var steps = (targetIdx - currentStackIdx + stackProducts.length) % stackProducts.length;
       for (var i = 0; i < steps; i++) {
-        (function(stepIndex){
-          setTimeout(function(){
+        (function (stepIndex) {
+          setTimeout(function () {
             nextStackCard();
           }, stepIndex * 220);
         })(i);
@@ -3474,7 +3456,7 @@
         ch.innerHTML = item.chips.map(function (c) { return '<span class="stack-info-chip">' + c + '</span>'; }).join('');
       }
       if (dots.length) {
-        dots.forEach(function(dot, dIdx){
+        dots.forEach(function (dot, dIdx) {
           dot.classList.toggle('active', dIdx === idx);
         });
       }
