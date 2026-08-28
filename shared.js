@@ -1241,3 +1241,84 @@ window.submitFlushReservation = function() {
   window.closeFlushReservation();
 };
 
+/* ── Chef Welcome Box Free Announcement Modal Controller ── */
+(function(){
+  function initChefWelcomeModal() {
+    var modal = document.getElementById('chefWelcomeModal');
+    var closeBtn = document.getElementById('chefPopupCloseBtn');
+    var floatTrigger = document.getElementById('chefFloatTrigger');
+    var claimBtn = document.getElementById('claimBoxBtn');
+
+    if (!modal) return;
+
+    function openModal() {
+      modal.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-active');
+      document.body.style.overflow = '';
+      try {
+        sessionStorage.setItem('kta_chef_popup_seen', 'true');
+      } catch (e) {}
+    }
+
+    // Auto trigger on page load (1.2 seconds delay)
+    setTimeout(function(){
+      var hasSeen = false;
+      try {
+        hasSeen = sessionStorage.getItem('kta_chef_popup_seen') === 'true';
+      } catch(e) {}
+      
+      // Open automatically if not closed in this session, or on first entry
+      if (!hasSeen && !modal.classList.contains('is-active')) {
+        openModal();
+      }
+    }, 1200);
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        closeModal();
+      });
+    }
+
+    modal.addEventListener('click', function(e){
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    if (floatTrigger) {
+      floatTrigger.addEventListener('click', function(e){
+        e.preventDefault();
+        openModal();
+      });
+    }
+
+    if (claimBtn) {
+      claimBtn.addEventListener('click', function(){
+        closeModal();
+      });
+    }
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+        closeModal();
+      }
+    });
+
+    // Expose global opener
+    window.openChefWelcomeBoxModal = openModal;
+    window.closeChefWelcomeBoxModal = closeModal;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initChefWelcomeModal);
+  } else {
+    initChefWelcomeModal();
+  }
+})();
+
+
