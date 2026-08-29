@@ -980,11 +980,32 @@
 
   function submitWholesale(e){
     e.preventDefault();
-    var n = document.getElementById('wsName').value;
-    var c = document.getElementById('wsContact').value;
-    var o = document.getElementById('wsOrder').value;
-    if(!n || !c || !o){ alert('Please fill all fields.'); return; }
-    alert('Thank you! Our trade desk will contact you with wholesale pricing within 2 hours.');
+    var n = document.getElementById('wsName') ? document.getElementById('wsName').value.trim() : '';
+    var c = document.getElementById('wsContact') ? document.getElementById('wsContact').value.trim() : '';
+    var o = document.getElementById('wsOrder') ? document.getElementById('wsOrder').value.trim() : '';
+    if(!n || !c || !o){ alert('Please fill all required fields.'); return; }
+
+    var formData = {
+      name: n,
+      hotelName: n,
+      contactPhone: c,
+      message: o,
+      volume: 'Wholesale Master Lots (500kg+)',
+      sourcePage: 'wholesale.html'
+    };
+
+    if (window.submitKTAForm) {
+      window.submitKTAForm(formData, {
+        formName: 'Wholesale Consignment Request',
+        successMsg: 'Thank you, ' + n + '! Your wholesale request has been received. Our trade desk will review your requirements and send locked lot pricing and specifications within 2 hours.'
+      });
+    } else {
+      alert('Thank you! Our trade desk will contact you with wholesale pricing within 2 hours.');
+    }
+
+    if (document.getElementById('wsName')) document.getElementById('wsName').value = '';
+    if (document.getElementById('wsContact')) document.getElementById('wsContact').value = '';
+    if (document.getElementById('wsOrder')) document.getElementById('wsOrder').value = '';
   }
 
   /* Kitchen Potency Calculator Engine */

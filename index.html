@@ -3417,13 +3417,32 @@
     /* 14. Partnership form */
     function submitHomeForm(e) {
       e.preventDefault();
-      var n = document.getElementById('hpName').value.trim();
-      var p = document.getElementById('hpPhone').value.trim();
+      var n = document.getElementById('hpName') ? document.getElementById('hpName').value.trim() : '';
+      var p = document.getElementById('hpPhone') ? document.getElementById('hpPhone').value.trim() : '';
       if (!n || !p) { alert('Please fill your name and phone number.'); return; }
+
+      var formData = {
+        name: n,
+        hotelName: n + ' (Home Partner Enquiry)',
+        contactPhone: p,
+        volume: 'Institutional Partnership / Discovery Trial',
+        message: 'Home Page Quick Registration Application',
+        sourcePage: 'index.html'
+      };
+
+      if (window.submitKTAForm) {
+        window.submitKTAForm(formData, {
+          formName: 'Home Partnership Application',
+          successMsg: 'Thank you, ' + n + '! Your partnership registration has been received. Our corporate team will contact you within one business day.'
+        });
+      }
+
       var btn = document.getElementById('submitAppBtn');
-      btn.textContent = '✓ Application Submitted!';
-      btn.style.background = '#5c6b3f';
-      btn.disabled = true;
+      if (btn) {
+        btn.textContent = '✓ Application Submitted!';
+        btn.style.background = '#5c6b3f';
+        btn.disabled = true;
+      }
     }
 
     /* 15. Stacked Cards Deck Logic (Smooth Rhythmic Pacing) */

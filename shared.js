@@ -1382,9 +1382,10 @@ window.submitFlushReservation = function() {
    UNIVERSAL LEAD DISPATCHER (GOOGLE SHEETS / EXCEL + INSTANT EMAIL)
    ══════════════════════════════════════════════════════════════ */
 window.KTA_FORM_CONFIG = {
-  // Replace this with your Google Apps Script Web App URL to receive live Google Sheet rows + email notifications:
-  webhookUrl: '', // e.g. 'https://script.google.com/macros/s/AKfycb.../exec'
+  // Live Google Apps Script Web App URL for Excel CRM logging & Zoho Mail alerts:
+  webhookUrl: 'https://script.google.com/macros/s/AKfycbxlCTR8O9bM3t6bk6eGFeH0NlimKHqKI1ALejXsmBxipr7cgAeKTuqQ6P-oo63-L_GV/exec',
   wholesaleEmail: 'wholesale@ktaspices.in',
+  ordersEmail: 'orders@ktaspices.in',
   generalEmail: 'info@ktaspices.in'
 };
 
