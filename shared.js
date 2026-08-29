@@ -1383,7 +1383,7 @@ window.submitFlushReservation = function() {
    ══════════════════════════════════════════════════════════════ */
 window.KTA_FORM_CONFIG = {
   // Live Google Apps Script Web App URL for Excel CRM logging & Zoho Mail alerts:
-  webhookUrl: 'https://script.google.com/macros/s/AKfycbxlCTR8O9bM3t6bk6eGFeH0NlimKHqKI1ALejXsmBxipr7cgAeKTuqQ6P-oo63-L_GV/exec',
+  webhookUrl: 'https://script.google.com/macros/s/AKfycby0y9emmxS3aqwxgBhlC7oiwuuQPZVGqEwzuJinBXm1aXftRrHchKaXdnsbkXuWZJtx/exec',
   wholesaleEmail: 'wholesale@ktaspices.in',
   ordersEmail: 'orders@ktaspices.in',
   generalEmail: 'info@ktaspices.in'
