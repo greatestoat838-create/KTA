@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KTA Spices — Confidential Investment Memorandum (FY 2026–2028)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d110d;
+      --card-bg: #141914;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #6f8c42;
+      --accent-dim: rgba(111, 140, 66, 0.15);
+      --gold: #c5a059;
+      --gold-dim: rgba(197, 160, 89, 0.12);
+      --text: #e6eae2;
+      --muted: #8d978a;
+      --font-display: 'Cinzel', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .memorandum-wrapper {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 60px 32px 120px;
+    }
+
+    /* Header & Document Classification */
+    .doc-classification-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 18px;
+      margin-bottom: 36px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .classification-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      color: var(--gold);
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .doc-title-section {
+      margin-bottom: 40px;
+    }
+
+    .doc-company {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .doc-main-heading {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .doc-sub-lead {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 780px;
+      line-height: 1.6;
+    }
+
+    /* Section Structure */
+    .memo-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 32px 36px;
+      margin-bottom: 28px;
+    }
+
+    .section-num-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Metric Grid */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 24px 0 10px;
+    }
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+
+    .metric-val {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .metric-lbl {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: var(--font-mono);
+    }
+
+    /* Comparison & Flow Diagram */
+    .flow-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .flow-box {
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+
+    .flow-box.legacy {
+      background: rgba(230, 80, 80, 0.03);
+      border-color: rgba(230, 80, 80, 0.2);
+    }
+
+    .flow-box.kta {
+      background: rgba(111, 140, 66, 0.05);
+      border-color: rgba(111, 140, 66, 0.3);
+    }
+
+    .flow-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .flow-box.legacy .flow-tag { color: #e07070; }
+    .flow-box.kta .flow-tag { color: #8cb84d; }
+
+    .flow-steps {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .flow-box.kta .flow-steps {
+      color: var(--text);
+    }
+
+    /* Pillar Cards */
+    .pillar-item {
+      background: rgba(255, 255, 255, 0.015);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .pillar-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .pillar-category {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      background: var(--accent-dim);
+      color: #9ecc5c;
+      border-radius: 4px;
+    }
+
+    .pillar-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 18px 0;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    table.data-table th, table.data-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--card-border);
+      text-align: left;
+    }
+
+    table.data-table th {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    table.data-table tr:hover td {
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    /* Breakdown List */
+    .breakdown-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+    }
+
+    .breakdown-list li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .breakdown-pct {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--gold);
+      min-width: 50px;
+    }
+
+    /* Signoff Desk */
+    .signoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--card-border);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .signoff-item strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Floating Action Bar */
+    .floating-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .btn-download-pdf {
+      background: #435128;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-download-pdf:hover {
+      background: #556733;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+      .flow-comparison { grid-template-columns: 1fr; }
+      .signoff-grid { grid-template-columns: 1fr; }
+      .memo-section { padding: 24px 20px; }
+      .memorandum-wrapper { padding: 30px 16px 90px; }
+    }
+
+    /* Print / PDF Output Styling */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-size: 11pt !important;
+      }
+      .memorandum-wrapper {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .floating-bar {
+        display: none !important;
+      }
+      .doc-classification-bar {
+        border-color: #cccccc !important;
+        color: #555555 !important;
+      }
+      .classification-badge {
+        background: #f0f0f0 !important;
+        border-color: #bbbbbb !important;
+        color: #222222 !important;
+      }
+      .doc-main-heading, .section-title, .pillar-name {
+        color: #000000 !important;
+      }
+      .memo-section {
+        background: #ffffff !important;
+        border: 1px solid #d5d5d5 !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px !important;
+        padding: 20px !important;
+      }
+      .metric-card, .pillar-item, .flow-box {
+        background: #fafafa !important;
+        border: 1px solid #e0e0e0 !important;
+      }
+      .metric-val {
+        color: #2e4a1c !important;
+      }
+      .pillar-category {
+        background: #e8eee0 !important;
+        color: #334e1e !important;
+      }
+      table.data-table th {
+        background: #f5f5f5 !important;
+        color: #333333 !important;
+      }
+      table.data-table td {
+        border-color: #e5e5e5 !important;
+        color: #111111 !important;
+      }
+      .flow-box.legacy {
+        border-color: #e8c0c0 !important;
+        background: #fffafa !important;
+      }
+      .flow-box.kta {
+        border-color: #c5d8b0 !important;
+        background: #f8faf5 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="memorandum-wrapper">
+
+    <!-- Document Header -->
+    <div class="doc-classification-bar">
+      <div>CONFIDENTIAL INVESTMENT MEMORANDUM · KTA SPICES</div>
+      <div class="classification-badge">PRIVATE &amp; CONFIDENTIAL · FY 2026–2028</div>
+    </div>
+
+    <!-- Title & Executive Overview -->
+    <div class="doc-title-section">
+      <div class="doc-company">Kottayar Trading Agency (KTA)</div>
+      <h1 class="doc-main-heading">Tech-Enabled Culinary Supply &amp; Extraction Infrastructure</h1>
+      <p class="doc-sub-lead">Transforming India's $32 Billion commercial spice market by connecting single-origin Highland farmer cooperatives directly to luxury hotel kitchens, commercial food processors, and industrial extractors.</p>
+    </div>
+
+    <!-- Executive Metrics Grid -->
+    <div class="memo-section">
+      <div class="section-num-tag">Section 01</div>
+      <h2 class="section-title">Executive Summary &amp; Key Metrics</h2>
+      <p>KTA eliminates the 4 to 6 tiers of speculative brokers in the traditional spice trade. We operate an origin-integrated physical and digital supply chain delivering clinical lab-certified, high-potency whole spices with guaranteed rapid turnaround.</p>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-val">$32B</div>
+          <div class="metric-lbl">Market TAM</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">28%–38%</div>
+          <div class="metric-lbl">Gross Margin Range</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">500kg+</div>
+          <div class="metric-lbl">Standard MOQ Lot</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">2h–24h</div>
+          <div class="metric-lbl">Fulfillment SLA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem & Structural Shift -->
+    <div class="memo-section">
+      <div class="section-num-tag">Section 02</div>
+      <h2 class="section-title">The Industry Problem vs. KTA Disruption</h2>
+      <p>Traditional spice procurement across India relies on outdated auction systems and multi-layered middleman markups that degrade product potency and tie up hotel working capital.</p>
+
+      <div class="flow-comparison">
+        <div class="flow-box legacy">
+          <div class="flow-tag">Traditional Broken Supply Chain</div>
+          <div class="flow-steps">
+            [Grower]<br>
+            ↓ Village Agents &amp; Mandi Traders<br>
+            ↓ Terminal Godowns (6-12 Months Stale)<br>
+            ↓ City Distributors &amp; Repackers<br>
+            <strong>[Hotel Kitchen: 40% Inflation &amp; High Spoilage]</strong>
+          </div>
+        </div>
+        <div class="flow-box kta">
+          <div class="flow-tag">KTA Direct Highland Model</div>
+          <div class="flow-steps">
+            [KTA Farm-Gate Integration ex-Kerala]<br>
+            ↓ Origin QC Grading &amp; Moisture-Lock Packaging<br>
+            ↓ Hotel Smart Rapid Micro-Hubs<br>
+            ↓ Proprietary B2B Kitchen ERP Auto-Dispatch<br>
+            <strong>[Kitchen Bay: Lab Certified, 2h–24h JIT Delivery]</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Lean Posture -->
+    <div class="memo-section">
+      <div class="section-num-tag">Section 03</div>
+      <h2 class="section-title">Current Operational Foundation</h2>
+      <p>KTA operates today with strict capital discipline, maintaining positive operational cash flow and unit-level gross profitability on every metric ton supplied.</p>
+      
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Operational Parameter</th>
+              <th>Current Operational Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Operating Model</strong></td>
+              <td>Founder-led, lean operating structure with minimal fixed overhead and zero debt.</td>
+            </tr>
+            <tr>
+              <td><strong>Origin Integration</strong></td>
+              <td>Direct relationships spanning 25+ years across Idukki, Wayanad, and Guntur.</td>
+            </tr>
+            <tr>
+              <td><strong>Registered Trade Desk</strong></td>
+              <td>No. 13/28, Mylai Periyathambi Street, George Town, Mannadi, Chennai – 600001.</td>
+            </tr>
+            <tr>
+              <td><strong>Active Product Scope</strong></td>
+              <td>46 commercial SKUs across single-origin spices, premium dry fruits, and extraction biomass.</td>
+            </tr>
+            <tr>
+              <td><strong>Client Acquisition Funnel</strong></td>
+              <td>Complimentary "Chef Discovery Welcome Kits" deployed to executive chefs to secure annual supply RFQs.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- The 3 Strategic Expansion Pillars -->
+    <div class="memo-section">
+      <div class="section-num-tag">Section 04</div>
+      <h2 class="section-title">Strategic Growth &amp; Technology Engine</h2>
+      <p>With growth capital, KTA is scaling three integrated infrastructure and technology pillars:</p>
+
+      <div class="pillar-item">
+        <div class="pillar-header">
+          <div class="pillar-name">1. Hotel Smart 24/7 Rapid Logistics Network</div>
+          <span class="pillar-category">Physical Logistics Moat</span>
+        </div>
+        <p class="pillar-desc">Guaranteed 2-hour inner-city and 24-hour interstate fulfillment micro-hubs across Chennai, Bengaluru, and Hyderabad. Solves chef dead stock and spoilage by converting hotels from bulk hoarding to agile, automated daily par replenishment.</p>
+      </div>
+
+      <div class="pillar-item">
+        <div class="pillar-header">
+          <div class="pillar-name">2. Industrial Extraction &amp; Agricultural Byproduct Desk</div>
+          <span class="pillar-category">High-Tonnage Cash Flow</span>
+        </div>
+        <p class="pillar-desc">Monetizing the full botanical lifecycle by supplying raw botanicals, density-graded pinheads, lite berries, and spent spice residues directly to oleoresin distillers, essential oil plants, and overseas importers in FIBC export containers.</p>
+      </div>
+
+      <div class="pillar-item">
+        <div class="pillar-header">
+          <div class="pillar-name">3. Proprietary B2B Culinary ERP Software</div>
+          <span class="pillar-category">Digital Platform Moat</span>
+        </div>
+        <p class="pillar-desc">Specialized SaaS workflow tool for Executive Chefs and F&amp;B Purchase Directors featuring 1-tap automated reordering based on daily meal covers, instant GST pro-forma invoicing, digital GC-MS lab assay dossiers, and AP ledger sync.</p>
+      </div>
+
+      <div class="pillar-item">
+        <div class="pillar-header">
+          <div class="pillar-name">4. Institutional Embedded Trade Credit Facility</div>
+          <span class="pillar-category">Fintech Monetization</span>
+        </div>
+        <p class="pillar-desc">Structured 15 to 30-day revolving credit lines for verified 5-star hotel chains, supported by automated digital billing and historical consumption data.</p>
+      </div>
+    </div>
+
+    <!-- Financial Model -->
+    <div class="memo-section">
+      <div class="section-num-tag">Section 05</div>
+      <h2 class="section-title">3-Year Financial Projections (Post-Investment)</h2>
+      <p>Projected financial performance upon deployment of micro-fulfillment hubs and the B2B Kitchen ERP software:</p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Financial Metric</th>
+              <th class="text-right">FY 2026 (Base)</th>
+              <th class="text-right">FY 2027 (Expansion)</th>
+              <th class="text-right">FY 2028 (Scale)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Gross Merchandise Value (GMV)</strong></td>
+              <td class="text-right">INR 4.50 Cr</td>
+              <td class="text-right">INR 18.50 Cr</td>
+              <td class="text-right">INR 62.00 Cr</td>
+            </tr>
+            <tr>
+              <td><strong>Net Operating Revenue</strong></td>
+              <td class="text-right">INR 1.25 Cr</td>
+              <td class="text-right">INR 5.18 Cr</td>
+              <td class="text-right">INR 17.36 Cr</td>
+            </tr>
+            <tr>
+              <td><strong>Gross Margin %</strong></td>
+              <td class="text-right">27.8%</td>
+              <td class="text-right">31.5%</td>
+              <td class="text-right">34.2%</td>
+            </tr>
+            <tr>
+              <td><strong>Active Institutional Accounts</strong></td>
+              <td class="text-right">45 Accounts</td>
+              <td class="text-right">220 Accounts</td>
+              <td class="text-right">750+ Accounts</td>
+            </tr>
+            <tr>
+              <td><strong>EBITDA</strong></td>
+              <td class="text-right">Positive (Lean)</td>
+              <td class="text-right">INR 0.95 Cr</td>
+              <td class="text-right">INR 4.10 Cr</td>
+            </tr>
+            <tr>
+              <td><strong>Net Margin %</strong></td>
+              <td class="text-right">8.2%</td>
+              <td class="text-right">12.4%</td>
+              <td class="text-right">16.8%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Unit Economics -->
+    <div class="memo-section">
+      <div class="section-num-tag">Section 06</div>
+      <h2 class="section-title">Unit Economics (Typical 500kg Lot)</h2>
+      <p>Financial breakdown of a standard 500kg Highland Pepper wholesale consignment:</p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Cost Component</th>
+              <th>Amount (INR)</th>
+              <th class="text-right">% of Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Farm-Gate Direct Sourcing</td>
+              <td>INR 2,40,000</td>
+              <td class="text-right">60.0%</td>
+            </tr>
+            <tr>
+              <td>Quality Grading, Nitrogen Moisture Packaging &amp; Lab QC</td>
+              <td>INR 32,000</td>
+              <td class="text-right">8.0%</td>
+            </tr>
+            <tr>
+              <td>Micro-Hub Handling &amp; Local Transport</td>
+              <td>INR 20,000</td>
+              <td class="text-right">5.0%</td>
+            </tr>
+            <tr style="font-weight:700; background:rgba(255,255,255,0.03);">
+              <td>Total Cost of Goods &amp; Fulfillment (COGS)</td>
+              <td>INR 2,92,000</td>
+              <td class="text-right">73.0%</td>
+            </tr>
+            <tr style="font-weight:700; color:var(--gold);">
+              <td>KTA Gross Profit Per 500kg Lot</td>
+              <td>INR 1,08,000</td>
+              <td class="text-right">27.0% Gross Margin</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Capital Deployment -->
+    <div class="memo-section">
+      <div class="section-num-tag">Section 07</div>
+      <h2 class="section-title">Use of Expansion Funds</h2>
+      <p>Capital will be allocated systematically across technology, origin procurement, and micro-fulfillment assets:</p>
+
+      <ul class="breakdown-list">
+        <li>
+          <span class="breakdown-pct">35%</span>
+          <div><strong>Technology &amp; B2B Kitchen ERP Platform:</strong> Engineering automated par inventory engines, digital GC-MS lab assay integration, and enterprise accounts payable connectors.</div>
+        </li>
+        <li>
+          <span class="breakdown-pct">30%</span>
+          <div><strong>Direct Farm-Gate Working Capital Float:</strong> Pre-booking seasonal harvest lots ex-origin to lock in high-volume cost advantages.</div>
+        </li>
+        <li>
+          <span class="breakdown-pct">20%</span>
+          <div><strong>Hotel Smart Rapid Micro-Hubs:</strong> Deploying cold-storage fulfillment centers across Chennai, Bengaluru, and Hyderabad corridors.</div>
+        </li>
+        <li>
+          <span class="breakdown-pct">15%</span>
+          <div><strong>Institutional Sales &amp; Culinary Accounts Team:</strong> Business development team securing annual supply master contracts with luxury hotel chains.</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Corporate Signoff Desk -->
+    <div class="memo-section" style="border-color: rgba(197, 160, 89, 0.35); background: linear-gradient(135deg, #141914, #192019);">
+      <div class="section-num-tag" style="color:var(--gold)">Section 08</div>
+      <h2 class="section-title" style="color:#ffffff">Corporate Governance &amp; Contact Desk</h2>
+      <p style="font-size:14px;color:var(--muted)">Direct discussions and formal data room access:</p>
+
+      <div class="signoff-grid">
+        <div class="signoff-item">
+          <strong>Kottayar Trading Agency (KTA)</strong>
+          No. 13/28, Mylai Periyathambi Street, George Town, Mannadi, Chennai, Tamil Nadu – 600001, India
+        </div>
+        <div class="signoff-item">
+          <strong>Direct Executive Contact</strong>
+          Telephone / WhatsApp: +91 85928 32871<br>
+          Official Email: wholesale@ktaspices.in<br>
+          Corporate Portal: https://ktaspices.in
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Floating PDF Download Trigger -->
+  <div class="floating-bar">
+    <button onclick="window.print()" class="btn-download-pdf">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download / Print PDF
+    </button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KTA Spices — Corporate Services & Capabilities Profile</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+      @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: Arial, sans-serif;
+        font-size: 8pt;
+        color: #777777;
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #3b4b22;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .company-title {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #2b3917;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .company-tagline {
+      font-size: 9pt;
+      color: #555555;
+      font-weight: 600;
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .doc-badge {
+      text-align: right;
+      font-size: 8pt;
+      color: #666666;
+      font-family: "Courier New", monospace;
+    }
+
+    .doc-badge-status {
+      display: inline-block;
+      background: #edf3e4;
+      color: #3b4b22;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid #c9dcba;
+      margin-bottom: 3px;
+    }
+
+    .intro-block {
+      background: #f8faf5;
+      border: 1px solid #e1ebda;
+      border-left: 4px solid #3b4b22;
+      padding: 12px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 22px;
+    }
+
+    .intro-lead {
+      font-size: 10pt;
+      font-weight: 600;
+      color: #222222;
+      margin-bottom: 4px;
+    }
+
+    .intro-sub {
+      font-size: 8.5pt;
+      color: #444444;
+      line-height: 1.45;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #2b3917;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .service-card {
+      border: 1px solid #e2e2e2;
+      border-radius: 6px;
+      padding: 12px 14px;
+      background: #ffffff;
+      page-break-inside: avoid;
+    }
+
+    .service-num {
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #556733;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .service-name {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .service-desc {
+      font-size: 8.5pt;
+      color: #444444;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+
+    .service-points {
+      list-style: none;
+      padding: 0;
+      font-size: 8pt;
+      color: #222222;
+    }
+
+    .service-points li {
+      position: relative;
+      padding-left: 12px;
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+
+    .service-points li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #3b4b22;
+      font-weight: bold;
+    }
+
+    .table-container {
+      margin-bottom: 20px;
+    }
+
+    table.spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+    }
+
+    table.spec-table th, table.spec-table td {
+      border: 1px solid #e0e0e0;
+      padding: 6px 10px;
+      text-align: left;
+    }
+
+    table.spec-table th {
+      background: #f4f7ef;
+      color: #2b3917;
+      font-weight: 700;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .footer-box {
+      border-top: 1px solid #cccccc;
+      padding-top: 12px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #555555;
+    }
+
+    .footer-col strong {
+      color: #111111;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-bar">
+    <div>
+      <div class="company-title">Kottayar Trading Agency (KTA)</div>
+      <div class="company-tagline">Direct Origin Institutional Spice Sourcing &amp; Culinary Supply</div>
+    </div>
+    <div class="doc-badge">
+      <div class="doc-badge-status">OFFICIAL SERVICES PROFILE</div>
+      <div>Registered Trade Desk · Chennai, India</div>
+    </div>
+  </div>
+
+  <!-- Intro Block -->
+  <div class="intro-block">
+    <div class="intro-lead">Direct Farm-Gate Integration for Luxury Hospitality, Commercial Grinders &amp; Extractors</div>
+    <div class="intro-sub">
+      Kottayar Trading Agency (KTA) is an origin-integrated commodity and culinary supply firm operating across South India's prime growing tracts (Kerala and Tamil Nadu). We eliminate intermediary trading tiers to provide 5-star hotel chains, restaurant networks, cloud kitchens, and industrial extractors with lab-certified, single-origin whole spices, custom botanicals, and high-velocity JIT logistics.
+    </div>
+  </div>
+
+  <div class="section-title">Core Services &amp; Operational Capabilities</div>
+
+  <div class="services-grid">
+
+    <!-- Service 1 -->
+    <div class="service-card">
+      <div class="service-num">Service 01 · Primary Commercial Supply</div>
+      <div class="service-name">Institutional Wholesale Spices (500kg+ MOQ)</div>
+      <div class="service-desc">
+        Bulk origin procurement and supply of clinical-grade spices for high-volume commercial kitchens, hotel chains, and food processors.
+      </div>
+      <ul class="service-points">
+        <li><strong>Packaging:</strong> 40kg heavy-duty food-grade, moisture-sealed master bags or custom drum packs.</li>
+        <li><strong>Core Varieties:</strong> Tellicherry Bold Black Pepper, Alleppey 8mm+ Green Cardamom, Guntur Stemless Chillies, Cochin Dry Ginger, High-Curcumin Turmeric, and Single-Origin Seed Spices.</li>
+        <li><strong>Consignment Scope:</strong> 500kg minimum commercial order up to multi-ton container loads.</li>
+      </ul>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-card">
+      <div class="service-num">Service 02 · Rapid Kitchen Logistics</div>
+      <div class="service-name">Hotel Smart 24/7 Par-Level Replenishment</div>
+      <div class="service-desc">
+        Just-in-time culinary dispatch infrastructure designed to eliminate hotel kitchen stockouts, reduce food waste, and preserve chef cash flow.
+      </div>
+      <ul class="service-points">
+        <li><strong>Metro Rapid Corridor (Chennai, Bengaluru, Hyderabad):</strong> 2 to 6-hour guaranteed emergency delivery.</li>
+        <li><strong>Interstate Trunk Corridors:</strong> 12 to 24-hour scheduled par replenishment.</li>
+        <li><strong>Operational Benefit:</strong> Frees up executive chef storage space and prevents bulk capital hoarding.</li>
+      </ul>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+      <div class="service-num">Service 03 · Quality Verification</div>
+      <div class="service-name">Chef Discovery &amp; Welcome Sample Program</div>
+      <div class="service-desc">
+        Pre-procurement trial kits for verified Executive Chefs, F&amp;B Directors, and Corporate Purchase Managers.
+      </div>
+      <ul class="service-points">
+        <li><strong>Zero Minimum Trial:</strong> Curated Discovery Sample Boxes shipped directly to hotel bays.</li>
+        <li><strong>Testing Scope:</strong> Enables culinary teams to benchmark volatile oil yields, aroma profiles, and grind potency.</li>
+        <li><strong>Rapid Onboarding:</strong> Streamlines formal vendor registration and annual rate contract finalization.</li>
+      </ul>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-card">
+      <div class="service-num">Service 04 · On-Demand Sourcing</div>
+      <div class="service-name">Custom Botanical &amp; Origin Commodity Sourcing</div>
+      <div class="service-desc">
+        Leveraging 25+ years of direct grower networks across Kerala and Tamil Nadu to procure non-cataloged spices and customized agricultural specifications.
+      </div>
+      <ul class="service-points">
+        <li><strong>Rare Varietals:</strong> Estate-specific harvests, specific mesh powder sizes, and micro-lot single varietals.</li>
+        <li><strong>Direct Farm-Gate Aggregation:</strong> Origin cleaning, gravity density separation, and custom moisture grading.</li>
+        <li><strong>Contract Farming Sourcing:</strong> Tailored harvesting cycles aligned with commercial production runs.</li>
+      </ul>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="service-card">
+      <div class="service-num">Service 05 · Industrial Extraction Supply</div>
+      <div class="service-name">Oleoresin, Distillation &amp; Byproduct Biomass</div>
+      <div class="service-desc">
+        High-tonnage supply of density-graded botanical fractions and spent spice residues engineered for extractors and pharmaceutical processors.
+      </div>
+      <ul class="service-points">
+        <li><strong>High-Piperine Fractions:</strong> Pepper pinheads, light berries, and pepper husk graded for volatile oil yields.</li>
+        <li><strong>Spent Spice Biomass:</strong> Post-extraction spent ginger slices, spent pepper, and spent turmeric residues.</li>
+        <li><strong>Industrial Applications:</strong> Natural essential oils, oleoresin extracts, seasonings, and organic animal feeds.</li>
+      </ul>
+    </div>
+
+    <!-- Service 6 -->
+    <div class="service-card">
+      <div class="service-num">Service 06 · International Trade</div>
+      <div class="service-name">Export-Ready Processing &amp; Jumbo Packaging</div>
+      <div class="service-desc">
+        End-to-end farm-gate origin procurement, professional cleaning, export-grade grading, and containerized logistics for international importers.
+      </div>
+      <ul class="service-points">
+        <li><strong>Packaging Options:</strong> Multi-layer moisture-barrier master bags, drum containers, and FIBC jumbo bulk bags.</li>
+        <li><strong>Produce Scope:</strong> Raw agricultural produce, green ginger, sun-dried pepper, and whole botanicals.</li>
+        <li><strong>Documentation Ready:</strong> Phyto-sanitary certificates, FSSAI clearance, and complete export compliance.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Quality Assurance Section -->
+  <div class="section-title">Quality Assurance &amp; Clinical Certification</div>
+  <div class="table-container">
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Standard Parameter</th>
+          <th>KTA Quality Benchmark</th>
+          <th>Institutional Customer Benefit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Volatile Essential Oils</strong></td>
+          <td>Preserved ex-origin via heavy-duty nitrogen/moisture barriers</td>
+          <td>30% higher flavor extraction potency in culinary and grinding applications</td>
+        </tr>
+        <tr>
+          <td><strong>Moisture Content</strong></td>
+          <td>Strictly controlled below 11.0% to 12.0% standard thresholds</td>
+          <td>Zero microbial or fungal contamination during transit and kitchen storage</td>
+        </tr>
+        <tr>
+          <td><strong>Laboratory QC Testing</strong></td>
+          <td>GC-MS chemical assays, curcumine/piperine percentage validation</td>
+          <td>FSSAI compliant, audit-ready documentation for 5-star hotel hygiene compliance</td>
+        </tr>
+        <tr>
+          <td><strong>Traceability</strong></td>
+          <td>Single-origin batch tracking with estate coordinates</td>
+          <td>Transparent farm-to-table authentication for premium menu storytelling</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Footer Contact Box -->
+  <div class="footer-box">
+    <div class="footer-col">
+      <strong>Kottayar Trading Agency (KTA)</strong><br>
+      No. 13/28, Mylai Periyathambi Street, George Town, Mannadi, Chennai – 600001, India
+    </div>
+    <div class="footer-col" style="text-align:right">
+      <strong>Direct Trade Desk &amp; Hotel Inquiries:</strong> +91 85928 32871<br>
+      <strong>Official Email:</strong> wholesale@ktaspices.in · <strong>Website:</strong> https://ktaspices.in
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1384,7 +1384,8 @@ window.submitFlushReservation = function() {
 window.KTA_FORM_CONFIG = {
   // Replace this with your Google Apps Script Web App URL to receive live Google Sheet rows + email notifications:
   webhookUrl: '', // e.g. 'https://script.google.com/macros/s/AKfycb.../exec'
-  notificationEmail: 'wholesale@ktaspices.in'
+  wholesaleEmail: 'wholesale@ktaspices.in',
+  generalEmail: 'info@ktaspices.in'
 };
 
 window.submitKTAForm = function(formData, options) {
