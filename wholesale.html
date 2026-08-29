@@ -880,15 +880,19 @@
           <p class="body-sm">Submit your required varieties &amp; volume. Our trade &amp; extraction supply desk delivers locked pricing, lot specs, and dispatch schedules within 2 hours.</p>
         </div>
         <div class="form-group">
-          <label for="wsName">Company / Facility / Kitchen Name</label>
-          <input class="form-control" type="text" id="wsName" placeholder="e.g. Apex Oleoresins Ltd / Synthite Extracts / Commercial Kitchen" required>
+          <label for="wsName">Company / Facility / Kitchen Name *</label>
+          <input class="form-control" type="text" id="wsName" placeholder="e.g. Apex Oleoresins Ltd / Luxury Hotel / Commercial Kitchen" required>
         </div>
         <div class="form-group">
-          <label for="wsContact">WhatsApp / Phone Contact</label>
+          <label for="wsContact">WhatsApp / Phone Contact *</label>
           <input class="form-control" type="tel" id="wsContact" placeholder="+91 98765 43210" required>
         </div>
         <div class="form-group">
-          <label for="wsOrder">Products &amp; Volume Required (500kg Minimum to Tonnage)</label>
+          <label for="wsEmail">Official Email Address (Optional)</label>
+          <input class="form-control" type="email" id="wsEmail" placeholder="procurement@company.com">
+        </div>
+        <div class="form-group">
+          <label for="wsOrder">Products &amp; Volume Required (500kg Minimum to Tonnage) *</label>
           <textarea class="form-control" id="wsOrder" placeholder="e.g. Black Pepper 500kg, Pepper Husk 1 Ton, Pinheads 300kg, Lite Berries 250kg, All Spices Spent (Spent Pepper &amp; Ginger) 2 Tons, Custom Export Sourcing: Raw Ginger 5 Tons…" rows="3" required></textarea>
         </div>
         <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;border-radius:999px;background:#435128" onclick="submitWholesale(event)">Submit Wholesale Request ↗</button>
@@ -982,13 +986,15 @@
     e.preventDefault();
     var n = document.getElementById('wsName') ? document.getElementById('wsName').value.trim() : '';
     var c = document.getElementById('wsContact') ? document.getElementById('wsContact').value.trim() : '';
+    var em = document.getElementById('wsEmail') ? document.getElementById('wsEmail').value.trim() : '';
     var o = document.getElementById('wsOrder') ? document.getElementById('wsOrder').value.trim() : '';
-    if(!n || !c || !o){ alert('Please fill all required fields.'); return; }
+    if(!n || !c || !o){ alert('Please fill all required fields (Company Name, Phone Contact, Requirements).'); return; }
 
     var formData = {
       name: n,
       hotelName: n,
       contactPhone: c,
+      email: em || 'Not Provided',
       message: o,
       volume: 'Wholesale Master Lots (500kg+)',
       sourcePage: 'wholesale.html'
@@ -1005,6 +1011,7 @@
 
     if (document.getElementById('wsName')) document.getElementById('wsName').value = '';
     if (document.getElementById('wsContact')) document.getElementById('wsContact').value = '';
+    if (document.getElementById('wsEmail')) document.getElementById('wsEmail').value = '';
     if (document.getElementById('wsOrder')) document.getElementById('wsOrder').value = '';
   }
 
