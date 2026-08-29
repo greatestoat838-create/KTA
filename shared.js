@@ -1265,16 +1265,21 @@ window.submitFlushReservation = function() {
         '    <div>',
         '      <span class="chef-popup-eyebrow">Executive Chef Program</span>',
         '      <h2 class="chef-popup-title" id="chefPopupTitle">Claim Your <span class="chef-popup-highlight">Free Chef Welcome Box</span>.</h2>',
-        '      <p class="chef-popup-desc">Partner with KTA. Test our single-origin Highland spice harvests directly in your kitchen pass before placing bulk orders.</p>',
-        '      <div class="chef-popup-specs">',
-        '        <div class="chef-spec-card"><span class="chef-spec-num">✓</span><div class="chef-spec-text"><strong>100% Free Sample Kit:</strong> Zero trial fees or commitment.</div></div>',
-        '        <div class="chef-spec-card"><span class="chef-spec-num">✓</span><div class="chef-spec-text"><strong>Clinical QC Reports:</strong> Lot moisture &amp; volatile oil assay included.</div></div>',
-        '        <div class="chef-spec-card"><span class="chef-spec-num">✓</span><div class="chef-spec-text"><strong>Direct Delivery:</strong> Hand-delivered to Executive Chefs &amp; F&amp;B Directors.</div></div>',
-        '      </div>',
-        '    </div>',
-        '    <div class="chef-popup-actions">',
-        '      <a href="partnership.html#registerKitchen" class="chef-popup-btn-primary" id="claimBoxBtn">Claim Free Box</a>',
-        '      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20an%20Executive%20Chef%20requesting%20the%20Free%20Chef%20Welcome%20Box%20to%20test." target="_blank" rel="noopener" class="chef-popup-btn-secondary">WhatsApp</a>',
+        '      <p class="chef-popup-desc">Test our single-origin Highland spice harvests directly in your kitchen pass before placing commercial bulk contracts.</p>',
+        '      <form id="chefInlineClaimForm" onsubmit="window.handleChefModalSubmit(event)" style="margin-top:10px">',
+        '        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">',
+        '          <input type="text" id="chefModalName" placeholder="Executive Chef Name *" required style="padding:9px 12px;border:1px solid #d5ddd0;border-radius:6px;font-size:12.5px;outline:none;background:#fdfdfd;font-family:inherit;width:100%;box-sizing:border-box;">',
+        '          <input type="text" id="chefModalHotel" placeholder="Hotel / Establishment *" required style="padding:9px 12px;border:1px solid #d5ddd0;border-radius:6px;font-size:12.5px;outline:none;background:#fdfdfd;font-family:inherit;width:100%;box-sizing:border-box;">',
+        '        </div>',
+        '        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">',
+        '          <input type="tel" id="chefModalPhone" placeholder="WhatsApp / Phone Number *" required style="padding:9px 12px;border:1px solid #d5ddd0;border-radius:6px;font-size:12.5px;outline:none;background:#fdfdfd;font-family:inherit;width:100%;box-sizing:border-box;">',
+        '          <input type="email" id="chefModalEmail" placeholder="Official Email (Optional)" style="padding:9px 12px;border:1px solid #d5ddd0;border-radius:6px;font-size:12.5px;outline:none;background:#fdfdfd;font-family:inherit;width:100%;box-sizing:border-box;">',
+        '        </div>',
+        '        <div class="chef-popup-actions" style="margin-top:0">',
+        '          <button type="submit" class="chef-popup-btn-primary" id="claimBoxSubmitBtn" style="border:none;cursor:pointer;flex:1;text-align:center;">Claim Free Box ↗</button>',
+        '          <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20an%20Executive%20Chef%20requesting%20the%20Free%20Chef%20Welcome%20Box%20to%20test." target="_blank" rel="noopener" class="chef-popup-btn-secondary">WhatsApp</a>',
+        '        </div>',
+        '      </form>',
         '    </div>',
         '  </div>',
         '</div>'
@@ -1369,6 +1374,38 @@ window.submitFlushReservation = function() {
 
     window.openChefWelcomeBoxModal = openModal;
     window.closeChefWelcomeBoxModal = closeModal;
+
+    window.handleChefModalSubmit = function(e) {
+      e.preventDefault();
+      var name = document.getElementById('chefModalName') ? document.getElementById('chefModalName').value.trim() : '';
+      var hotel = document.getElementById('chefModalHotel') ? document.getElementById('chefModalHotel').value.trim() : '';
+      var phone = document.getElementById('chefModalPhone') ? document.getElementById('chefModalPhone').value.trim() : '';
+      var email = document.getElementById('chefModalEmail') ? document.getElementById('chefModalEmail').value.trim() : '';
+
+      if (!name || !hotel || !phone) {
+        alert('Please fill in your Name, Hotel Name, and Contact Phone Number.');
+        return;
+      }
+
+      var formData = {
+        managerName: name,
+        hotelName: hotel,
+        contactPhone: phone,
+        email: email || 'Not Provided',
+        volume: 'Chef Welcome Discovery Box (Zero-Cost Trial Kit)',
+        message: 'Complimentary Chef Welcome Discovery Box Request from Universal Modal Popup',
+        sourcePage: window.location.pathname || 'Universal Chef Modal'
+      };
+
+      if (window.submitKTAForm) {
+        window.submitKTAForm(formData, {
+          formName: 'Chef Welcome Discovery Box',
+          successMsg: 'Thank you, Chef ' + name + '! Your Free Chef Welcome Box request for ' + hotel + ' has been registered. Our culinary trade desk will prepare and dispatch your sample kit to your kitchen pass.'
+        });
+      }
+
+      closeModal();
+    };
   }
 
   if (document.readyState === 'loading') {
