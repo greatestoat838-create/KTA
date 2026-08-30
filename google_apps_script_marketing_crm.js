@@ -35,8 +35,8 @@ function doPost(e) {
       }
     }
 
-    var leadStatus = isRepeat ? "REPEAT INQUIRY (" + (repeatCount + 1) + "x)" : "New Lead";
-    var managerNote = isRepeat ? "⚠️ Repeat inquiry received from same client number. High intent — prioritize fast call." : "";
+    var leadStatus = isRepeat ? "Repeat Lead (" + (repeatCount + 1) + "x)" : "New Lead";
+    var managerNote = isRepeat ? "Repeat inquiry received from same client number. High intent — prioritize fast call." : "";
 
     var rowValues = [
       leadId,
