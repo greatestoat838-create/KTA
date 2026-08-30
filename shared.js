@@ -1157,7 +1157,7 @@ var QC_SPECS = {
     moisture: 'Max 11.0%',
     extraneous: 'Max 0.2% (Clinically Graded)',
     density: '560 – 580 g/L',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '40kg Food-Grade Multi-Wall Master Bags / 1kg Barrier Pouches'
   },
   'CLOVES': {
@@ -1169,7 +1169,7 @@ var QC_SPECS = {
     moisture: 'Max 10.5%',
     extraneous: 'Max 0.4% (Stems & Dust Cleaned)',
     density: '540 – 560 g/L',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '25kg & 40kg Moisture-Barrier Consignments'
   },
   'DRY GINGER (WHOLE)': {
@@ -1181,7 +1181,7 @@ var QC_SPECS = {
     moisture: 'Max 11.5%',
     extraneous: 'Max 0.5%',
     density: '380 – 420 g/L',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '40kg Jute with Food-Grade Inner Liner'
   },
   'ANNACHIPOO': {
@@ -1193,7 +1193,7 @@ var QC_SPECS = {
     moisture: 'Max 10.0%',
     extraneous: 'Max 0.5%',
     density: '320 – 350 g/L',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '10kg / 25kg Rigid Corrugated Master Cases'
   },
   'CASSIA (KESIA)': {
@@ -1205,7 +1205,7 @@ var QC_SPECS = {
     moisture: 'Max 12.0%',
     extraneous: 'Max 0.5%',
     density: '420 – 450 g/L',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '25kg & 40kg Master Bales'
   },
   'CASHEWNUT': {
@@ -1217,7 +1217,7 @@ var QC_SPECS = {
     moisture: 'Max 5.0%',
     extraneous: 'Zero Impurities / Vacuum Packed',
     density: 'N/A (Uniform Whole Count)',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '20kg Vacuum-Flush Nitrogen Tins / Master Cartons'
   },
   'TURMERIC POWDER': {
@@ -1229,7 +1229,7 @@ var QC_SPECS = {
     moisture: 'Max 10.0%',
     extraneous: '100% Pure Rhizome / Zero Starch Fillers',
     density: '520 – 550 g/L',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '25kg Multi-Wall Food Pouch Bags'
   }
 };
@@ -1245,7 +1245,7 @@ window.openSpecSheet = function(skuName) {
     moisture: 'Max 11.0% (Oven Tested)',
     extraneous: '< 0.5% Food Safety Tolerances',
     density: 'Graded Uniform Bulk Density',
-    origin: 'Pure Origin',
+    origin: 'Highland Specific',
     pkg: '40kg Food-Grade Master Consignment Bags'
   };
 
@@ -1272,7 +1272,7 @@ window.openSpecSheet = function(skuName) {
     '      <tr><th>Moisture Threshold</th><td>' + spec.moisture + '</td></tr>',
     '      <tr><th>Extraneous Matter</th><td>' + spec.extraneous + '</td></tr>',
     '      <tr><th>Bulk Density</th><td>' + (spec.density || 'Standard Graded') + '</td></tr>',
-    '      <tr><th>Origin</th><td>' + (spec.origin || 'Pure Origin') + '</td></tr>',
+    '      <tr><th>Harvest Terroir</th><td>' + (spec.origin || 'Highland Specific') + '</td></tr>',
     '      <tr><th>Standard Packaging</th><td>' + spec.pkg + '</td></tr>',
     '    </tbody>',
     '  </table>',
