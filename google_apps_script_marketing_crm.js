@@ -1,3 +1,8 @@
+/**
+ * KOTTAYAR TRADING AGENCY — MASTER GOOGLE APPS SCRIPT CRM BACKEND
+ * Connects Website Forms Directly to Google Sheets with 2-Zone Layout & Dropdowns
+ */
+
 function doPost(e) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -5,7 +10,7 @@ function doPost(e) {
     var data = JSON.parse(e.postData.contents);
 
     var lastRow = sheet.getLastRow();
-    var leadNum = ("000" + (lastRow - 2)).slice(-3);
+    var leadNum = ("000" + (lastRow - 1)).slice(-3);
     var leadId = "KTA-2026-" + leadNum;
 
     var timestamp = data.timestamp || new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
@@ -21,11 +26,11 @@ function doPost(e) {
     var cleanPhone = phone.replace(/[^0-9]/g, '');
     var reqMessage = (volume !== "Not Provided" ? volume + " — " : "") + message;
 
-    // 1. DUPLICATE / REPEAT LEAD DETECTION
+    // 1. REPEAT CLIENT DETECTION (HIGH INTENT ALERT)
     var isRepeat = false;
     var repeatCount = 0;
-    if (cleanPhone && cleanPhone.length >= 7 && lastRow >= 4) {
-      var phoneColumnData = sheet.getRange(4, 6, lastRow - 3, 1).getValues();
+    if (cleanPhone && cleanPhone.length >= 7 && lastRow >= 3) {
+      var phoneColumnData = sheet.getRange(3, 6, lastRow - 2, 1).getValues();
       for (var i = 0; i < phoneColumnData.length; i++) {
         var existingPhone = phoneColumnData[i][0].toString().replace(/[^0-9]/g, '');
         if (existingPhone.indexOf(cleanPhone) !== -1 || cleanPhone.indexOf(existingPhone) !== -1) {
@@ -38,24 +43,24 @@ function doPost(e) {
     var leadStatus = isRepeat ? "Repeat Lead (" + (repeatCount + 1) + "x)" : "New Lead";
     var managerNote = isRepeat ? "Repeat inquiry received from same client number. High intent — prioritize fast call." : "";
 
+    // 2. ZONE 1 (COLS A-H) + ZONE 2 (COLS I-N)
     var rowValues = [
-      leadId,
-      timestamp,
-      formName,
-      name,
-      company,
-      phone,
-      email,
-      reqMessage,
-      "Trade Desk Admin",
-      leadStatus,
-      managerNote, // Manager Call Notes
-      "", // Client Feedback
-      "", // Quoted Value INR
-      ""  // Next Follow-Up Date
+      leadId,             // Col A: Lead ID
+      timestamp,          // Col B: Timestamp (IST)
+      formName,           // Col C: Form Category
+      name,               // Col D: Contact / Manager Name
+      company,            // Col E: Hotel / Establishment Name
+      phone,              // Col F: Phone / WhatsApp
+      email,              // Col G: Email Address
+      reqMessage,         // Col H: Requirement & Volume
+      "Trade Desk Admin", // Col I: Assigned Manager (Dropdown)
+      leadStatus,         // Col J: Follow-Up Status (Dropdown)
+      managerNote,        // Col K: Manager Call Notes
+      "",                 // Col L: Client Feedback / Demands
+      "",                 // Col M: Quoted Value (INR)
+      ""                  // Col N: Next Follow-Up Date
     ];
 
-    // 2. INSERT ROW WITH BEAUTIFUL FORMATTING & TYPOGRAPHY
     var nextRow = sheet.getLastRow() + 1;
     var range = sheet.getRange(nextRow, 1, 1, rowValues.length);
     
@@ -68,51 +73,71 @@ function doPost(e) {
     range.setFontSize(9.5);
     range.setVerticalAlignment("middle");
 
-    // Alternating Row Background or Repeat Lead Highlight
+    // Apply Dropdown Validation Rule to the newly inserted cell J
+    var statusRule = SpreadsheetApp.newDataValidation()
+      .requireValueInList([
+        "New Lead",
+        "Followed Up / In Call",
+        "Sample Dispatched",
+        "Quotation Sent",
+        "In Negotiation",
+        "Closed Won (Converted)",
+        "Closed Lost",
+        "On Hold"
+      ], true)
+      .setAllowInvalid(true)
+      .build();
+    sheet.getRange(nextRow, 10).setDataValidation(statusRule);
+
+    var managerRule = SpreadsheetApp.newDataValidation()
+      .requireValueInList([
+        "Trade Desk Admin",
+        "Nazeer Ahmed",
+        "K. Sundar",
+        "R. Balaji",
+        "Sourcing Lead",
+        "Senior Key Account Exec"
+      ], true)
+      .setAllowInvalid(true)
+      .build();
+    sheet.getRange(nextRow, 9).setDataValidation(managerRule);
+
+    // Row Background
     if (isRepeat) {
-      range.setBackground("#FFF3E0"); // Soft Amber Alert for Repeat Leads!
-      var statusCell = sheet.getRange(nextRow, 10);
-      statusCell.setFontColor("#E65100");
-      statusCell.setFontWeight("bold");
+      range.setBackground("#FFF3E0"); // Soft Amber Alert for Repeat Leads
     } else {
-      var bgRow = (nextRow % 2 === 0) ? "#F9FAF7" : "#FFFFFF";
+      var bgRow = (nextRow % 2 === 0) ? "#FAF9F6" : "#FFFFFF";
       range.setBackground(bgRow);
-      var statusCell = sheet.getRange(nextRow, 10);
-      statusCell.setBackground("#FFF8E1"); // Soft Gold Badge for New Leads
-      statusCell.setFontColor("#8C6B1C");
-      statusCell.setFontWeight("bold");
     }
 
     // Alignments
     sheet.getRange(nextRow, 1).setHorizontalAlignment("center");
     sheet.getRange(nextRow, 2).setHorizontalAlignment("center");
     sheet.getRange(nextRow, 6).setHorizontalAlignment("center");
+    sheet.getRange(nextRow, 9).setHorizontalAlignment("center");
     sheet.getRange(nextRow, 10).setHorizontalAlignment("center");
     sheet.getRange(nextRow, 13).setNumberFormat("₹#,##0").setHorizontalAlignment("right");
     sheet.getRange(nextRow, 14).setHorizontalAlignment("center");
 
-    // Thin soft borders
-    range.setBorder(true, true, true, true, true, true, "#D5DDD0", SpreadsheetApp.BorderStyle.SOLID);
+    range.setBorder(true, true, true, true, true, true, "#D1D5DB", SpreadsheetApp.BorderStyle.SOLID);
 
     // 3. EMAIL ROUTING LOGIC:
-    // If Wholesale form -> wholesale@ktaspices.in | All other forms -> orders@ktaspices.in
     var isWholesale = formName.toLowerCase().indexOf("wholesale") !== -1;
     var primaryRecipient = isWholesale ? "wholesale@ktaspices.in" : "orders@ktaspices.in";
     var ccRecipient = isWholesale ? "orders@ktaspices.in, admin@ktaspices.in" : "wholesale@ktaspices.in, admin@ktaspices.in";
 
-    // 4. SEND PROFESSIONAL HTML EMAIL TO ZOHO MAIL
-    var emailSubject = (isRepeat ? "🚨 [REPEAT HIGH-INTENT LEAD]: " : (isWholesale ? "📦 [WHOLESALE RFQ]: " : "🔥 [NEW LEAD]: ")) + company + " (" + name + ") — " + formName;
-    var headerColor = isRepeat ? "#E65100" : (isWholesale ? "#2B3917" : "#158697");
+    var emailSubject = (isRepeat ? "[REPEAT HIGH-INTENT LEAD]: " : (isWholesale ? "[WHOLESALE RFQ]: " : "[NEW INQUIRY]: ")) + company + " (" + name + ") — " + formName;
+    var headerColor = isRepeat ? "#E65100" : (isWholesale ? "#2B3917" : "#3D4D24");
     
     var htmlBody = 
       '<div style="font-family: Arial, sans-serif; max-width: 620px; margin: auto; border: 1px solid #e2e2e2; border-radius: 8px; overflow: hidden; background: #ffffff;">' +
         '<div style="background-color: ' + headerColor + '; color: #ffffff; padding: 20px; text-align: center;">' +
           '<h2 style="margin: 0; font-size: 20px; letter-spacing: 1px;">KOTTAYAR TRADING AGENCY</h2>' +
-          '<p style="margin: 6px 0 0; font-size: 12px; color: #f0f0f0; text-transform: uppercase; letter-spacing: 0.08em;">' + (isRepeat ? '⚠️ High-Intent Repeat Client Inquiry' : (isWholesale ? 'Wholesale Commercial Procurement Inquiry' : 'Chef Box / Kitchen Order Inquiry')) + '</p>' +
+          '<p style="margin: 6px 0 0; font-size: 12px; color: #f0f0f0; text-transform: uppercase; letter-spacing: 0.08em;">' + (isRepeat ? 'High-Intent Repeat Client Inquiry' : (isWholesale ? 'Wholesale Commercial Procurement Inquiry' : 'Chef Box / Kitchen Order Inquiry')) + '</p>' +
         '</div>' +
         '<div style="padding: 24px;">' +
           '<div style="background: ' + (isRepeat ? '#FFF3E0' : '#F8FAF5') + '; border-left: 4px solid ' + headerColor + '; padding: 10px 14px; margin-bottom: 18px; font-weight: bold; color: ' + headerColor + ';">' +
-            'Lead ID: ' + leadId + ' · ' + (isRepeat ? '⚠️ REPEAT CLIENT (Submitted ' + (repeatCount + 1) + ' times)' : 'Logged to Live Master CRM Sheet') +
+            'Lead ID: ' + leadId + ' · ' + (isRepeat ? 'REPEAT CLIENT (Submitted ' + (repeatCount + 1) + ' times)' : 'Logged to Live Master CRM Sheet') +
           '</div>' +
           '<table style="width: 100%; border-collapse: collapse; font-size: 14px;">' +
             '<tr style="border-bottom: 1px solid #eeeeee;"><td style="padding: 10px 0; color: #777; width: 35%;">Form Category</td><td style="padding: 10px 0; font-weight: bold; color: #2B3917;">' + formName + '</td></tr>' +
@@ -142,4 +167,52 @@ function doPost(e) {
     return ContentService.createTextOutput(JSON.stringify({ status: "error", message: error.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+/**
+ * AUTOMATED SETUP FUNCTION TO INITIALIZE DROPDOWNS IN GOOGLE SHEETS
+ * Run this function once from the Apps Script editor or from the custom menu!
+ */
+function setupMasterSheetDropdowns() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName("Active Leads Pipeline") || ss.getActiveSheet();
+  
+  // Apply Follow-up Status Dropdown Rule (Column J, Rows 3 to 1000)
+  var statusRule = SpreadsheetApp.newDataValidation()
+    .requireValueInList([
+      "New Lead",
+      "Followed Up / In Call",
+      "Sample Dispatched",
+      "Quotation Sent",
+      "In Negotiation",
+      "Closed Won (Converted)",
+      "Closed Lost",
+      "On Hold"
+    ], true)
+    .setAllowInvalid(true)
+    .build();
+  sheet.getRange("J3:J1000").setDataValidation(statusRule);
+
+  // Apply Assigned Manager Dropdown Rule (Column I, Rows 3 to 1000)
+  var managerRule = SpreadsheetApp.newDataValidation()
+    .requireValueInList([
+      "Trade Desk Admin",
+      "Nazeer Ahmed",
+      "K. Sundar",
+      "R. Balaji",
+      "Sourcing Lead",
+      "Senior Key Account Exec"
+    ], true)
+    .setAllowInvalid(true)
+    .build();
+  sheet.getRange("I3:I1000").setDataValidation(managerRule);
+
+  SpreadsheetApp.getUi().alert("KTA CRM Master Dropdowns successfully applied to Columns I and J!");
+}
+
+function onOpen() {
+  var ui = SpreadsheetApp.getUi();
+  ui.createMenu("KTA CRM Tools")
+    .addItem("Setup Master Dropdowns on Pipeline Sheet", "setupMasterSheetDropdowns")
+    .addToUi();
 }
