@@ -1506,7 +1506,7 @@ window.submitFlushReservation = function() {
         if (!modal.classList.contains('is-active')) {
           openModal();
         }
-      }, 500);
+      }, 10000);
     }
 
     if (floatTrigger) {

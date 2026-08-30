@@ -3243,7 +3243,7 @@
       if (!hasSeen) {
         setTimeout(function() {
           if (!modal.classList.contains('is-active')) openModal();
-        }, 500);
+        }, 10000);
       }
 
       if (closeBtn) closeBtn.onclick = function(e){ e.preventDefault(); closeModal(); };
