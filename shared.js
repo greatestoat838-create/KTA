@@ -88,35 +88,59 @@
 /* ── 3. Universal Search Overlay System ── */
 (function(){
   var searchIndex = [
-    // Top Whole Spices & Herbs with Multilingual Keys
-    { title: 'Star Anise (Annachipoo — Royal 8-Pointed)', cat: 'Whole Spices', page: 'catalogue.html?search=annachipoo', desc: 'Single-origin eight-pointed unbroken star anise · thakkolam takkolam anasipoo chakri phool' },
-    { title: 'Tellicherry Black Pepper (TGSEB Grade)', cat: 'Whole Spices', page: 'catalogue.html?search=black+pepper', desc: 'Bold single-estate malabar black pepper, high piperine · kurumulaku milagu kali mirch miriyalu' },
-    { title: 'Dry Ginger (Whole & Ground Sonth)', cat: 'Whole Spices', page: 'catalogue.html?search=ginger', desc: 'Washed and sun-dried Cochin ginger · chukku sukku sonth saunth inji adrak allam' },
-    { title: 'Green Cardamom (Alleppey 8mm+ Extra Bold)', cat: 'Whole Spices', page: 'catalogue.html?search=cardamom', desc: 'Grade A+ aromatic whole green cardamom pods · elakkaya elakkai elaichi yalukalu' },
-    { title: 'Zanzibar Whole Cloves (Selected Grade A)', cat: 'Whole Spices', page: 'catalogue.html?search=cloves', desc: 'Handpicked whole clove buds with high essential oil · grampoo krambu lavangam laung' },
-    { title: 'Kashmiri Mogra Saffron (Grade 1 Certified)', cat: 'Luxury Spices', page: 'catalogue.html?search=saffron', desc: '100% origin certified pure Kashmiri saffron stigmas · kunkumappoo kesar jafran' },
-    { title: 'Ceylon Cinnamon True Quills (Alba Grade)', cat: 'Whole Spices', page: 'catalogue.html?search=cinnamon', desc: 'Ultra-pure thin bark true Ceylon cinnamon · pattai karuvapatta dalchini' },
-    { title: 'Cassia Bark (Kesia Premium Lot)', cat: 'Whole Spices', page: 'catalogue.html?search=cassia', desc: 'Rich woody aromatic whole cassia bark quills · kesia dalchini karuvapatta' },
-    { title: 'Biryani Bay Leaf (Selected Aromatic)', cat: 'Whole Spices', page: 'catalogue.html?search=biryani+leaf', desc: 'Farm-dried whole laurel bay leaves · vayana ila biryani ilai tejpatta' },
-    { title: 'Black Cardamom (Large Pods)', cat: 'Whole Spices', page: 'catalogue.html?search=black+cardamom', desc: 'Smoky whole black cardamom pods · badi elaichi moti elaichi periya elakkai valiya elakkaya' },
-    { title: 'Guntur S4 Hot Red Chillies', cat: 'Whole Spices', page: 'catalogue.html?search=guntur', desc: 'High capsaicin bright red dried Guntur chillies · vattal mulaku vara milagai lal mirch' },
-    { title: 'Kashmiri Dried Chillies (High ASTA Color)', cat: 'Whole Spices', page: 'catalogue.html?search=kashmiri', desc: 'Vibrant natural crimson red Kashmiri chillies · piriyan mulaku kashmiri mirch degi mirch' },
-    { title: 'Jaifal (Whole Nutmeg with Shell/Kernel)', cat: 'Whole Spices', page: 'catalogue.html?search=jaifal', desc: 'High butterfat whole aromatic nutmeg · jathikka jathikai jaiphal jajikaya' },
-    { title: 'Javantri (Selected Mace Blades)', cat: 'Whole Spices', page: 'catalogue.html?search=javantri', desc: 'Golden orange unbroken mace flower blades · jathipathri jathipoov javitri vasavasi' },
-    { title: 'Jeera (Whole Cumin Seeds)', cat: 'Whole Spices', page: 'catalogue.html?search=jeera', desc: 'Unadulterated high aroma whole cumin seeds · jeerakam seeragam zeera jeelakarra' },
-    { title: 'Kalpasi (Dagad Phool / Stone Flower)', cat: 'Whole Spices', page: 'catalogue.html?search=kalpasi', desc: 'Exotic Chettinad lichen for authentic biryanis · marappasi dagad phool patthar phool' },
-    { title: 'Kasuri Methi (Sun-Dried Fenugreek)', cat: 'Whole Spices', page: 'catalogue.html?search=kasuri+methi', desc: 'Crushed aromatic green fenugreek leaves · uluva ila vendhaya keerai kasoori methi' },
-    { title: 'Turmeric Powder (5%+ Curcumin Batch)', cat: 'Ground Spices', page: 'catalogue.html?search=turmeric', desc: 'Pure origin Salem turmeric powder · manjal podi manjal thool haldi pasupu' },
-    { title: 'Coriander Powder & Whole Seeds', cat: 'Spices', page: 'catalogue.html?search=coriander', desc: 'Green shade high volatile oil coriander · malli kothamalli dhaniya dhania' },
-    { title: 'Fennel Seeds (Sombu Bold Green)', cat: 'Whole Spices', page: 'catalogue.html?search=fennel', desc: 'Sweet aromatic digestive fennel seeds · sombu perumjeerakam saunf sonf' },
-    { title: 'Mustard Seeds & Fenugreek Seeds', cat: 'Whole Spices', page: 'catalogue.html?search=mustard', desc: 'Triple-cleaned black mustard & golden methi · kaduku kadugu sarson uluva vendhayam' },
-    // Dry Fruits & Nuts
-    { title: 'Jumbo Cashews W240 / W320 Premium', cat: 'Dry Fruits', page: 'catalogue.html?search=cashewnut', desc: 'Direct farm-graded whole creamy Indian cashews · kashuvandi kasuvandi kashuandi andipparippu kaju mundhiri munthiri godambi' },
-    { title: 'California & Gurbandi Badam (Almonds)', cat: 'Dry Fruits', page: 'catalogue.html?search=badam', desc: 'High oil chef-grade whole raw almonds · baadam badami badam parippu' },
-    { title: 'Pistachios (Pista Roasted & Salted)', cat: 'Dry Fruits', page: 'catalogue.html?search=pista', desc: 'Open-mouth green kernel Iranian pistachios · pistha roasted pista' },
-    { title: 'Kashmiri & California Whole Walnuts', cat: 'Dry Fruits', page: 'catalogue.html?search=walnut', desc: 'Crisp half kernels rich in Omega-3 · akhrot akrot akroot' },
-    { title: 'Kismiss & Black Currant Raisins', cat: 'Dry Fruits', page: 'catalogue.html?search=kismiss', desc: 'Golden seedless and black dried raisins · munthiringa unakka munthiri ular thiratchai kishmish' },
-    { title: 'Royal Anjeer (Dried Whole Figs)', cat: 'Dry Fruits', page: 'catalogue.html?search=fig', desc: 'Plump natural sun-dried Turkish & Indian figs · athipazham athi pazham anjir' },
+    // Whole Spices, Herbs & Powders
+    { title: 'Green Cardamom (Alleppey 8mm+ Extra Bold)', cat: 'Whole Spices', page: 'catalogue.html?search=green+cardamom', desc: 'ഏലക്ക Elakka ஏலக்காய் Elakkai ഏലക്കി Yakki ഏലക്കായലു Yelakulu छोटी इलायची Chhoti Elaichi elaichi' },
+    { title: 'Cardamom Powder (Pure Ground)', cat: 'Ground Spices', page: 'catalogue.html?search=cardamom+powder', desc: 'ഏലക്ക പൊടി Elakka Podi ஏலக்காய் பொடி Elakkai Podi ഏലക്കി പുഡി Yakki Pudi ഏലക്ക കുണ്ട Yelakula Podi इलायची पाउडर Elaichi Powder' },
+    { title: 'Black Cardamom (Large Pods)', cat: 'Whole Spices', page: 'catalogue.html?search=black+cardamom', desc: 'വലിയ ഏലക്ക Valiya Elakka கருப்பு ஏலக்காய் Karuppu Elakkai കപ്പു ഏലക്കി Kappu Yakki നല്ലാ ഏലക്കായലു Nalla Yelakulu बड़ी इलायची Badi Elaichi' },
+    { title: 'White Cardamom (Selected Grade)', cat: 'Whole Spices', page: 'catalogue.html?search=white+cardamom', desc: 'വെള്ള ഏലക്ക Vella Elakka வெள்ளை ஏலக்காய் Vellai Elakkai ബെള്ള ഏലക്കി Bella Yakki தெல்ல ഏലക്കായാലു Tella Yelakulu सफेद इलायची Safed Elaichi' },
+    { title: 'Tellicherry Black Pepper (TGSEB Grade)', cat: 'Whole Spices', page: 'catalogue.html?search=black+pepper', desc: 'കുരുമുളക് Kurumulaku குறுமிளகு மிளகு Milagu കരിമെണസു Kari Menasu മിരിയാലു Miriyalu काली मिर्च Kali Mirch' },
+    { title: 'Pepper Powder (Ground Black Pepper)', cat: 'Ground Spices', page: 'catalogue.html?search=pepper+powder', desc: 'കുരുമുളക് പൊടി Kurumulaku Podi மிளகு தூள் Milagu Thool മെണസിന പുഡി Menasina Pudi മിരിയാല പൊടി Miriyala Podi काली मिर्च पाउडर Kali Mirch Powder' },
+    { title: 'White Pepper Powder (Ground White Pepper)', cat: 'Ground Spices', page: 'catalogue.html?search=white+pepper', desc: 'വെള്ള കുരുമുളക് പൊടി Vella Kurumulaku Podi வெள்ளை மிளகு தூள் Vellai Milagu Thool ബെള്ള മെണസിന പുഡി Bella Menasina Pudi தெல்ல മിരിയാല പൊടി Tella Miriyala Podi सफेद मिर्च पाउडर Safed Mirch' },
+    { title: 'Star Anise (Annachipoo — Royal 8-Pointed)', cat: 'Whole Spices', page: 'catalogue.html?search=annachipoo', desc: 'തക്കോലം Thakkolam அன்னாசிப்பூ Annashipoo അനസൂവൂ Anasavu അനാസ പൂവു Anasa Poovu चक्र फूल Chakra Phool' },
+    { title: 'Biryani Bay Leaf (Selected Aromatic)', cat: 'Whole Spices', page: 'catalogue.html?search=biryani+leaf', desc: 'കറുവപ്പട്ട ഇല ബിരിയാണി ഇല Biryani Ila பிரியாணி இலை Biryani Ilai ബിരിയാണി എലെ Biryani Ele ബിരിയാണി ആകു Biryani Aaku तेज पत्ता Tej Patta' },
+    { title: 'Cassia Bark (Kesia Premium Lot)', cat: 'Whole Spices', page: 'catalogue.html?search=cassia', desc: 'കറുവാപ്പട്ട Karuvapatta லவங்கம் Lavangam ദാചിന്നി Dachinni ദാവാചിന്ന പക്ക Lavanga Patta चीनी दालचीनी Kassia' },
+    { title: 'Ceylon Cinnamon True Quills (Pattai)', cat: 'Whole Spices', page: 'catalogue.html?search=cinnamon', desc: 'എലവംഗം പട്ട Patta பட்டை Pattai ചക്കെ Chakke ദാൽചിനി Dalchini दालचीनी Dalchini' },
+    { title: 'Zanzibar Whole Cloves (Selected Grade A)', cat: 'Whole Spices', page: 'catalogue.html?search=cloves', desc: 'ഗ്രാമ്പൂ കരയാമ്പൂ Gramboo கிராம்பு Krambu ലവംഗ Lavanga ലവംഗാലു Lavangalu लौंग Laung' },
+    { title: 'Coriander Whole Seeds', cat: 'Whole Spices', page: 'catalogue.html?search=coriander+whole', desc: 'മല്ലി കൊത്തമല്ലി Malli கொத்தமல்லி Kothamalli കൊത്തുമ്പരി Kothambari ധനീയാലു Dhaniyalu साबुत धनिया Sabut Dhaniya' },
+    { title: 'Coriander Powder', cat: 'Ground Spices', page: 'catalogue.html?search=coriander+powder', desc: 'മല്ലിപ്പൊടി Malli Podi മല്ലിത്തൂൾ Malli Thool കൊത്തുമ്പരി പുഡി Kothambari Pudi ധനിയാല പൊടി Dhaniyala Podi धनिया पाउडर Dhaniya Powder' },
+    { title: 'Dry Ginger (Sun-Dried Cochin Whole)', cat: 'Whole Spices', page: 'catalogue.html?search=dry+ginger', desc: 'ചുക്ക് Chukku சுக்கு Sukku അള്ളെ ശൊന്തി Shonthi ശൊണ്ടി Shonthi सोंठ Sonth' },
+    { title: 'Dry Ginger Powder (Sonth / Chukku Podi)', cat: 'Ground Spices', page: 'catalogue.html?search=dry+ginger+powder', desc: 'ചുക്കുപൊടി Chukku Podi சுக்கு தூள் Sukku Thool ശൊന്തി പുഡി Shonthi Pudi ശൊണ്ടി പൊടി Shonthi Podi सोंठ पाउडर Sonth Powder' },
+    { title: 'Guntur S4 Hot Red Chillies', cat: 'Whole Spices', page: 'catalogue.html?search=guntur', desc: 'ഗുണ്ടൂർ മുളക് Guntur Mulaku குண்டூர் மிளகாய் Guntur Milagai ഗുണ്ടൂറു മെണസിനകായി Guntur Menasinakai ഗുണ്ടൂറു മിരപകായ Guntur Mirapakaya गुंटूर मिर्च Guntur Mirch' },
+    { title: 'Kashmiri Dried Chillies (High ASTA Color)', cat: 'Whole Spices', page: 'catalogue.html?search=kashmiri', desc: 'കാശ്മീരി മുളക് Kashmiri Mulaku காஷ்மீரி மிளகாய் Kashmiri Milagai കശ്മീരി മെണസിനകായി Kashmiri Menasinakai കാശ്മീരി മിരപകായ Kashmiri Mirapakaya कश्मीरी मिर्च Kashmiri Mirch' },
+    { title: 'Jaifal (Whole Nutmeg with Kernel)', cat: 'Whole Spices', page: 'catalogue.html?search=jaifal', desc: 'ജാതിക്ക Jathikka ஜாதிக்காய் Jadhikkai ജാജികായി Jajikai ജാജികായ Jajikaya जायफल Jaiphal' },
+    { title: 'Javantri (Selected Mace Blades)', cat: 'Whole Spices', page: 'catalogue.html?search=javantri', desc: 'ജാതിപത്രി Jathipathri ஜாதிபத்ரி Jadhipathri ജാതിപത്രി Jathipathri ജാതിപത്രി Jathipathri जावित्री Javitri' },
+    { title: 'Jeera (Whole Cumin Seeds)', cat: 'Whole Spices', page: 'catalogue.html?search=jeera+whole', desc: 'ജീരകം Jeerakam சீரகம் Seeragam ജീരിഗെ Jeerige ജീല കർര Jeelakarra जीरा Zeera' },
+    { title: 'Jeera Powder (Fresh Ground Cumin)', cat: 'Ground Spices', page: 'catalogue.html?search=jeera+powder', desc: 'ജീരകപ്പൊടി Jeeraka Podi சீரகத் தூள் Seeraga Thool ജീരിഗെ പുഡി Jeerige Pudi ജീല കർര പൊടി Jeelakarra Podi जीरा पाउडर Zeera Powder' },
+    { title: 'Valyajeerakam (Shahi Jeera / Black Cumin)', cat: 'Whole Spices', page: 'catalogue.html?search=valyajeerakam', desc: 'വലിയ ജീരകം Valiya Jeerakam ஷாஹി சீரகம் Shahi Seeragam ഷാഹി ജീരിഗെ Shahi Jeerige ഷാഹി ജീല കർര Shahi Jeelakarra शाही जीरा काला जीरा Shahi Jeera' },
+    { title: 'Fennel Seeds (Sombu Bold Green)', cat: 'Whole Spices', page: 'catalogue.html?search=sombu', desc: 'പെരുഞ്ചീരകം Perumjeerakam சோம்பு Sombu ബഡ്ഡീശേപ്പു Baddisheppu സോമ്പു Sombu सौंफ Saunf' },
+    { title: 'Kalpasi (Dagad Phool / Stone Flower)', cat: 'Whole Spices', page: 'catalogue.html?search=kalpasi', desc: 'കൽപ്പാസി Kalpasi கல்பாசி Kalpasi കല്ലൂഹൂവു Kalluhuvu രാതി പൂവു Rathi Poovu दगड़ फूल पत्थर के फूल Dagad Phool' },
+    { title: 'Kasuri Methi (Sun-Dried Fenugreek)', cat: 'Whole Spices', page: 'catalogue.html?search=kasuri+methi', desc: 'കസൂരി മേത്തി Kasuri Methi கசூரி மேதி Kasuri Methi കസൂരി മേതി Kasuri Methi കസൂരി മേതി Kasuri Methi कसूरी मेथी Kasuri Methi' },
+    { title: 'Methi Seeds (Whole Fenugreek)', cat: 'Whole Spices', page: 'catalogue.html?search=methi', desc: 'ഉലുവ Uluva வெந்தயம் Venthayam മെന്ത്യ Menthya മന്തലു Menthulu मेथी दाना Methi Dana' },
+    { title: 'Mustard Seeds (Black Mustard)', cat: 'Whole Spices', page: 'catalogue.html?search=mustard', desc: 'കടുക് Kadugu கடுகு Kadugu സാസിവെ Sasive ആവാലു Avalu राई सरसों Rai Sarson' },
+    { title: 'Turmeric Powder (5%+ Curcumin Batch)', cat: 'Ground Spices', page: 'catalogue.html?search=turmeric', desc: 'മഞ്ഞൾപ്പൊടി Manjal Podi மஞ்சள் தூள் Manjal Thool അരശിന പുഡി Arishina Pudi പസുകു പൊടി Pasupu Podi हल्दी पाउडर Haldi Powder' },
+    { title: 'Nigella (Black Seed / Kalonji)', cat: 'Whole Spices', page: 'catalogue.html?search=nigella', desc: 'കരിഞ്ചീരകം Karinjeerakam கருஞ்சீரகம் Karunjeeragam കരിജീരിഗെ Kari Jeerige നല്ലാ ജീല കർര Nalla Jeelakarra कलौंजी Kalonji' },
+    { title: 'White Ellu (Triple Cleaned Sesame)', cat: 'Whole Spices', page: 'catalogue.html?search=white+ellu', desc: 'വെള്ള എള്ള് Vella Ellu வெள்ளை எள் Vellai Ellu ബെള്ള എള്ളു Bella Ellu തെല്ല നു്വലു Tella Nuvvulu सफेद तिल Safed Til' },
+    { title: 'Chia Seeds (Raw Culinary Grade)', cat: 'Seeds', page: 'catalogue.html?search=chia', desc: 'ചിയാ വിത്തുകൾ Chia Seeds சியா விதைகள் Chia Seeds ചിയാ ബീജ Chia Beeja ചിയാ വിത്തുലു Chia Vittulu चिया बीज Chia Seeds' },
+    { title: 'Sabja Seeds (Sweet Basil / Falooda)', cat: 'Seeds', page: 'catalogue.html?search=sabja', desc: 'കഞ്ചാവ് വിത്ത് കസകസാ വിത്ത് Sabja Seeds சப்ஜா விதை Sabja Vithai കമാ കസ്തൂരി Kama Kasthuri സബ്ജാ വിത്തുലു Sabja Vittulu सबजा तकमरिया Sabja Takmaria' },
+    { title: 'Pumpkin Seeds (Hulled Pepitas)', cat: 'Seeds', page: 'catalogue.html?search=pumpkin+seeds', desc: 'മത്തങ്ങ വിത്തുകൾ Mathanga Vithukal பூசணி விதை Poosani Vithai കുമ്പളകായി ബീജ Kumbalakai Beeja ഗുമ്മഡികായ വിത്തുലു Gummadikaya Vittulu कद्दू के बीज Kaddu ke Beej' },
+    { title: 'Sunflower Seeds (Hulled Raw)', cat: 'Seeds', page: 'catalogue.html?search=sunflower+seeds', desc: 'സൂര്യകാന്തി വിത്ത് Suryakanthi Vithu சூரியகாந்தி விதை Suriyaganthi Vithai സൂര്യകാന്തി ബീജ Suryakanthi Beeja പൊദ്ദു തിരുഗുഡു വിത്തുലു Poddu Thirugudu Vittulu सूरजमुखी के बीज Surajmukhi ke Beej' },
+    { title: 'Watermelon Seeds (Dried Magaz Grade)', cat: 'Seeds', page: 'catalogue.html?search=watermelon+seeds', desc: 'തണ്ണിമത്തൻ വിത്ത് Thannimathan Vithu தர்பூசணி விதை Tharboosani Vithai കല്ലംഗഡി ബീജ Kallangadi Beeja പുച്ചകായ വിത്തുലു Puchakaya Vittulu मगज तरबूज के बीज Magaz Tarbooj ke Beej' },
+    { title: 'Groundnut Seeds (Raw Peanut)', cat: 'Seeds', page: 'catalogue.html?search=groundnut', desc: 'നിലക്കടല Nilakkadala நிலக்கடலை வேர்க்கடலை Verkadalai നേലകടലെ Nelakadale വേരുശെനഗ കുള്ളു Verusenaga Gullu मूंगफली दाना Moongphali' },
+    { title: 'Roasted Peanut (Dry Roast Crunchy)', cat: 'Dry Fruits', page: 'catalogue.html?search=roasted+peanut', desc: 'വറുത്ത നിലക്കടല Varutha Nilakkadala வறுத்த கடலை Varutha Kadalai ഹുരിദ കടലെ Hurida Kadale വേയിഞ്ചിന ശെനഗപപ്പു Veyinchina Senagapappu भुनी मूंगफली Bhuni Moongphali' },
+    { title: 'Dry Rose Petals (Damascena Grade)', cat: 'Luxury Spices', page: 'catalogue.html?search=rose+petals', desc: 'ഉണങ്ങിയ റോസാപ്പൂ ഇതളുകൾ Unangiya Rosappoo Idhalukal காய்ந்த ரோஜா இதழ்கள் Kaintha Roja Idhazhgal ഉണഗിദ റോജ ഹൂവിന എസളുകളു Unagida Roja Esalu എണ്ഡിന റോജാ റെക്കലു Endina Roja Rekkalu सूखे गुलाब की पंखुड़ियां Sukhe Gulab ki Pattiyan' },
+    { title: 'Kashmiri Mogra Saffron (Grade 1 Certified)', cat: 'Luxury Spices', page: 'catalogue.html?search=saffron', desc: 'കുങ്കുമപ്പൂവ് Kunkumappoov குங்குமப்பூ Kungumappoo കുങ്കുമ കേസരി Kunkuma Kesari കുങ്കുമ പൂവു Kunkuma Poovu केसर जाफरान Kesar Zafran' },
+
+    // Premium Dry Fruits & Nuts
+    { title: 'California & Gurbandi Badam (Almonds)', cat: 'Dry Fruits', page: 'catalogue.html?search=badam', desc: 'ബദാം Badam பாதாம் Badam ബാദാമി Badami ബാദാം പപ്പു Badam Pappu बादाम Badam' },
+    { title: 'Jumbo Cashews W240 / W320 Premium', cat: 'Dry Fruits', page: 'catalogue.html?search=cashewnut', desc: 'അണ്ടിപ്പരിപ്പ് Andipparippu kashuvandi kasuvandi முந்திரி Munthiri mundhiri ഗോഡംബി Godambi ജീഡിപപ്പു Jeedi Pappu काजू Kaju' },
+    { title: 'Dates (Premium Whole Arabian)', cat: 'Dry Fruits', page: 'catalogue.html?search=dates', desc: 'ഈന്തപ്പഴം Eenthappazham பேரீச்சம்பழம் Beerichampazham ഈരജൂറ Eerajoora ഖർജൂരപ്പണ്ടു Kharjoora Pandu खजूर Khajoor' },
+    { title: 'Royal Anjeer (Dried Whole Figs)', cat: 'Dry Fruits', page: 'catalogue.html?search=fig', desc: 'അത്തിപ്പഴം Athippazham அத்திப்பழம் Athippazham അഞ്ചൂറ Anjoora മേഡിപണ്ടു Anjeeru Medi Pandu अंजीर Anjeer' },
+    { title: 'Kismiss (Golden Seedless Raisins)', cat: 'Dry Fruits', page: 'catalogue.html?search=kismiss', desc: 'ഉണക്കമുന്തിരി Unakka Munthiri உலர் திராட்சை Ular Dhrakshai ഒണ ഡ്രാക്ഷി Ona Drakshi കിഷ്മിഷ് Kishmish Endo Draksha किशमिश Kishmish' },
+    { title: 'Black Kismiss (Black Currant Raisins)', cat: 'Dry Fruits', page: 'catalogue.html?search=black+kismiss', desc: 'കറുത്ത മുന്തിരി Karutha Munthiri கருப்பு திராட்சை Karuppu Dhrakshai കപ്പു ഡ്രാക്ഷി Kappu Drakshi നല്ലാ ഡ്രാക്ഷ Nalla Draksha काली किशमिश Kali Kishmish' },
+    { title: 'Special Kismiss (Long Green Raisins)', cat: 'Dry Fruits', page: 'catalogue.html?search=special+kismiss', desc: 'നീളൻ പച്ച മുന്തിരി Neelan Pacha Munthiri பச்சை திராட்சை Pachai Dhrakshai ഹസിരു ഡ്രാക്ഷി Hasiru Drakshi പച്ച ഡ്രാക്ഷ Pacha Draksha हरी लंबी किशमिश Hari Kishmish' },
+    { title: 'Pistachios (Pista Roasted & Salted)', cat: 'Dry Fruits', page: 'catalogue.html?search=pista', desc: 'പിസ്ത Pista பிஸ்தா Pista പിസ്താ Pista പിസ്താ പപ്പു Pista Pappu पिस्ता Pista' },
+    { title: 'Kashmiri & California Whole Walnuts', cat: 'Dry Fruits', page: 'catalogue.html?search=walnut', desc: 'വാൾനട്ട് Walnut அக்ரூட் Akroot അക്രോട്ടു Akrootu അക്രോട്ടു Akrootu अखरोट Akhrot' },
+
     // Commercial B2B Services & Custom Sourcing
     { title: 'Custom Origin Sourcing & Rare Botanicals', cat: 'Outsourcing Desk', page: 'https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20looking%20for%20Custom%20Sourcing%20%2F%20Rare%20Botanical%20Procurement%20for%20our%20commercial%20kitchen.%20Please%20advise%20on%20grade%20availability%2C%20minimums%2C%20and%20lot%20pricing.', desc: 'Single-origin lots, rare whole botanicals, custom grinding specs & contract institutional procurement' },
     { title: 'Hotel Smart 24/7 Rapid Supply Program', cat: 'Hotel Supply', page: 'index.html#hotelSmart', desc: 'Dedicated 24/7 emergency kitchen deliveries across South India · hotel smart logistics' },
@@ -167,139 +191,244 @@
   }
 
   var MULTILINGUAL_SYNONYMS = {
-    // Cinnamon / Cassia / Pattai
-    'karuvapatta': ['cinnamon', 'cassia', 'pattai', 'kesia'],
-    'karuvapetta': ['cinnamon', 'cassia', 'pattai', 'kesia'],
-    'karuvapattai': ['cinnamon', 'cassia', 'pattai', 'kesia'],
-    'pattai': ['cinnamon', 'cassia', 'pattai'],
-    'dalchini': ['cinnamon', 'cassia', 'pattai'],
-    'darchini': ['cinnamon', 'cassia', 'pattai'],
-    'kesia': ['cassia', 'cinnamon'],
-    'cassia': ['cassia', 'cinnamon'],
-    'lavangapatta': ['cinnamon', 'pattai'],
-    'dalchina chekka': ['cinnamon'],
-    'chakke': ['cinnamon'],
+    // Cardamom (Green, White, Black, Ground)
+    'elaka': ['cardamom', 'green cardamom'],
+    'elakka': ['cardamom', 'green cardamom'],
+    'elakkaya': ['cardamom', 'green cardamom'],
+    'elakaya': ['cardamom', 'green cardamom'],
+    'elakkai': ['cardamom', 'green cardamom'],
+    'elakai': ['cardamom', 'green cardamom'],
+    'yelakkai': ['cardamom', 'green cardamom'],
+    'yelakai': ['cardamom', 'green cardamom'],
+    'elam': ['cardamom', 'green cardamom'],
+    'elaichi': ['cardamom', 'green cardamom'],
+    'elachi': ['cardamom', 'green cardamom'],
+    'hari elaichi': ['cardamom', 'green cardamom'],
+    'choti elaichi': ['cardamom', 'green cardamom'],
+    'chhoti elaichi': ['cardamom', 'green cardamom'],
+    'yalukalu': ['cardamom', 'green cardamom'],
+    'yelakulu': ['cardamom', 'green cardamom'],
+    'elakulu': ['cardamom', 'green cardamom'],
+    'elakki': ['cardamom', 'green cardamom'],
+    'yalakki': ['cardamom', 'green cardamom'],
+    'velchi': ['cardamom', 'green cardamom'],
+    'hirvi velchi': ['cardamom', 'green cardamom'],
+    'cardamom': ['cardamom'],
+    'cardamon': ['cardamom'],
+    'cardamum': ['cardamom'],
+    'elathari': ['cardamom'],
 
-    // Black & White Pepper
-    'kurumulaku': ['pepper', 'black pepper'],
-    'kurmulaku': ['pepper', 'black pepper'],
-    'nallamulaku': ['pepper', 'black pepper'],
-    'milagu': ['pepper', 'black pepper'],
-    'karuppu milagu': ['pepper', 'black pepper'],
-    'kali mirch': ['pepper', 'black pepper'],
-    'kalimirch': ['pepper', 'black pepper'],
-    'golki': ['pepper', 'black pepper'],
-    'miriyalu': ['pepper', 'black pepper'],
-    'mriyalu': ['pepper', 'black pepper'],
-    'kari menasu': ['pepper', 'black pepper'],
+    // White Cardamom & Black Cardamom
+    'white cardamom': ['white cardamom'],
+    'safed elaichi': ['white cardamom'],
+    'velutha elakkaya': ['white cardamom'],
+    'vellai elakkai': ['white cardamom'],
+    'black cardamom': ['black cardamom'],
+    'badi elaichi': ['black cardamom'],
+    'moti elaichi': ['black cardamom'],
+    'kali elaichi': ['black cardamom'],
+    'periya elakkai': ['black cardamom'],
+    'valiya elakkaya': ['black cardamom'],
+
+    // Pepper (Tellicherry Black Pepper, Powder, White Pepper)
+    'pepper': ['pepper', 'black pepper'],
+    'black pepper': ['black pepper'],
+    'tellicherry': ['black pepper'],
+    'kurumulaku': ['black pepper', 'pepper'],
+    'kurumolaku': ['black pepper', 'pepper'],
+    'kurmulaku': ['black pepper', 'pepper'],
+    'kurumilagu': ['black pepper', 'pepper'],
+    'milagu': ['black pepper', 'pepper'],
+    'karuppu milagu': ['black pepper', 'pepper'],
+    'nallamulaku': ['black pepper', 'pepper'],
+    'kali mirch': ['black pepper', 'pepper'],
+    'kalimirch': ['black pepper', 'pepper'],
+    'golki': ['black pepper', 'pepper'],
+    'gol mirch': ['black pepper', 'pepper'],
+    'miriyalu': ['black pepper', 'pepper'],
+    'nalla miriyalu': ['black pepper', 'pepper'],
+    'kari menasu': ['black pepper', 'pepper'],
+    'kali miri': ['black pepper', 'pepper'],
+    'golmorich': ['black pepper', 'pepper'],
+    'white pepper': ['white pepper'],
     'safed mirch': ['white pepper'],
     'vellai milagu': ['white pepper'],
     'velutha kurumulaku': ['white pepper'],
+    'tella miriyalu': ['white pepper'],
+    'bili menasu': ['white pepper'],
 
-    // Cardamom
-    'elakkaya': ['cardamom'],
-    'elakkai': ['cardamom'],
-    'elam': ['cardamom'],
-    'elaichi': ['cardamom'],
-    'hari elaichi': ['cardamom'],
-    'safed elaichi': ['cardamom', 'white cardamom'],
-    'velutha elakkaya': ['white cardamom'],
-    'vellai elakkai': ['white cardamom'],
-    'badi elaichi': ['black cardamom'],
-    'moti elaichi': ['black cardamom'],
-    'periya elakkai': ['black cardamom'],
-    'valiya elakkaya': ['black cardamom'],
-    'yalukalu': ['cardamom'],
-    'yelakulu': ['cardamom'],
-    'elakki': ['cardamom'],
-
-    // Cloves
-    'grampoo': ['cloves'],
-    'krambu': ['cloves'],
-    'karambu': ['cloves'],
-    'kirambu': ['cloves'],
-    'lavangam': ['cloves'],
-    'laung': ['cloves'],
-    'lavang': ['cloves'],
-    'lavangalu': ['cloves'],
-    'lavanga': ['cloves'],
-
-    // Star Anise
-    'thakkolam': ['annachipoo', 'star anise'],
-    'takkolam': ['annachipoo', 'star anise'],
-    'annachipoo': ['annachipoo', 'star anise'],
-    'anasipoo': ['annachipoo', 'star anise'],
-    'chakri phool': ['annachipoo', 'star anise'],
-    'chakra phool': ['annachipoo', 'star anise'],
-    'anasphal': ['annachipoo', 'star anise'],
-    'anasa puvvu': ['annachipoo', 'star anise'],
-    'biryani puvvu': ['annachipoo', 'star anise'],
-    'chakra moggu': ['annachipoo', 'star anise'],
-
-    // Turmeric
-    'manjal': ['turmeric'],
-    'manjal podi': ['turmeric'],
-    'haldi': ['turmeric'],
-    'pasupu': ['turmeric'],
-    'arishina': ['turmeric'],
-
-    // Cumin
+    // Cumin (Jeera / Cumin Seeds / Cumin Powder / Shahi Jeera)
+    'jeera': ['jeera', 'cumin'],
+    'cumin': ['jeera', 'cumin'],
+    'zeera': ['jeera', 'cumin'],
+    'jira': ['jeera', 'cumin'],
+    'jeere': ['jeera', 'cumin'],
     'jeerakam': ['jeera', 'cumin'],
-    'nalla jeerakam': ['jeera'],
-    'seeragam': ['jeera'],
-    'zeera': ['jeera'],
+    'nalla jeerakam': ['jeera', 'cumin'],
+    'seeragam': ['jeera', 'cumin'],
+    'seragam': ['jeera', 'cumin'],
+    'jeeragam': ['jeera', 'cumin'],
+    'jeelakarra': ['jeera', 'cumin'],
+    'jilakarra': ['jeera', 'cumin'],
+    'jeelakara': ['jeera', 'cumin'],
+    'jilakara': ['jeera', 'cumin'],
+    'jeerige': ['jeera', 'cumin'],
+    'jirige': ['jeera', 'cumin'],
     'shahi jeera': ['valyajeerakam', 'shahi jeera'],
     'shahijeera': ['valyajeerakam', 'shahi jeera'],
-    'valyajeerakam': ['valyajeerakam'],
-    'jeelakarra': ['jeera'],
-    'jeerige': ['jeera'],
+    'valyajeerakam': ['valyajeerakam', 'shahi jeera'],
+    'sahajira': ['valyajeerakam', 'shahi jeera'],
 
-    // Fennel
-    'perumjeerakam': ['fennel', 'sombu'],
-    'perunjeerakam': ['fennel', 'sombu'],
+    // Fennel / Sombu / Saunf
+    'fennel': ['fennel', 'sombu'],
     'sombu': ['fennel', 'sombu'],
     'saunf': ['fennel', 'sombu'],
     'sonf': ['fennel', 'sombu'],
+    'perumjeerakam': ['fennel', 'sombu'],
+    'perunjeerakam': ['fennel', 'sombu'],
+    'perum jeerakam': ['fennel', 'sombu'],
+    'perunjeeragam': ['fennel', 'sombu'],
     'sopu': ['fennel', 'sombu'],
     'sompu': ['fennel', 'sombu'],
+    'badishep': ['fennel', 'sombu'],
+    'mouri': ['fennel', 'sombu'],
+    'variyali': ['fennel', 'sombu'],
 
-    // Mace
-    'jathipathri': ['javantri', 'mace'],
-    'jathipoov': ['javantri', 'mace'],
-    'javitri': ['javantri', 'mace'],
-    'vasavasi': ['javantri', 'mace'],
-    'japatri': ['javantri', 'mace'],
+    // Cloves / Grampoo / Laung / Krambu
+    'cloves': ['cloves'],
+    'clove': ['cloves'],
+    'grampoo': ['cloves'],
+    'krambu': ['cloves'],
+    'kirambu': ['cloves'],
+    'karambu': ['cloves'],
+    'kramboo': ['cloves'],
+    'lavangam': ['cloves'],
+    'laung': ['cloves'],
+    'lavang': ['cloves'],
+    'long': ['cloves'],
+    'lavangalu': ['cloves'],
+    'lavanga': ['cloves'],
+    'laving': ['cloves'],
+    'lobongo': ['cloves'],
 
-    // Nutmeg
+    // Cinnamon & Cassia
+    'cinnamon': ['cinnamon', 'pattai'],
+    'pattai': ['cinnamon', 'pattai'],
+    'karuvapatta': ['cinnamon', 'pattai', 'cassia', 'kesia'],
+    'karuvappatta': ['cinnamon', 'pattai'],
+    'karuvapattai': ['cinnamon', 'pattai'],
+    'dalchini': ['cinnamon', 'pattai', 'cassia', 'kesia'],
+    'darchini': ['cinnamon', 'pattai'],
+    'cassia': ['cassia', 'kesia'],
+    'kesia': ['cassia', 'kesia'],
+    'lavangapattai': ['cinnamon', 'pattai'],
+    'dalchina chekka': ['cinnamon'],
+    'chakke': ['cinnamon'],
+    'taj': ['cinnamon', 'cassia'],
+
+    // Star Anise
+    'star anise': ['star anise', 'annachipoo'],
+    'annachipoo': ['star anise', 'annachipoo'],
+    'annasi poo': ['star anise', 'annachipoo'],
+    'anasipoo': ['star anise', 'annachipoo'],
+    'thakkolam': ['star anise', 'annachipoo'],
+    'takkolam': ['star anise', 'annachipoo'],
+    'thakolam': ['star anise', 'annachipoo'],
+    'chakri phool': ['star anise', 'annachipoo'],
+    'chakra phool': ['star anise', 'annachipoo'],
+    'anasphal': ['star anise', 'annachipoo'],
+    'anasa puvvu': ['star anise', 'annachipoo'],
+    'biryani puvvu': ['star anise', 'annachipoo'],
+    'chakra moggu': ['star anise', 'annachipoo'],
+
+    // Turmeric
+    'turmeric': ['turmeric'],
+    'manjal': ['turmeric'],
+    'manjal podi': ['turmeric'],
+    'manjal thool': ['turmeric'],
+    'haldi': ['turmeric'],
+    'pasupu': ['turmeric'],
+    'pasupu podi': ['turmeric'],
+    'arishina': ['turmeric'],
+    'halad': ['turmeric'],
+    'holud': ['turmeric'],
+    'curcumin': ['turmeric'],
+
+    // Ginger / Sonth / Chukku
+    'ginger': ['ginger', 'dry ginger'],
+    'dry ginger': ['dry ginger', 'ginger'],
+    'chukku': ['dry ginger', 'ginger'],
+    'sukku': ['dry ginger', 'ginger'],
+    'sonth': ['dry ginger', 'ginger'],
+    'saunth': ['dry ginger', 'ginger'],
+    'inji': ['dry ginger', 'ginger'],
+    'adrak': ['dry ginger', 'ginger'],
+    'allam': ['dry ginger', 'ginger'],
+    'sonti': ['dry ginger', 'ginger'],
+    'shunti': ['dry ginger', 'ginger'],
+    'sunth': ['dry ginger', 'ginger'],
+    'soont': ['dry ginger', 'ginger'],
+
+    // Coriander
+    'coriander': ['coriander'],
+    'malli': ['coriander'],
+    'kothamalli': ['coriander'],
+    'dhaniya': ['coriander'],
+    'dhania': ['coriander'],
+    'dhaniyalu': ['coriander'],
+    'kothambari': ['coriander'],
+    'dhane': ['coriander'],
+
+    // Nutmeg & Mace
+    'nutmeg': ['jaifal', 'nutmeg'],
+    'jaifal': ['jaifal', 'nutmeg'],
+    'jaiphal': ['jaifal', 'nutmeg'],
     'jathikka': ['jaifal', 'nutmeg'],
     'jathika': ['jaifal', 'nutmeg'],
     'jathikai': ['jaifal', 'nutmeg'],
-    'jaiphal': ['jaifal', 'nutmeg'],
+    'jadhikai': ['jaifal', 'nutmeg'],
     'jajikaya': ['jaifal', 'nutmeg'],
     'jajikayi': ['jaifal', 'nutmeg'],
+    'mace': ['javantri', 'mace'],
+    'javantri': ['javantri', 'mace'],
+    'javitri': ['javantri', 'mace'],
+    'jathipathri': ['javantri', 'mace'],
+    'jathipoov': ['javantri', 'mace'],
+    'vasavasi': ['javantri', 'mace'],
+    'japatri': ['javantri', 'mace'],
 
     // Bay Leaf
+    'bay leaf': ['biryani leaf', 'bay leaf'],
+    'biryani leaf': ['biryani leaf', 'bay leaf'],
     'vayana ila': ['biryani leaf', 'bay leaf'],
     'biryani ila': ['biryani leaf', 'bay leaf'],
     'biryani ilai': ['biryani leaf', 'bay leaf'],
+    'brinji ilai': ['biryani leaf', 'bay leaf'],
     'tejpatta': ['biryani leaf', 'bay leaf'],
     'tej patta': ['biryani leaf', 'bay leaf'],
-    'biryani aaku': ['biryani leaf'],
+    'biryani aaku': ['biryani leaf', 'bay leaf'],
+    'tejpata': ['biryani leaf', 'bay leaf'],
 
-    // Stone Flower
+    // Stone Flower / Kalpasi
+    'kalpasi': ['kalpasi', 'stone flower'],
+    'stone flower': ['kalpasi', 'stone flower'],
     'marappasi': ['kalpasi', 'stone flower'],
     'dagad phool': ['kalpasi', 'stone flower'],
     'patthar phool': ['kalpasi', 'stone flower'],
     'pathar phool': ['kalpasi', 'stone flower'],
+    'kallupasi': ['kalpasi', 'stone flower'],
 
-    // Fenugreek
-    'uluva': ['methi', 'kasuri methi'],
-    'vendhayam': ['methi'],
-    'venthayam': ['methi'],
-    'menthulu': ['methi'],
+    // Fenugreek & Kasuri Methi
+    'methi': ['methi', 'kasuri methi'],
+    'fenugreek': ['methi', 'kasuri methi'],
+    'kasuri methi': ['kasuri methi'],
     'kasoori methi': ['kasuri methi'],
+    'uluva': ['methi', 'kasuri methi'],
+    'vendhayam': ['methi', 'kasuri methi'],
+    'menthulu': ['methi'],
 
     // Mustard
+    'mustard': ['mustard'],
     'kaduku': ['mustard'],
     'kadugu': ['mustard'],
     'sarson': ['mustard'],
@@ -307,78 +436,96 @@
     'aavalu': ['mustard'],
     'sasive': ['mustard'],
 
-    // Ginger
-    'chukku': ['ginger'],
-    'sukku': ['ginger'],
-    'sonth': ['ginger'],
-    'saunth': ['ginger'],
-    'inji': ['ginger'],
-    'adrak': ['ginger'],
-    'allam': ['ginger'],
-    'sonti': ['ginger'],
-    'shunti': ['ginger'],
-
-    // Coriander
-    'malli': ['coriander'],
-    'kothamalli': ['coriander'],
-    'dhaniya': ['coriander'],
-    'dhania': ['coriander'],
-    'dhaniyalu': ['coriander'],
-    'kothambari': ['coriander'],
-
-    // Chilli
-    'vattal mulaku': ['chilly', 'kashmiri', 'guntur'],
-    'chuvanna mulaku': ['chilly', 'kashmiri', 'guntur'],
-    'piriyan mulaku': ['kashmiri'],
+    // Chillies
+    'chilli': ['chilly', 'guntur', 'kashmiri'],
+    'chilly': ['chilly', 'guntur', 'kashmiri'],
+    'red chilli': ['chilly', 'guntur', 'kashmiri'],
+    'guntur': ['guntur'],
+    'kashmiri': ['kashmiri'],
+    'vattal mulaku': ['chilly', 'guntur', 'kashmiri'],
     'vara milagai': ['chilly', 'guntur', 'kashmiri'],
-    'lal mirch': ['chilly', 'kashmiri', 'guntur'],
+    'lal mirch': ['chilly', 'guntur', 'kashmiri'],
+    'piriyan mulaku': ['kashmiri'],
     'degi mirch': ['kashmiri'],
 
-    // Nigella
+    // Saffron
+    'saffron': ['saffron'],
+    'kunkumappoo': ['saffron'],
+    'kumkumapoo': ['saffron'],
+    'kungumapoo': ['saffron'],
+    'kesar': ['saffron'],
+    'zafran': ['saffron'],
+    'jafran': ['saffron'],
+
+    // Nigella & Sesame
+    'nigella': ['nigella'],
+    'kalonji': ['nigella'],
     'karinjeerakam': ['nigella'],
     'karunjeeragam': ['nigella'],
-    'kalonji': ['nigella'],
-
-    // Sesame
+    'black seed': ['nigella'],
+    'sesame': ['white ellu', 'sesame'],
     'ellu': ['white ellu', 'sesame'],
     'til': ['white ellu', 'sesame'],
     'safed til': ['white ellu', 'sesame'],
     'nuvvulu': ['white ellu', 'sesame'],
 
-    // Nuts & Dry fruits
+    // Seeds
+    'chia': ['chia seeds'],
+    'sabja': ['sabja seeds'],
+    'falooda seeds': ['sabja seeds'],
+    'pumpkin seeds': ['pumpkin seeds'],
+    'pepitas': ['pumpkin seeds'],
+    'sunflower seeds': ['sunflower seeds'],
+    'watermelon seeds': ['watermelon seeds'],
+    'magaz': ['watermelon seeds'],
+    'groundnut': ['groundnut seeds', 'roasted peanut'],
+    'peanut': ['groundnut seeds', 'roasted peanut'],
+    'kappalandi': ['groundnut seeds', 'roasted peanut'],
+    'verkadalai': ['groundnut seeds', 'roasted peanut'],
+    'mungfali': ['groundnut seeds', 'roasted peanut'],
+    'rose petals': ['dry rose petals'],
+
+    // Dry Fruits & Nuts
+    'cashew': ['cashewnut'],
+    'cashewnut': ['cashewnut'],
+    'kaju': ['cashewnut'],
     'kashuvandi': ['cashewnut'],
+    'kasuvandi': ['cashewnut'],
     'andipparippu': ['cashewnut'],
     'mundhiri': ['cashewnut'],
-    'kaju': ['cashewnut'],
+    'munthiri': ['cashewnut'],
     'jeedipappu': ['cashewnut'],
     'godambi': ['cashewnut'],
-
     'badam': ['badam'],
     'baadam': ['badam'],
+    'almond': ['badam'],
     'almonds': ['badam'],
     'badami': ['badam'],
-
     'pista': ['pista'],
     'pistha': ['pista'],
-
+    'pistachio': ['pista'],
+    'walnut': ['walnut'],
+    'walnuts': ['walnut'],
     'akhrot': ['walnut'],
     'akrot': ['walnut'],
-
-    'munthiringa': ['kismiss'],
-    'unakka munthiri': ['kismiss'],
-    'ular thiratchai': ['kismiss'],
-    'kishmish': ['kismiss'],
-    'munakka': ['kismiss'],
-
-    'eenthapazham': ['dates'],
-    'pericham pazham': ['dates'],
+    'akroot': ['walnut'],
+    'kismiss': ['kismiss', 'black kismiss', 'special kismiss'],
+    'kismis': ['kismiss', 'black kismiss', 'special kismiss'],
+    'kishmish': ['kismiss', 'black kismiss', 'special kismiss'],
+    'raisins': ['kismiss', 'black kismiss', 'special kismiss'],
+    'munthiringa': ['kismiss', 'black kismiss', 'special kismiss'],
+    'unakka munthiri': ['kismiss', 'black kismiss', 'special kismiss'],
+    'ular thiratchai': ['kismiss', 'black kismiss', 'special kismiss'],
+    'dates': ['dates'],
     'khajoor': ['dates'],
     'khajur': ['dates'],
-
-    'athipazham': ['fig'],
-    'athi pazham': ['fig'],
+    'eenthapazham': ['dates'],
+    'pericham pazham': ['dates'],
+    'fig': ['fig'],
+    'figs': ['fig'],
     'anjeer': ['fig'],
-    'anjir': ['fig']
+    'anjir': ['fig'],
+    'athipazham': ['fig']
   };
 
   function getCustomSourcingCardHtml(query) {
@@ -393,10 +540,10 @@
       '<div class="search-custom-sourcing-card">',
       '  <div class="scs-badge">Custom Sourcing &amp; Outsourcing Desk</div>',
       '  <div class="scs-title">Looking to source <em>"' + displayQ + '"</em> or rare botanical lots?</div>',
-      '  <div class="scs-desc">Our origin merchant network sources custom institutional lots, Grade-1 Kashmiri saffron, pure vanilla beans, rare whole botanicals, custom grinding specs, and unlisted high-volume commodities directly to your kitchen.</div>',
+      '  <p class="scs-desc">Unlisted grades, specific grind specs, and farm-direct container-load consignments.</p>',
       '  <a href="' + waUrl + '" target="_blank" rel="noopener" class="scs-wa-btn">',
       '    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>',
-      '    Direct WhatsApp Sourcing Desk ↗',
+      '    Request Custom Sourcing on WhatsApp ↗',
       '  </a>',
       '</div>'
     ].join('');
@@ -405,22 +552,39 @@
   function renderSearchResults(query, listEl, labelEl) {
     var q = (query || '').trim().toLowerCase();
     
-    // Check multilingual aliases
+    // Check multilingual aliases safely
     var searchTerms = [q];
     if (q && MULTILINGUAL_SYNONYMS[q]) {
       searchTerms = searchTerms.concat(MULTILINGUAL_SYNONYMS[q]);
-    } else if (q) {
+    }
+    if (q) {
       Object.keys(MULTILINGUAL_SYNONYMS).forEach(function(key) {
-        if (key.indexOf(q) !== -1 || q.indexOf(key) !== -1) {
+        if (key === q || key.startsWith(q) || q.startsWith(key)) {
           searchTerms = searchTerms.concat(MULTILINGUAL_SYNONYMS[key]);
+        } else {
+          var kWords = key.split(/\s+/);
+          var qWords = q.split(/\s+/);
+          var matchesWord = kWords.some(function(kw) {
+            return qWords.some(function(qw) {
+              return kw === qw || (qw.length >= 3 && kw.startsWith(qw));
+            });
+          });
+          if (matchesWord) {
+            searchTerms = searchTerms.concat(MULTILINGUAL_SYNONYMS[key]);
+          }
         }
       });
     }
 
+    var dedupTerms = [];
+    searchTerms.forEach(function(t) {
+      if (t && dedupTerms.indexOf(t) === -1) dedupTerms.push(t);
+    });
+
     var matches = searchIndex.filter(function(item){
       if(!q) return true;
       var text = (item.title + ' ' + item.cat + ' ' + item.desc).toLowerCase();
-      return searchTerms.some(function(term){
+      return dedupTerms.some(function(term){
         return term && text.indexOf(term) !== -1;
       });
     });
@@ -550,7 +714,7 @@
       '        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>',
       '      </span>',
       '      <div class="more-opt-content">',
-      '        <div class="more-opt-title">Search Spices &amp; Catalogue</div>',
+      '        <div class="more-opt-title">Search Spices &amp; Products</div>',
       '        <div class="more-opt-sub">Instant SKU, origin, and HSN lookup</div>',
       '      </div>',
       '      <span class="more-opt-arrow">→</span>',
@@ -570,7 +734,7 @@
       '        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M6 6h10M6 10h10"/></svg>',
       '      </span>',
       '      <div class="more-opt-content">',
-      '        <div class="more-opt-title">Browse Full Spice Catalogue</div>',
+      '        <div class="more-opt-title">Browse Full Products &amp; Spices</div>',
       '        <div class="more-opt-sub">50+ origin-certified varieties &amp; dry fruits</div>',
       '      </div>',
       '      <span class="more-opt-arrow">→</span>',
@@ -710,7 +874,7 @@
       '        Origin-Certified Samples',
       '      </h4>',
       '      <p>Select raw origin cardamom, Tellicherry pepper, and saffron samples directly delivered to your restaurant or commercial kitchen.</p>',
-      '      <a href="catalogue.html" class="quick-basket-btn btn-primary-green" style="font-size:12px;padding:9px 16px;">Browse Spice Catalogue →</a>',
+      '      <a href="catalogue.html" class="quick-basket-btn btn-primary-green" style="font-size:12px;padding:9px 16px;">Browse Products →</a>',
       '    </div>',
       '    <div class="quick-basket-card">',
       '      <h4 style="display:flex;align-items:center;gap:8px;">',
@@ -1244,6 +1408,12 @@ window.submitFlushReservation = function() {
 /* ── Chef Welcome Box Free Announcement Modal Controller ── */
 (function(){
   function initChefWelcomeModal() {
+    var p = window.location.pathname.toLowerCase();
+    var filename = p.substring(Math.max(p.lastIndexOf('/'), p.lastIndexOf('\\')) + 1);
+    if (filename && filename !== 'index.html' && filename.includes('.html')) {
+      return;
+    }
+
     var modal = document.getElementById('chefWelcomeModal');
 
     // If modal not present in DOM, dynamically create and append it

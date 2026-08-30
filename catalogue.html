@@ -13,7 +13,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Origin Spices &amp; Premium Dry Fruits Catalogue — KTA Spices">
-  <meta property="og:description" content="37+ Single Origin Spices &amp; Premium Dry Fruits with QC laboratory specifications and 1-tap chef sample discovery tray.">
+  <meta property="og:description"
+    content="37+ Single Origin Spices &amp; Premium Dry Fruits with QC laboratory specifications and 1-tap chef sample discovery tray.">
   <meta property="og:url" content="https://ktaspices.in/catalogue.html">
   <meta property="og:image" content="https://ktaspices.in/images/ktaouterlinelogo.png">
 
@@ -49,7 +50,10 @@
     /* Sample Tray Drawer & Modal Overlay */
     .tray-backdrop {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(18, 24, 12, 0.55);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -58,25 +62,31 @@
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
+
     .tray-backdrop.active {
       opacity: 1;
       visibility: visible;
     }
+
     .tray-drawer {
       position: fixed;
-      top: 0; right: 0; bottom: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
       width: min(440px, 94vw);
       background: #ffffff;
       z-index: 99999 !important;
-      box-shadow: -10px 0 40px rgba(0,0,0,0.25);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.25);
       display: flex;
       flex-direction: column;
       transform: translateX(100%);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .tray-drawer.active {
       transform: translateX(0);
     }
+
     .tray-drawer-header {
       padding: 20px 24px;
       border-bottom: 1px solid var(--border);
@@ -85,18 +95,21 @@
       justify-content: space-between;
       background: #faf8f5;
     }
+
     .tray-drawer-title {
       font-family: var(--font-display);
       font-size: 20px;
       font-weight: 700;
       color: var(--ink);
     }
+
     .tray-drawer-sub {
       font-size: 12px;
       color: var(--muted);
       font-weight: 500;
       margin-top: 2px;
     }
+
     .tray-close-btn {
       background: #ebe6df;
       border: none;
@@ -111,10 +124,12 @@
       color: var(--ink);
       transition: background .2s, transform .2s;
     }
+
     .tray-close-btn:hover {
       background: #ded7ce;
       transform: scale(1.05);
     }
+
     .tray-drawer-body {
       flex: 1;
       overflow-y: auto;
@@ -123,6 +138,7 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .tray-item-row {
       display: flex;
       align-items: center;
@@ -133,10 +149,12 @@
       background: #faf8f5;
       transition: transform .2s, box-shadow .2s;
     }
+
     .tray-item-row:hover {
       transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
     }
+
     .tray-item-thumb {
       width: 48px;
       height: 48px;
@@ -148,15 +166,18 @@
       align-items: center;
       justify-content: center;
     }
+
     .tray-item-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     .tray-item-info {
       flex: 1;
       min-width: 0;
     }
+
     .tray-item-name {
       font-size: 13.5px;
       font-weight: 700;
@@ -166,11 +187,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .tray-item-spec {
       font-size: 11px;
       color: var(--muted);
       margin-top: 2px;
     }
+
     .tray-item-remove {
       background: none;
       border: none;
@@ -182,14 +205,17 @@
       line-height: 1;
       transition: color .2s;
     }
+
     .tray-item-remove:hover {
       color: #c82020;
     }
+
     .tray-drawer-footer {
       padding: 20px 24px;
       border-top: 1px solid var(--border);
       background: #ffffff;
     }
+
     .tray-empty-msg {
       text-align: center;
       padding: 48px 16px;
@@ -245,7 +271,7 @@
       min-width: clamp(340px, 36vw, 520px);
       flex: 1 1 auto;
       max-width: 540px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
       transition: border-color 0.2s, box-shadow 0.2s;
     }
 
@@ -282,6 +308,7 @@
       transition: all 0.2s ease;
       white-space: nowrap;
     }
+
     .cat-custom-sourcing-chip:hover {
       background: var(--olive);
       border-color: var(--olive);
@@ -300,8 +327,9 @@
       gap: 6px;
       flex-wrap: wrap;
     }
+
     .cat-multilingual-hint span {
-      background: rgba(0,0,0,0.04);
+      background: rgba(0, 0, 0, 0.04);
       padding: 2px 8px;
       border-radius: 6px;
       font-size: 11.5px;
@@ -392,9 +420,11 @@
       gap: 20px;
       box-shadow: 0 4px 20px rgba(67, 81, 40, 0.05);
     }
+
     .ccsb-left {
       max-width: 680px;
     }
+
     .ccsb-badge {
       font-size: 10px;
       font-weight: 800;
@@ -407,6 +437,7 @@
       display: inline-block;
       margin-bottom: 6px;
     }
+
     .ccsb-title {
       font-family: var(--font-display);
       font-size: 20px;
@@ -414,11 +445,13 @@
       color: var(--ink);
       margin-bottom: 4px;
     }
+
     .ccsb-desc {
       font-size: 13px;
       color: #555555;
       line-height: 1.5;
     }
+
     .ccsb-wa-btn {
       display: inline-flex;
       align-items: center;
@@ -434,14 +467,17 @@
       flex-shrink: 0;
       transition: transform 0.2s ease;
     }
+
     .ccsb-wa-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
     }
+
     /* Instant Live Search Results Grid */
     .cat-search-results-sec {
       padding: 10px clamp(16px, 4vw, 40px) 30px;
     }
+
     .cat-search-results-header {
       display: flex;
       align-items: baseline;
@@ -452,12 +488,14 @@
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
     }
+
     .cat-search-results-title {
       font-family: var(--font-display);
       font-size: clamp(18px, 2.4vw, 24px);
       font-weight: 700;
       color: var(--ink);
     }
+
     .cat-search-results-count {
       font-size: 12.5px;
       font-weight: 700;
@@ -466,11 +504,13 @@
       padding: 4px 12px;
       border-radius: 999px;
     }
+
     .cat-search-results-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: clamp(14px, 2vw, 22px);
     }
+
     .cat-search-results-grid .product-card {
       width: 100% !important;
       flex-shrink: 1 !important;
@@ -480,6 +520,7 @@
     .cat-harvest-banner-sec {
       padding: 0 clamp(16px, 4vw, 40px) 24px;
     }
+
     .cat-harvest-banner {
       background: linear-gradient(135deg, #faf8f5 0%, #f3efe6 100%);
       border: 1px solid var(--border);
@@ -492,9 +533,11 @@
       gap: 16px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
     }
+
     .chb-left {
       max-width: 620px;
     }
+
     .chb-badge {
       font-size: 10px;
       font-weight: 800;
@@ -504,6 +547,7 @@
       margin-bottom: 4px;
       display: inline-block;
     }
+
     .chb-title {
       font-family: var(--font-display);
       font-size: clamp(17px, 2.2vw, 22px);
@@ -511,11 +555,13 @@
       color: var(--ink);
       margin-bottom: 4px;
     }
+
     .chb-desc {
       font-size: 12.5px;
       color: var(--muted);
       line-height: 1.5;
     }
+
     .chb-action-btn {
       display: inline-flex;
       align-items: center;
@@ -530,6 +576,7 @@
       transition: all 0.2s ease;
       white-space: nowrap;
     }
+
     .chb-action-btn:hover {
       background: #354020;
       transform: translateY(-1px);
@@ -547,24 +594,31 @@
       <!-- MOBILE LEFT (<= 992px) -->
       <div class="mobile-nav-left">
         <button class="mobile-nav-btn mobile-hamburger-btn" id="mobileHamburger" aria-label="Open menu">
-          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
           </svg>
         </button>
         <a href="tel:+918592832871" class="mobile-nav-btn mobile-call-btn" aria-label="Call Direct" title="Call Us">
-          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+            </path>
           </svg>
         </a>
       </div>
 
       <!-- DESKTOP LEFT LINKS (> 992px) -->
       <div class="desktop-nav-left">
-        <button class="desktop-search-btn" id="desktopSearchBtn" aria-label="Search Spices &amp; Catalogue" title="Search Spices · Custom Sourcing Available">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;">
-            <circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+        <button class="desktop-search-btn" id="desktopSearchBtn" aria-label="Search Spices &amp; Catalogue"
+          title="Search Spices · Custom Sourcing Available">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" style="width:15px;height:15px;">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
           </svg>
         </button>
         <ul class="nav-links-left">
@@ -602,12 +656,16 @@
 
       <!-- MOBILE RIGHT: WhatsApp & Three-Dots Menu -->
       <div class="mobile-nav-right">
-        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20reviewing%20your%20spice%20catalogue%20and%20would%20like%20to%20request%20samples%20and%20commercial%20lot%20pricing." target="_blank" rel="noopener" class="mobile-nav-btn mobile-wa-btn" aria-label="WhatsApp Enquiry" title="WhatsApp">
+        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20reviewing%20your%20spice%20catalogue%20and%20would%20like%20to%20request%20samples%20and%20commercial%20lot%20pricing."
+          target="_blank" rel="noopener" class="mobile-nav-btn mobile-wa-btn" aria-label="WhatsApp Enquiry"
+          title="WhatsApp">
           <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.888 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
         </a>
-        <button class="mobile-nav-btn mobile-more-btn" id="mobileMoreBtn" aria-label="More options" title="More Options">
+        <button class="mobile-nav-btn mobile-more-btn" id="mobileMoreBtn" aria-label="More options"
+          title="More Options">
           <svg class="mobile-nav-icon" viewBox="0 0 24 24" fill="currentColor">
             <circle cx="12" cy="5" r="2"></circle>
             <circle cx="12" cy="12" r="2"></circle>
@@ -633,8 +691,8 @@
       <a href="wholesale.html">WHOLESALE</a>
       <a href="index.html#hotelSmart">HOTEL SMART 24/7</a>
       <a href="tel:+918592832871" style="color: #435128; font-weight: 700;">Direct: +91 85928 32871</a>
-      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20reviewing%20your%20spice%20catalogue%20and%20would%20like%20to%20request%20samples%20and%20commercial%20lot%20pricing." target="_blank" rel="noopener"
-        style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
+      <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20reviewing%20your%20spice%20catalogue%20and%20would%20like%20to%20request%20samples%20and%20commercial%20lot%20pricing."
+        target="_blank" rel="noopener" style="color: #25d366; font-weight: 700;">WhatsApp Enquiry ↗</a>
     </div>
     <a href="partnership.html#registerKitchen" class="nav-cta-btn" style="margin-top:16px;text-align:center">REGISTER
       KITCHEN</a>
@@ -645,24 +703,30 @@
       <div data-reveal>
         <span class="eyebrow">Direct Origin Registry</span>
         <h1 class="display-xl" style="max-width:640px;margin-bottom:12px">Pure Culinary Catalogue.</h1>
-        <p class="lead" style="max-width:620px">Every SKU is direct origin-verified and batch-traceable. Standard culinary packaging in <strong>1kg barrier pouches, 5kg, and 25kg+ consignments</strong>. Institutional bulk supplied in <strong>40kg master bags</strong>.</p>
+        <p class="lead" style="max-width:620px">Every SKU is direct origin-verified and batch-traceable. Standard
+          culinary packaging in <strong>1kg barrier pouches, 5kg, and 25kg+ consignments</strong>. Institutional bulk
+          supplied in <strong>40kg master bags</strong>.</p>
       </div>
       <div class="filter-bar" data-reveal data-delay="1">
-        <button class="filter-chip active" onclick="setFilter('all',this)">All Varieties (46)</button>
-        <button class="filter-chip" onclick="setFilter('spice',this)">Spices (37)</button>
+        <button class="filter-chip active" onclick="setFilter('all',this)">All Varieties (47)</button>
+        <button class="filter-chip" onclick="setFilter('spice',this)">Spices (38)</button>
         <button class="filter-chip" onclick="setFilter('dry',this)">Dry Fruits &amp; Nuts (9)</button>
         <div class="cat-search">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />
           </svg>
-          <input type="text" id="catalogueSearchInput" placeholder="Search in English, Tamil, Malayalam, Hindi &amp; Indian languages…" oninput="doSearch(this.value)">
+          <input type="text" id="catalogueSearchInput"
+            placeholder="Search in English, Tamil, Malayalam, Hindi &amp; Indian languages…"
+            oninput="doSearch(this.value)">
         </div>
-        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20looking%20for%20Custom%20Sourcing%20%2F%20Agricultural%20Procurement%20for%20our%20commercial%20kitchen.%20Please%20advise%20on%20grade%20availability%2C%20minimums%2C%20and%20lot%20pricing." target="_blank" rel="noopener" class="cat-custom-sourcing-chip" title="Custom Sourcing Available">
+        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20looking%20for%20Custom%20Sourcing%20%2F%20Agricultural%20Procurement%20for%20our%20commercial%20kitchen.%20Please%20advise%20on%20grade%20availability%2C%20minimums%2C%20and%20lot%20pricing."
+          target="_blank" rel="noopener" class="cat-custom-sourcing-chip" title="Custom Sourcing Available">
           <span>Custom Sourcing Available</span>
         </a>
         <div class="cat-multilingual-hint">
-          <span style="background:transparent;padding-left:0;font-weight:700;color:var(--olive);">Search in Indian Languages:</span>
+          <span style="background:transparent;padding-left:0;font-weight:700;color:var(--olive);">Search in Indian
+            Languages:</span>
           <span>Tamil (தமிழ்)</span>
           <span>Malayalam (മലയാളം)</span>
           <span>Hindi (हिन्दी)</span>
@@ -689,7 +753,8 @@
       <div class="chb-left">
         <span class="chb-badge">Direct Origin Agriculture</span>
         <h2 class="chb-title">Harvest Seasonality &amp; Potency Curve Guide</h2>
-        <p class="chb-desc">12-month volatile essential oil concentration curve mapping peak agricultural arrivals across South India's verified direct origin estates.</p>
+        <p class="chb-desc">12-month volatile essential oil concentration curve mapping peak agricultural arrivals
+          across South India's verified direct origin estates.</p>
       </div>
       <a href="harvest.html" class="chb-action-btn">View Harvest &amp; Potency Graph ↗</a>
     </div>
@@ -701,7 +766,7 @@
   <section class="cat-section" id="spicesSec">
     <div class="row-header">
       <div class="row-title">Origin Spices</div>
-      <div class="row-count">37 varieties · 24h+ dispatch available</div>
+      <div class="row-count">38 varieties · 24h+ dispatch available</div>
     </div>
     <div class="scroll-row-wrap">
       <button class="scroll-arrow arrow-prev" onclick="scrollRow('spicesRow',-1)" aria-label="Previous">
@@ -738,7 +803,8 @@
     </div>
   </section>
 
-  <div class="sample-tray" id="sampleTray" onclick="openTrayDrawer()" role="button" aria-label="Open Sample Tray" style="display:none">
+  <div class="sample-tray" id="sampleTray" onclick="openTrayDrawer()" role="button" aria-label="Open Sample Tray"
+    style="display:none">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round"
         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -759,19 +825,33 @@
     <div class="tray-drawer-body" id="trayDrawerBody"></div>
     <div class="tray-drawer-footer">
       <div style="margin-bottom:10px">
-        <label for="trayChefName" style="font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px">Chef / Property Name</label>
-        <input type="text" id="trayChefName" placeholder="e.g. Executive Chef / Hotel Leela" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px;outline:none;background:#faf8f5;">
+        <label for="trayChefName"
+          style="font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px">Chef / Property
+          Name</label>
+        <input type="text" id="trayChefName" placeholder="e.g. Executive Chef / Hotel Leela"
+          style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px;outline:none;background:#faf8f5;">
       </div>
       <div style="margin-bottom:14px">
-        <label for="trayPhone" style="font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px">WhatsApp / Phone Contact</label>
-        <input type="tel" id="trayPhone" placeholder="e.g. +91 98765 43210" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px;outline:none;background:#faf8f5;">
+        <label for="trayPhone"
+          style="font-size:12px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px">WhatsApp / Phone
+          Contact</label>
+        <input type="tel" id="trayPhone" placeholder="e.g. +91 98765 43210"
+          style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px;outline:none;background:#faf8f5;">
       </div>
-      <button class="btn btn-primary" onclick="submitTrayToWhatsApp()" style="width:100%;justify-content:center;background:#25d366;border-color:#25d366;color:#fff;font-weight:700;padding:14px;border-radius:999px;font-size:13.5px;box-shadow:0 6px 20px rgba(37,211,102,0.35);display:flex;align-items:center;gap:8px">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.524 5.828L.054 23.85l6.162-1.615A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.376l-.36-.214-3.727.977 1.001-3.635-.234-.373A9.783 9.783 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.387 9.818 9.818 0 5.43-4.388 9.818-9.819 9.818z"/></svg>
+      <button class="btn btn-primary" onclick="submitTrayToWhatsApp()"
+        style="width:100%;justify-content:center;background:#25d366;border-color:#25d366;color:#fff;font-weight:700;padding:14px;border-radius:999px;font-size:13.5px;box-shadow:0 6px 20px rgba(37,211,102,0.35);display:flex;align-items:center;gap:8px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path
+            d="M11.999 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.524 5.828L.054 23.85l6.162-1.615A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.376l-.36-.214-3.727.977 1.001-3.635-.234-.373A9.783 9.783 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.387 9.818 9.818 0 5.43-4.388 9.818-9.819 9.818z" />
+        </svg>
         Submit Sample Request on WhatsApp ↗
       </button>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-        <button onclick="clearAllTray()" style="background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline;">Clear Tray</button>
+        <button onclick="clearAllTray()"
+          style="background:none;border:none;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline;">Clear
+          Tray</button>
         <span style="font-size:11.5px;color:var(--olive);font-weight:600">✓ Complimentary Discovery Kit</span>
       </div>
     </div>
@@ -786,7 +866,7 @@
         <a href="contact.html" class="btn btn-primary"
           style="border-radius: 999px; padding: 14px 36px; background: #435128;">Connect with Us ↗</a>
       </div>
-            <div class="min-footer-nav">
+      <div class="min-footer-nav">
         <a href="heritage.html">Heritage</a>
         <a href="catalogue.html">Catalogue</a>
         <a href="wholesale.html">Wholesale</a>
@@ -810,19 +890,22 @@
         <div class="footer-cred-right">
           <span>• Institutional Wholesaler &amp; Direct Highland Sourcing</span>
           <span>• FSSAI Batch Certified · State License Registered</span>
-          <span>• Trade Desk: <a href="tel:+918592832871">+91 85928 32871</a> · Wholesale: <a href="mailto:wholesale@ktaspices.in">wholesale@ktaspices.in</a> · General: <a href="mailto:info@ktaspices.in">info@ktaspices.in</a></span>
+          <span>• Trade Desk: <a href="tel:+918592832871">+91 85928 32871</a> · Wholesale: <a
+              href="mailto:wholesale@ktaspices.in">wholesale@ktaspices.in</a> · General: <a
+              href="mailto:info@ktaspices.in">info@ktaspices.in</a></span>
         </div>
       </div>
 
       <div class="min-footer-bottom">
         <div class="footer-bottom-left">
-          <svg class="footer-silhouette-icon" viewBox="0 0 16 28" width="14" height="24" fill="#111111" aria-hidden="true">
-            <rect x="6" y="0" width="4" height="4"/>
-            <rect x="5" y="6" width="6" height="10"/>
-            <rect x="2" y="7" width="3" height="7"/>
-            <rect x="11" y="9" width="3" height="7"/>
-            <rect x="3" y="18" width="3" height="10"/>
-            <rect x="10" y="18" width="3" height="10"/>
+          <svg class="footer-silhouette-icon" viewBox="0 0 16 28" width="14" height="24" fill="#111111"
+            aria-hidden="true">
+            <rect x="6" y="0" width="4" height="4" />
+            <rect x="5" y="6" width="6" height="10" />
+            <rect x="2" y="7" width="3" height="7" />
+            <rect x="11" y="9" width="3" height="7" />
+            <rect x="3" y="18" width="3" height="10" />
+            <rect x="10" y="18" width="3" height="10" />
           </svg>
           <span class="footer-mono-text">© KTA. 2026</span>
         </div>
@@ -837,55 +920,667 @@
   <script src="shared.js"></script>
   <script>
     var SPICES = [
-      { n: 'ANNACHIPOO', hsn: '090931', o: 'Single Origin', g: 'Star Anise', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/Star-Anise.webp', aroma: 'Sweet Aniseed · Licorice · Trans-Anethole (8.5%)' },
-      { n: 'BIRYANI LEAF', hsn: '09104010', o: 'Single Origin', g: 'Bay Leaf', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/BiriyaniLeaf.webp', aroma: 'Fresh Herbal · Mild Camphor · Warm Tea' },
-      { n: 'BLACK CARDAMOM', hsn: '09083190', o: 'Single Origin', g: 'Black Cardamom', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a1a1a,#5a3030)', img: 'images/images/BlackCardamom.webp', aroma: 'Smoky Campfire · Resin · Deep Balsamic' },
-      { n: 'BLACK PEPPER', hsn: '09041140', o: 'Single Origin', g: 'Tellicherry Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d1a0e,#6b3c1a)', img: 'images/images/BlackPepper.webp', aroma: 'Fresh Pine · Warm Cedar · 5.8% Residual Piperine' },
-      { n: 'CASSIA (KESIA)', hsn: '09061190', o: 'Single Origin', g: 'Cassia Bark', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6b2e14,#a05030)', img: 'images/images/Kesia.webp', aroma: 'Woody Bark · Clove Sweetness · High Essential Oil' },
-      { n: 'CHIA SEEDS', hsn: '12149000', o: 'Single Origin', g: 'Premium Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d2d3a,#4a4a6a)', img: 'images/images/Chiaseeds.webp', aroma: 'Mild Nutty · High Soluble Fiber' },
-      { n: 'CLOVES', hsn: '09071010', o: 'Single Origin', g: 'Grade A Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d1010,#7a3030)', img: 'images/images/cloves.webp', aroma: 'Intense Eugenol (17%) · Penetrating Warm Sweetness' },
-      { n: 'CORIANDER WHOLE', hsn: '09092110', o: 'Single Origin', g: 'Whole Coriander', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#5a4a20,#9b8040)', img: 'images/images/corianderwhole.webp', aroma: 'Citrus Peel · Floral Linalool · Fresh Herb' },
-      { n: 'CORIANDER POWDER', hsn: '09092200', o: 'Single Origin', g: 'Coriander Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/corianderpowder.webp', aroma: 'Clean Roasted Coriander · Low Heat Ground' },
-      { n: 'DRY GINGER (WHOLE)', hsn: '09101110', o: 'Single Origin', g: 'Sun-Dried Ginger', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a5820,#b08840)', img: 'images/images/drygingerwhole.webp', aroma: 'Sharp Zesty Lemon · Pungent Gingerol Heat' },
-      { n: 'DRY GINGER POWDER', hsn: '09101200', o: 'Single Origin', g: 'Sonth / Chukku', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6828,#c49850)', img: 'images/images/drygingerpowder.webp', aroma: 'Warm Pungency · Concentrated Sonth Aroma' },
-      { n: 'DRY ROSE PETALS', hsn: '12119094', o: 'Single Origin', g: 'Culinary Grade', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#8a2040,#c05070)', img: 'images/images/dryrosepetals.webp', aroma: 'Delicate Damascena Rose · Floral Note' },
-      { n: 'GROUNDNUT SEEDS', hsn: '12024190', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/Groundnutseeds.webp', aroma: 'Rich Raw Peanut · High Oil Grade' },
-      { n: 'GUNTUR CHILLY', hsn: '09042219', o: 'Single Origin', g: 'Guntur Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a1000,#c83010)', img: 'images/images/GunturChilly.webp', aroma: 'High Scoville Heat (35K+ SHU) · Bright Scarlet' },
-      { n: 'JAIFAL', hsn: '09081200', o: 'Single Origin', g: 'Nutmeg Whole', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a3020,#9b6040)', img: 'images/images/JaifalNutmeg.webp', aroma: 'Warm Nutty · Myristicin · Sweet Wood' },
-      { n: 'JAVANTRI', hsn: '09082100', o: 'Single Origin', g: 'Mace Whole Blades', s: ['1kg', '5kg', '10kg'], bg: 'linear-gradient(135deg,#9b4a00,#d4700a)', img: 'images/images/JavantriMace.webp', aroma: 'Golden Amber · Fragrant Nutmeg Flower' },
-      { n: 'JEERA POWDER', hsn: '09093119', o: 'Single Origin', g: 'Cumin Powder', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/JeeraPowder.webp', aroma: 'Warm Earthy Cumin · Fresh Mill Ground' },
-      { n: 'JEERA WHOLE', hsn: '09093119', o: 'Single Origin', g: 'Whole Cumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#7a6838,#b09850)', img: 'images/images/JeeraWhole.webp', aroma: 'Earthy Cuminaldehyde · High Essential Oil' },
-      { n: 'KALPASI', hsn: '12149000', o: 'Single Origin', g: 'Stone Flower', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/StoneFlower.webp', aroma: 'Deep Forest Earth · Umami Wood Moss' },
-      { n: 'KASHMIRI CHILLY', hsn: '09042219', o: 'Single Origin', g: 'ASTA 120+ Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#6a0808,#b81c1c)', img: 'images/images/KashmiriChilly.webp', aroma: 'ASTA 120+ Natural Color · Mild Fruit Heat' },
-      { n: 'KASURI METHI', hsn: '09109990', o: 'Single Origin', g: 'Dry Fenugreek', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3d4e22,#5c6b3f)', img: 'images/images/kasurimethi.webp', aroma: 'Sun-Dried Herb · Maple Celery Undertones' },
-      { n: 'METHI SEEDS', hsn: '090931', o: 'Single Origin', g: 'Fenugreek Seeds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#6b5a2e,#a08b4a)', img: 'images/images/methiseeds.webp', aroma: 'Clean Bittersweet · Roasted Aroma' },
-      { n: 'MUSTARD SEEDS', hsn: '12075010', o: 'Single Origin', g: 'Black Mustard', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#1a1a2a,#3a3a5a)', img: 'images/images/mustardseeds.webp', aroma: 'Sharp Sinigrin Pungency · Crisp Tempering Pop' },
-      { n: 'PATTAI (CINNAMON)', hsn: '09061110', o: 'Single Origin', g: 'True Cinnamon', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2210,#9a5030)', img: 'images/images/cinnamon.webp', aroma: 'Delicate Sweet Bark · Low Coumarin' },
-      { n: 'PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground Black Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#2d2010,#5a4030)', img: 'images/images/pepperpowder.webp', aroma: 'Freshly Crushed Coarse Cut · Direct Pungency' },
-      { n: 'PUMPKIN SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a5a10,#6a8a30)', img: 'images/images/pumpkinseeds.webp', aroma: 'Crisp Raw Pepitas · Fresh Harvest' },
-      { n: 'ROASTED PEANUT', hsn: '20081111', o: 'Single Origin', g: 'Dry Roasted', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a4a18,#c47838)', img: 'images/images/roastedpeanut.webp', aroma: 'Golden Roast · Crunchy Texture' },
-      { n: 'SABJA SEEDS', hsn: '12119094', o: 'Single Origin', g: 'Sweet Basil Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d3a1e,#4a6b3d)', img: 'images/images/sabjaseeds.webp', aroma: 'Rapid Bloom Gel · Cooling Summer Herb' },
-      { n: 'NIGELLA (BLACK SEED)', hsn: '12099930', o: 'Single Origin', g: 'Kalonji / Black Seed', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#1a1a1a,#383838)', img: 'images/images/nigella.webp', aroma: 'Oregano Onion Toast · Thymoquinone Note' },
-      { n: 'SOMBU (FENNEL)', hsn: '090931', o: 'Single Origin', g: 'Fennel Seeds', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2d4a2d,#4a8a4a)', img: 'images/images/fennel.webp', aroma: 'Sweet Licorice · Refreshing Anethole Mint' },
-      { n: 'SUNFLOWER SEEDS', hsn: '12060090', o: 'Single Origin', g: 'Hulled Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a7800,#d4b000)', img: 'images/images/sunflowerseeds.webp', aroma: 'Tender Raw Kernels · Delicate Nutty' },
-      { n: 'TURMERIC POWDER', hsn: '09103030', o: 'Single Origin', g: '5%+ Curcumin', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#9a6800,#e0a000)', img: 'images/images/turmericpowder.webp', aroma: '5%+ Native Curcumin · Earthy Warm Golden' },
-      { n: 'VALYAJEERAKAM', hsn: '09093119', o: 'Single Origin', g: 'Shahi Jeera / Black Cumin', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#3a2a18,#6a5038)', img: 'images/images/shahijeera.webp', aroma: 'Floral Pine · Royal Biryani Note' },
-      { n: 'WATERMELON SEEDS', hsn: '12099990', o: 'Single Origin', g: 'Dried Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/watermelonseeds.webp', aroma: 'Mild Creamy Magaz · Rich Gravy Base' },
-      { n: 'WHITE CARDAMOM', hsn: '09083140', o: 'Single Origin', g: 'Selected Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#b0a880,#d8d0a8)', img: 'images/images/whitecardamom.webp', aroma: 'Mellow Floral Mint · Delicate Camphor' },
-      { n: 'WHITE ELLU (SESAME)', hsn: '12074090', o: 'Single Origin', g: 'White Sesame', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c8c0a0,#e8e0c8)', img: 'images/images/whiteellu.webp', aroma: 'Clean Hull · Rich Sesame Oil Fragrance' },
-      { n: 'WHITE PEPPER POWDER', hsn: '09041219', o: 'Single Origin', g: 'Ground White Pepper', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#c0b8a0,#ddd8c0)', img: 'images/images/whitepepper.webp', aroma: 'Direct Lingering Heat · Clear Sauce Grinding' }
+      {
+        "n": "BLACK PEPPER",
+        "hsn": "09041140",
+        "o": "Single Origin",
+        "g": "Tellicherry TGSEB Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#2d1a0e,#6b3c1a)",
+        "img": "images/images/BlackPepper.webp",
+        "aroma": "Fresh Pine · Warm Cedar · 5.8% Residual Piperine"
+      },
+      {
+        "n": "PEPPER POWDER",
+        "hsn": "09041219",
+        "o": "Single Origin",
+        "g": "Ground Black Pepper",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#2d2010,#5a4030)",
+        "img": "images/images/pepperpowder.webp",
+        "aroma": "Freshly Crushed Coarse Cut · Direct Pungency"
+      },
+      {
+        "n": "WHITE PEPPER POWDER",
+        "hsn": "09041219",
+        "o": "Single Origin",
+        "g": "Ground White Pepper",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#c0b8a0,#ddd8c0)",
+        "img": "images/images/whitepepper.webp",
+        "aroma": "Direct Lingering Heat · Clear Sauce Grinding"
+      },
+      {
+        "n": "TURMERIC POWDER",
+        "hsn": "09103030",
+        "o": "Single Origin",
+        "g": "5%+ Curcumin Salem Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#9a6800,#e0a000)",
+        "img": "images/images/turmericpowder.webp",
+        "aroma": "5%+ Native Curcumin · Earthy Warm Golden"
+      },
+      {
+        "n": "KASHMIRI CHILLY",
+        "hsn": "09042219",
+        "o": "Single Origin",
+        "g": "ASTA 120+ Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#6a0808,#b81c1c)",
+        "img": "images/images/KashmiriChilly.webp",
+        "aroma": "ASTA 120+ Natural Color · Mild Fruit Heat"
+      },
+      {
+        "n": "GUNTUR CHILLY",
+        "hsn": "09042219",
+        "o": "Single Origin",
+        "g": "Guntur S4 Stemless",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#8a1000,#c83010)",
+        "img": "images/images/GunturChilly.webp",
+        "aroma": "High Scoville Heat (35K+ SHU) · Bright Scarlet"
+      },
+      {
+        "n": "GREEN CARDAMOM",
+        "hsn": "09083140",
+        "o": "Single Origin",
+        "g": "Alleppey 8mm+ Extra Bold",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#1f3d1a,#3d6b2e)",
+        "img": "images/images/GreenCardamom.webp",
+        "aroma": "Vibrant Camphorous · Sweet Floral Mint · 8.5% Volatile Oil"
+      },
+      {
+        "n": "BLACK CARDAMOM",
+        "hsn": "09083190",
+        "o": "Single Origin",
+        "g": "Black Cardamom Large Pods",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2a1a1a,#5a3030)",
+        "img": "images/images/BlackCardamom.webp",
+        "aroma": "Smoky Campfire · Resin · Deep Balsamic"
+      },
+      {
+        "n": "WHITE CARDAMOM",
+        "hsn": "09083140",
+        "o": "Single Origin",
+        "g": "Selected Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#b0a880,#d8d0a8)",
+        "img": "images/images/whitecardamom.webp",
+        "aroma": "Mellow Floral Mint · Delicate Camphor"
+      },
+      {
+        "n": "DRY GINGER (WHOLE)",
+        "hsn": "09101110",
+        "o": "Single Origin",
+        "g": "Sun-Dried Cochin Ginger",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#7a5820,#b08840)",
+        "img": "images/images/drygingerwhole.webp",
+        "aroma": "Sharp Zesty Lemon · Pungent Gingerol Heat"
+      },
+      {
+        "n": "DRY GINGER POWDER",
+        "hsn": "09101200",
+        "o": "Single Origin",
+        "g": "Sonth / Chukku Podi",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#8a6828,#c49850)",
+        "img": "images/images/drygingerpowder.webp",
+        "aroma": "Warm Pungency · Concentrated Sonth Aroma"
+      },
+      {
+        "n": "CORIANDER WHOLE",
+        "hsn": "09092110",
+        "o": "Single Origin",
+        "g": "Whole Coriander Seeds",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#5a4a20,#9b8040)",
+        "img": "images/images/corianderwhole.webp",
+        "aroma": "Citrus Peel · Floral Linalool · Fresh Herb"
+      },
+      {
+        "n": "CORIANDER POWDER",
+        "hsn": "09092200",
+        "o": "Single Origin",
+        "g": "Coriander Powder",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#6b5a2e,#a08b4a)",
+        "img": "images/images/corianderpowder.webp",
+        "aroma": "Clean Roasted Coriander · Low Heat Ground"
+      },
+      {
+        "n": "JEERA WHOLE",
+        "hsn": "09093119",
+        "o": "Single Origin",
+        "g": "Whole Cumin Seeds",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#7a6838,#b09850)",
+        "img": "images/images/JeeraWhole.webp",
+        "aroma": "Earthy Cuminaldehyde · High Essential Oil"
+      },
+      {
+        "n": "JEERA POWDER",
+        "hsn": "09093119",
+        "o": "Single Origin",
+        "g": "Cumin Powder Fresh Ground",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#6b5a2e,#a08b4a)",
+        "img": "images/images/JeeraPowder.webp",
+        "aroma": "Warm Earthy Cumin · Fresh Mill Ground"
+      },
+      {
+        "n": "VALYAJEERAKAM",
+        "hsn": "09093119",
+        "o": "Single Origin",
+        "g": "Shahi Jeera / Royal Black Cumin",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#3a2a18,#6a5038)",
+        "img": "images/images/shahijeera.webp",
+        "aroma": "Floral Pine · Royal Biryani Note"
+      },
+      {
+        "n": "ANNACHIPOO",
+        "hsn": "090931",
+        "o": "Single Origin",
+        "g": "Star Anise Royal 8-Pointed",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#2d3a1e,#4a6b3d)",
+        "img": "images/Star-Anise.webp",
+        "aroma": "Sweet Aniseed · Licorice · Trans-Anethole (8.5%)"
+      },
+      {
+        "n": "CLOVES",
+        "hsn": "09071010",
+        "o": "Single Origin",
+        "g": "Grade A Zanzibar Whole",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#3d1010,#7a3030)",
+        "img": "images/images/cloves.webp",
+        "aroma": "Intense Eugenol (17%) · Penetrating Warm Sweetness"
+      },
+      {
+        "n": "PATTAI (CINNAMON)",
+        "hsn": "09061110",
+        "o": "Single Origin",
+        "g": "True Ceylon Cinnamon Quills",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#5a2210,#9a5030)",
+        "img": "images/images/cinnamon.webp",
+        "aroma": "Delicate Sweet Bark · Low Coumarin"
+      },
+      {
+        "n": "CASSIA (KESIA)",
+        "hsn": "09061190",
+        "o": "Single Origin",
+        "g": "Cassia Bark Selected",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#6b2e14,#a05030)",
+        "img": "images/images/Kesia.webp",
+        "aroma": "Woody Bark ·标志 Clove Sweetness · High Essential Oil"
+      },
+      {
+        "n": "SOMBU (FENNEL)",
+        "hsn": "090931",
+        "o": "Single Origin",
+        "g": "Bold Green Fennel Seeds",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2d4a2d,#4a8a4a)",
+        "img": "images/images/fennel.webp",
+        "aroma": "Sweet Licorice · Refreshing Anethole Mint"
+      },
+      {
+        "n": "JAIFAL",
+        "hsn": "09081200",
+        "o": "Single Origin",
+        "g": "Whole Nutmeg with Kernel",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#5a3020,#9b6040)",
+        "img": "images/images/JaifalNutmeg.webp",
+        "aroma": "Warm Nutty · Myristicin · Sweet Wood"
+      },
+      {
+        "n": "JAVANTRI",
+        "hsn": "09082100",
+        "o": "Single Origin",
+        "g": "Mace Whole Blades",
+        "s": [
+          "1kg",
+          "5kg",
+          "10kg"
+        ],
+        "bg": "linear-gradient(135deg,#9b4a00,#d4700a)",
+        "img": "images/images/JavantriMace.webp",
+        "aroma": "Golden Amber · Fragrant Nutmeg Flower"
+      },
+      {
+        "n": "BIRYANI LEAF",
+        "hsn": "09104010",
+        "o": "Single Origin",
+        "g": "Bay Leaf Selected",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2d4a2d,#4a8a4a)",
+        "img": "images/images/BiriyaniLeaf.webp",
+        "aroma": "Fresh Herbal · Mild Camphor · Warm Tea"
+      },
+      {
+        "n": "KALPASI",
+        "hsn": "12149000",
+        "o": "Single Origin",
+        "g": "Stone Flower / Dagad Phool",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#3d4e22,#5c6b3f)",
+        "img": "images/images/StoneFlower.webp",
+        "aroma": "Deep Forest Earth · Umami Wood Moss"
+      },
+      {
+        "n": "KASURI METHI",
+        "hsn": "09109990",
+        "o": "Single Origin",
+        "g": "Sun-Dried Fenugreek Leaves",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#3d4e22,#5c6b3f)",
+        "img": "images/images/kasurimethi.webp",
+        "aroma": "Sun-Dried Herb · Maple Celery Undertones"
+      },
+      {
+        "n": "METHI SEEDS",
+        "hsn": "090931",
+        "o": "Single Origin",
+        "g": "Fenugreek Seeds",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#6b5a2e,#a08b4a)",
+        "img": "images/images/methiseeds.webp",
+        "aroma": "Clean Bittersweet · Roasted Aroma"
+      },
+      {
+        "n": "MUSTARD SEEDS",
+        "hsn": "12075010",
+        "o": "Single Origin",
+        "g": "Black Mustard Seeds",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#1a1a2a,#3a3a5a)",
+        "img": "images/images/mustardseeds.webp",
+        "aroma": "Sharp Sinigrin Pungency · Crisp Tempering Pop"
+      },
+      {
+        "n": "NIGELLA (BLACK SEED)",
+        "hsn": "12099930",
+        "o": "Single Origin",
+        "g": "Kalonji / Black Seed",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#1a1a1a,#383838)",
+        "img": "images/images/nigella.webp",
+        "aroma": "Oregano Onion Toast · Thymoquinone Note"
+      },
+      {
+        "n": "WHITE ELLU (SESAME)",
+        "hsn": "12074090",
+        "o": "Single Origin",
+        "g": "Triple-Cleaned White Sesame",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#c8c0a0,#e8e0c8)",
+        "img": "images/images/whiteellu.webp",
+        "aroma": "Clean Hull · Rich Sesame Oil Fragrance"
+      },
+      {
+        "n": "SABJA SEEDS",
+        "hsn": "12119094",
+        "o": "Single Origin",
+        "g": "Sweet Basil Seeds",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2d3a1e,#4a6b3d)",
+        "img": "images/images/sabjaseeds.webp",
+        "aroma": "Rapid Bloom Gel · Cooling Summer Herb"
+      },
+      {
+        "n": "CHIA SEEDS",
+        "hsn": "12149000",
+        "o": "Single Origin",
+        "g": "Premium Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2d2d3a,#4a4a6a)",
+        "img": "images/images/Chiaseeds.webp",
+        "aroma": "Mild Nutty · High Soluble Fiber"
+      },
+      {
+        "n": "PUMPKIN SEEDS",
+        "hsn": "12099990",
+        "o": "Single Origin",
+        "g": "Hulled Pepitas",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#3a5a10,#6a8a30)",
+        "img": "images/images/pumpkinseeds.webp",
+        "aroma": "Crisp Raw Pepitas · Fresh Harvest"
+      },
+      {
+        "n": "SUNFLOWER SEEDS",
+        "hsn": "12060090",
+        "o": "Single Origin",
+        "g": "Hulled Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#9a7800,#d4b000)",
+        "img": "images/images/sunflowerseeds.webp",
+        "aroma": "Tender Raw Kernels · Delicate Nutty"
+      },
+      {
+        "n": "WATERMELON SEEDS",
+        "hsn": "12099990",
+        "o": "Single Origin",
+        "g": "Dried Magaz Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2a4a18,#5a8a38)",
+        "img": "images/images/watermelonseeds.webp",
+        "aroma": "Mild Creamy Magaz · Rich Gravy Base"
+      },
+      {
+        "n": "GROUNDNUT SEEDS",
+        "hsn": "12024190",
+        "o": "Single Origin",
+        "g": "Selected Raw Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#8a6e30,#c4a050)",
+        "img": "images/images/Groundnutseeds.webp",
+        "aroma": "Rich Raw Peanut · High Oil Grade"
+      },
+      {
+        "n": "ROASTED PEANUT",
+        "hsn": "20081111",
+        "o": "Single Origin",
+        "g": "Dry Roasted Peanut",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#8a4a18,#c47838)",
+        "img": "images/images/roastedpeanut.webp",
+        "aroma": "Golden Roast · Crunchy Texture"
+      },
+      {
+        "n": "DRY ROSE PETALS",
+        "hsn": "12119094",
+        "o": "Single Origin",
+        "g": "Culinary Grade Damascena",
+        "s": [
+          "1kg",
+          "5kg",
+          "10kg"
+        ],
+        "bg": "linear-gradient(135deg,#8a2040,#c05070)",
+        "img": "images/images/dryrosepetals.webp",
+        "aroma": "Delicate Damascena Rose · Floral Note"
+      }
     ];
 
     var DRY = [
-      { n: 'BADAM (ALMONDS)', hsn: '08021100', o: 'Single Origin', g: 'Premium Almonds', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a5a18,#c49040)', img: 'images/images/almonds.webp', aroma: 'Sweet Raw Almond · High Natural Vitamin E' },
-      { n: 'CASHEWNUT', hsn: '080131', o: 'Single Origin', g: 'W320 Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#8a6e30,#c4a050)', img: 'images/images/cashewnut.webp', aroma: 'Rich Sweet Cream · Crisp Whole Kernels (320 Count)' },
-      { n: 'DATES (PREMIUM)', hsn: '08041020', o: 'Single Origin', g: 'Selected Whole Dates', s: ['1kg', '5kg', '10kg+'], bg: 'linear-gradient(135deg,#4a1a0e,#8a3020)', img: 'images/images/dates.webp', aroma: 'Rich Caramel · Natural Fructose · Plump Fruit' },
-      { n: 'FIG (ANJEER)', hsn: '08042090', o: 'Single Origin', g: 'Dried Whole Figs', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#8a6a50,#c4a880)', img: 'images/images/figanjeer.webp', aroma: 'Chewy Sun-Dried Fig · Crunchy Seeds' },
-      { n: 'KISMISS (RAISINS)', hsn: '08062010', o: 'Single Origin', g: 'Seedless Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#4a1830,#8a3860)', img: 'images/images/kismiss.webp', aroma: 'Golden Sweetness · Tart Citrus Undertone' },
-      { n: 'BLACK KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Black Currant Raisins', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a0838,#5a1870)', img: 'images/images/blackkismiss.webp', aroma: 'Deep Rich Currant · Anthocyanin Rich' },
-      { n: 'SPECIAL KISMISS', hsn: '08062090', o: 'Single Origin', g: 'Premium Select Grade', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#5a2860,#9a4880)', img: 'images/images/specialkismiss.webp', aroma: 'Plump Select Sun-Dried Green Grapes' },
-      { n: 'PISTA (PISTACHIOS)', hsn: '08025100', o: 'Single Origin', g: 'Premium Pistachios', s: ['1kg', '5kg', '25kg'], bg: 'linear-gradient(135deg,#2a4a18,#5a8a38)', img: 'images/images/pista.webp', aroma: 'Light Salt Roast · Vivid Green Kernel' },
-      { n: 'WALNUT', hsn: '08023200', o: 'Single Origin', g: 'Halves Grade', s: ['1kg', '5kg', '25kg+'], bg: 'linear-gradient(135deg,#4a2a10,#8a5028)', img: 'images/images/walnut.webp', aroma: 'Crisp Half Kernels · High Omega-3 Fatty Acids' }
+      {
+        "n": "BADAM (ALMONDS)",
+        "hsn": "08021100",
+        "o": "Single Origin",
+        "g": "Premium Raw Almonds",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#8a5a18,#c49040)",
+        "img": "images/images/almonds.webp",
+        "aroma": "Sweet Raw Almond · High Natural Vitamin E"
+      },
+      {
+        "n": "CASHEWNUT",
+        "hsn": "080131",
+        "o": "Single Origin",
+        "g": "W320 Jumbo Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#8a6e30,#c4a050)",
+        "img": "images/images/cashewnut.webp",
+        "aroma": "Rich Sweet Cream · Crisp Whole Kernels (320 Count)"
+      },
+      {
+        "n": "DATES (PREMIUM)",
+        "hsn": "08041020",
+        "o": "Single Origin",
+        "g": "Selected Whole Dates",
+        "s": [
+          "1kg",
+          "5kg",
+          "10kg+"
+        ],
+        "bg": "linear-gradient(135deg,#4a1a0e,#8a3020)",
+        "img": "images/images/dates.webp",
+        "aroma": "Rich Caramel · Natural Fructose · Plump Fruit"
+      },
+      {
+        "n": "FIG (ANJEER)",
+        "hsn": "08042090",
+        "o": "Single Origin",
+        "g": "Dried Whole Royal Figs",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#8a6a50,#c4a880)",
+        "img": "images/images/figanjeer.webp",
+        "aroma": "Chewy Sun-Dried Fig · Crunchy Seeds"
+      },
+      {
+        "n": "KISMISS (RAISINS)",
+        "hsn": "08062010",
+        "o": "Single Origin",
+        "g": "Golden Seedless Raisins",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#4a1830,#8a3860)",
+        "img": "images/images/kismiss.webp",
+        "aroma": "Golden Sweetness · Tart Citrus Undertone"
+      },
+      {
+        "n": "BLACK KISMISS",
+        "hsn": "08062090",
+        "o": "Single Origin",
+        "g": "Black Currant Raisins",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2a0838,#5a1870)",
+        "img": "images/images/blackkismiss.webp",
+        "aroma": "Deep Rich Currant · Anthocyanin Rich"
+      },
+      {
+        "n": "SPECIAL KISMISS",
+        "hsn": "08062090",
+        "o": "Single Origin",
+        "g": "Premium Select Green Raisins",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#5a2860,#9a4880)",
+        "img": "images/images/specialkismiss.webp",
+        "aroma": "Plump Select Sun-Dried Green Grapes"
+      },
+      {
+        "n": "PISTA (PISTACHIOS)",
+        "hsn": "08025100",
+        "o": "Single Origin",
+        "g": "Premium Roasted & Salted",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg"
+        ],
+        "bg": "linear-gradient(135deg,#2a4a18,#5a8a38)",
+        "img": "images/images/pista.webp",
+        "aroma": "Light Salt Roast · Vivid Green Kernel"
+      },
+      {
+        "n": "WALNUT",
+        "hsn": "08023200",
+        "o": "Single Origin",
+        "g": "Selected Halves Grade",
+        "s": [
+          "1kg",
+          "5kg",
+          "25kg+"
+        ],
+        "bg": "linear-gradient(135deg,#4a2a10,#8a5028)",
+        "img": "images/images/walnut.webp",
+        "aroma": "Crisp Half Kernels · High Omega-3 Fatty Acids"
+      }
     ];
 
     var trayItems = [];
@@ -894,7 +1589,7 @@
       var d = document.createElement('div');
       d.className = 'product-card';
       d.dataset.name = p.n.toLowerCase();
-      var inTray = trayItems.some(function(item){ return item.n === p.n; });
+      var inTray = trayItems.some(function (item) { return item.n === p.n; });
       var btnText = inTray ? '✓ In Sample Tray' : '+ Add to Tray';
       var btnClass = inTray ? 'product-card-add added' : 'product-card-add';
       var imgHtml = p.img ?
@@ -928,8 +1623,14 @@
 
     var spicesRow = document.getElementById('spicesRow');
     var dryRow = document.getElementById('dryRow');
-    SPICES.forEach(function (p) { spicesRow.appendChild(makeCard(p)); });
-    DRY.forEach(function (p) { dryRow.appendChild(makeCard(p)); });
+    if (spicesRow) {
+      spicesRow.innerHTML = '';
+      SPICES.forEach(function (p) { spicesRow.appendChild(makeCard(p)); });
+    }
+    if (dryRow) {
+      dryRow.innerHTML = '';
+      DRY.forEach(function (p) { dryRow.appendChild(makeCard(p)); });
+    }
 
     function scrollRow(id, dir) {
       var row = document.getElementById(id);
@@ -940,226 +1641,1144 @@
     }
 
     var CAT_MULTILINGUAL = {
-      // Cinnamon / Cassia / Pattai
-      'karuvapatta': ['cinnamon', 'cassia', 'pattai', 'kesia'],
-      'karuvapetta': ['cinnamon', 'cassia', 'pattai', 'kesia'],
-      'karuvapattai': ['cinnamon', 'cassia', 'pattai', 'kesia'],
-      'pattai': ['cinnamon', 'cassia', 'pattai'],
-      'dalchini': ['cinnamon', 'cassia', 'pattai'],
-      'darchini': ['cinnamon', 'cassia', 'pattai'],
-      'kesia': ['cassia', 'cinnamon'],
-      'cassia': ['cassia', 'cinnamon'],
-      'lavangapatta': ['cinnamon', 'pattai'],
-      'dalchina chekka': ['cinnamon'],
-      'chakke': ['cinnamon'],
-
-      // Black & White Pepper
-      'kurumulaku': ['pepper', 'black pepper'],
-      'kurmulaku': ['pepper', 'black pepper'],
-      'nallamulaku': ['pepper', 'black pepper'],
-      'milagu': ['pepper', 'black pepper'],
-      'karuppu milagu': ['pepper', 'black pepper'],
-      'kali mirch': ['pepper', 'black pepper'],
-      'kalimirch': ['pepper', 'black pepper'],
-      'golki': ['pepper', 'black pepper'],
-      'miriyalu': ['pepper', 'black pepper'],
-      'mriyalu': ['pepper', 'black pepper'],
-      'kari menasu': ['pepper', 'black pepper'],
-      'safed mirch': ['white pepper'],
-      'vellai milagu': ['white pepper'],
-      'velutha kurumulaku': ['white pepper'],
-
-      // Cardamom
-      'elakkaya': ['cardamom'],
-      'elakkai': ['cardamom'],
-      'elam': ['cardamom'],
-      'elaichi': ['cardamom'],
-      'hari elaichi': ['cardamom'],
-      'safed elaichi': ['cardamom', 'white cardamom'],
-      'velutha elakkaya': ['white cardamom'],
-      'vellai elakkai': ['white cardamom'],
-      'badi elaichi': ['black cardamom'],
-      'moti elaichi': ['black cardamom'],
-      'periya elakkai': ['black cardamom'],
-      'valiya elakkaya': ['black cardamom'],
-      'yalukalu': ['cardamom'],
-      'yelakulu': ['cardamom'],
-      'elakki': ['cardamom'],
-
-      // Cloves
-      'grampoo': ['cloves'],
-      'krambu': ['cloves'],
-      'karambu': ['cloves'],
-      'kirambu': ['cloves'],
-      'lavangam': ['cloves'],
-      'laung': ['cloves'],
-      'lavang': ['cloves'],
-      'lavangalu': ['cloves'],
-      'lavanga': ['cloves'],
-
-      // Star Anise
-      'thakkolam': ['annachipoo', 'star anise'],
-      'takkolam': ['annachipoo', 'star anise'],
-      'annachipoo': ['annachipoo', 'star anise'],
-      'anasipoo': ['annachipoo', 'star anise'],
-      'chakri phool': ['annachipoo', 'star anise'],
-      'chakra phool': ['annachipoo', 'star anise'],
-      'anasphal': ['annachipoo', 'star anise'],
-      'anasa puvvu': ['annachipoo', 'star anise'],
-      'biryani puvvu': ['annachipoo', 'star anise'],
-      'chakra moggu': ['annachipoo', 'star anise'],
-
-      // Turmeric
-      'manjal': ['turmeric'],
-      'manjal podi': ['turmeric'],
-      'haldi': ['turmeric'],
-      'pasupu': ['turmeric'],
-      'arishina': ['turmeric'],
-
-      // Cumin
-      'jeerakam': ['jeera', 'cumin'],
-      'nalla jeerakam': ['jeera'],
-      'seeragam': ['jeera'],
-      'zeera': ['jeera'],
-      'shahi jeera': ['valyajeerakam', 'shahi jeera'],
-      'shahijeera': ['valyajeerakam', 'shahi jeera'],
-      'valyajeerakam': ['valyajeerakam'],
-      'jeelakarra': ['jeera'],
-      'jeerige': ['jeera'],
-
-      // Fennel
-      'perumjeerakam': ['fennel', 'sombu'],
-      'perunjeerakam': ['fennel', 'sombu'],
-      'sombu': ['fennel', 'sombu'],
-      'saunf': ['fennel', 'sombu'],
-      'sonf': ['fennel', 'sombu'],
-      'sopu': ['fennel', 'sombu'],
-      'sompu': ['fennel', 'sombu'],
-
-      // Mace
-      'jathipathri': ['javantri', 'mace'],
-      'jathipoov': ['javantri', 'mace'],
-      'javitri': ['javantri', 'mace'],
-      'vasavasi': ['javantri', 'mace'],
-      'japatri': ['javantri', 'mace'],
-
-      // Nutmeg
-      'jathikka': ['jaifal', 'nutmeg'],
-      'jathika': ['jaifal', 'nutmeg'],
-      'jathikai': ['jaifal', 'nutmeg'],
-      'jaiphal': ['jaifal', 'nutmeg'],
-      'jajikaya': ['jaifal', 'nutmeg'],
-      'jajikayi': ['jaifal', 'nutmeg'],
-
-      // Bay Leaf
-      'vayana ila': ['biryani leaf', 'bay leaf'],
-      'biryani ila': ['biryani leaf', 'bay leaf'],
-      'biryani ilai': ['biryani leaf', 'bay leaf'],
-      'tejpatta': ['biryani leaf', 'bay leaf'],
-      'tej patta': ['biryani leaf', 'bay leaf'],
-      'biryani aaku': ['biryani leaf'],
-
-      // Stone Flower
-      'marappasi': ['kalpasi', 'stone flower'],
-      'dagad phool': ['kalpasi', 'stone flower'],
-      'patthar phool': ['kalpasi', 'stone flower'],
-      'pathar phool': ['kalpasi', 'stone flower'],
-
-      // Fenugreek
-      'uluva': ['methi', 'kasuri methi'],
-      'vendhayam': ['methi'],
-      'venthayam': ['methi'],
-      'menthulu': ['methi'],
-      'kasoori methi': ['kasuri methi'],
-
-      // Mustard
-      'kaduku': ['mustard'],
-      'kadugu': ['mustard'],
-      'sarson': ['mustard'],
-      'rai': ['mustard'],
-      'aavalu': ['mustard'],
-      'sasive': ['mustard'],
-
-      // Ginger
-      'chukku': ['ginger'],
-      'sukku': ['ginger'],
-      'sonth': ['ginger'],
-      'saunth': ['ginger'],
-      'inji': ['ginger'],
-      'adrak': ['ginger'],
-      'allam': ['ginger'],
-      'sonti': ['ginger'],
-      'shunti': ['ginger'],
-
-      // Coriander
-      'malli': ['coriander'],
-      'kothamalli': ['coriander'],
-      'dhaniya': ['coriander'],
-      'dhania': ['coriander'],
-      'dhaniyalu': ['coriander'],
-      'kothambari': ['coriander'],
-
-      // Chilli
-      'vattal mulaku': ['chilly', 'kashmiri', 'guntur'],
-      'chuvanna mulaku': ['chilly', 'kashmiri', 'guntur'],
-      'piriyan mulaku': ['kashmiri'],
-      'vara milagai': ['chilly', 'guntur', 'kashmiri'],
-      'lal mirch': ['chilly', 'kashmiri', 'guntur'],
-      'degi mirch': ['kashmiri'],
-
-      // Nigella
-      'karinjeerakam': ['nigella'],
-      'karunjeeragam': ['nigella'],
-      'kalonji': ['nigella'],
-
-      // Sesame
-      'ellu': ['white ellu', 'sesame'],
-      'til': ['white ellu', 'sesame'],
-      'safed til': ['white ellu', 'sesame'],
-      'nuvvulu': ['white ellu', 'sesame'],
-
-      // Nuts & Dry fruits
-      'kashuvandi': ['cashewnut'],
-      'andipparippu': ['cashewnut'],
-      'mundhiri': ['cashewnut'],
-      'kaju': ['cashewnut'],
-      'jeedipappu': ['cashewnut'],
-      'godambi': ['cashewnut'],
-
-      'badam': ['badam'],
-      'baadam': ['badam'],
-      'almonds': ['badam'],
-      'badami': ['badam'],
-
-      'pista': ['pista'],
-      'pistha': ['pista'],
-
-      'akhrot': ['walnut'],
-      'akrot': ['walnut'],
-
-      'munthiringa': ['kismiss'],
-      'unakka munthiri': ['kismiss'],
-      'ular thiratchai': ['kismiss'],
-      'kishmish': ['kismiss'],
-      'munakka': ['kismiss'],
-
-      'eenthapazham': ['dates'],
-      'pericham pazham': ['dates'],
-      'khajoor': ['dates'],
-      'khajur': ['dates'],
-
-      'athipazham': ['fig'],
-      'athi pazham': ['fig'],
-      'anjeer': ['fig'],
-      'anjir': ['fig']
+      "pepper": [
+        "black pepper",
+        "pepper powder",
+        "white pepper powder"
+      ],
+      "black pepper": [
+        "black pepper",
+        "pepper powder",
+        "white pepper powder"
+      ],
+      "pepper powder": [
+        "pepper powder"
+      ],
+      "white pepper": [
+        "white pepper powder"
+      ],
+      "kurumulaku": [
+        "black pepper",
+        "pepper powder"
+      ],
+      "kurumolaku": [
+        "black pepper",
+        "pepper powder"
+      ],
+      "kurmulaku": [
+        "black pepper",
+        "pepper powder"
+      ],
+      "milagu": [
+        "black pepper",
+        "pepper powder"
+      ],
+      "karuppu milagu": [
+        "black pepper"
+      ],
+      "kali mirch": [
+        "black pepper",
+        "pepper powder"
+      ],
+      "kalimirch": [
+        "black pepper",
+        "pepper powder"
+      ],
+      "golki": [
+        "black pepper"
+      ],
+      "gol mirch": [
+        "black pepper"
+      ],
+      "kari menasu": [
+        "black pepper"
+      ],
+      "karimenasu": [
+        "black pepper"
+      ],
+      "miriyalu": [
+        "black pepper",
+        "pepper powder"
+      ],
+      "nalla miriyalu": [
+        "black pepper"
+      ],
+      "safed mirch": [
+        "white pepper powder"
+      ],
+      "vellai milagu": [
+        "white pepper powder"
+      ],
+      "vella kurumulaku": [
+        "white pepper powder"
+      ],
+      "tella miriyalu": [
+        "white pepper powder"
+      ],
+      "bili menasu": [
+        "white pepper powder"
+      ],
+      "turmeric": [
+        "turmeric powder"
+      ],
+      "turmeric powder": [
+        "turmeric powder"
+      ],
+      "haldi": [
+        "turmeric powder"
+      ],
+      "haldi powder": [
+        "turmeric powder"
+      ],
+      "manjal": [
+        "turmeric powder"
+      ],
+      "manjal podi": [
+        "turmeric powder"
+      ],
+      "manjalppodi": [
+        "turmeric powder"
+      ],
+      "manjal thool": [
+        "turmeric powder"
+      ],
+      "pasupu": [
+        "turmeric powder"
+      ],
+      "pasupu podi": [
+        "turmeric powder"
+      ],
+      "arishina": [
+        "turmeric powder"
+      ],
+      "arishina pudi": [
+        "turmeric powder"
+      ],
+      "curcumin": [
+        "turmeric powder"
+      ],
+      "chilly": [
+        "kashmiri chilly",
+        "guntur chilly"
+      ],
+      "chilli": [
+        "kashmiri chilly",
+        "guntur chilly"
+      ],
+      "kashmiri": [
+        "kashmiri chilly"
+      ],
+      "kashmiri chilly": [
+        "kashmiri chilly"
+      ],
+      "kashmiri chilli": [
+        "kashmiri chilly"
+      ],
+      "kashmiri mulaku": [
+        "kashmiri chilly"
+      ],
+      "piriyan mulaku": [
+        "kashmiri chilly"
+      ],
+      "kashmiri milagai": [
+        "kashmiri chilly"
+      ],
+      "kashmiri menasinakai": [
+        "kashmiri chilly"
+      ],
+      "kashmiri mirapakaya": [
+        "kashmiri chilly"
+      ],
+      "kashmiri mirch": [
+        "kashmiri chilly"
+      ],
+      "degi mirch": [
+        "kashmiri chilly"
+      ],
+      "byadgi": [
+        "kashmiri chilly"
+      ],
+      "guntur": [
+        "guntur chilly"
+      ],
+      "guntur chilly": [
+        "guntur chilly"
+      ],
+      "guntur chilli": [
+        "guntur chilly"
+      ],
+      "guntur mulaku": [
+        "guntur chilly"
+      ],
+      "guntur milagai": [
+        "guntur chilly"
+      ],
+      "guntur menasinakai": [
+        "guntur chilly"
+      ],
+      "guntur mirapakaya": [
+        "guntur chilly"
+      ],
+      "guntur mirch": [
+        "guntur chilly"
+      ],
+      "vattal mulaku": [
+        "kashmiri chilly",
+        "guntur chilly"
+      ],
+      "vara milagai": [
+        "kashmiri chilly",
+        "guntur chilly"
+      ],
+      "lal mirch": [
+        "kashmiri chilly",
+        "guntur chilly"
+      ],
+      "cardamom": [
+        "green cardamom",
+        "black cardamom",
+        "white cardamom"
+      ],
+      "green cardamom": [
+        "green cardamom"
+      ],
+      "elaka": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "elakka": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "elakkaya": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "elakkai": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "elakai": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "yelakkai": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "elakki": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "yalakki": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "yakki": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "yelakulu": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "yalukalu": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "elakulu": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "elaichi": [
+        "green cardamom",
+        "cardamom"
+      ],
+      "chhoti elaichi": [
+        "green cardamom"
+      ],
+      "choti elaichi": [
+        "green cardamom"
+      ],
+      "hari elaichi": [
+        "green cardamom"
+      ],
+      "velchi": [
+        "green cardamom"
+      ],
+      "elam": [
+        "green cardamom"
+      ],
+      "black cardamom": [
+        "black cardamom"
+      ],
+      "valiya elakka": [
+        "black cardamom"
+      ],
+      "karuppu elakkai": [
+        "black cardamom"
+      ],
+      "kappu yakki": [
+        "black cardamom"
+      ],
+      "kappu elakki": [
+        "black cardamom"
+      ],
+      "nalla yelakulu": [
+        "black cardamom"
+      ],
+      "badi elaichi": [
+        "black cardamom"
+      ],
+      "moti elaichi": [
+        "black cardamom"
+      ],
+      "kali elaichi": [
+        "black cardamom"
+      ],
+      "white cardamom": [
+        "white cardamom"
+      ],
+      "vella elakka": [
+        "white cardamom"
+      ],
+      "velutha elakkaya": [
+        "white cardamom"
+      ],
+      "vellai elakkai": [
+        "white cardamom"
+      ],
+      "bella yakki": [
+        "white cardamom"
+      ],
+      "bili elakki": [
+        "white cardamom"
+      ],
+      "tella yelakulu": [
+        "white cardamom"
+      ],
+      "safed elaichi": [
+        "white cardamom"
+      ],
+      "ginger": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "dry ginger": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "chukku": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "sukku": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "shonthi": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "shunti": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "ona shunti": [
+        "dry ginger (whole)"
+      ],
+      "sonti": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "sonth": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "saunth": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "adrak": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "inji": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "allam": [
+        "dry ginger (whole)",
+        "dry ginger powder"
+      ],
+      "chukkupodi": [
+        "dry ginger powder"
+      ],
+      "sukku thool": [
+        "dry ginger powder"
+      ],
+      "sonth powder": [
+        "dry ginger powder"
+      ],
+      "coriander": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "coriander whole": [
+        "coriander whole"
+      ],
+      "coriander powder": [
+        "coriander powder"
+      ],
+      "malli": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "kothamalli": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "kothambari": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "dhaniyalu": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "daniyalu": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "dhaniya": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "dhania": [
+        "coriander whole",
+        "coriander powder"
+      ],
+      "malli podi": [
+        "coriander powder"
+      ],
+      "dhaniya powder": [
+        "coriander powder"
+      ],
+      "jeera": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "cumin": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "jeerakam": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "nalla jeerakam": [
+        "jeera whole"
+      ],
+      "seeragam": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "jeeragam": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "jeerige": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "jeelakarra": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "jilakarra": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "zeera": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "jira": [
+        "jeera whole",
+        "jeera powder"
+      ],
+      "jeera powder": [
+        "jeera powder"
+      ],
+      "jeeraka podi": [
+        "jeera powder"
+      ],
+      "seeraga thool": [
+        "jeera powder"
+      ],
+      "shahi jeera": [
+        "valyajeerakam"
+      ],
+      "shahijeera": [
+        "valyajeerakam"
+      ],
+      "valyajeerakam": [
+        "valyajeerakam"
+      ],
+      "valiya jeerakam": [
+        "valyajeerakam"
+      ],
+      "black cumin": [
+        "valyajeerakam"
+      ],
+      "royal cumin": [
+        "valyajeerakam"
+      ],
+      "shahi seeragam": [
+        "valyajeerakam"
+      ],
+      "kala jeera": [
+        "valyajeerakam"
+      ],
+      "sahajira": [
+        "valyajeerakam"
+      ],
+      "annachipoo": [
+        "annachipoo"
+      ],
+      "star anise": [
+        "annachipoo"
+      ],
+      "star aniseed": [
+        "annachipoo"
+      ],
+      "thakkolam": [
+        "annachipoo"
+      ],
+      "takkolam": [
+        "annachipoo"
+      ],
+      "annashipoo": [
+        "annachipoo"
+      ],
+      "anasipoo": [
+        "annachipoo"
+      ],
+      "anasavu": [
+        "annachipoo"
+      ],
+      "chakra moggu": [
+        "annachipoo"
+      ],
+      "anasa poovu": [
+        "annachipoo"
+      ],
+      "anasa puvvu": [
+        "annachipoo"
+      ],
+      "biryani puvvu": [
+        "annachipoo"
+      ],
+      "chakra phool": [
+        "annachipoo"
+      ],
+      "chakri phool": [
+        "annachipoo"
+      ],
+      "star phool": [
+        "annachipoo"
+      ],
+      "anasphal": [
+        "annachipoo"
+      ],
+      "badian": [
+        "annachipoo"
+      ],
+      "cloves": [
+        "cloves"
+      ],
+      "clove": [
+        "cloves"
+      ],
+      "gramboo": [
+        "cloves"
+      ],
+      "grampoo": [
+        "cloves"
+      ],
+      "karayamboo": [
+        "cloves"
+      ],
+      "krambu": [
+        "cloves"
+      ],
+      "kirambu": [
+        "cloves"
+      ],
+      "karambu": [
+        "cloves"
+      ],
+      "lavanga": [
+        "cloves"
+      ],
+      "lavangalu": [
+        "cloves"
+      ],
+      "lavangam": [
+        "cloves"
+      ],
+      "laung": [
+        "cloves"
+      ],
+      "lavang": [
+        "cloves"
+      ],
+      "long": [
+        "cloves"
+      ],
+      "cinnamon": [
+        "pattai (cinnamon)",
+        "cassia (kesia)"
+      ],
+      "pattai": [
+        "pattai (cinnamon)",
+        "cassia (kesia)"
+      ],
+      "true cinnamon": [
+        "pattai (cinnamon)"
+      ],
+      "ceylon cinnamon": [
+        "pattai (cinnamon)"
+      ],
+      "karuvapatta": [
+        "cassia (kesia)",
+        "pattai (cinnamon)"
+      ],
+      "karuvappatta": [
+        "cassia (kesia)",
+        "pattai (cinnamon)"
+      ],
+      "karuvapattai": [
+        "pattai (cinnamon)",
+        "cassia (kesia)"
+      ],
+      "elavangam": [
+        "pattai (cinnamon)"
+      ],
+      "patta": [
+        "pattai (cinnamon)"
+      ],
+      "chakke": [
+        "pattai (cinnamon)"
+      ],
+      "dalchini": [
+        "pattai (cinnamon)",
+        "cassia (kesia)"
+      ],
+      "darchini": [
+        "pattai (cinnamon)",
+        "cassia (kesia)"
+      ],
+      "cassia": [
+        "cassia (kesia)"
+      ],
+      "kesia": [
+        "cassia (kesia)"
+      ],
+      "dachinni": [
+        "cassia (kesia)"
+      ],
+      "dalchina chekka": [
+        "pattai (cinnamon)",
+        "cassia (kesia)"
+      ],
+      "sombu": [
+        "sombu (fennel)"
+      ],
+      "fennel": [
+        "sombu (fennel)"
+      ],
+      "fennel seeds": [
+        "sombu (fennel)"
+      ],
+      "perumjeerakam": [
+        "sombu (fennel)"
+      ],
+      "perunjeerakam": [
+        "sombu (fennel)"
+      ],
+      "perunjeeragam": [
+        "sombu (fennel)"
+      ],
+      "baddisheppu": [
+        "sombu (fennel)"
+      ],
+      "sompu": [
+        "sombu (fennel)"
+      ],
+      "sopu": [
+        "sombu (fennel)"
+      ],
+      "pedda jeelakarra": [
+        "sombu (fennel)"
+      ],
+      "saunf": [
+        "sombu (fennel)"
+      ],
+      "sonf": [
+        "sombu (fennel)"
+      ],
+      "badishep": [
+        "sombu (fennel)"
+      ],
+      "jaifal": [
+        "jaifal"
+      ],
+      "nutmeg": [
+        "jaifal"
+      ],
+      "jaiphal": [
+        "jaifal"
+      ],
+      "jathikka": [
+        "jaifal"
+      ],
+      "jathika": [
+        "jaifal"
+      ],
+      "jadhikkai": [
+        "jaifal"
+      ],
+      "jathikkai": [
+        "jaifal"
+      ],
+      "jajikai": [
+        "jaifal"
+      ],
+      "jajikaya": [
+        "jaifal"
+      ],
+      "javantri": [
+        "javantri"
+      ],
+      "mace": [
+        "javantri"
+      ],
+      "javitri": [
+        "javantri"
+      ],
+      "jathipathri": [
+        "javantri"
+      ],
+      "jathipoov": [
+        "javantri"
+      ],
+      "jadhipathri": [
+        "javantri"
+      ],
+      "vasavasi": [
+        "javantri"
+      ],
+      "japatri": [
+        "javantri"
+      ],
+      "biryani leaf": [
+        "biryani leaf"
+      ],
+      "bay leaf": [
+        "biryani leaf"
+      ],
+      "biryani ila": [
+        "biryani leaf"
+      ],
+      "vayana ila": [
+        "biryani leaf"
+      ],
+      "biryani ilai": [
+        "biryani leaf"
+      ],
+      "brinji ilai": [
+        "biryani leaf"
+      ],
+      "biryani ele": [
+        "biryani leaf"
+      ],
+      "biryani aaku": [
+        "biryani leaf"
+      ],
+      "tej patta": [
+        "biryani leaf"
+      ],
+      "tejpatta": [
+        "biryani leaf"
+      ],
+      "kalpasi": [
+        "kalpasi"
+      ],
+      "stone flower": [
+        "kalpasi"
+      ],
+      "marappasi": [
+        "kalpasi"
+      ],
+      "kalluhuvu": [
+        "kalpasi"
+      ],
+      "rathi poovu": [
+        "kalpasi"
+      ],
+      "dagad phool": [
+        "kalpasi"
+      ],
+      "patthar ke phool": [
+        "kalpasi"
+      ],
+      "kasuri methi": [
+        "kasuri methi"
+      ],
+      "kasoori methi": [
+        "kasuri methi"
+      ],
+      "methi seeds": [
+        "methi seeds"
+      ],
+      "methi": [
+        "methi seeds",
+        "kasuri methi"
+      ],
+      "fenugreek": [
+        "methi seeds",
+        "kasuri methi"
+      ],
+      "uluva": [
+        "methi seeds",
+        "kasuri methi"
+      ],
+      "vendhayam": [
+        "methi seeds"
+      ],
+      "venthayam": [
+        "methi seeds"
+      ],
+      "menthya": [
+        "methi seeds"
+      ],
+      "menthulu": [
+        "methi seeds"
+      ],
+      "mustard": [
+        "mustard seeds"
+      ],
+      "mustard seeds": [
+        "mustard seeds"
+      ],
+      "kadugu": [
+        "mustard seeds"
+      ],
+      "kaduku": [
+        "mustard seeds"
+      ],
+      "sasive": [
+        "mustard seeds"
+      ],
+      "avalu": [
+        "mustard seeds"
+      ],
+      "aavalu": [
+        "mustard seeds"
+      ],
+      "rai": [
+        "mustard seeds"
+      ],
+      "sarson": [
+        "mustard seeds"
+      ],
+      "nigella": [
+        "nigella (black seed)"
+      ],
+      "kalonji": [
+        "nigella (black seed)"
+      ],
+      "black seed": [
+        "nigella (black seed)"
+      ],
+      "karinjeerakam": [
+        "nigella (black seed)"
+      ],
+      "karimjeerakam": [
+        "nigella (black seed)"
+      ],
+      "karunjeeragam": [
+        "nigella (black seed)"
+      ],
+      "kari jeerige": [
+        "nigella (black seed)"
+      ],
+      "nalla jeelakarra": [
+        "nigella (black seed)"
+      ],
+      "white ellu": [
+        "white ellu (sesame)"
+      ],
+      "sesame": [
+        "white ellu (sesame)"
+      ],
+      "sesame seeds": [
+        "white ellu (sesame)"
+      ],
+      "ellu": [
+        "white ellu (sesame)"
+      ],
+      "vella ellu": [
+        "white ellu (sesame)"
+      ],
+      "vellai ellu": [
+        "white ellu (sesame)"
+      ],
+      "bella ellu": [
+        "white ellu (sesame)"
+      ],
+      "bili ellu": [
+        "white ellu (sesame)"
+      ],
+      "tella nuvvulu": [
+        "white ellu (sesame)"
+      ],
+      "nuvvulu": [
+        "white ellu (sesame)"
+      ],
+      "safed til": [
+        "white ellu (sesame)"
+      ],
+      "til": [
+        "white ellu (sesame)"
+      ],
+      "sabja": [
+        "sabja seeds"
+      ],
+      "sabja seeds": [
+        "sabja seeds"
+      ],
+      "sweet basil seeds": [
+        "sabja seeds"
+      ],
+      "falooda seeds": [
+        "sabja seeds"
+      ],
+      "chia": [
+        "chia seeds"
+      ],
+      "chia seeds": [
+        "chia seeds"
+      ],
+      "pumpkin seeds": [
+        "pumpkin seeds"
+      ],
+      "pepitas": [
+        "pumpkin seeds"
+      ],
+      "sunflower seeds": [
+        "sunflower seeds"
+      ],
+      "watermelon seeds": [
+        "watermelon seeds"
+      ],
+      "magaz": [
+        "watermelon seeds"
+      ],
+      "char magaz": [
+        "watermelon seeds"
+      ],
+      "peanut": [
+        "groundnut seeds",
+        "roasted peanut"
+      ],
+      "groundnut": [
+        "groundnut seeds"
+      ],
+      "roasted peanut": [
+        "roasted peanut"
+      ],
+      "nilakkadala": [
+        "groundnut seeds",
+        "roasted peanut"
+      ],
+      "kappalandi": [
+        "groundnut seeds",
+        "roasted peanut"
+      ],
+      "verkadalai": [
+        "groundnut seeds",
+        "roasted peanut"
+      ],
+      "moongphali": [
+        "groundnut seeds",
+        "roasted peanut"
+      ],
+      "rose petals": [
+        "dry rose petals"
+      ],
+      "dry rose petals": [
+        "dry rose petals"
+      ],
+      "gulab patti": [
+        "dry rose petals"
+      ],
+      "badam": [
+        "badam (almonds)"
+      ],
+      "baadam": [
+        "badam (almonds)"
+      ],
+      "almond": [
+        "badam (almonds)"
+      ],
+      "almonds": [
+        "badam (almonds)"
+      ],
+      "badami": [
+        "badam (almonds)"
+      ],
+      "cashew": [
+        "cashewnut"
+      ],
+      "cashewnut": [
+        "cashewnut"
+      ],
+      "kaju": [
+        "cashewnut"
+      ],
+      "andipparippu": [
+        "cashewnut"
+      ],
+      "kashuvandi": [
+        "cashewnut"
+      ],
+      "munthiri": [
+        "cashewnut"
+      ],
+      "mundhiri": [
+        "cashewnut"
+      ],
+      "godambi": [
+        "cashewnut"
+      ],
+      "jeedi pappu": [
+        "cashewnut"
+      ],
+      "dates": [
+        "dates (premium)"
+      ],
+      "dry dates": [
+        "dates (premium)"
+      ],
+      "eenthappazham": [
+        "dates (premium)"
+      ],
+      "eenthapazham": [
+        "dates (premium)"
+      ],
+      "pericham pazham": [
+        "dates (premium)"
+      ],
+      "khajoor": [
+        "dates (premium)"
+      ],
+      "khajur": [
+        "dates (premium)"
+      ],
+      "fig": [
+        "fig (anjeer)"
+      ],
+      "figs": [
+        "fig (anjeer)"
+      ],
+      "anjeer": [
+        "fig (anjeer)"
+      ],
+      "anjir": [
+        "fig (anjeer)"
+      ],
+      "athippazham": [
+        "fig (anjeer)"
+      ],
+      "athipazham": [
+        "fig (anjeer)"
+      ],
+      "kismiss": [
+        "kismiss (raisins)"
+      ],
+      "kismis": [
+        "kismiss (raisins)"
+      ],
+      "kishmish": [
+        "kismiss (raisins)"
+      ],
+      "raisins": [
+        "kismiss (raisins)"
+      ],
+      "unakka munthiri": [
+        "kismiss (raisins)"
+      ],
+      "ular dhrakshai": [
+        "kismiss (raisins)"
+      ],
+      "ular thiratchai": [
+        "kismiss (raisins)"
+      ],
+      "black kismiss": [
+        "black kismiss"
+      ],
+      "black raisins": [
+        "black kismiss"
+      ],
+      "karutha munthiri": [
+        "black kismiss"
+      ],
+      "karuppu dhrakshai": [
+        "black kismiss"
+      ],
+      "special kismiss": [
+        "special kismiss"
+      ],
+      "green raisins": [
+        "special kismiss"
+      ],
+      "pista": [
+        "pista (pistachios)"
+      ],
+      "pistha": [
+        "pista (pistachios)"
+      ],
+      "pistachio": [
+        "pista (pistachios)"
+      ],
+      "pistachios": [
+        "pista (pistachios)"
+      ],
+      "walnut": [
+        "walnut"
+      ],
+      "walnuts": [
+        "walnut"
+      ],
+      "akhrot": [
+        "walnut"
+      ],
+      "akroot": [
+        "walnut"
+      ],
+      "akrot": [
+        "walnut"
+      ]
     };
 
     var currentCatFilter = 'all';
 
     function setFilter(cat, btn) {
       currentCatFilter = cat;
-      document.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('active') });
-      btn.classList.add('active');
+      document.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
       var searchInput = document.getElementById('catalogueSearchInput');
       doSearch(searchInput ? searchInput.value : '');
     }
@@ -1189,7 +2808,7 @@
       if (CAT_MULTILINGUAL[v]) {
         searchTerms = searchTerms.concat(CAT_MULTILINGUAL[v]);
       } else {
-        Object.keys(CAT_MULTILINGUAL).forEach(function(key) {
+        Object.keys(CAT_MULTILINGUAL).forEach(function (key) {
           if (key.indexOf(v) !== -1 || v.indexOf(key) !== -1) {
             searchTerms = searchTerms.concat(CAT_MULTILINGUAL[key]);
           }
@@ -1201,12 +2820,24 @@
       if (currentCatFilter !== 'dry') pool = pool.concat(SPICES);
       if (currentCatFilter !== 'spice') pool = pool.concat(DRY);
 
-      var matched = pool.filter(function(p) {
+      var matched = pool.filter(function (p) {
         var n = (p.n || '').toLowerCase();
         var hsn = (p.hsn || '').toLowerCase();
         var o = (p.o || '').toLowerCase();
-        return searchTerms.some(function(t) {
-          return t && (n.indexOf(t) !== -1 || hsn.indexOf(t) !== -1 || o.indexOf(t) !== -1);
+        var g = (p.g || '').toLowerCase();
+        var aroma = (p.aroma || '').toLowerCase();
+
+        return searchTerms.some(function (t) {
+          if (!t) return false;
+          t = t.toLowerCase();
+          return (
+            n.indexOf(t) !== -1 ||
+            t.indexOf(n) !== -1 ||
+            g.indexOf(t) !== -1 ||
+            hsn.indexOf(t) !== -1 ||
+            o.indexOf(t) !== -1 ||
+            aroma.indexOf(t) !== -1
+          );
         });
       });
 
@@ -1215,8 +2846,8 @@
       if (spicesSec) spicesSec.style.display = 'none';
       if (drySec) drySec.style.display = 'none';
 
-      var waMsg = "Hello KTA Trade Desk, I am looking to custom-source \"" + v + "\" (unlisted variety / custom grade) for our commercial kitchen. Please advise on origin availability, minimums, and pricing.";
-      var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(waMsg);
+      var waMsg = 'Hello KTA Trade Desk, I am looking to custom-source "' + v + '" (unlisted variety / custom grade) for our commercial kitchen. Please advise on origin availability, minimums, and pricing.';
+      var waUrl = 'https://wa.me/918592832871?text=' + encodeURIComponent(waMsg);
 
       if (matched.length > 0) {
         if (resultsSec) {
@@ -1225,7 +2856,7 @@
           if (resultsCount) resultsCount.textContent = matched.length + (matched.length === 1 ? ' Variety Found' : ' Varieties Found');
           if (resultsGrid) {
             resultsGrid.innerHTML = '';
-            matched.forEach(function(p) {
+            matched.forEach(function (p) {
               resultsGrid.appendChild(makeCard(p));
             });
           }
@@ -1271,7 +2902,7 @@
 
     function toggleTrayItem(btn, pJsonStr) {
       var p = JSON.parse(decodeURIComponent(pJsonStr));
-      var idx = trayItems.findIndex(function(item){ return item.n === p.n; });
+      var idx = trayItems.findIndex(function (item) { return item.n === p.n; });
 
       if (idx > -1) {
         trayItems.splice(idx, 1);
@@ -1289,37 +2920,46 @@
       var tray = document.getElementById('sampleTray');
       var count = document.getElementById('trayCount');
       var n = trayItems.length;
-      count.textContent = n;
+      if (count) count.textContent = n;
 
-      if (n > 0) {
-        tray.style.display = 'flex';
-        tray.classList.remove('tray-pulse');
-        void tray.offsetWidth;
-        tray.classList.add('tray-pulse');
-      } else {
-        tray.style.display = 'none';
+      if (tray) {
+        if (n > 0) {
+          tray.style.display = 'flex';
+          tray.classList.remove('tray-pulse');
+          void tray.offsetWidth;
+          tray.classList.add('tray-pulse');
+        } else {
+          tray.style.display = 'none';
+        }
       }
 
-      if (document.getElementById('trayDrawer').classList.contains('active')) {
+      var drawer = document.getElementById('trayDrawer');
+      if (drawer && drawer.classList.contains('active')) {
         renderTrayDrawer();
       }
     }
 
     function openTrayDrawer() {
       renderTrayDrawer();
-      document.getElementById('trayBackdrop').classList.add('active');
-      document.getElementById('trayDrawer').classList.add('active');
+      var backdrop = document.getElementById('trayBackdrop');
+      var drawer = document.getElementById('trayDrawer');
+      if (backdrop) backdrop.classList.add('active');
+      if (drawer) drawer.classList.add('active');
     }
 
     function closeTrayDrawer() {
-      document.getElementById('trayBackdrop').classList.remove('active');
-      document.getElementById('trayDrawer').classList.remove('active');
+      var backdrop = document.getElementById('trayBackdrop');
+      var drawer = document.getElementById('trayDrawer');
+      if (backdrop) backdrop.classList.remove('active');
+      if (drawer) drawer.classList.remove('active');
     }
 
     function renderTrayDrawer() {
       var body = document.getElementById('trayDrawerBody');
       var sub = document.getElementById('trayDrawerSub');
-      sub.textContent = trayItems.length + ' Varieties Selected (1kg Standard Samples)';
+      if (sub) sub.textContent = trayItems.length + ' Varieties Selected (1kg Standard Samples)';
+
+      if (!body) return;
 
       if (trayItems.length === 0) {
         body.innerHTML = [
@@ -1327,26 +2967,26 @@
           '  <div style="width:48px;height:48px;border-radius:50%;background:var(--olive-faint);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;color:var(--olive);">',
           '    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>',
           '  </div>',
-          '  <strong>Your sample tray is empty.</strong><br>Click "+ Add to Tray" on any of our 46 varieties to build your complimentary discovery kit.',
+          '  <strong>Your sample tray is empty.</strong><br>Click "+ Add to Tray" on any of our 47 varieties to build your complimentary discovery kit.',
           '</div>'
         ].join('');
         return;
       }
 
       var html = '';
-      trayItems.forEach(function(item, i) {
+      trayItems.forEach(function (item, i) {
         var thumbHtml = item.img ?
           '<img src="' + item.img + '" alt="' + item.n + '">' :
           '<div style="width:100%;height:100%;background:' + item.bg + ';display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700">KTA</div>';
 
         html +=
           '<div class="tray-item-row">' +
-            '<div class="tray-item-thumb">' + thumbHtml + '</div>' +
-            '<div class="tray-item-info">' +
-              '<div class="tray-item-name">' + item.n + '</div>' +
-              '<div class="tray-item-spec">' + item.g + ' · <span style="color:var(--olive);font-weight:700">1kg Sample Pack</span></div>' +
-            '</div>' +
-            '<button class="tray-item-remove" onclick="removeTrayItem(' + i + ')" aria-label="Remove item">✕</button>' +
+          '<div class="tray-item-thumb">' + thumbHtml + '</div>' +
+          '<div class="tray-item-info">' +
+          '<div class="tray-item-name">' + item.n + '</div>' +
+          '<div class="tray-item-spec">' + item.g + ' · <span style="color:var(--olive);font-weight:700">1kg Sample Pack</span></div>' +
+          '</div>' +
+          '<button class="tray-item-remove" onclick="removeTrayItem(' + i + ')" aria-label="Remove item">✕</button>' +
           '</div>';
       });
 
@@ -1356,7 +2996,7 @@
     function removeTrayItem(idx) {
       var removed = trayItems.splice(idx, 1)[0];
       var cards = document.querySelectorAll('.product-card');
-      cards.forEach(function(card){
+      cards.forEach(function (card) {
         if (card.dataset.name === removed.n.toLowerCase()) {
           var btn = card.querySelector('.product-card-add');
           if (btn) {
@@ -1371,7 +3011,7 @@
     function clearAllTray() {
       trayItems = [];
       var btns = document.querySelectorAll('.product-card-add');
-      btns.forEach(function(btn){
+      btns.forEach(function (btn) {
         btn.classList.remove('added');
         btn.textContent = '+ Add to Tray';
       });
@@ -1389,32 +3029,32 @@
       var phone = document.getElementById('trayPhone').value.trim() || 'Not specified';
 
       var msg = "*KTA SPICES — WELCOME SAMPLE DISCOVERY TRAY REQUEST*\n" +
-                "─────────────────────────────\n" +
-                "• *Property / Chef:* " + chef + "\n" +
-                "• *Contact:* " + phone + "\n\n" +
-                "• *Selected Sample Varieties (" + trayItems.length + " Items · 1kg Standard Packs):*\n";
+        "─────────────────────────────\n" +
+        "• *Property / Chef:* " + chef + "\n" +
+        "• *Contact:* " + phone + "\n\n" +
+        "• *Selected Sample Varieties (" + trayItems.length + " Items · 1kg Standard Packs):*\n";
 
-      trayItems.forEach(function(item, idx) {
+      trayItems.forEach(function (item, idx) {
         msg += (idx + 1) + ". *" + item.n + "* (" + item.g + " · HSN: " + item.hsn + ") — 1kg Sample\n";
       });
 
       msg += "\n─────────────────────────────\n" +
-             "Please confirm dispatch schedule (2–24h dispatch) and hand-delivery to our receiving bay.";
+        "Please confirm dispatch schedule (2–24h dispatch) and hand-delivery to our receiving bay.";
 
       var waUrl = "https://wa.me/918592832871?text=" + encodeURIComponent(msg);
       window.open(waUrl, '_blank');
     }
 
     // Auto-filter on URL Search Param
-    (function(){
+    (function () {
       function checkUrlSearch() {
         var params = new URLSearchParams(window.location.search);
         var q = params.get('search') || params.get('q');
         if (q) {
           var searchInputs = document.querySelectorAll('#catalogueSearchInput, .filter-search input, input[placeholder*="Search by name"]');
-          searchInputs.forEach(function(inp){ inp.value = q; });
+          searchInputs.forEach(function (inp) { inp.value = q; });
           doSearch(q);
-          setTimeout(function(){
+          setTimeout(function () {
             var spicesSec = document.getElementById('spicesSec');
             if (spicesSec) {
               spicesSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
