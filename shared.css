@@ -5676,3 +5676,213 @@ textarea.form-control {
 
 
 
+
+
+/* ══════════════════════════════════════════════════════
+   FAST RFQ & SEASONAL FLUSH RESERVATION MODALS (LUXURY EDITORIAL)
+   ══════════════════════════════════════════════════════ */
+.fast-rfq-overlay,
+.flush-reserve-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 24, 12, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeInModal 0.22s ease forwards;
+}
+
+.fast-rfq-modal,
+.flush-reserve-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  font-family: var(--font-body, 'Inter', -apple-system, sans-serif);
+  animation: slideUpModal 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpModal {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.fast-rfq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.fast-rfq-tag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  background: var(--olive-faint);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.fast-rfq-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.fast-rfq-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 5px 0 0;
+  line-height: 1.45;
+}
+
+.fast-rfq-close {
+  background: #f4f1ea;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.fast-rfq-close:hover {
+  background: #e2ddd3;
+  transform: scale(1.05);
+}
+
+.fast-rfq-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.rfq-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.rfq-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #d5ddd0;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--ink);
+  background: #fdfdfd;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 12px;
+}
+
+.rfq-input:focus {
+  border-color: var(--olive);
+  box-shadow: 0 0 0 3px rgba(67, 81, 40, 0.12);
+  background: #ffffff;
+}
+
+.rfq-input[readonly] {
+  background: #faf8f5;
+  color: var(--ink);
+  cursor: default;
+}
+
+.rfq-weight-chips {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.rfq-chip {
+  padding: 10px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #d5ddd0;
+  background: #fdfdfd;
+  color: var(--ink);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.rfq-chip:hover {
+  border-color: var(--olive);
+  background: #f7f9f4;
+}
+
+.rfq-chip.active {
+  background: var(--olive) !important;
+  border-color: var(--olive) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(67, 81, 40, 0.25);
+}
+
+.rfq-submit-btn {
+  width: 100%;
+  background: var(--olive);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
+}
+
+.rfq-submit-btn:hover {
+  background: #333f1e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(67, 81, 40, 0.3);
+}
+
+.rfq-submit-btn:active {
+  transform: translateY(0);
+}
