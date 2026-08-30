@@ -5886,3 +5886,164 @@ textarea.form-control {
 .rfq-submit-btn:active {
   transform: translateY(0);
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION: Trusted by Culinary Institutions (Flamingo Estate Style)
+   ═══════════════════════════════════════════════════════════ */
+.trusted-culture-sec {
+  padding: clamp(64px, 9vw, 110px) 0 clamp(54px, 7vw, 90px);
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  position: relative;
+}
+
+.tc-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #636b56;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.tc-quote {
+  font-family: var(--font-caslon);
+  font-size: clamp(24px, 4.2vw, 44px);
+  line-height: 1.24;
+  color: #2b3320;
+  max-width: 920px;
+  margin: 0 auto clamp(36px, 6vw, 60px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  padding: 0 16px;
+}
+
+.tc-logos-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 5.5vw, 64px);
+  flex-wrap: wrap;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tc-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.58;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.tc-logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: translateY(-2px);
+}
+
+.tc-brand-copper {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  font-size: clamp(16px, 2.1vw, 21px);
+  color: #2c2926;
+  text-transform: uppercase;
+}
+
+.tc-brand-palmshore {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: clamp(19px, 2.5vw, 25px);
+  color: #1f241c;
+  text-transform: uppercase;
+}
+
+.tc-brand-thalappakatti {
+  font-family: 'Libre Caslon Text', serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: clamp(14px, 1.9vw, 19px);
+  color: #282521;
+  text-transform: uppercase;
+}
+
+.tc-brand-buhari {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  letter-spacing: 0.20em;
+  font-size: clamp(16px, 2.2vw, 22px);
+  color: #1d1b18;
+  text-transform: uppercase;
+}
+
+.tc-brand-anjappar {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: clamp(15px, 2.0vw, 20px);
+  color: #262420;
+  text-transform: uppercase;
+}
+
+.tc-brand-savyarasa {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  font-size: clamp(17px, 2.3vw, 23px);
+  color: #22201b;
+  text-transform: uppercase;
+}
+
+/* Dispatch Tracking Cards */
+.tracking-alert-card {
+  background: linear-gradient(135deg, #faf8f5 0%, #f3efe6 100%);
+  border: 1px solid rgba(67, 81, 40, 0.20);
+  border-radius: 16px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.tac-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.tac-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(67, 81, 40, 0.10);
+  color: var(--olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tac-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.tac-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.tac-btns {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
