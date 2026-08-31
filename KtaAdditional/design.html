@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flamingo Estate — High Elevation Kitchen Allocations</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #F9F6F0;
+      --bg-card: #FFFFFF;
+      --bg-pill: #F0EAE1;
+      --topbar-teal: #0E4E54;
+      --brand-green: #1F3822;
+      --brand-terracotta: #A44C34;
+      --brand-gold: #C49F45;
+      --text-dark: #1C201A;
+      --text-muted: #666C62;
+      --border-light: rgba(28, 32, 26, 0.12);
+      --font-serif: 'Bodoni Moda', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 1. ANNOUNCEMENT STRIP */
+    .announcement-bar {
+      background-color: var(--topbar-teal);
+      color: #E8F3F4;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .announcement-bar a {
+      text-decoration: underline;
+      margin-left: 6px;
+    }
+
+    /* 2. STICKY LUXURY HEADER */
+    header {
+      background-color: var(--bg-cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 16px 36px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .search-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .search-btn:hover {
+      color: var(--brand-terracotta);
+    }
+
+    .search-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 11.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-terracotta);
+    }
+
+    .brand-logo-img-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      text-decoration: none;
+    }
+
+    .nav-brand-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .nav-brand-img:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+      font-size: 11.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-right a {
+      color: var(--text-dark);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-right a:hover {
+      color: var(--brand-terracotta);
+    }
+
+    .nav-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .nav-phone svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .nav-wa-link {
+      font-weight: 600;
+    }
+
+    .nav-register-btn {
+      font-weight: 600;
+      color: var(--brand-green) !important;
+    }
+
+    /* Sub-Navigation Ribbon (Categorical Pass) - Seamless Background */
+    .taxonomy-ribbon {
+      border-top: 1px solid var(--border-light);
+      background: transparent;
+      padding: 12px 36px;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+
+    .taxonomy-ribbon::-webkit-scrollbar {
+      display: none;
+    }
+
+    .taxonomy-ribbon a {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .taxonomy-ribbon a:hover {
+      color: var(--text-dark);
+    }
+
+    /* 3. HERO SPLIT SECTION (Highland Origin & Faceless Chef Pass) */
+    .hero-split-wrapper {
+      padding: 16px 24px 0;
+      max-width: 1560px;
+      margin: 0 auto;
+    }
+
+    .hero-split-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      background-color: #DFD8CC;
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 82vh;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.04);
+    }
+
+    .split-pane {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pane-left {
+      background-image: linear-gradient(to top, rgba(14, 24, 16, 0.88) 0%, rgba(14, 24, 16, 0.2) 60%),
+        url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=80');
+      background-position: center bottom;
+      color: #FFF;
+    }
+
+    .pane-right {
+      background-image: linear-gradient(to top, rgba(14, 24, 16, 0.90) 0%, rgba(14, 24, 16, 0.20) 60%),
+        url('../images/chef-seasoning-pass.jpg');
+      background-position: center center;
+      background-size: cover;
+      color: #FFF;
+      align-items: flex-end;
+    }
+
+    .pane-tag {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+      display: inline-block;
+      color: #EBF4F5;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    .pane-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3.6vw, 44px);
+      line-height: 1.15;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .limited-edition-badge {
+      width: 146px;
+      height: 146px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-align: center;
+      border: 1.5px dashed rgba(255, 255, 255, 0.75);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+    }
+
+    .limited-edition-badge .badge-text {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+    }
+
+    .limited-edition-badge .badge-icon {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      margin: 4px 0;
+      font-style: italic;
+    }
+
+    /* 4. FLAMINGO ESTATE STYLE PRODUCT GRID */
+    .section-container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 88px 32px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brand-terracotta);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    /* Card Box */
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Product Image Wrapper with Soft Backdrop */
+    .product-img-box {
+      position: relative;
+      background-color: #F6F1E8;
+      border-radius: 6px;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img-box img {
+      transform: scale(1.04);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--brand-green);
+      color: #FFF;
+      font-size: 9.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 2px;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    .origin-line {
+      font-size: 11px;
+      color: var(--brand-terracotta);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+
+    .product-quote {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    /* Subscription Cadence Selector (Signature Flamingo Feature) */
+    .cadence-wrapper {
+      margin-bottom: 14px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 14px;
+    }
+
+    .cadence-label {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 500;
+    }
+
+    .cadence-pills {
+      display: flex;
+      gap: 6px;
+    }
+
+    .cadence-pill {
+      flex: 1;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 10.5px;
+      font-weight: 600;
+      border-radius: 4px;
+      background-color: var(--bg-pill);
+      color: var(--text-dark);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .cadence-pill.selected,
+    .cadence-pill:hover {
+      background-color: var(--brand-green);
+      color: #FFF;
+    }
+
+    /* Price Line */
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .price-sub {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--brand-green);
+    }
+
+    .price-onetime {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    /* Flamingo Style Full Width Add Button */
+    .btn-add-basket {
+      width: 100%;
+      background-color: var(--brand-green);
+      color: #FFF;
+      border: none;
+      padding: 13px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-add-basket:hover {
+      background-color: #122114;
+    }
+
+    /* 5. EDITORIAL ORIGIN-TO-LINE STORY MODULE */
+    .story-section {
+      background-color: #172018;
+      color: #FAF8F5;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    .story-image {
+      min-height: 540px;
+      background: url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .story-content {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .story-tag {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brand-gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .story-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .story-desc {
+      color: #CCD3CA;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .btn-outline-gold {
+      align-self: flex-start;
+      border: 1px solid var(--brand-gold);
+      color: var(--brand-gold);
+      padding: 13px 30px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-gold:hover {
+      background-color: var(--brand-gold);
+      color: #172018;
+    }
+
+    /* 6. FOOTER */
+    footer {
+      background-color: var(--bg-cream);
+      border-top: 1px solid var(--border-light);
+      padding: 80px 36px 36px;
+    }
+
+    .footer-grid {
+      max-width: 1560px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 56px;
+      margin-bottom: 64px;
+    }
+
+    .footer-heading {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-dark);
+    }
+
+    .footer-bottom {
+      max-width: 1560px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-light);
+      padding-top: 24px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Floating Badges */
+    .floating-support {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .btn-float {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-accessibility {
+      background: #007AFF;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-split-container {
+        grid-template-columns: 1fr;
+      }
+
+      .pane-left,
+      .pane-right {
+        min-height: 50vh;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-section {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement-bar">
+    Western Ghats High Elevation Allotment: Fresh Harvest Deliveries Direct to the Pass — <a href="#provisions">Lock
+      Standing Order &rarr;</a>
+  </div>
+
+  <header>
+    <div class="nav-container">
+      <div class="nav-left">
+        <button class="search-btn" aria-label="Search">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 111.06-1.06l4.35 4.35z" />
+          </svg>
+        </button>
+        <ul class="nav-links">
+          <li><a href="../heritage.html">Heritage</a></li>
+          <li><a href="../catalogue.html">Products</a></li>
+          <li><a href="../wholesale.html">Wholesale</a></li>
+          <li><a href="../partnership.html">Partnership</a></li>
+          <li><a href="../index.html#hotelSmart">Hotel Smart</a></li>
+        </ul>
+      </div>
+
+      <a href="../index.html" class="brand-logo-img-link" aria-label="KTA Spices">
+        <img src="../images/ktaouterlinelogo.png" alt="KTA Spices" class="nav-brand-img">
+      </a>
+
+      <div class="nav-right">
+        <a href="tel:+918592832871" class="nav-phone" title="Direct Phone Hotline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>+91 85928 32871</span>
+        </a>
+        <a href="https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" class="nav-wa-link">WhatsApp</a>
+        <a href="../partnership.html#registerKitchen" class="nav-register-btn">Register Kitchen</a>
+      </div>
+    </div>
+
+    <nav class="taxonomy-ribbon" id="rooms">
+      <a href="#provisions" class="active">Tellicherry TGSEB Bold Pepper</a>
+      <a href="#provisions">Alleppey 8mm+ Green Cardamom</a>
+      <a href="#provisions">Salem Golden Turmeric (5.2% Curcumin)</a>
+      <a href="#provisions">Cochin Sun-Cured Dry Ginger</a>
+      <a href="#provisions">Select California Badam (Almonds)</a>
+      <a href="#provisions">W320 First Quality Cashews</a>
+      <a href="#provisions">Zanzibar Whole Handpicked Cloves</a>
+      <a href="../wholesale.html">40kg Master Bags</a>
+      <a href="../index.html#hotelSmart">Hotel Smart 24/7 Logistics</a>
+    </nav>
+  </header>
+
+  <main class="hero-split-wrapper">
+    <div class="hero-split-container">
+
+      <div class="split-pane pane-left">
+        <span class="pane-tag">Origin • 5,000 Ft Western Ghats</span>
+        <div>
+          <h1 class="pane-title">Sourced at Origin. Grown in the Western Ghats.</h1>
+          <p style="font-size: 13.5px; color: #E8EDE4; max-width: 480px;">Hand-harvested from ancient cloud canopies and
+            shade agroforests. Milled at origin within hours of plucking to lock volatile essential oils and pure aromas.</p>
+        </div>
+      </div>
+
+      <div class="split-pane pane-right">
+        <div class="limited-edition-badge">
+          <span class="badge-text">ESTATE DIRECT</span>
+          <span class="badge-icon">KTA</span>
+          <span class="badge-text" style="font-size: 8px; opacity: 0.9;">ORIGIN TO THE PASS</span>
+        </div>
+
+        <div style="align-self: flex-start;">
+          <span class="pane-tag">Served at the Top • 250+ Elite Kitchens</span>
+          <h2 class="pane-title">Served at the Top. KTA Brings Exceptional Spices to the Pass.</h2>
+          <a href="#provisions"
+            style="display:inline-block; border-bottom:1px solid #FFF; padding-bottom:3px; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:#FFF; font-weight:600;">Reserve
+            Fresh Harvest For Your Pass &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="section-container" id="provisions">
+    <div class="section-header">
+      <div class="section-subtitle">Single-Origin Kitchen Provisions</div>
+      <h2 class="section-title">Direct Standing Order Allocations</h2>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card">
+        <div class="product-img-box">
+          <span class="product-badge">TGSEB Grade</span>
+          <img src="../images/images/BlackPepper.webp" alt="Tellicherry Bold Black Pepper">
+        </div>
+        <div class="origin-line">HSN: 09041140 • Wayanad Highlands</div>
+        <h3 class="product-name">Tellicherry Bold Black Pepper (TGSEB)</h3>
+        <p class="product-quote">“Bold export-grade whole peppercorns. High piperine concentration, intense penetrating aroma, and clean lingering heat.”</p>
+
+        <div class="cadence-wrapper">
+          <span class="cadence-label">Standing Delivery:</span>
+          <div class="cadence-pills">
+            <div class="cadence-pill selected">2 Weeks</div>
+            <div class="cadence-pill">4 Weeks</div>
+            <div class="cadence-pill">500kg+</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <span class="price-sub">₹680 / kg</span>
+          <span class="price-onetime">₹750 / kg</span>
+        </div>
+        <button class="btn-add-basket">Add Case to Kitchen Order</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-box">
+          <span class="product-badge">8mm+ Extra Bold</span>
+          <img src="../images/images/whitecardamom.webp" alt="Alleppey Green Cardamom">
+        </div>
+        <div class="origin-line">HSN: 09083140 • Cardamom Hills</div>
+        <h3 class="product-name">Alleppey 8mm+ Green Cardamom</h3>
+        <p class="product-quote">“Intact essential oil seeds with floral-sweet camphor notes for confectionery, royal gravies, and pastry passes.”</p>
+
+        <div class="cadence-wrapper">
+          <span class="cadence-label">Standing Delivery:</span>
+          <div class="cadence-pills">
+            <div class="cadence-pill selected">2 Weeks</div>
+            <div class="cadence-pill">4 Weeks</div>
+            <div class="cadence-pill">500kg+</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <span class="price-sub">₹2,450 / kg</span>
+          <span class="price-onetime">₹2,700 / kg</span>
+        </div>
+        <button class="btn-add-basket">Add Case to Kitchen Order</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-box">
+          <span class="product-badge">5.2%+ Curcumin</span>
+          <img src="../images/images/turmericpowder.webp" alt="Salem Golden Turmeric Powder">
+        </div>
+        <div class="origin-line">HSN: 09103030 • Salem Single Origin</div>
+        <h3 class="product-name">Salem Golden Turmeric Powder</h3>
+        <p class="product-quote">“High active curcumin density. Zero lead chromate or starch adulteration with authentic warm earthy potency.”</p>
+
+        <div class="cadence-wrapper">
+          <span class="cadence-label">Standing Delivery:</span>
+          <div class="cadence-pills">
+            <div class="cadence-pill selected">4 Weeks</div>
+            <div class="cadence-pill">8 Weeks</div>
+            <div class="cadence-pill">500kg+</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <span class="price-sub">₹280 / kg</span>
+          <span class="price-onetime">₹320 / kg</span>
+        </div>
+        <button class="btn-add-basket">Add Case to Kitchen Order</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-box">
+          <span class="product-badge">Kitchen Direct</span>
+          <img src="../images/kta-badam-pouch.png" alt="KTA Badam Almonds" style="object-fit:contain; padding:8px;">
+        </div>
+        <div class="origin-line">HSN: 08021200 • Premium Select</div>
+        <h3 class="product-name">Select California Badam (Almonds)</h3>
+        <p class="product-quote">“Exclusively packed for professional kitchens. Uniform kernel size, crisp crunch, and high natural oil content for master chefs.”</p>
+
+        <div class="cadence-wrapper">
+          <span class="cadence-label">Standing Delivery:</span>
+          <div class="cadence-pills">
+            <div class="cadence-pill selected">2 Weeks</div>
+            <div class="cadence-pill">4 Weeks</div>
+            <div class="cadence-pill">500kg+</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <span class="price-sub">₹780 / kg</span>
+          <span class="price-onetime">₹850 / kg</span>
+        </div>
+        <button class="btn-add-basket">Add Case to Kitchen Order</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-box">
+          <span class="product-badge">Restroom Ritual</span>
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80"
+            alt="Mountain Lemongrass Hand Wash">
+        </div>
+        <div class="origin-line">Wayanad Edge Bio-Reserve</div>
+        <h3 class="product-name">Wild Ginger &amp; Mountain Lemongrass Hand Wash</h3>
+        <p class="product-quote">“Elevates restaurant restrooms into a restorative highland botanical sanctuary for
+          dinner guests.”</p>
+
+        <div class="cadence-wrapper">
+          <span class="cadence-label">Standing Delivery:</span>
+          <div class="cadence-pills">
+            <div class="cadence-pill">Monthly</div>
+            <div class="cadence-pill selected">Quarterly</div>
+            <div class="cadence-pill">Bi-Annual</div>
+          </div>
+        </div>
+
+        <div class="price-row">
+          <span class="price-sub">$155.00 / 5L jerry</span>
+          <span class="price-onetime">$175.00</span>
+        </div>
+        <button class="btn-add-basket">Add Lavatory Refill</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="story-section" id="story">
+    <div class="story-image"></div>
+    <div class="story-content">
+      <div class="story-tag">Zero-Distributor Logistics</div>
+      <h2 class="story-title">From the Mist of the Ghats Straight to the Line</h2>
+      <p class="story-desc">
+        We bypass industrial warehouses, shipping directly from high-elevation family estates in Wayanad and Munnar to
+        the restaurant receiving dock. This guarantees unblended single-estate terroir, intense volatile aromatics, and
+        verifiable batch harvest sheets for executive chefs.
+      </p>
+      <a href="#provisions" class="btn-outline-gold">Request Commercial Standing Allotment</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4 class="footer-heading">Origin-to-Kitchen Alliances</h4>
+        <p style="color: var(--text-muted); font-size: 13px; line-height: 1.7; margin-bottom: 20px;">
+          Direct Western Ghats high-elevation provisions crafted exclusively for Michelin-starred kitchens, tasting
+          menus, and boutique hospitality tables.
+        </p>
+        <p style="font-size: 12px; color: var(--brand-green); font-weight: 700;">pass@flamingoestate.com</p>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Highland Reserves</h4>
+        <ul class="footer-links">
+          <li><a href="#">Tellicherry First Pressings</a></li>
+          <li><a href="#">Green Cardamom Essences</a></li>
+          <li><a href="#">Wild Dammer Honey</a></li>
+          <li><a href="#">5L Bulk Kitchen Tins</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Dining Service</h4>
+        <ul class="footer-links">
+          <li><a href="#">Non-Drip Tea Candles</a></li>
+          <li><a href="#">Lavatory Hand Care</a></li>
+          <li><a href="#">Botanical Bar Syrups</a></li>
+          <li><a href="#">Table Linen Mists</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Trade Logistics</h4>
+        <ul class="footer-links">
+          <li><a href="#">Standing Order Delivery</a></li>
+          <li><a href="#">Batch Certificate Sheets</a></li>
+          <li><a href="#">Volume Commercial Tier</a></li>
+          <li><a href="#">Direct Pass Dispatch</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Flamingo Estate — Highland Origin to Kitchen Supply.</span>
+      <span>Regenerative Agriculture for Professional Tables.</span>
+    </div>
+  </footer>
+
+  <div class="floating-support">
+    <button class="btn-float" aria-label="Sommelier & Chef Concierge">
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      </svg>
+    </button>
+    <button class="btn-float btn-accessibility" aria-label="Accessibility Settings">
+      <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z" />
+      </svg>
+    </button>
+  </div>
+
+</body>
+
+</html>
