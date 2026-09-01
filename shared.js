@@ -1624,4 +1624,53 @@ window.submitKTAForm = function(formData, options) {
   alert(successMsg);
 };
 
+/* ── Universal Footer Newsletter / Chef Dispatches Handler ── */
+window.handleFooterSubscribe = function(event) {
+  if (event && event.preventDefault) event.preventDefault();
+  var form = event ? (event.target || event.currentTarget) : null;
+  if (!form) return;
+  var input = form.querySelector('.ef-subscribe-input');
+  var btn = form.querySelector('.ef-subscribe-btn');
+  var email = input ? input.value.trim() : '';
+
+  if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+    alert('Please enter a valid chef or commercial email address.');
+    return;
+  }
+
+  // 1. Store in localStorage CRM cache
+  try {
+    var list = JSON.parse(localStorage.getItem('kta_chef_dispatches_subscribers') || '[]');
+    list.push({ email: email, date: new Date().toISOString() });
+    localStorage.setItem('kta_chef_dispatches_subscribers', JSON.stringify(list));
+  } catch(err){}
+
+  // 2. Dispatch to live Google Sheets CRM Webhook & Zoho Mail
+  if (typeof window.submitKTAForm === 'function') {
+    window.submitKTAForm({
+      email: email,
+      inquiryType: 'Chef Dispatches Newsletter Subscription',
+      source: 'Footer Dispatch Bar'
+    }, {
+      formName: 'Chef Dispatches Newsletter',
+      successMsg: '✓ Thank you, Chef. You are enrolled in KTA Highland Dispatches & Seasonal Harvest Pre-Allocations.'
+    });
+  } else {
+    alert('✓ Thank you, Chef. You are enrolled in KTA Highland Dispatches & Seasonal Harvest Pre-Allocations.');
+  }
+
+  // 3. UI feedback
+  if (input) input.value = '';
+  if (btn) {
+    var oldText = btn.textContent;
+    btn.textContent = '✓ ENROLLED';
+    btn.style.color = '#a3c27e';
+    setTimeout(function() {
+      btn.textContent = oldText;
+      btn.style.color = '';
+    }, 4000);
+  }
+};
+
+
 
