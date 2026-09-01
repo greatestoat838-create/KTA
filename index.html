@@ -1322,37 +1322,122 @@
     }
 
     /* ══════════════════════════════════════════
-     MINIMALIST LIGHT FOOTER
-     ══════════════════════════════════════════ */
-    .minimalist-footer-section {
-      background: #ffffff;
-      padding: clamp(52px, 8vw, 100px) 0 36px;
-      border-top: 1px solid var(--border);
+       EDITORIAL MULTI-COLUMN LUXURY FOOTER (Homepage Exclusive)
+       ══════════════════════════════════════════ */
+    .editorial-footer-section {
+      background: #faf8f5;
+      padding: clamp(64px, 8vw, 100px) 0 36px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
       color: var(--ink);
-      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    .min-cta-wrap {
-      max-width: 600px;
-      margin: 0 auto 48px;
-      text-align: center;
-      padding: 0 16px;
+    .ef-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr 1fr;
+      gap: clamp(32px, 4.5vw, 60px);
+      margin-bottom: clamp(48px, 6vw, 68px);
     }
 
-    .min-cta-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(32px, 6vw, 64px);
+    .ef-col-title {
+      font-family: var(--font-caslon), 'Libre Caslon Text', Georgia, serif;
+      font-size: clamp(18px, 1.8vw, 22px);
       font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 14px;
-      line-height: 1.06;
+      color: #111111;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
-    .min-cta-lead {
-      font-size: 14px;
+    .ef-brand-desc {
+      font-family: var(--font-body), sans-serif;
+      font-size: 13.5px;
       line-height: 1.65;
-      color: var(--muted);
-      margin-bottom: 24px;
+      color: #666666;
+      max-width: 320px;
+      margin-bottom: 22px;
+    }
+
+    .ef-email-link {
+      font-family: var(--font-body), sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #111111;
+      text-decoration: none;
+      display: inline-block;
+      border-bottom: 1.5px solid #111111;
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .ef-email-link:hover {
+      color: var(--olive);
+      border-color: var(--olive);
+    }
+
+    .ef-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .ef-nav-list li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ef-nav-list a {
+      font-family: var(--font-body), sans-serif;
+      font-size: 13.5px;
+      color: #555555;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .ef-nav-list a:hover {
+      color: var(--olive);
+      transform: translateX(3px);
+    }
+
+    .ef-bottom-row {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .ef-copyright, .ef-tagline {
+      font-family: var(--font-body), sans-serif;
+      font-size: 12.5px;
+      color: #777777;
+    }
+
+    @media (max-width: 992px) {
+      .ef-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .ef-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .ef-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
 
 
@@ -3177,94 +3262,61 @@
   </section>
 
   <!-- ══════════════════════════════════
-       MINIMALIST LIGHT FOOTER
+       EDITORIAL MULTI-COLUMN LUXURY FOOTER (Homepage Exclusive)
        ══════════════════════════════════ -->
-  <footer class="minimalist-footer-section">
+  <footer class="editorial-footer-section">
     <div class="container">
-      <div class="min-cta-wrap" data-reveal>
-        <h2 class="min-cta-title">Connect with us</h2>
-        <p class="min-cta-lead">Schedule a quick call to learn how KTA can turn your regional spice procurement into a
-          powerful advantage.</p>
-        <a href="contact.html" class="btn btn-primary"
-          style="border-radius: 999px; padding: 14px 36px; background: #435128;">Connect with Us</a>
-      </div>
-
-      <div class="min-footer-nav">
-        <a href="heritage.html">Heritage</a>
-        <a href="catalogue.html">Products</a>
-        <a href="wholesale.html">Wholesale</a>
-        <a href="partnership.html">Partnership</a>
-        <a href="harvest.html">Harvest Guide</a>
-        <a href="index.html#hotelSmart">Hotel Smart 24/7</a>
-        <a href="contact.html">Contact Desk</a>
-        <a href="privacy.html">Privacy</a>
-      </div>
-
-      <!-- Registered Trade Desk Credibility Block -->
-      <div class="footer-credibility-block">
-        <div class="footer-cred-card">
-          <div class="footer-cred-badge-wrap">
-            <span class="footer-cred-badge">REGISTERED TRADE DESK &amp; WAREHOUSE</span>
-          </div>
-          <div class="footer-cred-title">KOTTAYAR TRADING AGENCY</div>
-          <div class="footer-cred-text">
-            No. 13/28, Mylai Periyathambi Street, George Town, Mannadi,<br>
-            Chennai, Tamil Nadu – 600001, India
-          </div>
-          <a href="https://maps.google.com/?q=No.+13/28,+Mylai+Periyathambi+Street,+George+Town,+Mannadi,+Chennai,+Tamil+Nadu+600001" target="_blank" rel="noopener" class="footer-map-pill">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>View on Google Maps</span>
-          </a>
+      <div class="ef-grid">
+        <!-- Col 1: Origin to Kitchen Alliances -->
+        <div class="ef-col">
+          <h3 class="ef-col-title">Origin to Kitchen Alliances</h3>
+          <p class="ef-brand-desc">
+            Direct Western Ghats high-elevation provisions crafted exclusively for Michelin-starred kitchens, tasting menus, and boutique hospitality tables.
+          </p>
+          <a href="mailto:trade@ktaspices.in" class="ef-email-link">trade@ktaspices.in</a>
         </div>
 
-        <div class="footer-cred-card">
-          <div class="footer-cred-badge-wrap">
-            <span class="footer-cred-badge">ORIGIN &amp; QUALITY STANDARDS</span>
-          </div>
-          <div class="footer-cred-title">DIRECT HIGHLAND SOURCING</div>
-          <ul class="footer-cred-list">
-            <li><span class="footer-cred-dot"></span> Single-Origin Estate Harvesting</li>
-            <li><span class="footer-cred-dot"></span> FSSAI Batch Certified · State License Registered</li>
-            <li><span class="footer-cred-dot"></span> GC-MS Chemical Purity, Moisture &amp; Volatile Oil Assays</li>
+        <!-- Col 2: Highland Reserves (Catalogue & Origins) -->
+        <div class="ef-col">
+          <h3 class="ef-col-title">Highland Reserves</h3>
+          <ul class="ef-nav-list">
+            <li><a href="catalogue.html">Product Catalogue</a></li>
+            <li><a href="heritage.html">Heritage Sourcing</a></li>
+            <li><a href="harvest.html">Harvest Season Guide</a></li>
+            <li><a href="catalogue.html#spices">Single-Origin Spice Lots</a></li>
           </ul>
         </div>
 
-        <div class="footer-cred-card">
-          <div class="footer-cred-badge-wrap">
-            <span class="footer-cred-badge">COMMERCIAL DESK &amp; HOTLINE</span>
-          </div>
-          <div class="footer-cred-title">INSTITUTIONAL CLIENT SUPPORT</div>
-          <div class="footer-cred-channels">
-            <div class="footer-channel-row">
-              <span class="footer-channel-label">Trade Hotline:</span>
-              <a href="tel:+918592832871" class="footer-channel-val">+91 85928 32871</a>
-            </div>
-            <div class="footer-channel-row">
-              <span class="footer-channel-label">Wholesale Desk:</span>
-              <a href="mailto:wholesale@ktaspices.in" class="footer-channel-val">wholesale@ktaspices.in</a>
-            </div>
-            <div class="footer-channel-row">
-              <span class="footer-channel-label">General Queries:</span>
-              <a href="mailto:info@ktaspices.in" class="footer-channel-val">info@ktaspices.in</a>
-            </div>
-          </div>
+        <!-- Col 3: Dining Service / Hospitality -->
+        <div class="ef-col">
+          <h3 class="ef-col-title">Dining Service</h3>
+          <ul class="ef-nav-list">
+            <li><a href="hotel-smart.html">Hotel Smart 24/7</a></li>
+            <li><a href="partnership.html#chefWelcome">Chef Discovery Box</a></li>
+            <li><a href="wholesale.html">Wholesale Procurement</a></li>
+            <li><a href="partnership.html">Kitchen Partnership</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Trade Logistics -->
+        <div class="ef-col">
+          <h3 class="ef-col-title">Trade Logistics</h3>
+          <ul class="ef-nav-list">
+            <li><a href="hotel-smart.html">Standing Order Delivery</a></li>
+            <li><a href="contact.html">Contact Commercial Desk</a></li>
+            <li><a href="tel:+918592832871">Hotline: +91 85928 32871</a></li>
+            <li><a href="privacy.html">Privacy &amp; Compliance</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="min-footer-bottom">
-        <div class="footer-bottom-left">
-          <svg class="footer-silhouette-icon" viewBox="0 0 16 28" width="14" height="24" fill="#111111" aria-hidden="true">
-            <rect x="6" y="0" width="4" height="4"/>
-            <rect x="5" y="6" width="6" height="10"/>
-            <rect x="2" y="7" width="3" height="7"/>
-            <rect x="11" y="9" width="3" height="7"/>
-            <rect x="3" y="18" width="3" height="10"/>
-            <rect x="10" y="18" width="3" height="10"/>
-          </svg>
-          <span class="footer-mono-text">© KTA. 2026</span>
+      <!-- Bottom Bar -->
+      <div class="ef-bottom-row">
+        <div class="ef-copyright">
+          &copy; 2026 Kottayar Trading Agency (KTA Spices) &mdash; Highland Origin to Kitchen Supply.
         </div>
-        <div class="footer-bottom-right">
-          <span class="footer-mono-text">All Rights Reserved</span>
+        <div class="ef-tagline">
+          Single-Origin Regenerative Sourcing for Professional Kitchens
         </div>
       </div>
     </div>
