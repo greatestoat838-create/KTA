@@ -1226,6 +1226,219 @@ button {
 
 
 /* ═══════════════════════════════════════════════════════════
+   ESTATE LUXURY DARK FOOTER (.estate-dark-footer)
+   ═══════════════════════════════════════════════════════════ */
+.estate-dark-footer {
+  background: #45523e;
+  color: #ede8df;
+  padding: clamp(68px, 8vw, 108px) 0 clamp(28px, 4vw, 40px);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-body), sans-serif;
+  border-top: 1px solid rgba(237, 232, 223, 0.1);
+}
+
+.estate-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+.estate-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.15fr 1.2fr 1.6fr;
+  gap: clamp(24px, 3.5vw, 48px);
+  align-items: flex-start;
+}
+
+.ef-nav-title {
+  font-family: var(--font-caslon), 'Libre Caslon Text', Georgia, serif;
+  font-size: clamp(17px, 1.4vw, 20px);
+  font-weight: 700;
+  color: #ede8df;
+  margin: 0 0 18px 0;
+  letter-spacing: -0.01em;
+}
+
+.ef-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.ef-nav-links li {
+  margin: 0;
+  padding: 0;
+}
+
+.ef-nav-links a {
+  font-family: var(--font-body), sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #c4beaf;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.ef-nav-links a:hover {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+/* Newsletter Column */
+.ef-subscribe-form {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(237, 232, 223, 0.35);
+  padding-bottom: 7px;
+  margin-top: 14px;
+  margin-bottom: 22px;
+  transition: border-color 0.2s ease;
+}
+
+.ef-subscribe-form:focus-within {
+  border-bottom-color: #ffffff;
+}
+
+.ef-subscribe-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: var(--font-body), sans-serif;
+  font-size: 13.5px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ef-subscribe-input::placeholder {
+  color: #a49e91;
+}
+
+.ef-subscribe-btn {
+  background: transparent;
+  border: none;
+  color: #ede8df;
+  font-family: var(--font-body), sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 0 0 10px;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ef-subscribe-btn:hover {
+  color: #ffffff;
+}
+
+.ef-social-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ef-social-link {
+  color: #ede8df;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  opacity: 0.85;
+}
+
+.ef-social-link:hover {
+  color: #ffffff;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* Center Seal */
+.estate-center-seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: clamp(48px, 6vw, 72px) auto clamp(24px, 3.5vw, 36px);
+  text-align: center;
+}
+
+.estate-seal-icon {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.estate-seal-icon:hover {
+  transform: scale(1.05);
+}
+
+/* Bottom Bar */
+.estate-footer-bottom {
+  border-top: 1px solid rgba(237, 232, 223, 0.14);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 11.5px;
+  color: #a49e91;
+  font-family: var(--font-body), sans-serif;
+}
+
+.ef-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ef-bottom-links a {
+  color: #a49e91;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ef-bottom-links a:hover {
+  color: #ffffff;
+}
+
+.ef-sep {
+  opacity: 0.4;
+}
+
+@media (max-width: 1024px) {
+  .estate-footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+  .ef-newsletter-col {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .estate-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .ef-newsletter-col {
+    grid-column: span 1;
+  }
+  .estate-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
    UNIVERSAL MINIMALIST LIGHT FOOTER (.minimalist-footer-section)
    ═══════════════════════════════════════════════════════════ */
 .minimalist-footer-section {
