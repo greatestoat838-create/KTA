@@ -998,7 +998,7 @@
   els.forEach(function(el){ io.observe(el); });
 })();
 
-/* ── 6. Horizontal Scroll Arrows & Flamingo Estate 1-by-1 Step Movement ── */
+/* ── 6. Horizontal Scroll Navigation (Fluid Native Momentum & Smooth Step Navigation) ── */
 (function(){
   function initFlamingoScrollers() {
     document.querySelectorAll('.scroll-row-wrap').forEach(function(wrap){
@@ -1010,49 +1010,20 @@
 
       function getStep() {
         var card = row.querySelector('.product-card, .ws-product-card, .estate-card');
-        return card ? (card.offsetWidth + 16) : 240;
+        return card ? (card.offsetWidth + 16) : Math.min(320, row.clientWidth * 0.8);
       }
 
       function stepScroll(dir) {
         var step = getStep();
-        var target = row.scrollLeft + dir * step;
-        row.scrollTo({ left: target, behavior: 'smooth' });
+        row.scrollBy({ left: dir * step, behavior: 'smooth' });
       }
 
-      if(prev) prev.onclick = function(e){ e.preventDefault(); stepScroll(-1); };
-      if(next) next.onclick = function(e){ e.preventDefault(); stepScroll(1); };
-
-      // Desktop Trackpad / Mouse Wheel Damping (Moves strictly 1 card per deliberate gesture)
-      var wheelLock = false;
-      row.addEventListener('wheel', function(e){
-        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 18) {
-          e.preventDefault();
-          if (wheelLock) return;
-          wheelLock = true;
-          var dir = e.deltaX > 0 ? 1 : -1;
-          stepScroll(dir);
-          setTimeout(function(){ wheelLock = false; }, 360);
-        }
-      }, { passive: false });
-
-      // Mobile Touch Gesture Snap Damping
-      var touchStartX = 0;
-      var touchStartScroll = 0;
-      row.addEventListener('touchstart', function(e){
-        touchStartX = e.touches[0].pageX;
-        touchStartScroll = row.scrollLeft;
-      }, { passive: true });
-
-      row.addEventListener('touchend', function(e){
-        var touchEndX = e.changedTouches[0].pageX;
-        var diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 40) {
-          var dir = diff > 0 ? 1 : -1;
-          var step = getStep();
-          var targetIndex = Math.round((touchStartScroll + dir * step) / step);
-          row.scrollTo({ left: Math.max(0, targetIndex * step), behavior: 'smooth' });
-        }
-      }, { passive: true });
+      if(prev) {
+        prev.onclick = function(e){ e.preventDefault(); stepScroll(-1); };
+      }
+      if(next) {
+        next.onclick = function(e){ e.preventDefault(); stepScroll(1); };
+      }
     });
   }
 

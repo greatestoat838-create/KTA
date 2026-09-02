@@ -1229,28 +1229,29 @@ button {
 
 /* ═══════════════════════════════════════════════════════════
    ESTATE LUXURY DARK FOOTER (.estate-dark-footer)
+   Flamingo Estate Inspired Luxury Dark Olive Palette & Small Refined Typography
    ═══════════════════════════════════════════════════════════ */
 .estate-dark-footer {
-  background: #45523e;
+  background: #344234;
   color: #ede8df;
-  padding: clamp(68px, 8vw, 108px) 0 clamp(28px, 4vw, 40px);
+  padding: clamp(60px, 6.5vw, 92px) 0 clamp(72px, 8vw, 96px);
   width: 100%;
   box-sizing: border-box;
-  font-family: var(--font-body), sans-serif;
-  border-top: 1px solid rgba(237, 232, 223, 0.1);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  border-top: 1px solid rgba(230, 227, 218, 0.08);
 }
 
 .estate-footer-container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
+  padding: 0 clamp(20px, 3.5vw, 48px);
   box-sizing: border-box;
 }
 
 .estate-footer-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1.15fr 1.2fr 1.6fr;
-  gap: clamp(24px, 3.5vw, 48px);
+  grid-template-columns: 1fr 1fr 1fr 1.25fr 1.65fr;
+  gap: clamp(20px, 3vw, 44px);
   align-items: flex-start;
 }
 
@@ -1261,13 +1262,13 @@ button {
 }
 
 .ef-nav-title {
-  font-family: var(--font-caslon), 'Libre Caslon Text', Georgia, serif;
-  font-size: clamp(19px, 1.5vw, 24px);
-  font-weight: 500;
-  color: #ede8df;
-  margin: 0 0 20px 0;
+  font-family: var(--font-caslon), 'Libre Caslon Text', 'Instrument Serif', Georgia, serif;
+  font-size: 17.5px;
+  font-weight: 400;
+  color: #eeeae1;
+  margin: 0 0 16px 0;
   letter-spacing: -0.01em;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .ef-nav-links {
@@ -1276,7 +1277,7 @@ button {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .ef-nav-links li {
@@ -1286,12 +1287,13 @@ button {
 
 .ef-nav-links a {
   font-family: var(--font-body), sans-serif;
-  font-size: 14px;
-  line-height: 1.45;
-  color: #c4beaf;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #b5bea8;
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
   display: inline-block;
+  letter-spacing: 0.01em;
 }
 
 .ef-nav-links a:hover {
@@ -1301,38 +1303,38 @@ button {
 
 .ef-address-wrap {
   margin-top: 32px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(237, 232, 223, 0.18);
+  padding-top: 20px;
+  border-top: 1px solid rgba(230, 227, 218, 0.14);
 }
 
 .ef-address-tag {
   font-family: var(--font-body), sans-serif;
-  font-size: 11px;
-  font-weight: 800;
+  font-size: 9.5px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #ede8df;
+  color: #eeeae1;
   display: block;
-  margin-top: 4px;
+  margin-top: 2px;
   margin-bottom: 8px;
 }
 
 .ef-address-text {
   font-family: var(--font-body), sans-serif;
-  font-size: 13px;
+  font-size: 11.5px;
   line-height: 1.6;
-  color: #c4beaf;
-  margin: 0 0 12px 0;
+  color: #b5bea8;
+  margin: 0 0 10px 0;
 }
 
 .ef-map-link {
   font-family: var(--font-body), sans-serif;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #ede8df !important;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #eeeae1 !important;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   text-decoration: underline;
   transition: color 0.2s ease;
   margin-top: 2px;
@@ -1347,10 +1349,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(237, 232, 223, 0.4);
-  padding-bottom: 8px;
-  margin-top: 6px;
-  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(230, 227, 218, 0.35);
+  padding-bottom: 6px;
+  margin-top: 4px;
+  margin-bottom: 18px;
   transition: border-color 0.2s ease;
   width: 100%;
 }
@@ -1365,27 +1367,27 @@ button {
   outline: none;
   color: #ffffff;
   font-family: var(--font-body), sans-serif;
-  font-size: 14px;
+  font-size: 12.5px;
   flex: 1;
   min-width: 0;
   padding: 2px 0;
 }
 
 .ef-subscribe-input::placeholder {
-  color: #a49e91;
+  color: #929c87;
 }
 
 .ef-subscribe-btn {
   background: transparent;
   border: none;
-  color: #ede8df;
+  color: #eeeae1;
   font-family: var(--font-body), sans-serif;
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 10px;
   transition: color 0.2s ease;
   flex-shrink: 0;
 }
@@ -1397,16 +1399,16 @@ button {
 .ef-social-row {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
 .ef-social-link {
-  color: #ede8df;
+  color: #eeeae1;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .ef-social-link:hover {
@@ -1421,20 +1423,23 @@ button {
 
 /* Bottom Bar */
 .estate-footer-bottom {
-  border-top: 1px solid rgba(237, 232, 223, 0.14);
+  border-top: 1px solid rgba(230, 227, 218, 0.12);
   padding-top: 24px;
-  padding-bottom: clamp(32px, 5vw, 60px);
-  padding-right: clamp(16px, 15vw, 220px);
-  margin-top: clamp(48px, 6vw, 72px);
+  padding-bottom: 8px;
+  margin-top: clamp(36px, 4.5vw, 56px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
-  font-size: 12px;
-  color: #a49e91;
+  font-size: 11.5px;
+  color: #8e9a83;
   font-family: var(--font-body), sans-serif;
   box-sizing: border-box;
+}
+
+.ef-bottom-copy {
+  color: #8e9a83;
 }
 
 .ef-bottom-links {
@@ -1445,7 +1450,7 @@ button {
 }
 
 .ef-bottom-links a {
-  color: #a49e91;
+  color: #8e9a83;
   text-decoration: none;
   transition: color 0.2s ease;
   white-space: nowrap;
@@ -1463,116 +1468,76 @@ button {
 @media (max-width: 1024px) {
   .estate-footer-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px 32px;
+    gap: 36px 28px;
   }
   .ef-newsletter-col {
     grid-column: 1 / -1;
     order: -1;
-    margin-bottom: 8px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(237, 232, 223, 0.12);
+    margin-bottom: 4px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(230, 227, 218, 0.12);
   }
 }
 
-/* Mobile Layout (max-width: 768px) - Exact match with user reference screenshot */
+/* Mobile Layout (max-width: 768px) */
 @media (max-width: 768px) {
   .estate-dark-footer {
-    padding: 52px 0 36px 0;
+    padding: 44px 0 88px 0;
   }
   .estate-footer-container {
-    padding: 0 24px;
+    padding: 0 20px;
   }
   .estate-footer-grid {
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 28px;
     align-items: stretch;
   }
   .ef-newsletter-col {
     order: -1;
     width: 100%;
-    margin-bottom: 4px;
-    padding-bottom: 0;
-    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(230, 227, 218, 0.12);
   }
   .ef-nav-title {
-    font-family: var(--font-caslon), 'Libre Caslon Text', Georgia, serif;
-    font-size: 24px;
-    font-weight: 500;
-    color: #ede8df;
-    margin: 0 0 16px 0;
-    letter-spacing: -0.01em;
-    line-height: 1.25;
+    font-size: 18px;
+    margin: 0 0 12px 0;
   }
   .ef-nav-links {
-    gap: 13px;
+    gap: 8px;
   }
   .ef-nav-links a {
-    font-size: 15px;
-    line-height: 1.45;
-    color: #c9c4b7;
+    font-size: 13px;
+    padding: 2px 0;
   }
   .ef-subscribe-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(237, 232, 223, 0.5);
-    padding-bottom: 8px;
-    margin-top: 10px;
-    margin-bottom: 22px;
+    padding-bottom: 6px;
+    margin-top: 8px;
+    margin-bottom: 16px;
     width: 100%;
   }
   .ef-subscribe-input {
-    font-size: 15px;
-    color: #ffffff;
-    padding: 2px 0;
-  }
-  .ef-subscribe-input::placeholder {
-    color: #9d978a;
+    font-size: 13px;
   }
   .ef-subscribe-btn {
-    font-size: 12.5px;
-    font-weight: 800;
-    letter-spacing: 0.10em;
-    padding-left: 12px;
-    color: #ede8df;
+    font-size: 11px;
+    padding-left: 10px;
   }
   .ef-social-row {
-    gap: 20px;
-    margin-top: 2px;
-    margin-bottom: 6px;
-  }
-  .ef-social-link {
-    opacity: 0.95;
-  }
-  .ef-social-link svg {
-    width: 24px;
-    height: 24px;
+    gap: 16px;
   }
   .ef-address-wrap {
-    margin-top: 42px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(237, 232, 223, 0.2);
-  }
-  .ef-address-tag {
-    font-size: 11.5px;
-    margin-bottom: 8px;
-  }
-  .ef-address-text {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-  .ef-map-link {
-    font-size: 13px;
+    margin-top: 28px;
+    padding-top: 18px;
   }
   .estate-footer-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
-    margin-top: 44px;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 20px;
+    padding-bottom: 76px; /* Generous bottom spacing on mobile so fixed floating pill doesn't block links */
     padding-right: 0;
   }
   .ef-bottom-links {
@@ -3181,9 +3146,8 @@ button {
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-snap-stop: always;
-  -webkit-overflow-scrolling: auto; /* Disables runaway high-velocity momentum */
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
   scroll-padding-left: clamp(16px, 4vw, 40px);
@@ -4260,17 +4224,15 @@ textarea.form-control {
   background: #354020;
 }
 
-/* Mobile Slow Damped Horizontal Scroll */
+/* Mobile Smooth Momentum Horizontal Scroll */
 @media (max-width: 768px) {
   .scroll-row {
-    scroll-snap-type: x mandatory !important;
-    scroll-snap-stop: always !important;
-    -webkit-overflow-scrolling: auto !important; /* Disables runaway high-velocity momentum */
+    scroll-snap-type: x proximity !important;
+    -webkit-overflow-scrolling: touch !important;
     overscroll-behavior-x: contain;
   }
   .product-card {
     scroll-snap-align: start !important;
-    scroll-snap-stop: always !important;
   }
 }
 
