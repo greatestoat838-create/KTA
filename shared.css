@@ -77,7 +77,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--ink);
-  background: var(--white);
+  background-color: #344234;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -88,12 +88,15 @@ body {
   flex-direction: column;
 }
 
-main, .page-wrapper, .site-main {
+main, .page-wrapper, .site-main, .hero-section, .ws-hero, .cat-section, .contact-hero, .partner-hero, .heritage-hero, .privacy-hero, .harvest-page-hero, .section {
   flex: 1 0 auto;
+  background-color: #ffffff;
 }
 
 footer, .estate-dark-footer, .minimalist-footer-section {
   margin-top: auto;
+  background-color: #344234;
+  color: #ede8df;
 }
 
 img {

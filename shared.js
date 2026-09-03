@@ -1799,58 +1799,60 @@ window.handleFooterSubscribe = function(event) {
   }
 
   function generateGeniusAIReply(q) {
-    var query = q.toLowerCase().trim();
+    var raw = q.trim();
+    // Normalize: remove punctuation, lowercase, extra spaces
+    var norm = raw.toLowerCase().replace(/['".,\/#!$%\^&\*;:{}=\-_`~()?\\]/g, ' ').replace(/\s+/g, ' ').trim();
 
-    // 1. DYNAMIC VOLUME PRICE CALCULATOR
-    // E.g. "calculate 1000kg pepper", "quote for 2 tons turmeric", "500kg cardamom price"
-    var numMatch = query.match(/(\d+[\d,.]*)\s*(kg|kilos|kilograms|tons|tonnes|bags)?/i);
-    var hasCalcIntent = query.indexOf('quote') !== -1 || query.indexOf('calculate') !== -1 || query.indexOf('how much') !== -1 || query.indexOf('rate') !== -1 || query.indexOf('cost') !== -1 || (numMatch && numMatch[1]);
+    // ── 1. DYNAMIC LOT VOLUME & PRICE CALCULATOR ──
+    // Matches e.g. "calculate 1000kg pepper quote", "quote for 2 tons turmeric", "500kg cardamom price", "price of 800kg"
+    var numMatch = norm.match(/(\d+[\d,.]*)\s*(kg|kilos|kilograms|tons|tonnes|bags)?/i);
+    var isCalc = /(calculate|quote|price|rate|cost|how much|valuation|estimate|worth|buy|order|book)/i.test(norm) && numMatch;
 
-    if (hasCalcIntent && numMatch) {
+    if (isCalc) {
       var rawNum = parseFloat(numMatch[1].replace(/,/g, ''));
       var unit = (numMatch[2] || 'kg').toLowerCase();
       var kgAmount = rawNum;
       if (unit.indexOf('ton') !== -1) kgAmount = rawNum * 1000;
       if (unit.indexOf('bag') !== -1) kgAmount = rawNum * 40; // 40kg master bags
 
-      // Detect product
+      // Detect commodity
       var prodName = 'Tellicherry TGSEB Black Pepper';
       var ratePerKg = 680;
       var hsn = '09041140';
 
-      if (query.indexOf('cardamom') !== -1 || query.indexOf('elaichi') !== -1) {
+      if (/(cardamom|elaichi|8mm|green cardamom)/i.test(norm)) {
         prodName = 'Alleppey 8mm+ Green Cardamom';
         ratePerKg = 2450;
         hsn = '09083140';
-      } else if (query.indexOf('turmeric') !== -1 || query.indexOf('haldi') !== -1) {
+      } else if (/(turmeric|curcumin|haldi|salem)/i.test(norm)) {
         prodName = 'Salem Golden Turmeric Powder (5.2% Curcumin)';
         ratePerKg = 280;
         hsn = '09103030';
-      } else if (query.indexOf('white pepper') !== -1) {
+      } else if (/(white pepper|safed mirch)/i.test(norm)) {
         prodName = 'Export Grade Whole White Pepper';
         ratePerKg = 820;
         hsn = '09041219';
-      } else if (query.indexOf('ginger') !== -1 || query.indexOf('sonth') !== -1) {
+      } else if (/(ginger|sonth|adrak|cochin)/i.test(norm)) {
         prodName = 'Cochin Sun-Cured Dry Ginger';
         ratePerKg = 340;
         hsn = '09101110';
-      } else if (query.indexOf('badam') !== -1 || query.indexOf('almond') !== -1) {
+      } else if (/(badam|almond|almonds)/i.test(norm)) {
         prodName = 'Select California Badam (Almonds)';
         ratePerKg = 780;
         hsn = '08021200';
-      } else if (query.indexOf('cashew') !== -1 || query.indexOf('kaju') !== -1) {
+      } else if (/(cashew|cashews|kaju|w320)/i.test(norm)) {
         prodName = 'W320 First Quality Cashews';
         ratePerKg = 740;
         hsn = '08013210';
-      } else if (query.indexOf('clove') !== -1 || query.indexOf('laung') !== -1) {
+      } else if (/(clove|cloves|laung)/i.test(norm)) {
         prodName = 'Zanzibar Whole Handpicked Cloves';
         ratePerKg = 980;
         hsn = '09071000';
-      } else if (query.indexOf('cinnamon') !== -1 || query.indexOf('dalchini') !== -1) {
+      } else if (/(cinnamon|dalchini|ceylon)/i.test(norm)) {
         prodName = 'Ceylon True Cinnamon C5 Special';
         ratePerKg = 1150;
         hsn = '09061110';
-      } else if (query.indexOf('chilli') !== -1 || query.indexOf('chili') !== -1) {
+      } else if (/(chilli|chili|kashmiri|guntur|mirchi)/i.test(norm)) {
         prodName = 'Kashmiri Scarlet Chilli (ASTA 120+)';
         ratePerKg = 320;
         hsn = '09042110';
@@ -1858,11 +1860,11 @@ window.handleFooterSubscribe = function(event) {
 
       var totalBase = kgAmount * ratePerKg;
       var masterBags = Math.ceil(kgAmount / 40);
-      var pallets = Math.ceil(masterBags / 20); // 20 bags per pallet
+      var pallets = Math.ceil(masterBags / 20);
       var gstAmount = totalBase * 0.05;
       var totalEstimate = totalBase + gstAmount;
 
-      var waText = encodeURIComponent('Hello KTA Commercial Desk, I would like to book a wholesale allotment for ' + kgAmount + 'kg of ' + prodName + ' (Est: ₹' + totalBase.toLocaleString('en-IN') + '). Please confirm harvest lot availability.');
+      var waText = encodeURIComponent('Hello KTA Commercial Desk, I would like to book a wholesale allotment for ' + kgAmount + 'kg of ' + prodName + ' (Est: ₹' + totalBase.toLocaleString('en-IN') + '). Please confirm current batch availability.');
 
       return {
         html: '<strong>Wholesale Commercial Lot Calculation:</strong><br>' +
@@ -1872,7 +1874,7 @@ window.handleFooterSubscribe = function(event) {
               '• <strong>Base Valuation:</strong> ₹' + totalBase.toLocaleString('en-IN') + '<br>' +
               '• <strong>Applicable GST (5% · HSN ' + hsn + '):</strong> ₹' + gstAmount.toLocaleString('en-IN') + '<br>' +
               '• <strong>Estimated Consignment Total:</strong> ₹' + totalEstimate.toLocaleString('en-IN') + '<br>' +
-              '<em>Includes moisture-sealed food-grade packaging, batch COA certificate, and direct receiving bay delivery.</em>',
+              '<em>Includes moisture-sealed food-grade packaging, batch COA certificate, and direct receiving dock delivery.</em>',
         actions: [
           { label: 'Book via WhatsApp (' + kgAmount + 'kg)', href: 'https://wa.me/918592832871?text=' + waText, target: '_blank', primary: true },
           { label: 'Generate Formal Pro-Forma', href: 'wholesale.html#proforma' }
@@ -1880,14 +1882,99 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 2. WHITE PEPPER
-    if (query.indexOf('white pepper') !== -1) {
+    // ── 2. CHEF WELCOME BOX / FREE SAMPLE DISCOVERY TRAY ──
+    // Matches e.g. "how to get welcome box", "how to get welcome box che", "welcome box", "sample kit", "free sample", "discovery kit", "claim box", "sample tray", "samples"
+    if (/(welcome\s*box|sample\s*box|discovery\s*(kit|tray|box|pack)|free\s*(sample|trial|box|kit|pack)|chef\s*(box|kit|sample)|welcome\s*kit|get\s*welcome|claim\s*box|how\s*to\s*(get|receive|order|request).*(box|sample|kit|tray|trial)|sample|samples|trial\s*pack|test\s*batch)/i.test(norm)) {
+      return {
+        html: '<strong>How to Claim Your Free 1kg Chef Welcome Discovery Kit:</strong><br>' +
+              'We deliver certified <strong>1kg full-size trial packs</strong> with clinical batch QC certificates directly to Executive Chefs, F&B Directors, and Hotel Purchase Managers across South India.<br><br>' +
+              '<strong>Two Easy Ways to Request:</strong><br>' +
+              '1. <strong>1-Click WhatsApp Dispatch:</strong> Click below to share your kitchen/property name and desired spice varieties.<br>' +
+              '2. <strong>Online Kitchen Portal:</strong> Submit the Discovery Tray form on our Partnership page.<br>' +
+              '• <em>100% Free Hand-Delivery straight to your receiving dock with zero purchase obligation.</em>',
+        actions: [
+          { label: 'Claim Welcome Box via WhatsApp', href: 'https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20I%20am%20an%20Executive%20Chef%20requesting%20the%20complimentary%20Chef%20Welcome%20Discovery%20Kit.', target: '_blank', primary: true },
+          { label: 'Open Kitchen Portal Form', href: 'partnership.html#chefWelcome' }
+        ]
+      };
+    }
+
+    // ── 3. WHY KTA / HERITAGE / ADVANTAGES / CREDENTIALS ──
+    // Matches e.g. "why kta", "why choose kta", "who is kta", "what is kta", "about kta", "kta difference", "why buy from you", "advantages", "why kta spices"
+    if (/(why\s*kta|why\s*choose\s*kta|who\s*(is|are)\s*kta|what\s*is\s*kta|about\s*kta|kta\s*difference|why\s*buy|why\s*should\s*i|advantage|benefit|reason|why\s*partner|reputation|who\s*we\s*are)/i.test(norm)) {
+      return {
+        html: '<strong>Why 250+ Luxury Hotels & Master Chefs Choose KTA Spices:</strong><br>' +
+              '• <strong>30-Year Direct Estate Lineage:</strong> Direct partnerships with highland farming families in Wayanad, Munnar, and Idukki (5,000 Ft). Never sourced from blended open auction floors.<br>' +
+              '• <strong>Clinical Active Potency:</strong> High piperine TGSEB pepper (5.8%+), Salem turmeric with 5.2%+ active curcumin, and Alleppey 8mm+ green cardamom.<br>' +
+              '• <strong>Absolute Purity Guarantee:</strong> Zero lead chromate, zero synthetic Sudan dye, zero starch adulteration, heavy-metal verified.<br>' +
+              '• <strong>Hotel Smart 24/7 Supply SLA:</strong> Priority emergency replenishment & scheduled standing deliveries with zero kitchen downtime.<br>' +
+              '• <strong>Direct Farm-to-Pass Pricing:</strong> Bypasses 3 distributor markups, delivering export-grade spices at direct trade rates.',
+        actions: [
+          { label: 'Explore Our Heritage', href: 'heritage.html', primary: true },
+          { label: 'Claim 1kg Chef Discovery Box', href: 'partnership.html#chefWelcome' },
+          { label: 'Wholesale Trade Portal', href: 'wholesale.html' }
+        ]
+      };
+    }
+
+    // ── 4. WHOLESALE MOQ & BULK REQUIREMENTS ──
+    // Matches e.g. "what is moq", "minimum order", "minimum quantity", "how much is minimum order", "bulk volume", "bulk moq"
+    if (/(moq|minimum\s*order|minimum\s*qty|minimum\s*quantity|bulk\s*order|minimum\s*volume|small\s*order|how\s*much.*minimum|order\s*size)/i.test(norm)) {
+      return {
+        html: '<strong>KTA Commercial Wholesale MOQ & Packaging Structure:</strong><br>' +
+              '• <strong>Wholesale Minimum Consignment (MOQ):</strong> <strong>500kg total net volume</strong> (can be combined across pepper, cardamom, turmeric, ginger, dry fruits, etc.).<br>' +
+              '• <strong>Master Packaging:</strong> 40kg heavy-duty triple-lined moisture-locked food-grade master bags on shrink-wrapped pallets.<br>' +
+              '• <strong>Single SKU Orders:</strong> Starting from single 40kg master bags for enrolled Hotel Smart partners.<br>' +
+              '• <strong>Chef Sample Testing:</strong> <strong>Zero MOQ (Free 1kg Trial Pack)</strong> for verified Executive Chefs and Hotel Purchase Directors.',
+        actions: [
+          { label: 'Wholesale Procurement Desk', href: 'wholesale.html', primary: true },
+          { label: 'Generate Pro-Forma Invoice', href: 'wholesale.html#proforma' },
+          { label: 'Request 1kg Chef Sample', href: 'partnership.html#chefWelcome' }
+        ]
+      };
+    }
+
+    // ── 5. HOTEL SMART 24/7 LOGISTICS & STANDING ORDERS ──
+    // Matches e.g. "hotel smart", "hotelsmart", "24/7", "emergency delivery", "procurement outsourcing", "replenishment", "standing order", "zero downtime"
+    if (/(hotel\s*smart|24\/?7|emergency|procurement\s*outsourcing|replenish|standing\s*order|zero\s*downtime|restock|scheduled\s*delivery)/i.test(norm)) {
+      return {
+        html: '<strong>Hotel Smart 24/7 Procurement Outsourcing:</strong><br>' +
+              '• <strong>Zero-Downtime Kitchen Logistics:</strong> Automated scheduled restocking every 2, 4, or 8 weeks directly to your receiving dock.<br>' +
+              '• <strong>Emergency Restock Pass:</strong> Same-day emergency replenishment during high-occupancy banquet surges.<br>' +
+              '• <strong>Zero Delivery Surcharges:</strong> Complimentary doorstep delivery on all standard catalogue procurement orders.<br>' +
+              '• <strong>Batch Traceability:</strong> Every lot accompanied by Certificate of Analysis (COA) for 5-star brand auditing.',
+        actions: [
+          { label: 'Hotel Smart Overview', href: 'hotel-smart.html', primary: true },
+          { label: 'Register Hotel Kitchen', href: 'partnership.html#registerKitchen' },
+          { label: 'WhatsApp Trade Desk', href: 'https://wa.me/918592832871', target: '_blank' }
+        ]
+      };
+    }
+
+    // ── 6. QUALITY, CERTIFICATIONS, LAB TESTING & ADULTERATION ──
+    // Matches e.g. "fssai", "lab test", "heavy metal", "lead chromate", "sudan dye", "adulteration", "purity", "coa", "certificate of analysis", "pesticide"
+    if (/(fssai|certif|lab\s*test|heavy\s*metal|lead\s*chromate|sudan\s*dye|adulterat|purity|coa|spec\s*sheet|pesticide|chemical|assay|microbio|safety)/i.test(norm)) {
+      return {
+        html: '<strong>Clinical Quality Assurance & Regulatory Compliance:</strong><br>' +
+              '• <strong>FSSAI Central License:</strong> Verified commercial food safety standards across harvesting and packing.<br>' +
+              '• <strong>Spices Board of India:</strong> Registered institutional origin merchant.<br>' +
+              '• <strong>Zero Lead Chromate & Starch:</strong> Every turmeric and chilli lot is screened to guarantee zero lead chromate or synthetic dyes.<br>' +
+              '• <strong>Batch COA:</strong> Certificate of Analysis verifying active curcumin (5.2%+), piperine (5.8%+), and essential oil density with every shipment.',
+        actions: [
+          { label: 'View Chemical QC Standards', href: 'wholesale.html#qc', primary: true },
+          { label: 'Request Batch COA', href: 'contact.html' }
+        ]
+      };
+    }
+
+    // ── 7. WHITE PEPPER ──
+    if (/(white pepper|safed mirch|ground white)/i.test(norm)) {
       return {
         html: '<strong>Export Grade White Pepper (Whole & Milled)</strong><br>' +
               '• <strong>Origin:</strong> High-Elevation Western Ghats Berries<br>' +
-              '• <strong>HSN Code:</strong> 09041219 (Whole) / 09041219 (Ground)<br>' +
-              '• <strong>Process:</strong> Fully decorticated ripe peppercorns with natural water steeping. Zero chemical bleaching.<br>' +
-              '• <strong>Culinary Usage:</strong> Essential for white stocks, cream reductions, veloutés, and continental passes without black fleck discoloration.',
+              '• <strong>HSN Code:</strong> 09041219 (Whole & Powder)<br>' +
+              '• <strong>Process:</strong> Fully decorticated ripe berries using mountain spring water steeping. Zero chlorine/chemical bleaching.<br>' +
+              '• <strong>Culinary Pass:</strong> Clean, earthy pungent heat for white gravies, béchamel, seafood passes, and veloutés without black flecks.',
         actions: [
           { label: 'View in Catalogue', href: 'catalogue.html?q=pepper' },
           { label: 'Request 1kg Sample Pack', href: 'partnership.html#chefWelcome', primary: true }
@@ -1895,16 +1982,16 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 3. BLACK PEPPER (TGSEB)
-    if (query.indexOf('pepper') !== -1 || query.indexOf('piperine') !== -1 || query.indexOf('tgseb') !== -1 || query.indexOf('tellicherry') !== -1) {
+    // ── 8. BLACK PEPPER (TGSEB) ──
+    if (/(pepper|black pepper|kali mirch|tgseb|piperine|tellicherry)/i.test(norm)) {
       return {
-        html: '<strong>Tellicherry Garbled Special Extra Bold (TGSEB) Black Pepper</strong><br>' +
-              '• <strong>Origin:</strong> Wayanad & Munnar High Ranges (5,000 Ft)<br>' +
-              '• <strong>HSN Code:</strong> 09041140<br>' +
-              '• <strong>Screen Size:</strong> 4.75mm+ (largest 10% of crop yield)<br>' +
-              '• <strong>Bulk Density:</strong> 570+ g/L with 5.5%–6.2% active piperine<br>' +
-              '• <strong>Volatile Oil:</strong> 2.8%–3.5% v/w for penetrating pine-citrus aroma<br>' +
-              '• <strong>Commercial Packaging:</strong> 1kg Chef Barrier Pouches & 40kg Master Bags.',
+        html: '<strong>Tellicherry Bold Black Pepper (TGSEB Grade)</strong><br>' +
+              '• <strong>Origin:</strong> Wayanad & Munnar Highlands (5,000 Ft)<br>' +
+              '• <strong>HSN Code:</strong> 09041140 (5% GST)<br>' +
+              '• <strong>Screen Size:</strong> 4.75mm+ TGSEB (Tellicherry Garbled Special Extra Bold)<br>' +
+              '• <strong>Active Piperine:</strong> 5.5% – 6.2% Concentration<br>' +
+              '• <strong>Bulk Density:</strong> 570+ g/L with 2.8%–3.5% volatile pine-citrus essential oils.<br>' +
+              '• <strong>Packaging:</strong> 1kg Chef Barrier Pouches & 40kg Triple-Lined Master Bags.',
         actions: [
           { label: 'View Pepper Catalogue', href: 'catalogue.html?q=pepper' },
           { label: 'Request Free 1kg Sample Kit', href: 'partnership.html#chefWelcome', primary: true }
@@ -1912,15 +1999,15 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 4. GREEN CARDAMOM (8mm+)
-    if (query.indexOf('cardamom') !== -1 || query.indexOf('elaichi') !== -1 || query.indexOf('8mm') !== -1 || query.indexOf('alleppey') !== -1) {
+    // ── 9. GREEN CARDAMOM (8mm+) ──
+    if (/(cardamom|green cardamom|elaichi|8mm|alleppey)/i.test(norm)) {
       return {
         html: '<strong>Alleppey 8mm+ Extra Bold Green Cardamom</strong><br>' +
               '• <strong>Origin:</strong> Cardamom Hills, Idukki District, Kerala<br>' +
-              '• <strong>HSN Code:</strong> 09083140<br>' +
-              '• <strong>Grade:</strong> 8mm+ pod diameter (hand-sieved)<br>' +
+              '• <strong>HSN Code:</strong> 09083140 (5% GST)<br>' +
+              '• <strong>Pod Grading:</strong> 8mm+ hand-sieved pod diameter with intact mature black seeds.<br>' +
               '• <strong>Essential Oils:</strong> >7.5% volatile oil concentration rich in 1,8-cineole and terpinyl acetate.<br>' +
-              '• <strong>Purity:</strong> Naturally cured in wood-fired dryers with zero artificial food dyes.<br>' +
+              '• <strong>Purity:</strong> Naturally cured in wood-fired drying chambers with zero artificial green food dyes.<br>' +
               '• <strong>Packaging:</strong> 1kg Aroma Vacuum Tins & 25kg/40kg Bulk Master Bags.',
         actions: [
           { label: 'Explore Cardamom Lots', href: 'catalogue.html?q=cardamom' },
@@ -1929,14 +2016,14 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 5. SALEM TURMERIC
-    if (query.indexOf('turmeric') !== -1 || query.indexOf('curcumin') !== -1 || query.indexOf('haldi') !== -1 || query.indexOf('salem') !== -1) {
+    // ── 10. SALEM TURMERIC (5.2%+ CURCUMIN) ──
+    if (/(turmeric|curcumin|haldi|salem)/i.test(norm)) {
       return {
-        html: '<strong>Salem Golden Turmeric Powder (5.2%+ Curcumin)</strong><br>' +
+        html: '<strong>Salem Golden Turmeric Powder (5.2%+ Active Curcumin)</strong><br>' +
               '• <strong>Origin:</strong> Salem Terroir (Tamil Nadu)<br>' +
-              '• <strong>HSN Code:</strong> 09103030<br>' +
-              '• <strong>Active Curcumin:</strong> Lab verified 5.2%–5.8% natural curcumin density.<br>' +
-              '• <strong>Chemical QC:</strong> Guaranteed zero lead chromate, zero synthetic Sudan dye, zero starch fillers, heavy-metal certified.<br>' +
+              '• <strong>HSN Code:</strong> 09103030 (5% GST)<br>' +
+              '• <strong>Curcumin Assay:</strong> Lab verified 5.2%–5.8% natural active curcumin density.<br>' +
+              '• <strong>Quality Guarantee:</strong> Guaranteed zero lead chromate, zero synthetic Sudan dye, zero starch fillers.<br>' +
               '• <strong>Packaging:</strong> 1kg Kitchen Pouches & 40kg Triple-Lined Master Sacks.',
         actions: [
           { label: 'View Turmeric Lots', href: 'catalogue.html?q=turmeric' },
@@ -1945,13 +2032,13 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 6. GINGER
-    if (query.indexOf('ginger') !== -1 || query.indexOf('sonth') !== -1 || query.indexOf('adrak') !== -1 || query.indexOf('cochin') !== -1) {
+    // ── 11. GINGER (COCHIN SUN-CURED) ──
+    if (/(ginger|sonth|adrak|cochin)/i.test(norm)) {
       return {
         html: '<strong>Cochin Sun-Cured Dry Ginger (Whole & Milled)</strong><br>' +
-              '• <strong>Origin:</strong> Central Kerala Agroforests<br>' +
+              '• <strong>Origin:</strong> Central Kerala Highlands<br>' +
               '• <strong>HSN Code:</strong> 09101110 (Whole) / 09101210 (Powder)<br>' +
-              '• <strong>Profile:</strong> Unbleached natural whole rhizomes with potent gingerol and shogaol pungency.<br>' +
+              '• <strong>Profile:</strong> Unbleached natural whole rhizomes with potent gingerol & shogaol pungency.<br>' +
               '• <strong>Moisture:</strong> <9.5% with low fiber content for smooth culinary paste and masala passes.',
         actions: [
           { label: 'View Ginger in Catalogue', href: 'catalogue.html?q=ginger' },
@@ -1960,8 +2047,8 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 7. BADAM & CASHEWS
-    if (query.indexOf('badam') !== -1 || query.indexOf('almond') !== -1 || query.indexOf('cashew') !== -1 || query.indexOf('kaju') !== -1 || query.indexOf('w320') !== -1 || query.indexOf('nut') !== -1) {
+    // ── 12. BADAM & CASHEWS (PREMIUM NUTS) ──
+    if (/(badam|almond|almonds|cashew|cashews|kaju|w320|nut|nuts)/i.test(norm)) {
       return {
         html: '<strong>KTA Kitchen Direct Premium Nuts:</strong><br>' +
               '• <strong>Select California Badam (Almonds · HSN 08021200):</strong> 18/20 count, uniform kernel grading, crisp crunch, natural healthy oils.<br>' +
@@ -1974,12 +2061,13 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 8. CLOVES & CINNAMON
-    if (query.indexOf('clove') !== -1 || query.indexOf('laung') !== -1 || query.indexOf('cinnamon') !== -1 || query.indexOf('dalchini') !== -1) {
+    // ── 13. CLOVES & CINNAMON (WHOLE AROMATICS) ──
+    if (/(clove|cloves|laung|cinnamon|dalchini|ceylon|star anise|nutmeg|mace|aniseed)/i.test(norm)) {
       return {
         html: '<strong>Highland Whole Aromatics:</strong><br>' +
               '• <strong>Zanzibar Whole Cloves (HSN 09071000):</strong> >90% intact flower heads, rich in volatile eugenol (17%–19%).<br>' +
-              '• <strong>Ceylon True Cinnamon C5 (HSN 09061110):</strong> Multi-layered delicate quills, sweet floral-woody aroma, ultra-low coumarin (<0.004%).',
+              '• <strong>Ceylon True Cinnamon C5 (HSN 09061110):</strong> Multi-layered delicate quills, sweet floral-woody aroma, ultra-low coumarin (<0.004%).<br>' +
+              '• <strong>Star Anise (HSN 09096139):</strong> Unbroken 8-point stars with high trans-anethole aroma.',
         actions: [
           { label: 'Explore Whole Aromatics', href: 'catalogue.html' },
           { label: 'WhatsApp Trade Desk', href: 'https://wa.me/918592832871', target: '_blank', primary: true }
@@ -1987,12 +2075,12 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 9. CHILLI (KASHMIRI / GUNTUR)
-    if (query.indexOf('chilli') !== -1 || query.indexOf('chili') !== -1 || query.indexOf('kashmiri') !== -1 || query.indexOf('guntur') !== -1) {
+    // ── 14. CHILLIES (KASHMIRI & GUNTUR) ──
+    if (/(chilli|chili|kashmiri|guntur|teja|mirchi|paprika|asta)/i.test(norm)) {
       return {
         html: '<strong>Single-Origin Indian Chillies:</strong><br>' +
               '• <strong>Kashmiri Scarlet Whole & Powder (HSN 09042110):</strong> ASTA 120–140 color grade, mild heat (1,500–2,500 SHU), imparting radiant crimson color without burning pungency.<br>' +
-              '• <strong>Guntur S17 Stemless (HSN 09042110):</strong> High heat (35,000+ SHU) with robust capsicum oil profile.',
+              '• <strong>Guntur S17 Stemless (HSN 09042110):</strong> High heat (35,000+ SHU) with robust capsicum oil profile for spicy curry lines.',
         actions: [
           { label: 'View Chilli Grades', href: 'catalogue.html?q=chilli' },
           { label: 'Request 1kg Trial Pack', href: 'partnership.html#chefWelcome', primary: true }
@@ -2000,101 +2088,77 @@ window.handleFooterSubscribe = function(event) {
       };
     }
 
-    // 10. WHOLESALE / MOQ / BULK
-    if (query.indexOf('wholesale') !== -1 || query.indexOf('bulk') !== -1 || query.indexOf('moq') !== -1 || query.indexOf('500kg') !== -1 || query.indexOf('price') !== -1 || query.indexOf('discount') !== -1) {
+    // ── 15. LOGISTICS, SHIPPING & DISPATCH CORRIDORS ──
+    if (/(delivery|shipping|freight|dispatch|turnaround|how\s*do\s*you\s*ship|transit|chennai|bangalore|hyderabad|kochi|coimbatore|dock|receiving\s*bay)/i.test(norm)) {
       return {
-        html: '<strong>KTA Commercial Wholesale Framework:</strong><br>' +
-              '• <strong>Minimum Consignment (MOQ):</strong> 500kg total across spice varieties.<br>' +
-              '• <strong>Packaging:</strong> 40kg moisture-sealed master bags on shrink-wrapped pallets.<br>' +
-              '• <strong>Quality Guarantee:</strong> Batch Certificate of Analysis (COA) with chemical assay on every dispatch.<br>' +
-              '• <strong>Logistics Coverage:</strong> Direct dock delivery across Chennai, Bangalore, Hyderabad, Kochi, and Coimbatore.',
+        html: '<strong>KTA Freight & Logistics Dispatch SLA:</strong><br>' +
+              '• <strong>Active Transit Corridors:</strong> Chennai, Bangalore, Hyderabad, Kochi, Coimbatore, and Madurai.<br>' +
+              '• <strong>Dispatch Schedule:</strong> 2–24h dispatch for priority institutional partners.<br>' +
+              '• <strong>Master Packaging:</strong> Shrink-wrapped palletized 40kg master food-grade bags with inner moisture barrier.<br>' +
+              '• <strong>Receiving Dock Delivery:</strong> Direct hand-over to your hotel receiving dock with physical batch COA sheets.',
         actions: [
-          { label: 'Open Wholesale Portal', href: 'wholesale.html', primary: true },
-          { label: 'Generate Pro-Forma Invoice', href: 'wholesale.html#proforma' }
+          { label: 'Track Logistics & Hotel Smart', href: 'hotel-smart.html', primary: true },
+          { label: 'Speak with Dispatch Manager', href: 'tel:+918592832871' }
         ]
       };
     }
 
-    // 11. SAMPLE KIT
-    if (query.indexOf('sample') !== -1 || query.indexOf('discovery') !== -1 || query.indexOf('tray') !== -1 || query.indexOf('free') !== -1 || query.indexOf('trial') !== -1) {
+    // ── 16. PAYMENT, CREDIT TERMS, GST & HSN ──
+    if (/(payment|credit|credit\s*period|credit\s*terms|terms|gst|tax|hsn|proforma|invoice|billing|bank)/i.test(norm)) {
       return {
-        html: '<strong>Chef Discovery Tray (Free 1kg Full-Size Sample Allocations):</strong><br>' +
-              'We deliver complimentary 1kg trial packs directly to Executive Chefs, F&B Directors, and Hotel Purchase Managers for live kitchen line testing and sensory trials.',
+        html: '<strong>Commercial Payment & Billing Structure:</strong><br>' +
+              '• <strong>Institutional Credit:</strong> 15-day and 30-day revolving credit facilities available for certified 5-star hotel chains and verified commercial kitchens.<br>' +
+              '• <strong>GST Rates:</strong> 5% GST on whole/ground spices; standard GST invoices provided.<br>' +
+              '• <strong>Payment Methods:</strong> NEFT, RTGS, Corporate Bank Transfer, and Letter of Credit (LC) for export/multi-ton contracts.<br>' +
+              '• <strong>Pro-Forma Invoices:</strong> Generated instantly with HSN breakdown.',
         actions: [
-          { label: 'Request Discovery Tray', href: 'partnership.html#chefWelcome', primary: true },
-          { label: 'WhatsApp Sample Desk', href: 'https://wa.me/918592832871?text=Hello%20KTA%2C%20I%20would%20like%20to%20request%20a%20Chef%20Sample%20Discovery%20Kit.', target: '_blank' }
+          { label: 'Generate Pro-Forma Invoice', href: 'wholesale.html#proforma', primary: true },
+          { label: 'WhatsApp Accounts Desk', href: 'https://wa.me/918592832871?text=Hello%20KTA%2C%20I%20would%20like%20to%20inquire%20about%20Institutional%20Credit%20Terms.', target: '_blank' }
         ]
       };
     }
 
-    // 12. HOTEL SMART / LOGISTICS
-    if (query.indexOf('hotel') !== -1 || query.indexOf('smart') !== -1 || query.indexOf('logistics') !== -1 || query.indexOf('delivery') !== -1 || query.indexOf('dispatch') !== -1 || query.indexOf('sla') !== -1) {
+    // ── 17. CONTACT, BROKER, WAREHOUSE & LOCATION ──
+    if (/(human|broker|call|phone|whatsapp|contact|address|location|warehouse|office|where|speak|talk|reach|chennai\s*address)/i.test(norm)) {
       return {
-        html: '<strong>Hotel Smart 24/7 Supply SLA:</strong><br>' +
-              '• <strong>Zero-Downtime Restocking:</strong> Automated scheduled standing orders every 2, 4, or 8 weeks.<br>' +
-              '• <strong>Emergency Restock Pass:</strong> Priority same-day dispatch for high-occupancy banquet surges.<br>' +
-              '• <strong>Traceability:</strong> Single-origin batch harvest documentation for 5-star auditing.',
-        actions: [
-          { label: 'Hotel Smart Overview', href: 'hotel-smart.html', primary: true },
-          { label: 'Register Hotel Kitchen', href: 'partnership.html#registerKitchen' }
-        ]
-      };
-    }
-
-    // 13. CERTIFICATION / FSSAI / LAB
-    if (query.indexOf('fssai') !== -1 || query.indexOf('cert') !== -1 || query.indexOf('lab') !== -1 || query.indexOf('qc') !== -1 || query.indexOf('lead') !== -1 || query.indexOf('test') !== -1) {
-      return {
-        html: '<strong>KTA Quality & Regulatory Compliance:</strong><br>' +
-              '• <strong>FSSAI Central License:</strong> Verified commercial food safety standards.<br>' +
-              '• <strong>Spices Board of India:</strong> Registered institutional dealer.<br>' +
-              '• <strong>Lab Testing:</strong> Strict batch screening for zero lead chromate, zero synthetic Sudan dye, pesticide residue within CODEX limits, and certified curcumin/piperine density.',
-        actions: [
-          { label: 'View QC Standards', href: 'wholesale.html#qc', primary: true },
-          { label: 'Request Lab Certificate', href: 'contact.html' }
-        ]
-      };
-    }
-
-    // 14. HUMAN / CONTACT / PHONE / LOCATION
-    if (query.indexOf('human') !== -1 || query.indexOf('broker') !== -1 || query.indexOf('call') !== -1 || query.indexOf('phone') !== -1 || query.indexOf('whatsapp') !== -1 || query.indexOf('contact') !== -1 || query.indexOf('address') !== -1 || query.indexOf('location') !== -1 || query.indexOf('where') !== -1) {
-      return {
-        html: '<strong>KTA Commercial Institutional Desk:</strong><br>' +
+        html: '<strong>Connect Directly with KTA Commercial Trade Desk:</strong><br>' +
               '• <strong>Direct Hotline:</strong> +91 85928 32871<br>' +
-              '• <strong>WhatsApp Broker Desk:</strong> wa.me/918592832871<br>' +
-              '• <strong>Warehouse:</strong> No. 13/28, Mylai Periyathambi Street, George Town, Mannadi, Chennai – 600001<br>' +
-              '• <strong>Operating Hours:</strong> Monday – Sunday, 8:00 AM – 8:00 PM',
+              '• <strong>WhatsApp Trade Desk:</strong> wa.me/918592832871<br>' +
+              '• <strong>Registered Warehouse:</strong> No. 13/28, Mylai Periyathambi Street, George Town, Mannadi, Chennai, Tamil Nadu – 600001<br>' +
+              '• <strong>Operating Desk Hours:</strong> Monday – Sunday, 8:00 AM – 8:00 PM',
         actions: [
           { label: 'Call (+91 85928 32871)', href: 'tel:+918592832871', primary: true },
           { label: 'Chat on WhatsApp', href: 'https://wa.me/918592832871', target: '_blank' },
-          { label: 'View Google Maps', href: 'https://maps.google.com/?q=No.+13/28,+Mylai+Periyathambi+Street,+George+Town,+Mannadi,+Chennai,+Tamil+Nadu+600001', target: '_blank' }
+          { label: 'View on Google Maps', href: 'https://maps.google.com/?q=No.+13/28,+Mylai+Periyathambi+Street,+George+Town,+Mannadi,+Chennai,+Tamil+Nadu+600001', target: '_blank' }
         ]
       };
     }
 
-    // 15. GREETING & GENERAL
-    if (query.indexOf('hi') === 0 || query.indexOf('hello') === 0 || query.indexOf('hey') === 0 || query.indexOf('good morning') !== -1 || query.indexOf('good evening') !== -1) {
+    // ── 18. GREETING & GENERAL ONBOARDING ──
+    if (/^(hi|hello|hey|good\s*morning|good\s*afternoon|good\s*evening|namaste|start|help|hola|greetings)/i.test(norm)) {
       return {
         html: '<strong>Hello, Chef / Purchase Executive!</strong><br>' +
-              'Welcome to KTA Spices. How can I assist you today?<br>' +
-              '• Ask for spice chemical specs (Curcumin %, Piperine %, Oil %)<br>' +
-              '• Calculate lot pricing (e.g. <em>"Calculate 1000kg pepper"</em>)<br>' +
-              '• Request a free 1kg Discovery Sample Tray<br>' +
-              '• Inquire about 24/7 Hotel Smart logistics & standing allotments',
+              'Welcome to KTA Spices Commercial Concierge. How may I assist your kitchen or procurement team today?<br><br>' +
+              '• <strong>Ask for spice chemical assays</strong> (Curcumin %, Piperine %, Oil %)<br>' +
+              '• <strong>Calculate dynamic lot pricing</strong> (e.g. <em>"Calculate 1000kg pepper"</em>)<br>' +
+              '• <strong>Request a free 1kg Discovery Sample Box</strong><br>' +
+              '• <strong>Inquire about 24/7 Hotel Smart replenishment & 500kg wholesale MOQs</strong>',
         actions: [
-          { label: 'Quote 1000kg Pepper', href: '#', onclick: 'handleKTAChip("Calculate 1000kg Pepper Quote");return false;', primary: true },
-          { label: 'Free 1kg Sample Kit', href: 'partnership.html#chefWelcome' },
+          { label: 'Free 1kg Sample Kit', href: 'partnership.html#chefWelcome', primary: true },
+          { label: 'Quote 1000kg Pepper', href: '#', onclick: 'handleKTAChip("Calculate 1000kg Pepper Quote");return false;' },
           { label: 'WhatsApp Broker', href: 'https://wa.me/918592832871', target: '_blank' }
         ]
       };
     }
 
-    // Default Fallback
+    // ── 19. INTELLIGENT FALLBACK WITH PROACTIVE ASSISTANCE ──
     return {
-      html: 'I am equipped to provide technical spice harvest assays, HSN tax codes, dynamic wholesale lot calculations (e.g., type <em>"quote for 1000kg pepper"</em>), free 1kg Chef Discovery Kits, or connecting you with our senior brokers.',
+      html: 'I am equipped to provide technical spice harvest assays, HSN tax codes, dynamic wholesale lot calculations (e.g., type <em>"quote for 1000kg pepper"</em>), free 1kg Chef Discovery Sample Trays, or connecting you with our senior brokers.<br><br>' +
+            '<em>Try asking: "Why KTA?", "How to get welcome box?", "What is MOQ?", or "Tellicherry pepper specs".</em>',
       actions: [
-        { label: 'Explore Products', href: 'catalogue.html' },
-        { label: 'Wholesale Supply', href: 'wholesale.html' },
-        { label: 'WhatsApp Concierge', href: 'https://wa.me/918592832871', target: '_blank', primary: true }
+        { label: 'Claim 1kg Welcome Box', href: 'partnership.html#chefWelcome', primary: true },
+        { label: 'Wholesale Trade Portal', href: 'wholesale.html' },
+        { label: 'WhatsApp Concierge', href: 'https://wa.me/918592832871', target: '_blank' }
       ]
     };
   }
