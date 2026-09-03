@@ -43,7 +43,6 @@ html {
   text-size-adjust: 100%;
   overflow-x: hidden;
   width: 100%;
-  background-color: #344234;
   scrollbar-width: thin;
   scrollbar-color: rgba(67, 81, 40, 0.35) transparent;
 }
@@ -77,26 +76,13 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--ink);
-  background-color: #344234;
+  background: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   line-height: 1.6;
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main, .page-wrapper, .site-main, .hero-section, .ws-hero, .cat-section, .contact-hero, .partner-hero, .heritage-hero, .privacy-hero, .harvest-page-hero, .section {
-  flex: 1 0 auto;
-  background-color: #ffffff;
-}
-
-footer, .estate-dark-footer, .minimalist-footer-section {
-  margin-top: auto;
-  background-color: #344234;
-  color: #ede8df;
 }
 
 img {
