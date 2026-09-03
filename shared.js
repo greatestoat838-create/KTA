@@ -1624,17 +1624,17 @@ window.handleFooterSubscribe = function(event) {
       source: 'Footer Dispatch Bar'
     }, {
       formName: 'Chef Dispatches Newsletter',
-      successMsg: '✓ Thank you, Chef. You are enrolled in KTA Highland Dispatches & Seasonal Harvest Pre-Allocations.'
+      successMsg: 'Thank you, Chef. You are now enrolled in KTA Highland Dispatches & Seasonal Harvest Pre-Allocations.'
     });
   } else {
-    alert('✓ Thank you, Chef. You are enrolled in KTA Highland Dispatches & Seasonal Harvest Pre-Allocations.');
+    alert('Thank you, Chef. You are now enrolled in KTA Highland Dispatches & Seasonal Harvest Pre-Allocations.');
   }
 
   // 3. UI feedback
   if (input) input.value = '';
   if (btn) {
     var oldText = btn.textContent;
-    btn.textContent = '✓ ENROLLED';
+    btn.textContent = 'ENROLLED';
     btn.style.color = '#a3c27e';
     setTimeout(function() {
       btn.textContent = oldText;
@@ -1642,6 +1642,285 @@ window.handleFooterSubscribe = function(event) {
     }, 4000);
   }
 };
+
+/* ═══════════════════════════════════════════════════════════
+   KTA COMMERCIAL AI CONCIERGE ENGINE
+   Intelligent Trade Assistant for Executive Chefs & Buyers
+   ═══════════════════════════════════════════════════════════ */
+(function initKTAAIConcierge() {
+  function renderAIWidget() {
+    if (document.getElementById('ktaAiWidget')) return;
+
+    var widget = document.createElement('div');
+    widget.id = 'ktaAiWidget';
+    widget.className = 'kta-ai-widget';
+    widget.innerHTML = [
+      '<div class="kta-ai-box" id="ktaAiBox" role="dialog" aria-label="KTA AI Concierge">',
+      '  <div class="kta-ai-header">',
+      '    <div class="kta-ai-header-left">',
+      '      <div class="kta-ai-avatar">',
+      '        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+      '          <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>',
+      '          <rect x="3" y="8" width="18" height="12" rx="4"/>',
+      '          <circle cx="8.5" cy="14" r="1.5" fill="currentColor"/>',
+      '          <circle cx="15.5" cy="14" r="1.5" fill="currentColor"/>',
+      '        </svg>',
+      '      </div>',
+      '      <div>',
+      '        <div class="kta-ai-header-title">KTA AI Concierge</div>',
+      '        <div class="kta-ai-header-subtitle">Live Institutional Desk</div>',
+      '      </div>',
+      '    </div>',
+      '    <button type="button" class="kta-ai-close-btn" id="ktaAiClose" aria-label="Close Assistant">',
+      '      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
+      '    </button>',
+      '  </div>',
+      '  <div class="kta-ai-chips">',
+      '    <button type="button" class="kta-ai-chip" onclick="handleKTAChip(\'Tellicherry Pepper Specs\')">Tellicherry Pepper</button>',
+      '    <button type="button" class="kta-ai-chip" onclick="handleKTAChip(\'Cardamom 8mm+\')">8mm+ Cardamom</button>',
+      '    <button type="button" class="kta-ai-chip" onclick="handleKTAChip(\'Wholesale Minimum Order (MOQ)\')">Wholesale MOQ (500kg)</button>',
+      '    <button type="button" class="kta-ai-chip" onclick="handleKTAChip(\'Free 1kg Sample Kit\')">Free 1kg Sample Kit</button>',
+      '    <button type="button" class="kta-ai-chip" onclick="handleKTAChip(\'Hotel Smart 24/7 Logistics\')">Hotel Smart 24/7</button>',
+      '    <button type="button" class="kta-ai-chip" onclick="handleKTAChip(\'Speak with Human Broker\')">Speak with Broker</button>',
+      '  </div>',
+      '  <div class="kta-ai-messages" id="ktaAiMessages">',
+      '    <div class="kta-msg bot">',
+      '      <div class="kta-bubble">',
+      '        <strong>Welcome to KTA Spices Commercial Concierge.</strong><br>',
+      '        I am your AI assistant for single-origin harvest specifications, wholesale pricing lots, and chef sample requests. How may I assist your kitchen or procurement team today?',
+      '      </div>',
+      '    </div>',
+      '    <div class="kta-typing" id="ktaAiTyping">',
+      '      <div class="kta-typing-dot"></div>',
+      '      <div class="kta-typing-dot"></div>',
+      '      <div class="kta-typing-dot"></div>',
+      '    </div>',
+      '  </div>',
+      '  <form class="kta-ai-input-wrap" id="ktaAiForm" onsubmit="handleKTAAISubmit(event)">',
+      '    <input type="text" id="ktaAiInput" class="kta-ai-input" placeholder="Ask about spices, wholesale lots, QC specs..." autocomplete="off">',
+      '    <button type="submit" class="kta-ai-send-btn" aria-label="Send Message">',
+      '      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">',
+      '        <line x1="22" y1="2" x2="11" y2="13"></line>',
+      '        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>',
+      '      </svg>',
+      '    </button>',
+      '  </form>',
+      '</div>',
+      '<div class="kta-ai-trigger" id="ktaAiTrigger" aria-label="Open KTA AI Concierge">',
+      '  <div class="kta-ai-trigger-icon">',
+      '    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">',
+      '      <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>',
+      '      <rect x="3" y="8" width="18" height="12" rx="4"/>',
+      '      <circle cx="8.5" cy="14" r="1.5" fill="currentColor"/>',
+      '      <circle cx="15.5" cy="14" r="1.5" fill="currentColor"/>',
+      '    </svg>',
+      '  </div>',
+      '  <span class="kta-ai-trigger-text">KTA AI Concierge</span>',
+      '  <span class="kta-ai-trigger-pulse"></span>',
+      '</div>'
+    ].join('');
+
+    document.body.appendChild(widget);
+
+    var trigger = document.getElementById('ktaAiTrigger');
+    var box = document.getElementById('ktaAiBox');
+    var closeBtn = document.getElementById('ktaAiClose');
+    var input = document.getElementById('ktaAiInput');
+
+    trigger.addEventListener('click', function() {
+      var isOpen = box.classList.contains('active');
+      if (!isOpen) {
+        box.classList.add('active');
+        setTimeout(function() { if (input) input.focus(); }, 150);
+      } else {
+        box.classList.remove('active');
+      }
+    });
+
+    closeBtn.addEventListener('click', function() {
+      box.classList.remove('active');
+    });
+  }
+
+  window.handleKTAChip = function(query) {
+    var input = document.getElementById('ktaAiInput');
+    if (input) input.value = query;
+    var form = document.getElementById('ktaAiForm');
+    if (form) handleKTAAISubmit(new Event('submit'));
+  };
+
+  window.handleKTAAISubmit = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var input = document.getElementById('ktaAiInput');
+    var text = input ? input.value.trim() : '';
+    if (!text) return;
+
+    input.value = '';
+    appendUserMsg(text);
+
+    var typing = document.getElementById('ktaAiTyping');
+    var msgs = document.getElementById('ktaAiMessages');
+    if (typing) {
+      typing.classList.add('active');
+      msgs.appendChild(typing);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    setTimeout(function() {
+      if (typing) typing.classList.remove('active');
+      var reply = generateAIReply(text);
+      appendBotMsg(reply.html, reply.actions);
+    }, 600);
+  };
+
+  function appendUserMsg(text) {
+    var msgs = document.getElementById('ktaAiMessages');
+    var div = document.createElement('div');
+    div.className = 'kta-msg user';
+    div.innerHTML = '<div class="kta-bubble">' + escapeHtml(text) + '</div>';
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function appendBotMsg(html, actions) {
+    var msgs = document.getElementById('ktaAiMessages');
+    var div = document.createElement('div');
+    div.className = 'kta-msg bot';
+    
+    var actHtml = '';
+    if (actions && actions.length > 0) {
+      actHtml = '<div class="kta-msg-actions">' + actions.map(function(a) {
+        return '<a href="' + a.href + '" class="kta-msg-btn' + (a.primary ? ' primary' : '') + '"' + (a.target ? ' target="' + a.target + '" rel="noopener"' : '') + '>' + a.label + '</a>';
+      }).join('') + '</div>';
+    }
+
+    div.innerHTML = '<div class="kta-bubble">' + html + actHtml + '</div>';
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function generateAIReply(q) {
+    var query = q.toLowerCase();
+
+    // Pepper
+    if (query.indexOf('pepper') !== -1 || query.indexOf('piperine') !== -1 || query.indexOf('tgseb') !== -1) {
+      return {
+        html: '<strong>Tellicherry Bold Black Pepper (TGSEB)</strong><br>' +
+              '• <strong>Origin:</strong> Wayanad & Munnar Highlands (Western Ghats)<br>' +
+              '• <strong>HSN Code:</strong> 09041140<br>' +
+              '• <strong>Active Piperine:</strong> 5.5% – 6.2% Concentration<br>' +
+              '• <strong>Available Grades:</strong> TGSEB Bold Whole, Coarse Milled, Pinheads, Lite Berries & Oleoresin Extract Grade.<br>' +
+              '• <strong>Packaging:</strong> 1kg Chef Foil Packs and 40kg Master Food-Grade Bags.',
+        actions: [
+          { label: 'View in Catalogue', href: 'catalogue.html?q=pepper' },
+          { label: 'Request 1kg Sample', href: 'partnership.html#chefWelcome', primary: true }
+        ]
+      };
+    }
+
+    // Cardamom
+    if (query.indexOf('cardamom') !== -1 || query.indexOf('elaichi') !== -1 || query.indexOf('8mm') !== -1) {
+      return {
+        html: '<strong>Alleppey Green Cardamom (8mm+ Extra Bold)</strong><br>' +
+              '• <strong>Origin:</strong> Cardamom Hills, Idukki, Kerala<br>' +
+              '• <strong>HSN Code:</strong> 09083140<br>' +
+              '• <strong>Specifications:</strong> 8mm+ uniform pod diameter, high volatile essential oil density, zero artificial color dye.<br>' +
+              '• <strong>Packaging:</strong> 1kg Aroma-Sealed Kitchen Tins & 25kg/40kg Bulk Bags.',
+        actions: [
+          { label: 'View Cardamom Lots', href: 'catalogue.html?q=cardamom' },
+          { label: 'WhatsApp Instant Quote', href: 'https://wa.me/918592832871?text=Hello%20KTA%20Trade%20Desk%2C%20please%20share%20current%208mm%20Cardamom%20lot%20rates.', target: '_blank', primary: true }
+        ]
+      };
+    }
+
+    // Turmeric
+    if (query.indexOf('turmeric') !== -1 || query.indexOf('curcumin') !== -1 || query.indexOf('haldi') !== -1) {
+      return {
+        html: '<strong>Salem Golden Turmeric Powder (5.2%+ Curcumin)</strong><br>' +
+              '• <strong>Origin:</strong> Salem Terroir (Tamil Nadu)<br>' +
+              '• <strong>HSN Code:</strong> 09103030<br>' +
+              '• <strong>Quality Assurance:</strong> Verified 5.2%+ active curcumin density. Guaranteed zero lead chromate, zero synthetic dye, and zero starch filler.',
+        actions: [
+          { label: 'Explore Turmeric Lots', href: 'catalogue.html?q=turmeric' },
+          { label: 'Request Lab Spec Sheet', href: 'wholesale.html#qc', primary: true }
+        ]
+      };
+    }
+
+    // Wholesale / Bulk / MOQ
+    if (query.indexOf('wholesale') !== -1 || query.indexOf('bulk') !== -1 || query.indexOf('moq') !== -1 || query.indexOf('500kg') !== -1 || query.indexOf('price') !== -1) {
+      return {
+        html: '<strong>KTA Institutional Wholesale Procurement</strong><br>' +
+              '• <strong>Minimum Consignment (MOQ):</strong> 500kg total volume across varieties.<br>' +
+              '• <strong>Master Packaging:</strong> 40kg moisture-locked food-grade bags on shrink-wrapped pallets.<br>' +
+              '• <strong>Freight & Logistics:</strong> Direct dispatch across South India (Chennai, Bangalore, Hyderabad, Kochi, Coimbatore).',
+        actions: [
+          { label: 'Open Wholesale Portal', href: 'wholesale.html', primary: true },
+          { label: 'Generate Pro-Forma Invoice', href: 'wholesale.html#proforma' }
+        ]
+      };
+    }
+
+    // Sample Kit / Discovery Box
+    if (query.indexOf('sample') !== -1 || query.indexOf('discovery') !== -1 || query.indexOf('tray') !== -1 || query.indexOf('free') !== -1 || query.indexOf('trial') !== -1) {
+      return {
+        html: '<strong>KTA Chef Discovery Tray (Free 1kg Sample Kit)</strong><br>' +
+              'We supply certified 1kg full-size trial packs of our single-origin spices directly to Executive Chefs, F&B Directors, and Hotel Purchase Managers for sensory and kitchen line trials with zero obligation.',
+        actions: [
+          { label: 'Request Discovery Tray', href: 'partnership.html#chefWelcome', primary: true },
+          { label: 'WhatsApp Concierge', href: 'https://wa.me/918592832871?text=Hello%20KTA%2C%20I%20would%20like%20to%20request%20a%20Chef%20Sample%20Discovery%20Kit.', target: '_blank' }
+        ]
+      };
+    }
+
+    // Hotel Smart / Logistics
+    if (query.indexOf('hotel') !== -1 || query.indexOf('smart') !== -1 || query.indexOf('logistics') !== -1 || query.indexOf('delivery') !== -1 || query.indexOf('dispatch') !== -1) {
+      return {
+        html: '<strong>Hotel Smart 24/7 Procurement Outsourcing</strong><br>' +
+              'A zero-downtime spice supply system for luxury hotel chains, multi-outlet restaurants, and industrial kitchens. Standing orders are fulfilled on automated restock cadences with rapid dispatch.',
+        actions: [
+          { label: 'Hotel Smart Overview', href: 'hotel-smart.html', primary: true },
+          { label: 'Register Kitchen', href: 'partnership.html#registerKitchen' }
+        ]
+      };
+    }
+
+    // Human / Broker / Call / Contact
+    if (query.indexOf('human') !== -1 || query.indexOf('broker') !== -1 || query.indexOf('call') !== -1 || query.indexOf('phone') !== -1 || query.indexOf('whatsapp') !== -1 || query.indexOf('contact') !== -1) {
+      return {
+        html: '<strong>Connect Directly with KTA Commercial Trade Desk:</strong><br>' +
+              '• <strong>Hotline:</strong> +91 85928 32871<br>' +
+              '• <strong>WhatsApp:</strong> wa.me/918592832871<br>' +
+              '• <strong>Active Hours:</strong> Monday – Sunday, 8:00 AM – 8:00 PM',
+        actions: [
+          { label: 'Call Desk (+91 85928 32871)', href: 'tel:+918592832871', primary: true },
+          { label: 'Chat on WhatsApp', href: 'https://wa.me/918592832871', target: '_blank' }
+        ]
+      };
+    }
+
+    // Default Fallback
+    return {
+      html: 'I can assist you with single-origin spice specifications (Tellicherry Pepper, Alleppey Cardamom, Salem Turmeric, Ginger, Cloves, Badam), wholesale master lot pricing (500kg+ MOQ), free 1kg Chef Discovery Kits, or connecting directly with our commercial brokers.',
+      actions: [
+        { label: 'Explore Products', href: 'catalogue.html' },
+        { label: 'Wholesale Supply', href: 'wholesale.html' },
+        { label: 'Connect on WhatsApp', href: 'https://wa.me/918592832871', target: '_blank', primary: true }
+      ]
+    };
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAIWidget);
+  } else {
+    renderAIWidget();
+  }
+})();
+
 
 
 
